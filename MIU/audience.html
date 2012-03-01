@@ -1,0 +1,62 @@
+<!DOCTYPE  html>
+<!--
+/**
+ * @author Lucy Hutcheson
+ * Date: 2012-03-01
+ * Created for:  Mobile Interfaces and Usability 1203
+ */
+-->
+<html>
+	<head>
+		
+		<meta charset="utf-8" />
+		<meta keywords="bible study, lessons" />
+		<meta name="description" content="Bible Studies To Go is an app that collects bible studies for later use." />
+		<meta name="robots" content="noindex,nofollow" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+		<meta name="HandheldFriendly" content="True"/>
+		<meta name="MobileOptimized" content="320"/>
+
+		<title>Pocket Ministry</title>
+		<link rel="stylesheet" href="styles.css" />
+
+	</head>
+	<body>
+		<header>
+			<a href="index.html" title="Home"><img src="images/logo.png" id="logo" width="90%" border="0"></a>
+		</header>
+		<section>
+			<script type="text/javascript">				 
+				function getUrlVars() {
+					var vars = {};
+					var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+						vars[key] = value;
+					});
+					return vars;
+				}
+				var audience = getUrlVars()["audience"];
+				document.write("<h2 class=\"pageTitle\">Browsing Bible Studies for " + audience + "</h2><p>Coming Soon...</p>");
+			</script>
+
+		</section>
+		<section>
+			<form class="form-wrapper cf">
+				<input type="text" placeholder="Search here..." required>
+				<button type="submit">Search</button>
+			</form>
+		</section>
+		<section class="audience">
+			<h3>Browse by Audience</h3>
+			<ul class="audience-list">
+				<li class="odd"><a href="#">Adults</a></li>
+				<li class="even"><a href="#">Children</a></li>
+				<li class="odd"><a href="#">Youth</a></li>
+				<li class="even"><a href="#">Men</a></li>
+				<li class="odd last"><a href="#">Women</a></li>
+			</ul>
+		</section>
+		<footer>
+			<small>&copy; 2012 Lucy Hutcheson.  All Rights Reserved.</small>
+		</footer>
+	</body>
+</html>
