@@ -23,20 +23,12 @@
 	</head>
 	<body>
 		<header>
-			<h1>Bible Studies To Go</h1>
-			<nav>
-				<ul id="nav">
-					<li><a href="index.html" title="Home">Home</a></li>
-					<li><a href="#" title="Clear Stored Data" id="clear">Clear Lessons</a></li>
-					<li><a href="#" title="Display Stored Data" id="displayLink">Display Lessons</a></li>
-					<li><a href="additem.html" id="addNew" style="display:none;">Add New Lesson</a></li>
-				</ul>
-			</nav>
+			<a href="index.html" title="Home"><img src="images/logo.png" id="logo" width="90%" border="0"></a>
+		</header>
+		<section class="mainContent">
 			<h3 id="pageTitle">Add New Bible Study Lesson</h3>
 			<span id="required">* fields are required.</span>
 			<ul id="errors"></ul>
-		</header>
-		<section>
 			<form action="#" method="post" id="lessonForm">
 				<fieldset>
 					<legend>Basic Information</legend>
@@ -83,11 +75,22 @@
 				</fieldset>	
 				<fieldset>
 					<legend>Lesson</legend>
-					<textarea id="lesson-text" name="lesson-text" rows="8" cols="40"></textarea>
+					<textarea id="lesson-text" name="lesson-text" rows="8" cols="30"></textarea>
 				</fieldset>
 				<input type="submit" id="submit" value="Add New Lesson" />	
 			</form>
 		</section>
+		<nav class="addNav">
+			<ul class="addNav">
+				<li class="first"><a href="#" title="Clear Stored Data" id="clear">Clear Bible Studies</a></li>
+				<li id="displayLink"><a href="#" title="Display Stored Data" >Display Bible Studies</a></li>
+				<li id="addNew" style="display:none;"><a href="additem.html"  >Add New Bible Study</a></li>
+				<li class="last"><a href="index.html" title="Home">Home</a></li>
+			</ul>
+		</nav>
+		<footer>
+			<small>&copy; 2012 Lucy Hutcheson.  All Rights Reserved.</small>
+		</footer>
 		<script type="text/javascript" src="json.js"></script>
 		<script type="text/javascript" src="main.js"></script>
 	</body>
