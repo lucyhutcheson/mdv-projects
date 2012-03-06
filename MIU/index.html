@@ -1,4 +1,4 @@
-<!DOCTYPE  html>
+<!doctype html> 
 <!--
 /**
  * @author Lucy Hutcheson
@@ -6,52 +6,92 @@
  * Created for:  Mobile Interfaces and Usability 1203
  */
 -->
-<html>
-	<head>
-		
-		<meta charset="utf-8" />
-		<meta keywords="bible study, lessons" />
-		<meta name="description" content="Pocket Ministry is an app that provides access to bible studies." />
-		<meta name="robots" content="noindex,nofollow" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-		<meta name="HandheldFriendly" content="True"/>
-		<meta name="MobileOptimized" content="320"/>
+ 
+<html lang="en">
+<head>
 
-		<title>Pocket Ministry</title>
-		<link rel="stylesheet" href="styles.css" />
+	<meta charset="utf-8">
+	
+	<title>Pocket Ministry</title>
+	
+	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- Mobile IE needs ClearType for smoothing fonts -->
+	<meta http-equiv="cleartype" content="on">
+	
+	<!-- StyleSheets under here -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.css" />
+	<link rel="stylesheet" href="css/style.css" />	
+	
+	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+	<script src="js/libs/modernizr.custom.min.js"></script>
 
-	</head>
-	<body>
+</head>
+<body>
+	<div data-role="page" id="home" data-theme="b">
 		<header>
 			<a href="index.html" title="Home"><img src="images/logo.png" id="logo" width="90%" border="0"></a>
-		</header>
-		<section>
 			<a href="" id="feature"><img src="images/feature.png" width="100%"></a>
-		</section>
-		<section>
-			<form class="form-wrapper cf">
-				<input type="text" placeholder="Search here..." required>
-				<button type="submit">Search</button>
-			</form>
-		</section>
-		<section class="audience firstPage">
-			<h3>Browse by Audience</h3>
-			<ul class="audience-list">
-				<li class="odd"><a href="audience.html?audience=Adults">Adults</a></li>
-				<li class="even"><a href="audience.html?audience=Children">Children</a></li>
-				<li class="odd"><a href="audience.html?audience=Youth">Youth</a></li>
-				<li class="even"><a href="audience.html?audience=Men">Men</a></li>
-				<li class="odd last"><a href="audience.html?audience=Women">Women</a></li>
+
+		</header>
+		<div data-role="content">
+			<ul data-role="listview" data-inset="true" data-filter="true" data-theme="c" data-dividertheme="f"> 
+				<li data-role="list-divider">Adults</li>
+				<li>
+					<a href="browse.html?category=Adults" rel="external">
+						<img src="images/Adults.png"  />
+						Adults
+						<span class="ui-li-count">3</span>
+					</a>
+				</li>
+				<li>
+					<a href="browse.html?category=Men" rel="external">
+						<img src="images/Men.png" />
+						<h3>Men</h3>
+						<p>Studies for Men audiences.</p>
+						<span class="ui-li-count">3</span>
+					</a>
+				</li>
+				<li>
+					<a href="browse.html?category=Women" rel="external">
+						<img src="images/Women.png"/>
+						<h3>Women</h3>
+						<p>Studies for Women audiences.</p>
+						<span class="ui-li-count">4</span>
+					</a>
+				</li>
+				<li data-role="list-divider">Children</li>
+				<li>
+					<a href="browse.html?category=Youth" rel="external">
+						<img src="images/Youth.png" />
+						<h3>Youth</h3>
+						<p>Studies for Youth audiences.</p>
+						<span class="ui-li-count">6</span>
+					</a>
+				</li>
+				<li>
+					<a href="browse.html?category=Children" rel="external">
+						<img src="images/Children.png" />
+						<h3>Children</h3>
+						<p>Studies for Children audiences.</p>
+						<span class="ui-li-count">4</span>
+					</a>
+				</li>
 			</ul>
-		</section>
-		<nav class="utilityNav">
-			<ul class="utilityNav">
-				<li class="first"><a href="additem.html">Submit A Bible Study</a></li>
-				<li class="last"><a href="index.html">Home Page</a></li>
-			</ul>
-		</nav>
-		<footer>
-			<small>&copy; 2012 Lucy Hutcheson.  All Rights Reserved.</small>
-		</footer>
-	</body>
+		</div>
+		<div data-role="footer" data-position="fixed" data-theme="c">
+			<h4>Copyright &copy; Lucy Hutcheson</h4>
+		</div>
+	</div>
+	
+
+	<!-- JavaScript under here -->
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>
+	<script type="text/javascript" src="js/json.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
 </html>
