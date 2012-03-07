@@ -4,15 +4,123 @@
  * Created for:  Mobile Interfaces and Usability 1203
  */
 
-// Wait until the DOM is ready.
-window.addEventListener("DOMContentLoaded", function(){
-	//getElementById Function
-	function $(x) {
-		var theElement = document.getElementById(x);
-		return theElement;
+
+	function getData(audience) {
+		var category = getUrlVars()["cat"];
+
+		//toggleControls("on");
+		//errMsg.innerHTML = ""; //Reset error messages
+		if (localStorage.length === 0) {
+			autoFillData(audience);
+		} else {
+			localStorage.clear();
+			autoFillData(audience);
+		}
+		for (var i=0, len=localStorage.length; i<len; i++){
+			var makeli = document.createElement('li');
+			makeli.setAttribute("data-theme", "c");
+		    $('#lesson-list').append(makeli);
+			var key = localStorage.key(i);
+			var value = localStorage.getItem(key);
+			// convert the string back to an object
+			var obj = JSON.parse(value);
+			var makeSubAnchor = document.createElement('a'); //create sub div
+			makeSubAnchor.setAttribute("href", "javascript:void(0);");
+			makeSubAnchor.setAttribute("data-url", "&lessonId="+key);
+			makeSubAnchor.setAttribute("rel", "external");
+			makeli.appendChild(makeSubAnchor); // add sub ul to li
+
+			var makeHeader = document.createElement('h3');
+			var headerText = obj.name[1];
+			makeSubAnchor.appendChild(makeHeader);
+			makeHeader.innerHTML = headerText;
+			$('h1#headerTitle').replaceWith('<h2>'+ category + '</h2>');
+		}
+
 	}
 
-	//Create select field element and populate with options.
+
+	$('div[id="content"] ul[data-role="listview"] a').live("click", function() {  
+        var dataurl = $(this).attr("data-url");  
+        if (dataurl != null)  
+            $.mobile.changePage("view.html" + dataurl);  
+    });  
+    
+	var category = getUrlVars()["cat"];
+	var lessonId = getUrlVars()["lessonId"];
+
+	switch (category) {
+	case "Adults":
+		var audience = "Adults";
+		getData(json.adults.items);
+	 	break;
+	case "Men":
+		var audience = "Men";
+		getData(json.men.items);
+	  	break;
+	case "Women":
+		var audience = "Women";
+		getData(json.women.items);
+	  	break;
+	case "Youth":
+		var audience = "Youth";
+		getData(json.youth.items);
+	  	break;
+	case "Children":
+		var audience = "Children";
+		getData(json.children.items);
+	  	break;
+	}
+
+     
+	if(lessonId !== -1) {
+		showLesson(lessonId, category);
+	}
+	function showLesson(id, category){
+
+			var lessonKey = id;
+			var value = localStorage.getItem(lessonKey);
+			// convert the string back to an object
+			var obj = JSON.parse(value);
+
+			var makeSubDiv = document.createElement('div'); //create sub div
+		    $('#content').append(makeSubDiv);
+			for(var n in obj){
+				var makeSubP = document.createElement('p');
+				var audienceClass = obj.audience[1];
+				makeSubP.setAttribute("class", "item-details " + audienceClass.toLowerCase() );
+				makeSubDiv.appendChild(makeSubP);
+				var optSubText = "<strong>"+obj[n][0]+" </strong> "+obj[n][1];
+				makeSubP.innerHTML = optSubText;
+			}
+			var makeHeader = document.createElement('h3');
+			//var headerText = obj.name[1];
+			makeSubDiv.appendChild(makeHeader);
+			//makeHeader.innerHTML = headerText;
+			$('h1#headerTitle').replaceWith('<h1>'+ category + '</h1>');
+	}
+  
+	//Add default data if there is none in local storage
+	function autoFillData(audience){
+		//Store the JSON object in local storage
+		for(var n in audience){
+			var id = Math.floor(Math.random()*10000001);
+			localStorage.setItem(id, JSON.stringify(audience[n]));
+		}
+	} 
+
+
+ 	//Get the image for the right audience
+	function getImage(audience, makeSubList){
+		var imageLi = document.createElement('li');
+		makeSubList.appendChild(imageLi);
+		var newImg = document.createElement('img');
+		var setSrc = newImg.setAttribute("src", "images/"+ audience + ".png");
+		imageLi.appendChild(newImg);
+	}
+	
+   
+    	//Create select field element and populate with options.
 	function makeTopics(){
 		var formTag = document.getElementsByTagName("form"), // formTag is an array of all form tags.
 			selectLi = $('select'),
@@ -84,67 +192,9 @@ window.addEventListener("DOMContentLoaded", function(){
 		localStorage.setItem(id, JSON.stringify(item));
 		alert("Bible Study Lesson successfully saved.");
 	}
-	
-	//Retrieve data for display
-	function getData(){
-		toggleControls("on");
-		errMsg.innerHTML = ""; //Reset error messages
-		if(localStorage.length === 0){
-			alert("There is no data in local storage so default data was added.")
-			autoFillData();
-		}
+
+
 		
-		//write Data from Local Storage to the browser
-		var makeDiv = document.createElement('div'); // Create div
-		makeDiv.setAttribute("id", "items"); //set ID
-		var makeList = document.createElement('ul'); //create list
-		makeList.setAttribute("class", "results");
-		makeDiv.appendChild(makeList); //Add list to div
-		document.body.appendChild(makeDiv); //Add div to body
-		$('items').style.display = "block"; //Make sure items display when getData
-		for(var i=0, len=localStorage.length; i<len; i++){
-			var makeli = document.createElement('li');
-			var linksLi = document.createElement('li');
-			makeList.appendChild(makeli);
-			var key = localStorage.key(i);
-			var value = localStorage.getItem(key);
-			// convert the string back to an object
-			var obj = JSON.parse(value);
-			var makeSubList = document.createElement('ul'); //create sub ul
-			makeSubList.setAttribute("class", "results-details");
-			makeli.appendChild(makeSubList); // add sub ul to li
-			getImage(obj.audience[1], makeSubList); // Get images for audience
-			for(var n in obj){
-				var makeSubli = document.createElement('li');
-				var audienceClass = obj.audience[1];
-				makeSubli.setAttribute("class", "item-details " + audienceClass.toLowerCase() );
-				makeSubList.appendChild(makeSubli);
-				var optSubText = "<strong>"+obj[n][0]+" </strong> "+obj[n][1];
-				makeSubli.innerHTML = optSubText;
-				makeSubList.appendChild(linksLi);
-			}
-			makeItemLinks(localStorage.key(i), linksLi); //Create our edit and delete links for each item in local storage.
-		}
-	}
-	
-	//Get the image for the right audience
-	function getImage(audience, makeSubList){
-		var imageLi = document.createElement('li');
-		makeSubList.appendChild(imageLi);
-		var newImg = document.createElement('img');
-		var setSrc = newImg.setAttribute("src", "images/"+ audience + ".png");
-		imageLi.appendChild(newImg);
-	}
-	
-	//Add default data if there is none in local storage
-	function autoFillData(){
-		//Store the JSON object in local storage
-		for(var n in json){
-			var id = Math.floor(Math.random()*10000001);
-			localStorage.setItem(id, JSON.stringify(json[n]));
-		}
-	}
-	
 	// Make Item Links function to create edit/delete links for items 
 	function makeItemLinks(key, linksLi){	
 		//Add edit link
@@ -292,18 +342,27 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 	}
 
+	// Get value from URL
+	function getUrlVars() {
+		var vars = {};
+		var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+			vars[key] = value;
+		});
+		return vars;
+	}
+	
+
+
+
+
+	
+
 	//Variable defaults
 	var bibleTopics = ["--Choose A Topic--", "Christian Life", "Marriage", "Family"],
 		audienceValue,
 		errMsg = $('errors');
-	makeTopics();
+	//makeTopics();
 
-	//Set Link & Submit Click Events
-	var displayLink = $('displayLink');
-	displayLink.addEventListener("click", getData);
-	var clearLink = $('clear');
-	clearLink.addEventListener("click", clearLocal);
 	var save = $('submit');
-	save.addEventListener("click", validateForm);
-	
-});
+	//save.addEventListener("click", validateForm);
+
