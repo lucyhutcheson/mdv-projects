@@ -1,0 +1,135 @@
+/**
+ * @author Lucy Hutcheson
+ * Date: 2012-03-01
+ * Created for:  Mobile Interfaces and Usability 1203
+ */
+
+/* LAYOUT ELEMENTS */
+header {
+	width: 93%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+/*  
+ * Data Theme F 
+ * ======================== *
+ */
+.ui-bar-f {
+	border-bottom: 1px solid #607401;
+	background: #607401;
+	color: white;
+	font-weight: bold;
+	text-shadow: 0 1px 1px #607401;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#74B042), to(#56A00E));
+	background-image: -webkit-linear-gradient(#95b401, #607401);
+	background-image: -moz-linear-gradient(#95b401, #607401);
+	background-image: -ms-linear-gradient(#95b401, #607401);
+	background-image: -o-linear-gradient(#95b401, #607401);
+	background-image: linear-gradient(#95b401, #607401);
+}
+.ui-bar-f, .ui-bar-f input, .ui-bar-f select, .ui-bar-f textarea, .ui-bar-f button {
+    font-family: Helvetica,Arial,sans-serif;
+}
+.ui-bar-f, .ui-bar-f .ui-link-inherit {
+    color: #FFFFFF;
+}
+.ui-bar-f .ui-link {
+    color: #FFFFFF;
+    font-weight: bold;
+}
+.ui-btn-up-f {
+    background: -moz-linear-gradient(#95b401, #607401) repeat scroll 0 0 #607401;
+    border: 1px solid #607401;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-shadow: 0 1px 1px #607401;
+}
+.ui-btn-up-f a.ui-link-inherit {
+    color: #FFFFFF;
+}
+.ui-btn-hover-f {
+    background: -moz-linear-gradient(#8FC963, #6EBC1F) repeat scroll 0 0 #6EBC1F;
+    border: 1px solid #3B6F07;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-shadow: 0 1px 1px #234403;
+}
+.ui-btn-hover-f a.ui-link-inherit {
+    color: #FFFFFF;
+}
+.ui-btn-down-f {
+    background: -moz-linear-gradient(#56A00E, #64A234) repeat scroll 0 0 #3D3D3D;
+    border: 1px solid #3B6F07;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-shadow: 0 1px 1px #234403;
+}
+.ui-btn-down-f a.ui-link-inherit {
+    color: #FFFFFF;
+}
+.ui-btn-up-f, .ui-btn-hover-f, .ui-btn-down-f {
+    font-family: Helvetica,Arial,sans-serif;
+    text-decoration: none;
+}
+/*  
+ * Data Theme G 
+ * ======================== *
+ */
+.ui-bar-g {
+	border-bottom: 1px solid #369ea4;
+	background: #369ea4;
+	color: white;
+	font-weight: bold;
+	text-shadow: 0 1px 1px #369ea4;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#3ebcbf), to(#369ea4));
+	background-image: -webkit-linear-gradient(#3ebcbf, #369ea4);
+	background-image: -moz-linear-gradient(#3ebcbf, #369ea4);
+	background-image: -ms-linear-gradient(#3ebcbf, #369ea4);
+	background-image: -o-linear-gradient(#3ebcbf, #369ea4);
+	background-image: linear-gradient(#3ebcbf, #369ea4);
+}
+.ui-bar-g, .ui-bar-g input, .ui-bar-g select, .ui-bar-g textarea, .ui-bar-g button {
+    font-family: Helvetica,Arial,sans-serif;
+}
+.ui-bar-g, .ui-bar-g .ui-link-inherit {
+    color: #FFFFFF;
+}
+.ui-bar-g .ui-link {
+    color: #FFFFFF;
+    font-weight: bold;
+}
+.ui-btn-up-g {
+    background: -moz-linear-gradient(#3ebcbf, #369ea4) repeat scroll 0 0 #369ea4;
+    border: 1px solid #218187;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-shadow: 0 1px 1px #369ea4;
+}
+.ui-btn-up-g a.ui-link-inherit {
+    color: #FFFFFF;
+}
+.ui-btn-hover-g {
+    background: -moz-linear-gradient(#8FC963, #6EBC1F) repeat scroll 0 0 #6EBC1F;
+    border: 1px solid #218187;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-shadow: 0 1px 1px #369ea4;
+}
+.ui-btn-hover-g a.ui-link-inherit {
+    color: #FFFFFF;
+}
+.ui-btn-down-g {
+    background: -moz-linear-gradient(#56A00E, #64A234) repeat scroll 0 0 #3D3D3D;
+    border: 1px solid #218187;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-shadow: 0 1px 1px #369ea4;
+}
+.ui-btn-down-g a.ui-link-inherit {
+    color: #FFFFFF;
+}
+.ui-btn-up-g, .ui-btn-hover-g, .ui-btn-down-f {
+    font-family: Helvetica,Arial,sans-serif;
+    text-decoration: none;
+}
