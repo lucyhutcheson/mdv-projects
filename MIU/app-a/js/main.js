@@ -11,6 +11,7 @@
 	setDate();
 	var category = getUrlVars()["cat"];
 	var lessonId = getUrlVars()["lessonId"];
+	var op = getUrlVars()["op"];
 
 
 	function getData(audience) {
@@ -23,10 +24,6 @@
 		if (localStorage.length === 0) {
 			autoFillData(audience);
 		}
-		/*
-		localStorage.clear();
-		autoFillData(audience);
-		*/
 
 		// Create list items from sorted storage array
 		for (var i=0, len=localStorage.length; i<len; i++){
@@ -39,7 +36,7 @@
 			var value = localStorage.getItem(key);
 			// convert the string back to an object
 			var obj = JSON.parse(value);
-
+	
 			var makeSubAnchor = document.createElement('a'); //create sub div
 			makeSubAnchor.setAttribute("href", "view.html?lessonId="+key);
 			makeSubAnchor.setAttribute("data-url", "view.html?lessonId="+key);
@@ -99,32 +96,31 @@
 
 
 	if(lessonId > 0) {
-		showLesson(lessonId, category);
+		showLesson(lessonId);
 	}
-	function showLesson(id, category){
-			var lessonKey = id;
-			var value = localStorage.getItem(lessonKey);
-			// convert the string back to an object
-			var obj = JSON.parse(value);
-			var makeSubDiv = document.createElement('div'); //create sub div
-		    $('#content').append(makeSubDiv);
-			for(var n in obj){
-				var makeSubP = document.createElement('p');
-				var audienceClass = obj.audience[1];
-				makeSubP.setAttribute("class", "item-details " );
-				makeSubDiv.appendChild(makeSubP);
-				var optSubText = "<strong>"+obj[n][0]+" </strong> "+obj[n][1];
-				makeSubP.innerHTML = optSubText;
-			}
-			var makeHeader = document.createElement('h3');
-			//var headerText = obj.name[1];
-			makeSubDiv.appendChild(makeHeader);
-			//makeHeader.innerHTML = headerText;
-			$('h1#headerTitle').replaceWith('<h1>'+ obj.name[1] + '</h1>');
-			
-			//Create Edit button
-			$("#navbar ul").prepend('<li><a href="additem.html?lessonId='+id+'" title="Edit Lesson" data-icon="gear" rel="external">Edit</a></li>');
-
+	function showLesson(id){
+		var lessonKey = id;
+		var value = localStorage.getItem(lessonKey);
+		// convert the string back to an object
+		var obj = JSON.parse(value);
+		var makeSubDiv = document.createElement('div'); //create sub div
+	    $('#content').append(makeSubDiv);
+		for(var n in obj){
+			var makeSubP = document.createElement('p');
+			var audienceClass = obj.audience[1];
+			makeSubP.setAttribute("class", "item-details " );
+			makeSubDiv.appendChild(makeSubP);
+			var optSubText = "<strong>"+obj[n][0]+" </strong> "+obj[n][1];
+			makeSubP.innerHTML = optSubText;
+		}
+		var makeHeader = document.createElement('h3');
+		//var headerText = obj.name[1];
+		makeSubDiv.appendChild(makeHeader);
+		//makeHeader.innerHTML = headerText;
+		$('h1#headerTitle').replaceWith('<h1>'+ obj.name[1] + '</h1>');
+		
+		//Create Edit button
+		$("#navbar ul").prepend('<li><a href="additem.html?lessonId='+id+'&op=edit" title="Edit Lesson" data-icon="gear" rel="external">Edit</a></li>');
 	}
 
 	//Add default data if there is none in local storage
@@ -148,22 +144,13 @@
 	})
 	$.each(listitems, function(idx, itm) { mylist.append(itm); });
 
-
- 	//Get the image for the right audience
-	function getImage(audience, makeSubList){
-		var imageLi = document.createElement('li');
-		makeSubList.appendChild(imageLi);
-		var newImg = document.createElement('img');
-		var setSrc = newImg.setAttribute("src", "images/"+ audience + ".png");
-		imageLi.appendChild(newImg);
-	}
-	
    
     //Create select field element and populate with options.
 	function makeTopics(){
 		var formTag = document.getElementsByTagName("form"), // formTag is an array of all form tags.
 			makeSelect = document.createElement('select');
 		makeSelect.setAttribute("id", "topics");
+		makeSelect.setAttribute("data-theme", "c");
 		for (var i=0, j=bibleTopics.length; i<j; i++){
 			var makeOption = document.createElement('option');
 			var optText = bibleTopics[i];
@@ -183,7 +170,10 @@
 			var yyyy = today.getFullYear();
 			if(dd<10){dd='0'+dd}
 			if(mm<10){mm='0'+mm}
-			$('#date').val(mm+'-'+dd+'-'+yyyy);	
+			//$('#date').val(mm+'-'+dd+'-'+yyyy);
+			$('#month').val(mm);
+			$('#day').val(dd);
+			$('#year').val(yyyy);
 		}
 	}
 	
@@ -209,16 +199,16 @@
 	}
 
 	//Save data into local storage.
-	function storeData(key){
+	function storeData(key,category){
 		//Create new key if one doesn't exist.
 		if(!key){
 			var id = Math.floor(Math.random()*10000001);
 		}else{
 			//Use the existing key.
-			id = key;
+			var id = key;
 		}
 		// Gather up all form values and labels.
-	//Find the value of the selected radio button.
+		//Find the value of the selected radio button.
 		var newItem = {};
 			newItem.name = ["Lesson Name:", $('#lesson-name').val()];
 			newItem.author = ["Author:", $('#author').val()];
@@ -233,52 +223,25 @@
 		//Save data into local storage
 		localStorage.setItem(id, JSON.stringify(newItem));
 		alert("Bible Study Lesson successfully saved.");
+		window.location.href = "lessons.html?cat="+newItem.audience[1];
 	}
 
-
-		
-	// Make Item Links function to create edit/delete links for items 
-	function makeItemLinks(key, linksLi){	
-		//Add edit link
-		var editLink = document.createElement('a');
-		editLink.setAttribute("class", "edit-link"); //Add class for styling
-		editLink.href = "#";
-		editLink.key = key;
-		var editText = "Edit Lesson";
-		editLink.addEventListener("click", editLesson);
-		editLink.innerHTML = editText;
-		linksLi.appendChild(editLink);
-		
-		
-		//Add delete link
-		var deleteLink = document.createElement('a');
-		deleteLink.setAttribute("class", "delete-link"); //Add class for styling
-		deleteLink.href = "#";
-		deleteLink.key = key;
-		var deleteText = "Delete Lesson";
-		deleteLink.addEventListener("click", deleteLesson);
-		deleteLink.innerHTML = deleteText;
-		linksLi.appendChild(deleteLink);
-		linksLi.setAttribute("id", "modify-links"); //Add id for styling
+	// EDIT FUNCTION
+	if(op === 'edit') {
+		editLesson(lessonId);
 	}
-
-	
 	function editLesson(lessonId){
 		//Grab the data from local storage
-		var item = localStorage.getItem(lessonId);
-		//var item = JSON.parse(value);
-			alert(item);
-
-		//Show the form
-		toggleControls("off");
+		var value = localStorage.getItem(lessonId);
+		var item = JSON.parse(value);
 		
 		//populate the form fields with current values
-		$('lesson-name').value = item.name[1];
-		$('author').value = item.author[1]
-		$('email').value = item.email[1];
-		$('date').value = item.date[1];
-		$('topics').value = item.topic[1];
-		$('book').value = item.book[1];
+		$('#lesson-name').val(item.name[1]);
+		$('#author').val(item.author[1]);
+		$('#email').val(item.email[1]);
+		$('#date').val(item.date[1]);
+		$('#topics').val(item.topic[1]);
+		$('#book').val(item.book[1]);
 		var radios = document.forms[0].audience;
 		for(var i=0; i<radios.length; i++){
 			if(radios[i].value == "Adults" && item.audience[1] == "Adults") {
@@ -293,29 +256,30 @@
 				radios[i].setAttribute("checked", "checked");
 			}
 		}
-		$('length').value = item.length[1];
-		$('lesson-text').value = item.lesson[1];
+		$('#length').val(item.length[1]);
+		$('#lesson-text').val(item.lesson[1]);
 		//remove initial listener from save button
-		save.removeEventListener("click", storeData);
+		$("#submit").unbind("click");
 		//Change submit button value to edit button
-		$('submit').value = "Edit Lesson";
-		var editSubmit= $('submit');
-		editSubmit.addEventListener("click", validateForm);
-		editSubmit.key = this.key;
+		$('#submit').attr('value','Edit Lesson');
+		$('#lessonForm').submit(function() {
+			validateForm(lessonId);
+		});
 	}
 	
+	// DELETE FUNCTION
 	function deleteLesson(){
 		var ask = confirm("Are you sure you want to delete this lesson?");
 		if(ask){
 			localStorage.removeItem(lessonId);
 			alert("Lesson was successfully deleted.")
-			window.location.reload();
+			window.location.href = "index.html";
 		}else{
 			alert("Lesson was NOT deleted.");
 		}
 	}
 	
-	//Clear all data
+	// CLEAR ALL FUNCTION
 	function clearLocal(){
 		if(localStorage.length === 0){
 			alert("There is no data to clear.");
@@ -332,7 +296,8 @@
 		}
 	}
 
-	function validateForm() {
+	// VALIDATE FUNCTION
+	function validateForm(lessonId) {
 		var getLessonName = $("#lesson-name").val();
 		var getAuthor = $("#author").val();
 		var getEmail = $("#email").val();
@@ -383,7 +348,7 @@
 			return false;
 		}else{
 			//If all is validated, save the data and send the key value from editData
-			storeData(this.key);
+			storeData(lessonId);
 		}
 	}
 
@@ -396,8 +361,9 @@
 		return vars;
 	}
 
-
-	$("#submit").click(function() {
-	  validateForm();
-	});
+	if(op != 'edit') {
+		$("#submit").click(function() {
+		  validateForm();
+		});
+	}
 
