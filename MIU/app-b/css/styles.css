@@ -5,10 +5,18 @@
  */
 
 /* LAYOUT ELEMENTS */
-header {
+#header {
 	width: 93%;
 	margin: 0 auto;
 	text-align: center;
+}
+.ui-grid-a div, .ui-grid-b div {
+	text-align: center;
+	padding-top: 10px;
+}
+#errors {
+	color: red;
+	font-weight: bold;
 }
 
 /*  

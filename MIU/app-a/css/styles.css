@@ -5,10 +5,23 @@
  */
 
 /* LAYOUT ELEMENTS */
-header {
+#header {
 	width: 93%;
 	margin: 0 auto;
 	text-align: center;
+}
+.required {
+	color: red;
+	float: right;
+}
+.error {
+	color: red;
+	font-style: italic;
+}
+fieldset legend {
+	font-weight: bold;
+	color: #777;
+	padding-bottom: 10px;
 }
 
 /*  
