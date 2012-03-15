@@ -22,6 +22,13 @@ fieldset legend {
 	color: #607401;
 	padding-bottom: 10px;
 }
+#logo {
+	text-align: center;
+}
+#feature {
+	padding-bottom: 10px;
+	clear: both;
+}
 
 /*  
  * Data Theme F 
