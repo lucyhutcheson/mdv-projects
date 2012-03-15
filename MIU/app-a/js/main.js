@@ -4,27 +4,36 @@
  * Created for:  Mobile Interfaces and Usability 1203
  */
 
+	//Variable defaults
+	var bibleTopics = ["--Choose A Topic--", "Christian Life", "Marriage", "Family"],
+		audienceValue;
+	makeTopics();
+	setDate();
+	var category = getUrlVars()["cat"];
+	var lessonId = getUrlVars()["lessonId"];
+
 
 	function getData(audience) {
 		// Update page header title
 		var category = getUrlVars()["cat"];
 		$('h1#headerTitle').replaceWith('<h2>'+ category + '</h2>');
 
-		//toggleControls("on");
-		//errMsg.innerHTML = ""; //Reset error messages
-		/*if (localStorage.length === 0) {
+		toggleControls("on");
+		$('#errors').empty(); //Reset error messages
+		if (localStorage.length === 0) {
 			autoFillData(audience);
-		}*/
+		}
+		/*
 		localStorage.clear();
 		autoFillData(audience);
-		
+		*/
 
 		// Create list items from sorted storage array
 		for (var i=0, len=localStorage.length; i<len; i++){
 		
 			var makeli = document.createElement('li');
 			makeli.setAttribute("data-theme", "c");
-		  $('#lesson-list').append(makeli);
+		 	 $('#lesson-list').append(makeli);
 			
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
@@ -65,49 +74,44 @@
 
 	}
 
-	var category = getUrlVars()["cat"];
-	var lessonId = getUrlVars()["lessonId"];
-
 	switch (category) {
-	case "Adults":
-		var audience = "Adults";
-		getData(json.adults.lessons);
-	 	break;
-	case "Men":
-		var audience = "Men";
-		getData(json.men.lessons);
-	  	break;
-	case "Women":
-		var audience = "Women";
-		getData(json.women.lessons);
-	  	break;
-	case "Youth":
-		var audience = "Youth";
-		getData(json.youth.lessons);
-	  	break;
-	case "Children":
-		var audience = "Children";
-		getData(json.children.lessons);
-	  	break;
+		case "Adults":
+			var audience = "Adults";
+			getData(json.adults.lessons);
+		 	break;
+		case "Men":
+			var audience = "Men";
+			getData(json.men.lessons);
+		  	break;
+		case "Women":
+			var audience = "Women";
+			getData(json.women.lessons);
+		  	break;
+		case "Youth":
+			var audience = "Youth";
+			getData(json.youth.lessons);
+		  	break;
+		case "Children":
+			var audience = "Children";
+			getData(json.children.lessons);
+		  	break;
 	}
 
-     
+
 	if(lessonId > 0) {
 		showLesson(lessonId, category);
 	}
 	function showLesson(id, category){
-
 			var lessonKey = id;
 			var value = localStorage.getItem(lessonKey);
 			// convert the string back to an object
 			var obj = JSON.parse(value);
-
 			var makeSubDiv = document.createElement('div'); //create sub div
 		    $('#content').append(makeSubDiv);
 			for(var n in obj){
 				var makeSubP = document.createElement('p');
 				var audienceClass = obj.audience[1];
-				makeSubP.setAttribute("class", "item-details " + audienceClass.toLowerCase() );
+				makeSubP.setAttribute("class", "item-details " );
 				makeSubDiv.appendChild(makeSubP);
 				var optSubText = "<strong>"+obj[n][0]+" </strong> "+obj[n][1];
 				makeSubP.innerHTML = optSubText;
@@ -117,11 +121,14 @@
 			makeSubDiv.appendChild(makeHeader);
 			//makeHeader.innerHTML = headerText;
 			$('h1#headerTitle').replaceWith('<h1>'+ obj.name[1] + '</h1>');
+			
+			//Create Edit button
+			$("#navbar ul").prepend('<li><a href="additem.html?lessonId='+id+'" title="Edit Lesson" data-icon="gear" rel="external">Edit</a></li>');
+
 	}
 
 	//Add default data if there is none in local storage
 	function autoFillData(audience){
-		
 		//Store the JSON object in local storage
 		for(var n in audience){
 			var id = Math.floor(Math.random()*10000001);
@@ -142,7 +149,6 @@
 	$.each(listitems, function(idx, itm) { mylist.append(itm); });
 
 
-
  	//Get the image for the right audience
 	function getImage(audience, makeSubList){
 		var imageLi = document.createElement('li');
@@ -153,11 +159,10 @@
 	}
 	
    
-    	//Create select field element and populate with options.
+    //Create select field element and populate with options.
 	function makeTopics(){
 		var formTag = document.getElementsByTagName("form"), // formTag is an array of all form tags.
-			selectLi = $('select'),
-		makeSelect = document.createElement('select');
+			makeSelect = document.createElement('select');
 		makeSelect.setAttribute("id", "topics");
 		for (var i=0, j=bibleTopics.length; i<j; i++){
 			var makeOption = document.createElement('option');
@@ -166,34 +171,37 @@
 			makeOption.innerHTML = optText;
 			makeSelect.appendChild(makeOption);
 		}
-		selectLi.appendChild(makeSelect);
+		$('#select').append(makeSelect);
 	}
 	
-	//Find the value of the selected radio button.
-	function getSelectedRadio(){
-		var radios = document.forms[0].audience;
-		for (var i=0; i<radios.length; i++){
-			if(radios[i].checked){
-				audienceValue = radios[i].value;
-			}
+	//  Set default date
+	function setDate(){
+		if (!($('#date').val()) ) {
+			var today = new Date();
+			var dd = today.getDate();
+			var mm = today.getMonth()+1;//January is 0!
+			var yyyy = today.getFullYear();
+			if(dd<10){dd='0'+dd}
+			if(mm<10){mm='0'+mm}
+			$('#date').val(mm+'-'+dd+'-'+yyyy);	
 		}
 	}
 	
 	function toggleControls(n){
 		switch(n){
 			case "on":
-				$('lessonForm').style.display = "none";
-				$('displayLink').style.display = "none";
-				$('addNew').style.display = "block";
-				$('required').style.display = "none";
-				document.getElementById("pageTitle").innerHTML="Submitted Bible Study Lessons";
+				$('#lessonForm').css("display", "none");
+				$('displayLink').css("display", "none");
+				$('addNew').css("display", "block");
+				$('required').css("display", "none");
+				$('#pageTitle').html("Submitted Bible Study Lessons");
 				break;
 			case "off":
-				$('lessonForm').style.display = "block";
-				$('clear').style.display = "inline";
-				$('displayLink').style.display = "inline";
-				$('addNew').style.display = "none";
-				$('items').style.display = "none";
+				$('lessonForm').css("display", "block");
+				$('clear').css("display", "inline");
+				$('displayLink').css("display", "inline");
+				$('addNew').css("display", "none");
+				$('items').css("display", "none");
 				break;
 			default:
 				return false;
@@ -210,19 +218,20 @@
 			id = key;
 		}
 		// Gather up all form values and labels.
-		getSelectedRadio();
-		var item = {};
-			item.name = ["Lesson Name:", $('lesson-name').value];
-			item.author = ["Author:", $('author').value];
-			item.email = ["Email:", $('email').value];
-			item.date = ["Date:", $('date').value];
-			item.topic = ["Topics:", $('topics').value];
-			item.book = ["Book:", $('book').value];
-			item.audience = ["Audience:", audienceValue];
-			item.length = ["Lesson Length:", $('length').value];
-			item.lesson = ["Lesson Text:", $('lesson-text').value];
+	//Find the value of the selected radio button.
+		var newItem = {};
+			newItem.name = ["Lesson Name:", $('#lesson-name').val()];
+			newItem.author = ["Author:", $('#author').val()];
+			newItem.email = ["Email:", $('#email').val()];
+			newItem.date = ["Date:", $('#date').val()];
+			newItem.topic = ["Topics:", $('#topics').val()];
+			newItem.book = ["Book:", $('#book').val()];
+			newItem.audience = ["Audience:", $('input:radio[name=audience]:checked').val()];
+			newItem.length = ["Lesson Length:", $('#length').val()];
+			newItem.lesson = ["Lesson Text:", $('#lesson-text').val()];
+
 		//Save data into local storage
-		localStorage.setItem(id, JSON.stringify(item));
+		localStorage.setItem(id, JSON.stringify(newItem));
 		alert("Bible Study Lesson successfully saved.");
 	}
 
@@ -252,12 +261,14 @@
 		linksLi.appendChild(deleteLink);
 		linksLi.setAttribute("id", "modify-links"); //Add id for styling
 	}
+
 	
-	function editLesson(){
+	function editLesson(lessonId){
 		//Grab the data from local storage
-		var value = localStorage.getItem(this.key);
-		var item = JSON.parse(value);
-	
+		var item = localStorage.getItem(lessonId);
+		//var item = JSON.parse(value);
+			alert(item);
+
 		//Show the form
 		toggleControls("off");
 		
@@ -296,7 +307,7 @@
 	function deleteLesson(){
 		var ask = confirm("Are you sure you want to delete this lesson?");
 		if(ask){
-			localStorage.removeItem(this.key);
+			localStorage.removeItem(lessonId);
 			alert("Lesson was successfully deleted.")
 			window.location.reload();
 		}else{
@@ -321,53 +332,54 @@
 		}
 	}
 
-	function validateForm(e) {
-		var getLessonName = $('lesson-name');
-		var getAuthor = $('author');
-		var getEmail = $('email');
-		var getTopic = $('topics');
-		
+	function validateForm() {
+		var getLessonName = $("#lesson-name").val();
+		var getAuthor = $("#author").val();
+		var getEmail = $("#email").val();
+		var getTopic = $("#topics").val();
+
 		//Reset error messages
-		errMsg.innerHTML = "";
-		getLessonName.style.border = "";
-		getAuthor.style.border = "";
-		getEmail.style.border = "";
-		getTopic.style.border = "";
-		
+		$(".error").hide();
+		var hasError = false;
+		$('#errors').empty();
+		$('#lesson-name').css("border", "none") ;
+		$('#author').css("border", "none") ;
+		$('#email').css("border", "none") ;
+		$('#select > div').css("border", "none") ;
+
 		//Get Error messages
 		var messageArray = [];
 		//Lesson Name validation
-		if(getLessonName.value === ""){
-			var lessonError = "Please enter a lesson name.";
-			getLessonName.style.border = "1px solid red";
-			messageArray.push(lessonError);
+		if(getLessonName == ""){
+			$('#lesson-name').after('<span class="error">Please enter a lesson name.</span>');
+			$('#lesson-name').css("border", "1px solid red") ;
+			hasError = true;
 		}
 		//Author validation
-		if(getAuthor.value === ""){
-			var authorError = "Please enter an author name.";
-			getAuthor.style.border = "1px solid red";
-			messageArray.push(authorError);
+		if(getAuthor == ""){
+			$('#author').after('<span class="error">Please enter an author name.</span>');
+			$('#author').css("border", "1px solid red") ;
+			hasError = true;
 		}
 		//Email validation
 		var re = /^\w+([\.-]?]\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-		if (!(re.exec(getEmail.value))){
-			var emailError = "Please enter a valid email address.";
-			getEmail.style.border = "1px solid red";
-			messageArray.push(emailError);
-		}
+		if ((getEmail == '') || (!re.test(getEmail))){
+			$('#email').after('<span class="error">Please enter a valid email address.</span>');
+			$('#email').css("border", "1px solid red") ;
+			hasError = true;
+		} 
+		
 		//Topic validation
-		if(getTopic.value === "--Choose A Topic--"){
+		if(getTopic === "--Choose A Topic--"){
+			$('#select > div').after('<span class="error">Please choose a topic.</span>');
 			var topicError = "Please choose a topic.";
-			getTopic.style.border = "1px solid red";
-			messageArray.push(topicError);
+			$('#select > div').css("border", "1px solid red") ;
+			hasError = true;
 		}
-		if(messageArray.length >= 1){
-			for(var i=0, j=messageArray.length; i<j; i++){
-				var txt = document.createElement('li');
-				txt.innerHTML = messageArray[i];
-				errMsg.appendChild(txt);
-			}
-			e.preventDefault();
+		
+		//Set Errors
+		if(hasError == true) {
+			event.preventDefault();
 			return false;
 		}else{
 			//If all is validated, save the data and send the key value from editData
@@ -383,15 +395,9 @@
 		});
 		return vars;
 	}
-	
 
 
-	//Variable defaults
-	var bibleTopics = ["--Choose A Topic--", "Christian Life", "Marriage", "Family"],
-		audienceValue,
-		errMsg = $('errors');
-	//makeTopics();
-
-	var save = $('submit');
-	//save.addEventListener("click", validateForm);
+	$("#submit").click(function() {
+	  validateForm();
+	});
 

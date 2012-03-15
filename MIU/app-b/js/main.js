@@ -4,6 +4,12 @@
  * Created for:  Mobile Interfaces and Usability 1203
  */
 
+	//Variable defaults
+	var bibleTopics = ["--Choose A Topic--", "Christian Life", "Marriage", "Family"],
+		audienceValue,
+		errMsg = $('errors');
+	makeTopics();
+
 
 	function getData(audience) {
 		var category = getUrlVars()["cat"];
@@ -129,11 +135,10 @@
 	}
 	
   
-  //Create select field element and populate with options.
+    //Create select field element and populate with options.
 	function makeTopics(){
 		var formTag = document.getElementsByTagName("form"), // formTag is an array of all form tags.
-			selectLi = $('select'),
-		makeSelect = document.createElement('select');
+			makeSelect = document.createElement('select');
 		makeSelect.setAttribute("id", "topics");
 		for (var i=0, j=bibleTopics.length; i<j; i++){
 			var makeOption = document.createElement('option');
@@ -142,7 +147,16 @@
 			makeOption.innerHTML = optText;
 			makeSelect.appendChild(makeOption);
 		}
-		selectLi.appendChild(makeSelect);
+		$('#select').append(makeSelect);
+		
+	}
+	
+	//  Set default date
+	function setDate(){
+		if (!($('#date').val()) ) {
+			var now = new Date();
+			$('#date').val(now);	
+		}
 	}
 	
 	//Find the value of the selected radio button.
@@ -297,53 +311,58 @@
 		}
 	}
 
-	function validateForm(e) {
-		var getLessonName = $('lesson-name');
-		var getAuthor = $('author');
-		var getEmail = $('email');
-		var getTopic = $('topics');
-		
+	function validateForm() {
+		var getLessonName = $("#lesson-name").val();
+		var getAuthor = $("#author").val();
+		var getEmail = $("#email").val();
+		var getTopic = $("#topics").val();
+
 		//Reset error messages
-		errMsg.innerHTML = "";
-		getLessonName.style.border = "";
-		getAuthor.style.border = "";
-		getEmail.style.border = "";
-		getTopic.style.border = "";
-		
+		$('#errors').empty();
+		$('#lesson-name').css("border", "none") ;
+		$('#author').css("border", "none") ;
+		$('#email').css("border", "none") ;
+		$('#select > div').css("border", "none") ;
+
 		//Get Error messages
 		var messageArray = [];
 		//Lesson Name validation
-		if(getLessonName.value === ""){
+		if(getLessonName == ""){
 			var lessonError = "Please enter a lesson name.";
-			getLessonName.style.border = "1px solid red";
+			$('#lesson-name').css("border", "1px solid red") ;
 			messageArray.push(lessonError);
 		}
 		//Author validation
-		if(getAuthor.value === ""){
+		if(getAuthor == ""){
 			var authorError = "Please enter an author name.";
-			getAuthor.style.border = "1px solid red";
+			$('#author').css("border", "1px solid red") ;
 			messageArray.push(authorError);
 		}
 		//Email validation
 		var re = /^\w+([\.-]?]\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-		if (!(re.exec(getEmail.value))){
+		if (getEmail == ''){
 			var emailError = "Please enter a valid email address.";
-			getEmail.style.border = "1px solid red";
+			$('#email').css("border", "1px solid red") ;
+			messageArray.push(emailError);
+		} else if (!re.test(getEmail)) {
+			var emailError = "Please enter a valid email address.";
+			$('#email').css("border", "1px solid red") ;
 			messageArray.push(emailError);
 		}
+		
 		//Topic validation
-		if(getTopic.value === "--Choose A Topic--"){
+		if(getTopic === "--Choose A Topic--"){
 			var topicError = "Please choose a topic.";
-			getTopic.style.border = "1px solid red";
+			$('#select > div').css("border", "1px solid red") ;
 			messageArray.push(topicError);
 		}
 		if(messageArray.length >= 1){
 			for(var i=0, j=messageArray.length; i<j; i++){
 				var txt = document.createElement('li');
 				txt.innerHTML = messageArray[i];
-				errMsg.appendChild(txt);
+				$('#errors').append(txt);
 			}
-			e.preventDefault();
+			event.preventDefault();
 			return false;
 		}else{
 			//If all is validated, save the data and send the key value from editData
@@ -362,16 +381,7 @@
 	
 
 
-
-
-	
-
-	//Variable defaults
-	var bibleTopics = ["--Choose A Topic--", "Christian Life", "Marriage", "Family"],
-		audienceValue,
-		errMsg = $('errors');
-	//makeTopics();
-
-	var save = $('submit');
-	//save.addEventListener("click", validateForm);
+	$("#submit").click(function() {
+	  validateForm();
+	});
 
