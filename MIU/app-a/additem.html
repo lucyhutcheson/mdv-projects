@@ -24,6 +24,7 @@
 	
 	<!-- StyleSheets under here -->
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.css" />
+	<link rel="stylesheet" type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.min.css" /> 
 	<link rel="stylesheet" href="css/styles.css" />	
 	
 	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
@@ -39,56 +40,66 @@
 			<a href="index.html" rel="external" data-iconpos="notext" data-icon="home" data-transition="flow">Home</a>
 		</div>
 		<div data-role="content" class="mainContent">
-			<span id="required"><span class="error">*</span> fields are required.</span>
 			<form action="#" method="post" id="lessonForm">
-				<fieldset>
-					<legend>Basic Information</legend>
+				<h3>Basic Information</h3>
+				<span id="required"><span class="error">*</span> fields are required.</span>
+				<div data-role="fieldcontain">
+					<label for="lesson-name">Lesson Name: <span class="required">*</span></label>
+					<input type="text" id="lesson-name" placeholder="Enter name of your lesson."/>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="author">Author: <span class="required">*</span></label>
+					<input type="text" id="author" placeholder="Enter the author of this lesson."/></li>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="email">Email: <span class="required">*</span></label>
+					<input type="text" id="email" placeholder="Enter email@domain.com"/></li>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="mydate">Date:</label>
+					<input name="mydate" id="date" type="date" data-role="datebox" data-options='{"mode": "calbox"}'>
+				</div>
+				<h3>Lesson Information</h3>
+				<div data-role="fieldcontain" id="select">
+					<label for="topics">Lesson Topic: <span class="required">*</span></label>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="book">Book Focus: </label>
+					<select id="book" data-theme="c" >
+						<option value="" selected="selected">--Choose A Book--</option>
+						<option value="Genesis">Genesis</option>
+						<option value="Exodus">Exodus</option>
+						<option value="Matthew">Matthew</option>
+						<option value="Mark">Mark</option>
+						<option value="Luke">Luke</option>
+						<option value="John">John</option>
+						<option value="1 Corinthians">1 Corinthians</option>
+						<option value="2 Corinthians">2 Corinthians</option>
+						<option value="1 Thessalonians">1 Thessalonians</option>
+						<option value="2 Thessalonians">2 Thessalonians</option>
+					</select>
+				</div>
+				<div data-role="fieldcontain" id="radio">
+					<label for="audience">Target Audience: </label>
 					<ul>
-						<li><span class="required">*</span><label for="lesson-name">Lesson Name: </label> <input type="text" id="lesson-name" placeholder="Enter name of your lesson."/> </li>
-						<li><span class="required">*</span><label for="author">Author: </label> <input type="text" id="author" placeholder="Enter the author of this lesson."/></li>
-						<li><span class="required">*</span><label for="email">Email: </label> <input type="text" id="email" placeholder="Enter email@domain.com"/></li>
-						<li><label for="date">Date: </label><input type="date" id="date" /></li>
+						<li><input type="radio" name="audience" id="adults" value="Adults" checked="checked"  data-theme="c"/><label for="adults">Adults</label></li>
+						<li><input type="radio" name="audience" id="men" value="Men" data-theme="c" /><label for="men">Men</label></li>
+						<li><input type="radio" name="audience" id="women"  value="Women" data-theme="c" /><label for="women">Women</label></li>
+						<li><input type="radio" name="audience" id="youth" value="Youth" data-theme="c" /><label for="youth">Youth</label></li>
+						<li><input type="radio" name="audience" id="children" value="Children" data-theme="c" /><label for="children">Children</label></li>
 					</ul>
-				</fieldset>	
-				<fieldset>
-					<legend>Lesson Information</legend>
-					<ul>
-						<li id="select"><label for="topics">Lesson Topic: </label> <span class="required">*</span></li>
-						<li><label for="book">Book Focus: </label>
-							<select id="book" >
-								<option value="" selected="selected">--Choose A Book--</option>
-								<option value="Genesis">Genesis</option>
-								<option value="Exodus">Exodus</option>
-								<option value="Matthew">Matthew</option>
-								<option value="Mark">Mark</option>
-								<option value="Luke">Luke</option>
-								<option value="John">John</option>
-								<option value="1 Corinthians">1 Corinthians</option>
-								<option value="2 Corinthians">2 Corinthians</option>
-								<option value="1 Thessalonians">1 Thessalonians</option>
-								<option value="2 Thessalonians">2 Thessalonians</option>
-							</select>
-						</li>
-						<li id="radio"><label for="audience">Target Audience: </label>
-							<ul>
-								<li><input type="radio" name="audience" id="adults" value="Adults" checked="checked" /><label for="adults">Adults</label></li>
-								<li><input type="radio" name="audience" id="men" value="Men" /><label for="men">Men</label></li>
-								<li><input type="radio" name="audience" id="women"  value="Women" /><label for="women">Women</label></li>
-								<li><input type="radio" name="audience" id="youth" value="Youth" /><label for="youth">Youth</label></li>
-								<li><input type="radio" name="audience" id="children" value="Children" /><label for="children">Children</label></li>
-							</ul>
-						</li>
-						<li><label for="length">Length of Lesson: </label>
-							<p><input type="range" id="length" min="0" max="180" step="15" value="30"/></p>
-						</li>
-					</ul>
-	
-				</fieldset>	
-				<fieldset>
-					<legend>Lesson</legend>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="length">Lesson Length in Minutes: </label>
+					<input type="range" id="length" min="0" max="180" step="15" value="30" data-theme="c"/>
+				</div>	
+				<div data-role="fieldcontain">
+					<label>Lesson Text: </label>
 					<textarea id="lesson-text" name="lesson-text" rows="8" cols="30" placeholder="Enter in the text for your bible study lesson."></textarea>
-				</fieldset>
-				<input type="submit" id="submit" value="Add New Lesson"  />	
+				</div>
+				<div data-role="fieldcontain">
+					<input type="submit" id="submit" value="Add New Lesson" data-theme="f" data-role="button" data-icon="plus"/>	
+				</div>
 			</form>
 		</div>
 		<div data-role="footer" data-position="fixed" data-theme="c">
@@ -106,7 +117,8 @@
 	<!-- JavaScript under here -->
     <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/latest/jquery.mobile.min.js"></script>
-	
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/i8n/jquery.mobile.datebox.i8n.en.js"></script>
 	<script type="text/javascript" src="js/json.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 </body>
