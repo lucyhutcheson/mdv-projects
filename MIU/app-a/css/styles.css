@@ -12,7 +12,6 @@
 }
 .required {
 	color: red;
-	float: right;
 }
 .error {
 	color: red;
@@ -20,7 +19,7 @@
 }
 fieldset legend {
 	font-weight: bold;
-	color: #777;
+	color: #607401;
 	padding-bottom: 10px;
 }
 
@@ -34,7 +33,7 @@ fieldset legend {
 	color: white;
 	font-weight: bold;
 	text-shadow: 0 1px 1px #607401;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#74B042), to(#56A00E));
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#95b401), to(#607401));
 	background-image: -webkit-linear-gradient(#95b401, #607401);
 	background-image: -moz-linear-gradient(#95b401, #607401);
 	background-image: -ms-linear-gradient(#95b401, #607401);
@@ -52,7 +51,17 @@ fieldset legend {
     font-weight: bold;
 }
 .ui-btn-up-f {
-    background: -moz-linear-gradient(#95b401, #607401) repeat scroll 0 0 #607401;
+	border: 1px solid #607401;
+	background: #607401;
+	font-weight: bold;
+	color: white;
+	text-shadow: 0 1px 1px #607401;
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#95b401),to(#607401));
+	background-image: -webkit-linear-gradient(#95b401, #607401);
+	background-image: -moz-linear-gradient(#95b401, #607401);
+	background-image: -ms-linear-gradient(#95b401, #607401);
+	background-image: -o-linear-gradient(#95b401, #607401);
+	background-image: linear-gradient(#95b401, #607401);
     border: 1px solid #607401;
     color: #FFFFFF;
     font-weight: bold;
@@ -62,21 +71,33 @@ fieldset legend {
     color: #FFFFFF;
 }
 .ui-btn-hover-f {
-    background: -moz-linear-gradient(#8FC963, #6EBC1F) repeat scroll 0 0 #6EBC1F;
-    border: 1px solid #3B6F07;
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#607401),to(#95b401));
+	background-image: -webkit-linear-gradient(#607401, #95b401);
+	background-image: -moz-linear-gradient(#607401, #95b401);
+	background-image: -ms-linear-gradient(#607401, #95b401);
+	background-image: -o-linear-gradient(#607401, #95b401);
+	background-image: linear-gradient(#607401, #95b401);
+    background: -moz-linear-gradient(#607401, #95b401) repeat scroll 0 0 #607401;
+    border: 1px solid #607401;
     color: #FFFFFF;
     font-weight: bold;
-    text-shadow: 0 1px 1px #234403;
+    text-shadow: 0 1px 1px #607401;
 }
 .ui-btn-hover-f a.ui-link-inherit {
     color: #FFFFFF;
 }
 .ui-btn-down-f {
-    background: -moz-linear-gradient(#56A00E, #64A234) repeat scroll 0 0 #3D3D3D;
-    border: 1px solid #3B6F07;
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#607401),to(#95b401));
+	background-image: -webkit-linear-gradient(#607401, #95b401);
+	background-image: -moz-linear-gradient(#607401, #95b401);
+	background-image: -ms-linear-gradient(#607401, #95b401);
+	background-image: -o-linear-gradient(#607401, #95b401);
+	background-image: linear-gradient(#607401, #95b401);
+    background: -moz-linear-gradient(#607401, #95b401) repeat scroll 0 0 #95b401;
+    border: 1px solid #607401;
     color: #FFFFFF;
     font-weight: bold;
-    text-shadow: 0 1px 1px #234403;
+    text-shadow: 0 1px 1px #607401;
 }
 .ui-btn-down-f a.ui-link-inherit {
     color: #FFFFFF;
@@ -85,6 +106,10 @@ fieldset legend {
     font-family: Helvetica,Arial,sans-serif;
     text-decoration: none;
 }
+.ui-checkbox-on .ui-icon, .ui-radio-on .ui-icon {
+	background-color: #607401;
+}
+
 /*  
  * Data Theme G 
  * ======================== *
