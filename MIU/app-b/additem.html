@@ -38,49 +38,35 @@
 				<h3 id="pageTitle">Add New Bible Study Lesson</h3>
 			<a href="index.html" rel="external" data-iconpos="notext" data-icon="home" data-transition="flow">Home</a>
 		</div>
-		<section data-role="content" class="mainContent">
+		<div data-role="content" class="mainContent">
 			<span id="required">* fields are required.</span>
-			<ul id="errors"></ul>
 			<form action="#" method="post" id="lessonForm">
+				<input type="submit" id="submit" value="Add New Lesson" />	
 				<fieldset>
 					<legend>Basic Information</legend>
 					<ul>
-						<li><label for="lesson-name">Lesson Name: </label> <input type="text" id="lesson-name" /> <span class="red">*</span></li>
-						<li><label for="author">Author: </label> <input type="text" id="author" /> <span class="red">*</span></li>
-						<li><label for="email">Email: </label> <input type="text" id="email" /> <span class="red">*</span></li>
-						<li><label for="date">Date: </label><input type="date" id="date" /></li>
+						<li><span class="required">*</span><label for="lesson-name">Lesson Name: </label> <input type="text" id="lesson-name" placeholder="Enter name of your lesson."/> </li>
+						<li><span class="required">*</span><label for="author">Author: </label> <input type="text" id="author" value="Lucy Hutcheson"/></li>
+						<li><span class="required">*</span><label for="email">Email: </label> <input type="text" id="email" placeholder="Enter email@domain.com"/></li>
+						<li><label for="date">Date: </label><input type="date" id="date" placeholder="2012-03-10 Format"/></li>
 					</ul>
 				</fieldset>	
 				<fieldset>
 					<legend>Lesson Information</legend>
 					<ul>
-						<li id="select"><label for="topics">Lesson Topic: </label> <span class="red">*</span></li>
-						<li><label for="book">Book Focus: </label>
-							<select id="book" >
-								<option value="" selected="selected">--Choose A Book--</option>
-								<option value="Genesis">Genesis</option>
-								<option value="Exodus">Exodus</option>
-								<option value="Matthew">Matthew</option>
-								<option value="Mark">Mark</option>
-								<option value="Luke">Luke</option>
-								<option value="John">John</option>
-								<option value="1 Corinthians">1 Corinthians</option>
-								<option value="2 Corinthians">2 Corinthians</option>
-								<option value="1 Thessalonians">1 Thessalonians</option>
-								<option value="2 Thessalonians">2 Thessalonians</option>
-							</select>
-						</li>
+						<li id="select"><label for="topics">Lesson Topic: </label> <span class="required">*</span></li>
+						<li><label for="book">Book Focus: </label><input type="text" id="book" value="Genesis"/></li>
 						<li><label for="audience">Target Audience: </label>
 							<ul>
 								<li><input type="radio" value="Adults" id="adults" name="audience" /><label for="adults">Adults</label></li>
-								<li><input type="radio" value="Children" id="children" name="audience" /><label for="children">Children</label></li>
-								<li><input type="radio" value="Youth" id="youth" name="audience" /><label for="youth">Youth</label></li>
 								<li><input type="radio" value="Men" id="men" name="audience" /><label for="men">Men</label></li>
 								<li><input type="radio" value="Women" id="women" name="audience" /><label for="women">Women</label></li>
+								<li><input type="radio" value="Youth" id="youth" name="audience" /><label for="youth">Youth</label></li>
+								<li><input type="radio" value="Children" id="children" name="audience"  checked="checked"/><label for="children">Children</label></li>
 							</ul>
 						</li>
 						<li><label for="length">Length of Lesson: </label>
-							<p><input type="range" id="length" min="0" max="180" step="15" /></p>
+							<p><input type="range" id="length" min="0" max="180" step="15"  /></p>
 						</li>
 					</ul>
 	
@@ -89,12 +75,18 @@
 					<legend>Lesson</legend>
 					<textarea id="lesson-text" name="lesson-text" rows="8" cols="30"></textarea>
 				</fieldset>
-				<input type="submit" id="submit" value="Add New Lesson" />	
 			</form>
-		</section>
-		<footer data-role="footer" data-position="fixed" data-theme="c">
+			<ul id="errors"></ul>
+		</div>
+		<div data-role="footer" data-position="fixed" data-theme="c">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="../app-a/index.html"  data-icon="star" rel="external">App A</a></li>
+					<li><a href="index.html" data-icon="grid" rel="external">Categories</a></li>
+				</ul>
+			</div><!-- /navbar -->
 			<h4>Copyright &copy; Lucy Hutcheson</h4>
-		</footer>
+		</div>
 	</div>
 	
 
