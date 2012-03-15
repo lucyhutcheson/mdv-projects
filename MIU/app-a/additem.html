@@ -56,8 +56,8 @@
 					<input type="text" id="email" placeholder="Enter email@domain.com"/></li>
 				</div>
 				<div data-role="fieldcontain">
-					<label for="mydate">Date:</label>
-					<input name="mydate" id="date" type="date" data-role="datebox" data-options='{"mode": "calbox"}'>
+					<label for="date">Date:</label>
+					<input name="date" id="date" type="date" data-role="datebox" data-options='{"mode": "calbox"}'>
 				</div>
 				<h3>Lesson Information</h3>
 				<div data-role="fieldcontain" id="select">
@@ -65,33 +65,37 @@
 				</div>
 				<div data-role="fieldcontain">
 					<label for="book">Book Focus: </label>
-					<select id="book" data-theme="c" >
-						<option value="" selected="selected">--Choose A Book--</option>
-						<option value="Genesis">Genesis</option>
-						<option value="Exodus">Exodus</option>
-						<option value="Matthew">Matthew</option>
-						<option value="Mark">Mark</option>
-						<option value="Luke">Luke</option>
-						<option value="John">John</option>
-						<option value="1 Corinthians">1 Corinthians</option>
-						<option value="2 Corinthians">2 Corinthians</option>
-						<option value="1 Thessalonians">1 Thessalonians</option>
-						<option value="2 Thessalonians">2 Thessalonians</option>
+					<select name="book" id="book" data-theme="c" >
+						<option data-placeholder="true">--Choose A Book--</option>
+						<optgroup label="Old Testament">
+							<option value="Genesis">Genesis</option>
+							<option value="Exodus">Exodus</option>
+						</optgroup>
+						<optgroup label="New Testament">
+							<option value="Matthew">Matthew</option>
+							<option value="Mark">Mark</option>
+							<option value="Luke">Luke</option>
+							<option value="John">John</option>
+							<option value="1 Corinthians">1 Corinthians</option>
+							<option value="2 Corinthians">2 Corinthians</option>
+							<option value="1 Thessalonians">1 Thessalonians</option>
+							<option value="2 Thessalonians">2 Thessalonians</option>
+						</optgroup>
 					</select>
 				</div>
 				<div data-role="fieldcontain" id="radio">
-					<label for="audience">Target Audience: </label>
-					<ul>
-						<li><input type="radio" name="audience" id="adults" value="Adults" checked="checked"  data-theme="c"/><label for="adults">Adults</label></li>
-						<li><input type="radio" name="audience" id="men" value="Men" data-theme="c" /><label for="men">Men</label></li>
-						<li><input type="radio" name="audience" id="women"  value="Women" data-theme="c" /><label for="women">Women</label></li>
-						<li><input type="radio" name="audience" id="youth" value="Youth" data-theme="c" /><label for="youth">Youth</label></li>
-						<li><input type="radio" name="audience" id="children" value="Children" data-theme="c" /><label for="children">Children</label></li>
-					</ul>
+					<fieldset data-role="controlgroup">
+						<legend>Target Audience: </legend>
+							<input type="radio" name="audience" id="audience-1" value="Adults" checked="checked"  data-theme="c"/><label for="audience-1">Adults</label>
+							<input type="radio" name="audience" id="audience-2" value="Men" data-theme="c" /><label for="audience-2">Men</label>
+							<input type="radio" name="audience" id="audience-3" value="Women" data-theme="c" /><label for="audience-3">Women</label>
+							<input type="radio" name="audience" id="audience-4" value="Youth" data-theme="c" /><label for="audience-4">Youth</label>
+							<input type="radio" name="audience" id="audience-5" value="Children" data-theme="c" /><label for="audience-5">Children</label>
+					</fieldset>
 				</div>
 				<div data-role="fieldcontain">
-					<label for="length">Lesson Length in Minutes: </label>
-					<input type="range" id="length" min="0" max="180" step="15" value="30" data-theme="c"/>
+					<label for="length">Length (Minutes): </label>
+					<input type="range" name="length" id="length" min="0" max="180" step="15" value="30" data-theme="c"/>
 				</div>	
 				<div data-role="fieldcontain">
 					<label>Lesson Text: </label>
