@@ -19,7 +19,6 @@
 		var category = getUrlVars()["cat"];
 		$('h1#headerTitle').replaceWith('<h2>'+ category + '</h2>');
 
-		toggleControls("on");
 		$('#errors').empty(); //Reset error messages
 		if (localStorage.length === 0) {
 			autoFillData(audience);
@@ -299,6 +298,7 @@
 		var getAuthor = $("#author").val();
 		var getEmail = $("#email").val();
 		var getTopic = $("#topics").val();
+		var formErrors = $('#formErrors');
 
 		//Reset error messages
 		$(".error").hide();
