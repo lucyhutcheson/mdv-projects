@@ -45,28 +45,30 @@
 				<fieldset>
 					<legend>Basic Information</legend>
 					<ul>
-						<li><span class="required">*</span><label for="lesson-name">Lesson Name: </label> <input type="text" id="lesson-name" placeholder="Enter name of your lesson."/> </li>
-						<li><span class="required">*</span><label for="author">Author: </label> <input type="text" id="author" value="Lucy Hutcheson"/></li>
-						<li><span class="required">*</span><label for="email">Email: </label> <input type="text" id="email" placeholder="Enter email@domain.com"/></li>
+						<li><label for="lesson-name">Lesson Name: <span class="required">*</span></label> <input type="text" id="lesson-name" placeholder="Enter name of your lesson."/> </li>
+						<li><label for="author">Author: <span class="required">*</span></label> <input type="text" id="author" value="Lucy Hutcheson"/></li>
+						<li><label for="email">Email: <span class="required">*</span></label> <input type="text" id="email" placeholder="Enter email@domain.com"/></li>
 						<li><label for="date">Date: </label><input type="date" id="date" placeholder="2012-03-10 Format"/></li>
 					</ul>
 				</fieldset>	
 				<fieldset>
 					<legend>Lesson Information</legend>
 					<ul>
-						<li id="select"><label for="topics">Lesson Topic: </label> <span class="required">*</span></li>
+						<li id="select"><label for="topics">Lesson Topic: <span class="required">*</span></label></li>
 						<li><label for="book">Book Focus: </label><input type="text" id="book" value="Genesis"/></li>
-						<li><label for="audience">Target Audience: </label>
-							<ul>
-								<li><input type="radio" value="Adults" id="adults" name="audience" /><label for="adults">Adults</label></li>
-								<li><input type="radio" value="Men" id="men" name="audience" /><label for="men">Men</label></li>
-								<li><input type="radio" value="Women" id="women" name="audience" /><label for="women">Women</label></li>
-								<li><input type="radio" value="Youth" id="youth" name="audience" /><label for="youth">Youth</label></li>
-								<li><input type="radio" value="Children" id="children" name="audience"  checked="checked"/><label for="children">Children</label></li>
-							</ul>
+						<li>
+							<fieldset data-role="controlgroup" >
+								<legend>Target Audience: </legend>
+									<input type="radio" name="audience" id="audience-1" value="Adults" checked="checked"  data-theme="a"/><label for="audience-1">Adults</label>
+									<input type="radio" name="audience" id="audience-2" value="Men" data-theme="a" /><label for="audience-2">Men</label>
+									<input type="radio" name="audience" id="audience-3" value="Women" data-theme="a" /><label for="audience-3">Women</label>
+									<input type="radio" name="audience" id="audience-4" value="Youth" data-theme="a" /><label for="audience-4">Youth</label>
+									<input type="radio" name="audience" id="audience-5" value="Children" data-theme="a" /><label for="audience-5">Children</label>
+							</fieldset>
 						</li>
-						<li><label for="length">Lesson Length in Minutes: </label>
-							<p><input type="range" id="length" min="0" max="180" step="15"  /></p>
+						<li>					<label for="length">Length (Minutes): </label>
+					<input type="range" name="length" id="length" min="0" max="180" step="15" value="30" data-theme="c"/>
+
 						</li>
 					</ul>
 	
