@@ -20,8 +20,15 @@
 		$('h1#headerTitle').replaceWith('<h2>'+ category + '</h2>');
 
 		$('#errors').empty(); //Reset error messages
+
 		if (localStorage.length === 0) {
-			autoFillData(audience);
+			var ask = confirm("There are no lessons in local storage.  Do you want to load default lessons?");
+			if(ask){
+				autoFillData(audience);
+			}else{
+				alert("Lessons were not loaded.");
+				return false;
+			}
 		}
 
 		// Create list items from sorted storage array
