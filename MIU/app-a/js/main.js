@@ -269,7 +269,11 @@
 		if(ask){
 			localStorage.removeItem(lessonId);
 			alert("Lesson was successfully deleted.")
-			window.location.href = "index.html";
+			if(localStorage.length === 0){
+				window.location.href = "index.html";
+			} else {
+        		parent.history.back();
+			}
 		}else{
 			alert("Lesson was NOT deleted.");
 		}
@@ -284,7 +288,7 @@
 			if(ask){
 				localStorage.clear();
 				alert("All information deleted.");
-				window.location.reload();
+				window.location.href = "index.html";
 				return false;
 			}else{
 				alert("Lesson was NOT deleted.");
