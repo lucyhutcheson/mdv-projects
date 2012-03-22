@@ -64,11 +64,11 @@
 					<label for="topics">Lesson Topic: <span class="required">*</span></label>
 				</div>
 				<div data-role="fieldcontain">
-					<label for="book">Book Focus: </label>
-					<select name="book" id="book" data-theme="c" >
+					<label for="focus">Focus: </label>
+					<select name="focus" id="focus" data-theme="c" >
 						<option data-placeholder="true">--Choose A Bible Section--</option>
-							<option value="OT">Old Testament</option>
-							<option value="NT">New Testament</option>
+							<option value="Old Testament">Old Testament</option>
+							<option value="New Testament">New Testament</option>
 					</select>
 				</div>
 				<div data-role="fieldcontain" id="ot-books">
@@ -113,7 +113,7 @@
 					<label>Lesson Text: </label>
 					<textarea id="lesson-text" name="lesson-text" rows="8" cols="30" placeholder="Enter in the text for your bible study lesson."></textarea>
 				</div>
-				<div data-role="fieldcontain">
+				<div data-role="fieldcontain" id="submit-container">
 					<input type="submit" id="submit" value="Add New Lesson" data-theme="f"  data-icon="plus"/>	
 				</div>
 			</form>
