@@ -13,22 +13,23 @@
 	var lessonId = getUrlVars()["lessonId"];
 	var op = getUrlVars()["op"];
 
+	bible_book_disclosure();
+	$("#focus").change(function(){
+		bible_book_disclosure(); 
+	});
 
 
 	// Responsive Disclosure
 	function bible_book_disclosure(){
 		$('#ot-books').hide();
 		$('#nt-books').hide();
-		if($("#book").val() == 'OT') {
+		if($("#focus").val() == "Old Testament") {
 			$("#ot-books").show();
-		}else if($("#book").val() == 'NT'){
+		}else if($("#focus").val() == "New Testament"){
 			$("#nt-books").show();
 		}
 	}
-	bible_book_disclosure();
-	$("#book").change(function(){
-		bible_book_disclosure(); 
-	});
+	
 
 
 	function getData(audience) {
@@ -235,6 +236,7 @@
 			newItem.email = ["Email:", $('#email').val()];
 			newItem.date = ["Date:", $('#date').val()];
 			newItem.topic = ["Topics:", $('#topics').val()];
+			newItem.focus = ["Focus:", $('#focus').val()];
 			newItem.book = ["Book:", $('#book').val()];
 			newItem.audience = ["Audience:", $('input:radio[name=audience]:checked').val()];
 			newItem.length = ["Lesson Length:", $('#length').val()];
@@ -261,6 +263,7 @@
 		$('#email').val(item.email[1]);
 		$('#date').val(item.date[1]);
 		$('#topics').val(item.topic[1]);
+		$('#focus').val(item.focus[1]);
 		$('#book').val(item.book[1]);
 		var radios = document.forms[0].audience;
 		for(var i=0; i<radios.length; i++){
@@ -369,6 +372,7 @@
 		
 		//Set Errors
 		if(hasError == true) {
+			$('#submit-container').after('<span class="error">Please correct the errors above.</span>');
 			event.preventDefault();
 			return false;
 		}else{
