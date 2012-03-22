@@ -1,101 +1,97 @@
-<!doctype html> 
+<!DOCTYPE  html>
 <!--
-/**
+ * Project 4 Deliverable
  * @author Lucy Hutcheson
- * Date: 2012-03-01
- * Created for:  Mobile Interfaces and Usability 1203
- */
+ * Date: 2012-02-23
+ * Created for:  Visual Frameworks 1202
 -->
- 
-<html lang="en">
-<head>
+<html>
+	<head>
+		
+		<meta charset="utf-8" />
+		<meta keywords="bible study, lessons" />
+		<meta name="description" content="Pocket Ministry is an app that collects bible studies for later use." />
+		<meta name="robots" content="noindex,nofollow" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+		<meta name="HandheldFriendly" content="True"/>
+		<meta name="MobileOptimized" content="320"/>
 
-	<meta charset="utf-8">
-	
-	<title>Pocket Ministry</title>
-	
-	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
-	<meta name="HandheldFriendly" content="True">
-	<meta name="MobileOptimized" content="320"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-	<!-- Mobile IE needs ClearType for smoothing fonts -->
-	<meta http-equiv="cleartype" content="on">
-	
-	<!-- StyleSheets under here -->
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.css" />
-	<link rel="stylesheet" href="css/styles.css" />	
-	
-	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
-	<script src="js/libs/modernizr.custom.min.js"></script>
+		<title>Add A New Bible Study Lesson</title>
+		<link rel="stylesheet" href="css/styles.css" />
 
-</head>
-<body>
-	<div data-role="page" id="categories" data-theme="a">
-
-		<div data-role="header"  data-position="fixed" data-theme="g">
-			<a href="additem.html" data-rel="back" data-direction="reverse" data-icon="arrow-l">Back</a>
-				<h3 id="pageTitle">Add New Bible Study Lesson</h3>
-			<a href="index.html" rel="external" data-iconpos="notext" data-icon="home" data-transition="flow">Home</a>
-		</div>
-		<div data-role="content" class="mainContent">
+	</head>
+	<body>
+		<header>
+			<a href="index.html" title="Home"><img src="images/logo.png" id="logo" width="90%" border="0"></a>
+			<nav>
+				<ul id="nav">
+					<li><a href="index.html" title="Home">Home</a></li>
+					<li><a href="#" title="Clear Stored Data" id="clear">Clear Lessons</a></li>
+					<li><a href="#" title="Display Stored Data" id="displayLink" onclick="">Display Lessons</a></li>
+					<li><a href="additem.html" id="addNew" style="display:none;">Add New Lesson</a></li>
+				</ul>
+			</nav>
+			<h3 id="pageTitle">Add New Bible Study Lesson</h3>
 			<span id="required">* fields are required.</span>
+			<ul id="errors"></ul>
+		</header>
+		<section id="content">
 			<form action="#" method="post" id="lessonForm">
-				<input type="submit" id="submit" value="Add New Lesson" />	
 				<fieldset>
 					<legend>Basic Information</legend>
 					<ul>
-						<li><label for="lesson-name">Lesson Name: <span class="required">*</span></label> <input type="text" id="lesson-name" placeholder="Enter name of your lesson."/> </li>
-						<li><label for="author">Author: <span class="required">*</span></label> <input type="text" id="author" value="Lucy Hutcheson"/></li>
-						<li><label for="email">Email: <span class="required">*</span></label> <input type="text" id="email" placeholder="Enter email@domain.com"/></li>
-						<li><label for="date">Date: </label><input type="date" id="date" placeholder="2012-03-10 Format"/></li>
+						<li><label for="lesson-name">Lesson Name: </label> <input type="text" id="lesson-name" /> <span class="red">*</span></li>
+						<li><label for="author">Author: </label> <input type="text" id="author" /> <span class="red">*</span></li>
+						<li><label for="email">Email: </label> <input type="text" id="email" /> <span class="red">*</span></li>
+						<li><label for="date">Date: </label><input type="date" id="date" /></li>
 					</ul>
 				</fieldset>	
 				<fieldset>
 					<legend>Lesson Information</legend>
 					<ul>
-						<li id="select"><label for="topics">Lesson Topic: <span class="required">*</span></label></li>
-						<li><label for="book">Book Focus: </label><input type="text" id="book" value="Genesis"/></li>
-						<li>
-							<fieldset data-role="controlgroup" >
-								<legend>Target Audience: </legend>
-									<input type="radio" name="audience" id="audience-1" value="Adults" checked="checked"  data-theme="a"/><label for="audience-1">Adults</label>
-									<input type="radio" name="audience" id="audience-2" value="Men" data-theme="a" /><label for="audience-2">Men</label>
-									<input type="radio" name="audience" id="audience-3" value="Women" data-theme="a" /><label for="audience-3">Women</label>
-									<input type="radio" name="audience" id="audience-4" value="Youth" data-theme="a" /><label for="audience-4">Youth</label>
-									<input type="radio" name="audience" id="audience-5" value="Children" data-theme="a" /><label for="audience-5">Children</label>
-							</fieldset>
+						<li id="select"><label for="topics">Lesson Topic: </label> <span class="red">*</span></li>
+						<li><label for="book">Book Focus: </label>
+							<select id="book">
+								<option value="" selected="selected">--Choose A Book--</option>
+								<option value="Genesis">Genesis</option>
+								<option value="Exodus">Exodus</option>
+								<option value="Matthew">Matthew</option>
+								<option value="Mark">Mark</option>
+								<option value="Luke">Luke</option>
+								<option value="John">John</option>
+							</select>
 						</li>
-						<li>					<label for="length">Length (Minutes): </label>
-					<input type="range" name="length" id="length" min="0" max="180" step="15" value="30" data-theme="c"/>
-
+						<li><label for="audience">Target Audience: </label>
+							<ul>
+								<li><input type="radio" value="Adults" id="adults" name="audience" /><label for="adults">Adults</label></li>
+								<li><input type="radio" value="Children" id="children" name="audience" /><label for="children">Children</label></li>
+								<li><input type="radio" value="Youth" id="youth" name="audience" /><label for="youth">Youth</label></li>
+								<li><input type="radio" value="Men" id="men" name="audience" /><label for="men">Men</label></li>
+								<li><input type="radio" value="Women" id="women" name="audience" /><label for="women">Women</label></li>
+							</ul>
+						</li>
+						<li><label for="length">Length of Lesson: </label>
+							<p><input type="range" id="length" min="0" max="180" step="15" /></p>
 						</li>
 					</ul>
-	
 				</fieldset>	
 				<fieldset>
 					<legend>Lesson</legend>
-					<textarea id="lesson-text" name="lesson-text" rows="8" cols="30"></textarea>
+					<textarea id="lesson-text" name="lesson-text" rows="8" cols="40"></textarea>
 				</fieldset>
+				<input type="submit" id="submit" value="Add New Lesson" />	
 			</form>
-			<ul id="errors"></ul>
-		</div>
-		<div data-role="footer" data-position="fixed" data-theme="c">
-			<div data-role="navbar">
+		</section>
+		<footer>
 				<ul>
+					<li><a href="https://github.com/iamhutch/mdv-projects/tree/master/MIU"  data-icon="star" rel="external">Repository</a></li>
+					<li><a href="http://iamhutch.github.com/mdv-projects/MIU/app-b/index.html"  data-icon="star" rel="external">GH-Pages</a></li>
 					<li><a href="../app-a/index.html"  data-icon="star" rel="external">App A</a></li>
-					<li><a href="index.html" data-icon="grid" rel="external">Categories</a></li>
+					<li><a href="index.html"  data-icon="home" rel="external">Home</a></li>
 				</ul>
-			</div><!-- /navbar -->
 			<h4>Copyright &copy; Lucy Hutcheson</h4>
-		</div>
-	</div>
-	
-
-	<!-- JavaScript under here -->
-	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>
-	<script type="text/javascript" src="js/json.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
-</body>
+		</footer>
+		<script type="text/javascript" src="js/json.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
 </html>
