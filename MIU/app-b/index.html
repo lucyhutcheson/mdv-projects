@@ -31,12 +31,11 @@
 
 </head>
 <body>
-	<div data-role="page" id="categories" data-theme="b">
-		<div data-role="header"  data-position="fixed" data-theme="g">
-			<h1 id="headerTitle">Home</h1>
+	<div data-role="page" id="categories" data-theme="a">
+		<div id="header"   >
+			<img src="images/logo.png" id="logo" width="75%" border="0">
 		</div>
-		<div data-role="content">
-			<a href="index.html" title="Home"><img src="images/logo.png" id="logo" width="90%" border="0"></a>
+		<div data-role="content" id="content">
 			<a href="" id="feature"><img src="images/feature.png" width="100%"></a>
 			<h2>Categories</h2>
 			<div class="ui-grid-b">
@@ -74,12 +73,17 @@
 				</div>
 				<div class="ui-block-c"></div>
 			</div><!-- /grid-b -->
+			<div >
+				<a href="additem.html"  id="addNew" data-icon="plus" data-role="button" data-theme="a"  rel="external">Add New Lesson</a>
+			</div>
 		</div>
-		<div data-role="footer" data-position="fixed" data-theme="c">
+		<div data-role="footer" data-position="fixed" data-theme="a">
 			<div data-role="navbar">
 				<ul>
+					<li><a href="https://github.com/iamhutch/mdv-projects/tree/master/MIU"  data-icon="star" rel="external">Repository</a></li>
+					<li><a href="http://iamhutch.github.com/mdv-projects/MIU/app-b/index.html"  data-icon="star" rel="external">GH-Pages</a></li>
 					<li><a href="../app-a/index.html"  data-icon="star" rel="external">App A</a></li>
-					<li><a href="additem.html"  id="addNew" data-icon="plus"  rel="external">Add New</a></li>
+					<li><a href="index.html"  data-icon="home" rel="external">Home</a></li>
 				</ul>
 			</div><!-- /navbar -->
 			<h4>Copyright &copy; Lucy Hutcheson</h4>
