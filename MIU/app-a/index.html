@@ -31,14 +31,11 @@
 
 </head>
 <body>
-	<div data-role="page" id="categories" data-theme="b">
-		<div data-role="header"  data-position="fixed" data-theme="f">
-			<h1 id="headerTitle">Home</h1>
+	<div data-role="page" id="categories" data-theme="f">
+		<div id="header">
+			<img src="images/logo.png" id="logo" width="75%" border="0">
 		</div>
-		<div data-role="content">
-			<div id="logo">
-				<a href="index.html" title="Home"><img src="images/logo.png" id="logo" width="90%" border="0"></a>
-			</div>
+		<div data-role="content" id="content">
 			<div id="feature">
 				<a href="#featureLesson" data-transition="slide"><img src="images/feature.png" width="100%"></a>
 			</div>
@@ -87,6 +84,10 @@
 					</a>
 				</li>
 			</ul>
+			<div >
+				<a href="additem.html"  id="addNew" data-icon="plus" data-role="button" data-theme="f"  rel="external">Add New Lesson</a>
+			</div>
+
 		</div>
 		<div data-role="footer" data-position="fixed" data-theme="c">
 			<div data-role="navbar">
@@ -95,35 +96,38 @@
 					<li><a href="http://iamhutch.github.com/mdv-projects/MIU/app-a/index.html"  data-icon="star" rel="external">GH-Pages</a></li>
 					<li><a href="../app-b/index.html"  data-icon="star" rel="external">App B</a></li>
 					<li><a href="index.html"  data-icon="home" rel="external">Home</a></li>
-					<li><a href="additem.html"  id="addNew" data-icon="plus"  rel="external">Add New</a></li>
 				</ul>
 			</div><!-- /navbar -->
 			<h4>Copyright &copy; Lucy Hutcheson</h4>
 		</div>
 	</div>
 	
-	<div data-role="page" id="featureLesson" data-add-back-btn="true" data-theme="b" >
+	<div data-role="page" id="featureLesson" data-add-back-btn="true" data-theme="f" >
 		<div data-role="header"  data-position="fixed" data-theme="f">
 			<a href="view.html" data-rel="back" data-direction="reverse" data-icon="arrow-l">Back</a>
 			<h1 id="headerTitle">By Grace, Through Faith</h1>
 			<a href="index.html" rel="external" data-iconpos="notext" data-icon="home">Home</a>
 		</div>
 		<div id="content" data-role="content">
-			<p><strong>Lesson Name: </strong>By Grace, Through Faith</p>
-			<p><strong>Author: </strong> Bible Study Planet</p>
-			<p><strong>Email: </strong> contact@biblestudyplanet.com</p>
-			<p><strong>Date: </strong> 2012-02-24</p>
-			<p><strong>Topics: </strong> Family</p>
-			<p><strong>Book: </strong> Exodus</p>
-			<p><strong>Audience: </strong> Adults</p>
-			<p><strong>Length: </strong> 90</p>
-			<p><strong>Lesson Text: </strong> "It is by grace you have been saved, through faith — and this not from yourselves, it is the gift of God — not by works, so that no one can boast." – Ephesians 2:8-9 God is gracious… Because God is gracious, sinful people are forgiven, converted, purified, and saved. It’s not because of anything in them, or anything that ever can be in them, that they are saved; it’s because of the boundless love, goodness, pity, compassion, mercy, and grace of God. It’s because “his love endures forever” (1 Chronicles 16:41) that we are not destroyed. It’s because “his compassions never fail” (Lamentations 3:22) that sinners are brought to Him and forgiven. Remember these things or you may fall into error by focusing so much on your faith that you forget that grace is the source of faith itself.</p>
+			<div class="content-container ui-btn  ui-li ui-corner-top ui-corner-bottom ui-btn-up-c">
+				<p><strong>Lesson Name: </strong>By Grace, Through Faith</p>
+				<p><strong>Author: </strong> Bible Study Planet</p>
+				<p><strong>Email: </strong> contact@biblestudyplanet.com</p>
+				<p><strong>Date: </strong> 2012-02-24</p>
+				<p><strong>Topics: </strong> Family</p>
+				<p><strong>Book: </strong> Exodus</p>
+				<p><strong>Audience: </strong> Adults</p>
+				<p><strong>Length: </strong> 90</p>
+				<p><strong>Lesson Text: </strong> "It is by grace you have been saved, through faith — and this not from yourselves, it is the gift of God — not by works, so that no one can boast." – Ephesians 2:8-9 God is gracious… Because God is gracious, sinful people are forgiven, converted, purified, and saved. It’s not because of anything in them, or anything that ever can be in them, that they are saved; it’s because of the boundless love, goodness, pity, compassion, mercy, and grace of God. It’s because “his love endures forever” (1 Chronicles 16:41) that we are not destroyed. It’s because “his compassions never fail” (Lamentations 3:22) that sinners are brought to Him and forgiven. Remember these things or you may fall into error by focusing so much on your faith that you forget that grace is the source of faith itself.</p>
+ 			</div>
   		</div>
 		<div data-role="footer" data-position="fixed" data-theme="c">
 			<div data-role="navbar" id="navbar">
 				<ul>
-					<li><a href="index.html" data-icon="grid" rel="external">Categories</a></li>
-					<li><a href="additem.html"  id="addNew" data-icon="plus" rel="external">Add New</a></li>
+					<li><a href="https://github.com/iamhutch/mdv-projects/tree/master/MIU"  data-icon="star" rel="external">Repository</a></li>
+					<li><a href="http://iamhutch.github.com/mdv-projects/MIU/app-a/index.html"  data-icon="star" rel="external">GH-Pages</a></li>
+					<li><a href="../app-b/index.html"  data-icon="star" rel="external">App B</a></li>
+					<li><a href="index.html"  data-icon="home" rel="external">Home</a></li>
 				</ul>
 			</div><!-- /navbar -->
 			<h4>Copyright &copy; Lucy Hutcheson</h4>

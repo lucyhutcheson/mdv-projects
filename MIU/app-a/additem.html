@@ -32,7 +32,7 @@
 
 </head>
 <body>
-	<div data-role="page" id="categories" data-theme="b">
+	<div data-role="page" id="categories" data-theme="f">
 
 		<div data-role="header"  data-position="fixed" data-theme="f">
 			<a href="additem.html" data-rel="back" data-direction="reverse" data-icon="arrow-l">Back</a>
@@ -57,7 +57,7 @@
 				</div>
 				<div data-role="fieldcontain">
 					<label for="date">Date:</label>
-					<input name="date" id="date" type="date" data-role="datebox" data-options='{"mode": "calbox"}'>
+					<input name="date" id="date" type="date" data-theme="f" data-role="datebox" data-options='{"mode": "calbox"}'>
 				</div>
 				<h3>Lesson Information</h3>
 				<div data-role="fieldcontain" id="select">
@@ -109,8 +109,9 @@
 		<div data-role="footer" data-position="fixed" data-theme="c">
 			<div data-role="navbar">
 				<ul>
+					<li><a href="#" data-icon="delete" rel="external" onclick="clearLocal();">Clear All</a></li>
+					<li><a href="lessons.html?cat=Adults" data-icon="grid" rel="external">Display</a></li>
 					<li><a href="../app-b/index.html"  data-icon="star" rel="external">App B</a></li>
-					<li><a href="index.html" data-icon="grid" rel="external">Categories</a></li>
 				</ul>
 			</div><!-- /navbar -->
 			<h4>Copyright &copy; Lucy Hutcheson</h4>
