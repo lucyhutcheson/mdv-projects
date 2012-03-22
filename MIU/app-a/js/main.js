@@ -14,6 +14,23 @@
 	var op = getUrlVars()["op"];
 
 
+
+	// Responsive Disclosure
+	function bible_book_disclosure(){
+		$('#ot-books').hide();
+		$('#nt-books').hide();
+		if($("#book").val() == 'OT') {
+			$("#ot-books").show();
+		}else if($("#book").val() == 'NT'){
+			$("#nt-books").show();
+		}
+	}
+	bible_book_disclosure();
+	$("#book").change(function(){
+		bible_book_disclosure(); 
+	});
+
+
 	function getData(audience) {
 		// Update page header title
 		var category = getUrlVars()["cat"];

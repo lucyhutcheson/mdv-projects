@@ -66,12 +66,25 @@
 				<div data-role="fieldcontain">
 					<label for="book">Book Focus: </label>
 					<select name="book" id="book" data-theme="c" >
+						<option data-placeholder="true">--Choose A Bible Section--</option>
+							<option value="OT">Old Testament</option>
+							<option value="NT">New Testament</option>
+					</select>
+				</div>
+				<div data-role="fieldcontain" id="ot-books">
+					<label for="book">Old Testament Book: </label>
+					<select name="book" id="book" data-theme="c" >
 						<option data-placeholder="true">--Choose A Book--</option>
-						<optgroup label="Old Testament">
 							<option value="Genesis">Genesis</option>
 							<option value="Exodus">Exodus</option>
-						</optgroup>
-						<optgroup label="New Testament">
+							<option value="Deuteronomy">Deuteronomy</option>
+							<option value="Numbers">Numbers</option>
+					</select>
+				</div>
+				<div data-role="fieldcontain" id="nt-books">
+					<label for="book">New Testament Book: </label>
+					<select name="book" id="book" data-theme="c" >
+						<option data-placeholder="true">--Choose A Book--</option>
 							<option value="Matthew">Matthew</option>
 							<option value="Mark">Mark</option>
 							<option value="Luke">Luke</option>
@@ -80,7 +93,6 @@
 							<option value="2 Corinthians">2 Corinthians</option>
 							<option value="1 Thessalonians">1 Thessalonians</option>
 							<option value="2 Thessalonians">2 Thessalonians</option>
-						</optgroup>
 					</select>
 				</div>
 				<div data-role="fieldcontain" id="radio">
