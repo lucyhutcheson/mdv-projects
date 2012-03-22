@@ -110,6 +110,7 @@
 		// convert the string back to an object
 		var obj = JSON.parse(value);
 		var makeSubDiv = document.createElement('div'); //create sub div
+		makeSubDiv.setAttribute("class", "content-container ui-btn  ui-li ui-corner-top ui-corner-bottom ui-btn-up-c");
 	    $('#content').append(makeSubDiv);
 		for(var n in obj){
 			var makeSubP = document.createElement('p');
@@ -142,14 +143,13 @@
 	var mylist = $('#lesson-list');
 	var listitems = mylist.children('li').get();
 	listitems.sort(function(a, b) {
-	   var compA = $(a).text().toUpperCase();
-	   var compB = $(b).text().toUpperCase();
-	   // Currently set to descending date based on the > < symbols
-	   // Set to < > to sort ascending
-	   return (compA > compB) ? -1 : (compA < compB) ? 1 : 0;
+	var compA = $(a).text().toUpperCase();
+	var compB = $(b).text().toUpperCase();
+	// Currently set to descending date based on the > < symbols
+	// Set to < > to sort ascending
+	return (compA > compB) ? -1 : (compA < compB) ? 1 : 0;
 	})
 	$.each(listitems, function(idx, itm) { mylist.append(itm); });
-
    
     //Create select field element and populate with options.
 	function makeTopics(){
@@ -175,7 +175,7 @@
 			var mm = today.getMonth()+1;//January is 0!
 			var yyyy = today.getFullYear();
 			if(dd<10){dd='0'+dd}
-			//if(mm<10){mm='0'+mm}
+			if(mm<10){mm='0'+mm}
 			$('#date').val(mm+'/'+dd+'/'+yyyy);
 		}
 	}
