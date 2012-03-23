@@ -43,6 +43,10 @@ fieldset legend {
 .ui-input-datebox {
 	background: #f3f3f3 !important;
 }
+.hidden {
+	display: none !important;
+	visibility: hidden;
+}
 
 /*  
  * Data Theme F 

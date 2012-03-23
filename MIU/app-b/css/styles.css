@@ -46,6 +46,12 @@ section {
 	border-bottom: 1px solid #ddd;
 	border-top: 6px solid #3ebcbf;
 }
+.hidden {
+	display: none !important;
+	visibility: hidden;
+}
+
+
 footer {
 	position: absolute;
 	bottom: 0;

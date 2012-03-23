@@ -32,8 +32,10 @@
 </head>
 <body>
 	<div data-role="page" id="categories" data-theme="a">
-		<div id="header"   >
-			<img src="images/logo.png" id="logo" width="75%" border="0">
+		<div data-role="header" data-theme="a">
+			<img src="images/logo.png" id="logo" width="100%" border="0">
+			<!-- Header not rendering properly without h1 tags -->
+			<h1 class="hidden"></h1>
 		</div>
 		<div data-role="content" id="content">
 			<a href="" id="feature"><img src="images/feature.png" width="100%"></a>
