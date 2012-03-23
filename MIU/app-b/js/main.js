@@ -422,3 +422,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			}
 		}
 	});
+
+	$(function() {
+		$( "#tabs" ).tabs();
+	});

@@ -24,6 +24,7 @@
 	
 	<!-- StyleSheets under here -->
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.css" />
+	<link rel="stylesheet" href="http://jqueryui.com/themes/base/jquery.ui.all.css" />
 	<link rel="stylesheet" href="css/styles.css" />	
 	
 	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
@@ -39,42 +40,54 @@
 		</div>
 		<div data-role="content" id="content">
 			<a href="" id="feature"><img src="images/feature.png" width="100%"></a>
-			<h2>Categories</h2>
-			<div class="ui-grid-b">
-				<div class="ui-block-a">
-					<a href="lessons.html?cat=Adults" rel="external">
-						<img src="images/Adults.png"  />
-						<h3>Adults</h3>
-					</a>
+			<h2>View Lessons</h2>
+
+			<div id="tabs">
+				<ul>
+					<li><a href="#tabs-1">Adults</a></li>
+					<li><a href="#tabs-2">Kids</a></li>
+				</ul>
+				<div id="tabs-1">
+						<div class="ui-grid-b">
+							<div class="ui-block-a">
+								<a href="lessons.html?cat=Adults" rel="external">
+									<img src="images/Adults.png"  />
+									<h3>Adults</h3>
+								</a>
+							</div>
+							<div class="ui-block-b">
+								<a href="lessons.html?cat=Men" rel="external">
+									<img src="images/Men.png" />
+									<h3>Men</h3>
+								</a>
+							</div>
+							<div class="ui-block-c">
+								<a href="lessons.html?cat=Women" rel="external">
+									<img src="images/Women.png"/>
+									<h3>Women</h3>
+								</a>
+							</div>
+						</div><!-- /grid-b -->
 				</div>
-				<div class="ui-block-b">
-					<a href="lessons.html?cat=Men" rel="external">
-						<img src="images/Men.png" />
-						<h3>Men</h3>
-					</a>
+				<div id="tabs-2">
+						<div class="ui-grid-b">
+							<div class="ui-block-a">
+								<a href="lessons.html?cat=Youth" rel="external">
+									<img src="images/Youth.png" />
+									<h3>Youth</h3>
+								</a>
+							</div>
+							<div class="ui-block-b">
+								<a href="lessons.html?cat=Children" rel="external">
+									<img src="images/Children.png" />
+									<h3>Children</h3>
+								</a>
+							</div>
+							<div class="ui-block-c"></div>
+						</div><!-- /grid-b -->
 				</div>
-				<div class="ui-block-c">
-					<a href="lessons.html?cat=Women" rel="external">
-						<img src="images/Women.png"/>
-						<h3>Women</h3>
-					</a>
-				</div>
-			</div><!-- /grid-b -->
-			<div class="ui-grid-b">
-				<div class="ui-block-a">
-					<a href="lessons.html?cat=Youth" rel="external">
-						<img src="images/Youth.png" />
-						<h3>Youth</h3>
-					</a>
-				</div>
-				<div class="ui-block-b">
-					<a href="lessons.html?cat=Children" rel="external">
-						<img src="images/Children.png" />
-						<h3>Children</h3>
-					</a>
-				</div>
-				<div class="ui-block-c"></div>
-			</div><!-- /grid-b -->
+			</div>
+
 			<div >
 				<a href="additem.html"  id="addNew" data-icon="plus" data-role="button" data-theme="a"  rel="external">Add New Lesson</a>
 			</div>
@@ -96,6 +109,9 @@
 	<!-- JavaScript under here -->
 	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>
+	<script src="http://jqueryui.com/ui/jquery.ui.core.js"></script>
+	<script src="http://jqueryui.com/ui/jquery.ui.widget.js"></script>
+	<script src="http://jqueryui.com/ui/jquery.ui.tabs.js"></script>
 	<script type="text/javascript" src="js/json.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 </body>
