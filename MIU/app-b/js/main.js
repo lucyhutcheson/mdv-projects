@@ -89,7 +89,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		toggleControls("on");
 		errMsg.innerHTML = ""; //Reset error messages
 		if(localStorage.length === 0){
-			alert("There is no data inlocal storage so default data was added.")
+			alert("There is no data in local storage so default data was added.")
 			autoFillData();
 		}
 		
