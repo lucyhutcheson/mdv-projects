@@ -1,0 +1,144 @@
+<!doctype html> 
+<!--
+/**
+ * @author Lucy Hutcheson
+ * Date: 2012-03-01
+ * Created for:  Mobile Interfaces and Usability 1203
+ */
+-->
+ 
+<html lang="en">
+<head>
+
+	<meta charset="utf-8">
+	
+	<title>Pocket Ministry</title>
+	
+	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- Mobile IE needs ClearType for smoothing fonts -->
+	<meta http-equiv="cleartype" content="on">
+	
+	<!-- StyleSheets under here -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.css" />
+	<link rel="stylesheet" href="css/styles.css" />	
+	
+	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+	<script src="js/libs/modernizr.custom.min.js"></script>
+
+</head>
+<body>
+	<div data-role="page" id="categories" data-theme="f">
+		<div id="header" data-role="header" data-theme="d">
+			<img src="images/logo.png" id="logo" width="75%" border="0"><h1 class="hidden"></h1>
+		</div>
+		<div data-role="content" id="content">
+			<div id="feature">
+				<a href="#featureLesson" data-transition="slide"><img src="images/feature.png" width="100%"></a>
+			</div>
+			
+			<ul data-role="listview" data-inset="true" data-filter="true" data-theme="c" data-dividertheme="f"> 
+				<li data-role="list-divider">Adults</li>
+				<li>
+					<a href="lessons.html?cat=Adults" rel="external">
+						<img src="images/Adults.png"  />
+						<h3>Adults</h3>
+						<p>Studies for Adult audiences.</p>
+						<span class="ui-li-count">20</span>
+					</a>
+				</li>
+				<li>
+					<a href="lessons.html?cat=Men" rel="external">
+						<img src="images/Men.png" />
+						<h3>Men</h3>
+						<p>Studies for Men audiences.</p>
+						<span class="ui-li-count">3</span>
+					</a>
+				</li>
+				<li>
+					<a href="lessons.html?cat=Women" rel="external">
+						<img src="images/Women.png"/>
+						<h3>Women</h3>
+						<p>Studies for Women audiences.</p>
+						<span class="ui-li-count">4</span>
+					</a>
+				</li>
+				<li data-role="list-divider">Children</li>
+				<li>
+					<a href="lessons.html?cat=Youth" rel="external">
+						<img src="images/Youth.png" />
+						<h3>Youth</h3>
+						<p>Studies for Youth audiences.</p>
+						<span class="ui-li-count">6</span>
+					</a>
+				</li>
+				<li>
+					<a href="lessons.html?cat=Children" rel="external">
+						<img src="images/Children.png" />
+						<h3>Children</h3>
+						<p>Studies for Children audiences.</p>
+						<span class="ui-li-count">4</span>
+					</a>
+				</li>
+			</ul>
+			<div >
+				<a href="additem.html"  id="addNew" data-icon="plus" data-role="button" data-theme="f"  rel="external">Add New Lesson</a>
+			</div>
+
+		</div>
+		<div data-role="footer" data-position="fixed" data-theme="c">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="https://github.com/iamhutch/mdv-projects/tree/master/MIU"  data-icon="star" rel="external">Repository</a></li>
+					<li><a href="http://iamhutch.github.com/mdv-projects/MIU/app-a/index.html"  data-icon="star" rel="external">GH-Pages</a></li>
+					<li><a href="../app-b/index.html"  data-icon="star" rel="external">App B</a></li>
+					<li><a href="index.html"  data-icon="home" rel="external">Home</a></li>
+				</ul>
+			</div><!-- /navbar -->
+			<h4>Copyright &copy; Lucy Hutcheson</h4>
+		</div>
+	</div>
+	
+	<div data-role="page" id="featureLesson" data-add-back-btn="true" data-theme="f" >
+		<div data-role="header"  data-position="fixed" data-theme="f">
+			<a href="view.html" data-rel="back" data-direction="reverse" data-icon="arrow-l">Back</a>
+			<h1 id="headerTitle">By Grace, Through Faith</h1>
+			<a href="index.html" rel="external" data-iconpos="notext" data-icon="home">Home</a>
+		</div>
+		<div id="content" data-role="content">
+			<div class="content-container ui-btn  ui-li ui-corner-top ui-corner-bottom ui-btn-up-c">
+				<p><strong>Lesson Name: </strong>By Grace, Through Faith</p>
+				<p><strong>Author: </strong> Bible Study Planet</p>
+				<p><strong>Email: </strong> contact@biblestudyplanet.com</p>
+				<p><strong>Date: </strong> 2012-02-24</p>
+				<p><strong>Topics: </strong> Family</p>
+				<p><strong>Book: </strong> Exodus</p>
+				<p><strong>Audience: </strong> Adults</p>
+				<p><strong>Length: </strong> 90</p>
+				<p><strong>Lesson Text: </strong> "It is by grace you have been saved, through faith — and this not from yourselves, it is the gift of God — not by works, so that no one can boast." – Ephesians 2:8-9 God is gracious… Because God is gracious, sinful people are forgiven, converted, purified, and saved. It’s not because of anything in them, or anything that ever can be in them, that they are saved; it’s because of the boundless love, goodness, pity, compassion, mercy, and grace of God. It’s because “his love endures forever” (1 Chronicles 16:41) that we are not destroyed. It’s because “his compassions never fail” (Lamentations 3:22) that sinners are brought to Him and forgiven. Remember these things or you may fall into error by focusing so much on your faith that you forget that grace is the source of faith itself.</p>
+ 			</div>
+  		</div>
+		<div data-role="footer" data-position="fixed" data-theme="c">
+			<div data-role="navbar" id="navbar">
+				<ul>
+					<li><a href="https://github.com/iamhutch/mdv-projects/tree/master/MIU"  data-icon="star" rel="external">Repository</a></li>
+					<li><a href="http://iamhutch.github.com/mdv-projects/MIU/app-a/index.html"  data-icon="star" rel="external">GH-Pages</a></li>
+					<li><a href="../app-b/index.html"  data-icon="star" rel="external">App B</a></li>
+					<li><a href="index.html"  data-icon="home" rel="external">Home</a></li>
+				</ul>
+			</div><!-- /navbar -->
+			<h4>Copyright &copy; Lucy Hutcheson</h4>
+		</div>
+	</div>
+	
+	
+	<!-- JavaScript under here -->
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>
+	<script type="text/javascript" src="js/json.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
