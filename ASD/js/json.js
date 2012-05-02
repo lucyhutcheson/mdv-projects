@@ -1,7 +1,6 @@
 /**
  * @author Lucy Hutcheson
- * Date: 2012-03-01
- * Created for:  Mobile Interfaces and Usability 1203
+ * Created for:  Advanced Scalable Data Infrastructures 1205
  */
 
 
