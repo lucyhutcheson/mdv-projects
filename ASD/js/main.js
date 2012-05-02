@@ -1,8 +1,10 @@
 /**
  * @author Lucy Hutcheson
- * Date: 2012-03-01
- * Created for:  Mobile Interfaces and Usability 1203
+ * Created for:  Advanced Scalable Data Infrastructures 1205
  */
+
+$(document).ready(function(){
+	
 
 	//Variable defaults
 	var bibleTopics = ["--Choose A Topic--", "Christian Life", "Marriage", "Family"],
@@ -52,45 +54,39 @@
 		// Create list items from sorted storage array
 		for (var i=0, len=localStorage.length; i<len; i++){
 		
-			var makeli = document.createElement('li');
-			makeli.setAttribute("data-theme", "c");
-		 	 $('#lesson-list').append(makeli);
-			
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
 			// convert the string back to an object
 			var obj = JSON.parse(value);
+
+
+		 	 // $ Create list item
+		 	 $('<li></li>').addClass('lesson '+key).attr('data-theme','c').appendTo('#lesson-list');
 	
-			var makeSubAnchor = document.createElement('a'); //create sub div
-			makeSubAnchor.setAttribute("href", "view.html?lessonId="+key);
-			makeSubAnchor.setAttribute("data-url", "view.html?lessonId="+key);
-			makeSubAnchor.setAttribute("rel", "external");
-			makeli.appendChild(makeSubAnchor); // add sub ul to li
+			// $ Create anchor
+			$('<a></a>').addClass('anchor').attr('rel','external').attr('href', 'view.html?lessonId='+key).attr('data-url', 'view.html?lessonId='+key).appendTo('#lesson-list li.'+key);
 			
 			// Move date to the bottom if you want to sort based on Header Text
 			// DATE
-			var makeDate = document.createElement('p');
-			makeDate.setAttribute("class", "ui-li-aside");
-			var dateText = obj.date[1];
-			makeSubAnchor.appendChild(makeDate);
-			var dateSubText = "<strong>"+dateText+" </strong> ";
-			makeDate.innerHTML = dateSubText;
+			var dateText = obj.date[1];			
+			$('<p></p>').addClass('ui-li-aside').appendTo('li.'+key+' a.anchor');
+			$('p.ui-li-aside').html(dateText);
+			 
 			// HEADER TEXT
-			var makeHeader = document.createElement('h3');
 			var headerText = obj.name[1];
-			makeSubAnchor.appendChild(makeHeader);
-			makeHeader.innerHTML = headerText;
+			$('<h3></h3>').appendTo('a.anchor');
+			$('h3').html(headerText);
+			
 			// SUB HEAD
-			var makeStrongP = document.createElement('p');
-			makeStrongP.setAttribute("style", "font-weight: bold;");
 			var strongPText = obj.topic[0] + " " + obj.topic[1];
-			makeSubAnchor.appendChild(makeStrongP);
-			makeStrongP.innerHTML = strongPText;
+			$('<p></p>').addClass('subhead').attr('style', 'font-weight: bold;').appendTo('a.anchor');
+			$('p').html(strongPText);
+			
 			// LESSON DESCRIPTION
-			var makeDesc = document.createElement('p');
 			var descText = obj.lesson[1];
-			makeSubAnchor.appendChild(makeDesc);
-			makeDesc.innerHTML = descText;
+			$('<p></p>').addClass('description').appendTo('a.anchor:last-child');
+			$('p.description:last-child').html(descText);
+
 		}
 
 	}
@@ -396,3 +392,4 @@
 		});
 	}
 
+});
