@@ -59,35 +59,35 @@ $(document).ready(function(){
 			// convert the string back to an object
 			var obj = JSON.parse(value);
 
-
 		 	 // $ Create list item
 		 	 $('<li></li>').addClass('lesson '+key).attr('data-theme','c').appendTo('#lesson-list');
-	
 			// $ Create anchor
-			$('<a></a>').addClass('anchor').attr('rel','external').attr('href', 'view.html?lessonId='+key).attr('data-url', 'view.html?lessonId='+key).appendTo('#lesson-list li.'+key);
+			$('<a></a>').addClass('anchor '+key).attr('rel','external').attr('href', 'view.html?lessonId='+key).attr('data-url', 'view.html?lessonId='+key).appendTo('#lesson-list li.'+key);
 			
 			// Move date to the bottom if you want to sort based on Header Text
-			// DATE
-			var dateText = obj.date[1];			
-			$('<p></p>').addClass('ui-li-aside').appendTo('li.'+key+' a.anchor');
-			$('p.ui-li-aside').html(dateText);
 			 
 			// HEADER TEXT
 			var headerText = obj.name[1];
-			$('<h3></h3>').appendTo('a.anchor');
-			$('h3').html(headerText);
+			$('<h3></h3>').addClass(key).appendTo('a.'+key);
+			$('h3.'+key).html(headerText);
 			
 			// SUB HEAD
 			var strongPText = obj.topic[0] + " " + obj.topic[1];
-			$('<p></p>').addClass('subhead').attr('style', 'font-weight: bold;').appendTo('a.anchor');
-			$('p').html(strongPText);
+			$('<p></p>').addClass('subhead').attr('style', 'font-weight: bold;').appendTo('a.'+key);
+			$('p.subhead').html(strongPText);
 			
 			// LESSON DESCRIPTION
 			var descText = obj.lesson[1];
-			$('<p></p>').addClass('description').appendTo('a.anchor:last-child');
-			$('p.description:last-child').html(descText);
+			$('<p></p>').addClass('description '+key).appendTo('a.'+key);
+			$('p.description.'+key).html(descText);
+
+			// DATE
+			var dateText = obj.date[1];			
+			$('<p></p>').addClass('ui-li-aside '+key).appendTo('li.'+key+' a.anchor');
+			$('p.ui-li-aside.'+key).html(dateText);
 
 		}
+		$('ul').listview('refresh');
 
 	}
 
@@ -123,25 +123,19 @@ $(document).ready(function(){
 		var value = localStorage.getItem(lessonKey);
 		// convert the string back to an object
 		var obj = JSON.parse(value);
-		var makeSubDiv = document.createElement('div'); //create sub div
-		makeSubDiv.setAttribute("class", "content-container ui-btn  ui-li ui-corner-top ui-corner-bottom ui-btn-up-c");
-	    $('#content').append(makeSubDiv);
+		
+		$('<div></div>').addClass('content-container ui-btn  ui-li ui-corner-top ui-corner-bottom ui-btn-up-c '+lessonKey).appendTo('#content');
+		
 		for(var n in obj){
-			var makeSubP = document.createElement('p');
-			var audienceClass = obj.audience[1];
-			makeSubP.setAttribute("class", "item-details " );
-			makeSubDiv.appendChild(makeSubP);
+			$('<p></p>').addClass('item-details '+lessonKey+' '+obj[n][0]).appendTo('div.'+lessonKey);
 			var optSubText = "<strong>"+obj[n][0]+" </strong> "+obj[n][1];
-			makeSubP.innerHTML = optSubText;
+			$('p:last').html(optSubText);
 		}
-		var makeHeader = document.createElement('h3');
-		//var headerText = obj.name[1];
-		makeSubDiv.appendChild(makeHeader);
-		//makeHeader.innerHTML = headerText;
-		$('h1#headerTitle').replaceWith('<h1>'+ obj.name[1] + '</h1>');
+
+		$('h1#headerTitle').replaceWith('<h1 class="ui-title" tabindex="0" role="heading" aria-level="1">'+ obj.name[1] + '</h1>');
 		
 		//Create Edit button
-		$("#navbar ul").prepend('<li><a href="additem.html?lessonId='+id+'&op=edit" title="Edit Lesson" data-icon="gear" rel="external">Edit</a></li>');
+		$("#navbar ul").append('<li class="ui-block-c"><a id="edit" href="additem.html?lessonId='+id+'&op=edit" title="Edit Lesson" class="ui-btn ui-btn-up-c ui-btn-icon-top" rel="external" data-icon="gear" data-corners="false" data-shadow="false" data-iconshadow="true" data-inline="false" data-wrapperels="span" data-iconpos="top"><span class="ui-btn-inner"><span class="ui-btn-text">Edit</span><span class="ui-icon ui-icon-edit ui-icon-shadow"></span></span></a></li>');
 	}
 
 	//Add default data if there is none in local storage
@@ -165,22 +159,20 @@ $(document).ready(function(){
 	})
 	$.each(listitems, function(idx, itm) { mylist.append(itm); });
    
+   
+   
     //Create select field element and populate with options.
 	function makeTopics(){
-		var formTag = document.getElementsByTagName("form"), // formTag is an array of all form tags.
-			makeSelect = document.createElement('select');
-		makeSelect.setAttribute("id", "topics");
-		makeSelect.setAttribute("data-theme", "c");
+
+		$('<select></select>').attr('id', 'topics').attr('data-theme', 'c').appendTo('#select');
 		for (var i=0, j=bibleTopics.length; i<j; i++){
-			var makeOption = document.createElement('option');
 			var optText = bibleTopics[i];
-			makeOption.setAttribute("value", optText);
-			makeOption.innerHTML = optText;
-			makeSelect.appendChild(makeOption);
+			$('<option></option>').attr('value', optText).attr('data-theme', 'c').appendTo('select#topics');
+			$('#topics option:last-child').html(optText);
 		}
-		$('#select').append(makeSelect);
+		$('#select select#topics').selectmenu('refresh');
 	}
-	
+
 	//  Set default date
 	function setDate(){
 		if (!($('#date').val()) ) {
@@ -385,6 +377,15 @@ $(document).ready(function(){
 		});
 		return vars;
 	}
+	
+	// Operator Functions
+	$("#delete").click(function() {
+	  deleteLesson();
+	});
+
+	$("#clear").click(function() {
+	  alert('clearlocal called.');
+	});
 
 	if(op != 'edit') {
 		$("#submit").click(function() {
