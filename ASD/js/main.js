@@ -5,13 +5,28 @@
 
 $(document).ready(function() {
 
-
 	//Variable defaults
 	var bibleTopics = ["--Choose A Topic--", "Christian Life", "Marriage", "Family"],
 		audienceValue;
 	var category = getUrlVars()["cat"];
 	var lessonId = getUrlVars()["lessonId"];
 	var op = getUrlVars()["op"];
+
+
+	if(op != 'edit') {
+		$("#submit").click(function() {
+		  validateForm();
+		});
+	}
+
+	// Operator Functions
+	$("#delete").click(function() {
+	  deleteLesson();
+	});
+
+	$('#clear').click(function() {
+	  clearLocal();
+	});
 
 
 	// Get value from URL
@@ -80,7 +95,7 @@ $(document).ready(function() {
 	function getData(audience) {
 		// Update page header title
 		var category = getUrlVars()["cat"];
-		$('h1#headerTitle').replaceWith('<h2>' + category + '</h2>');
+		$('h1#headerTitle').html(category);
 
 		$('#errors').empty(); //Reset error messages
 
@@ -180,7 +195,7 @@ $(document).ready(function() {
 			$('<option></option>').attr('value', optText).attr('data-theme', 'c').appendTo('select#topics');
 			$('#topics option:last-child').html(optText);
 		}
-		$('#select select#topics').selectmenu('refresh');
+ 	$("select#topics").selectmenu('refresh',true);
 	}
 
 
@@ -244,22 +259,25 @@ $(document).ready(function() {
 		$('#author').val(item.author[1]);
 		$('#email').val(item.email[1]);
 		$('#date').val(item.date[1]);
-		$('#topics').val(item.topic[1]);
+		console.log(item.topic[1]);
+		$("select#topics").val(item.topic[1]);
+
 		$('#focus').val(item.focus[1]);
-		$('#book').val(item.book[1]);
 		
+		$('#book').val(item.book[1]);
+		$('radio').removeAttr('checked');
 		var radios = document.forms[0].audience;
 		for(var i=0; i<radios.length; i++){
 			if(radios[i].value == "Adults" && item.audience[1] == "Adults") {
-				radios[i].setAttribute("checked", "checked");
+				$(radios[i]).attr("checked", "checked");
 			}else if(radios[i].value == "Children" && item.audience[1] == "Children") {
-				radios[i].setAttribute("checked", "checked");
+				$(radios[i]).attr("checked", "checked");
 			}else if(radios[i].value == "Youth" && item.audience[1] == "Youth") {
-				radios[i].setAttribute("checked", "checked");
+				$(radios[i]).attr("checked", "checked");
 			}else if(radios[i].value == "Men" && item.audience[1] == "Men") {
-				radios[i].setAttribute("checked", "checked");
+				$(radios[i]).attr("checked", "checked");
 			}else if(radios[i].value == "Women" && item.audience[1] == "Women") {
-				radios[i].setAttribute("checked", "checked");
+				$(radios[i]).attr("checked", "checked");
 			}
 		}
 		$('#length').val(item.length[1]);
@@ -365,20 +383,7 @@ $(document).ready(function() {
 	}
 
 	
-	// Operator Functions
-	$("#delete").click(function() {
-	  deleteLesson();
-	});
 
-	$("#clear").click(function() {
-	  alert('clearlocal called.');
-	});
-
-	if(op != 'edit') {
-		$("#submit").click(function() {
-		  validateForm();
-		});
-	}
 	makeTopics();
 	setDate();
 
