@@ -3,6 +3,7 @@
  * Created for:  Advanced Scalable Data Infrastructures 1205
  */
 
+
 $(document).ready(function() {
 
 	//Variable defaults
@@ -49,8 +50,6 @@ $(document).ready(function() {
 		}
 
 	}
-	$('#ot-books').hide();
-	$('#nt-books').hide();
 	$("#focus").change(function(e){
 		e.preventDefault();
 		bible_book_disclosure();
@@ -152,13 +151,15 @@ $(document).ready(function() {
 	var mylist = $('#lesson-list');
 	var listitems = mylist.children('li').get();
 	listitems.sort(function(a, b) {
-	var compA = $(a).text().toUpperCase();
-	var compB = $(b).text().toUpperCase();
-	// Currently set to descending date based on the > < symbols
-	// Set to < > to sort ascending
-	return (compA > compB) ? -1 : (compA < compB) ? 1 : 0;
+		var compA = $(a).text().toUpperCase();
+		var compB = $(b).text().toUpperCase();
+		// Currently set to descending date based on the > < symbols
+		// Set to < > to sort ascending
+		return (compA > compB) ? -1 : (compA < compB) ? 1 : 0;
 	});
-	$.each(listitems, function(idx, itm) { mylist.append(itm); });
+	$.each(listitems, function(idx, itm) { 
+		mylist.append(itm); 
+	});
    
 
 
@@ -187,7 +188,6 @@ $(document).ready(function() {
    
    
     //Create select field element and populate with options.
-	$('#select select#topics').selectmenu();
 	function makeTopics(){
 		$('<select></select>').attr('id', 'topics').attr('data-theme', 'c').appendTo('#select');
 		for (var i=0, j=bibleTopics.length; i<j; i++){
@@ -195,7 +195,8 @@ $(document).ready(function() {
 			$('<option></option>').attr('value', optText).attr('data-theme', 'c').appendTo('select#topics');
 			$('#topics option:last-child').html(optText);
 		}
- 	$("select#topics").selectmenu('refresh',true);
+	var selectTopics = $('select#topics');
+	selectTopics.selectmenu('refresh');
 	}
 
 
@@ -260,7 +261,7 @@ $(document).ready(function() {
 		$('#email').val(item.email[1]);
 		$('#date').val(item.date[1]);
 		console.log(item.topic[1]);
-		$("select#topics").val(item.topic[1]);
+		$("#topics").val('Family');
 
 		$('#focus').val(item.focus[1]);
 		
