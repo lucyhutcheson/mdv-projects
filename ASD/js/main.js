@@ -60,7 +60,7 @@ $(document).ready(function() {
 	switch (category) {
 		case "Adults":
 			var audience = "Adults";
-			getData(json.adults.lessons);
+			getJSONData();
 		 	break;
 		case "Men":
 			var audience = "Men";
@@ -81,17 +81,30 @@ $(document).ready(function() {
 	}
 
 	//Add default data if there is none in local storage
-	function autoFillData(audience){
-		//Store the JSON object in local storage
-		for(var n in audience){
-			var id = Math.floor(Math.random()*10000001);
-			localStorage.setItem(id, JSON.stringify(audience[n]));
-		}
+	function autoFillJSONData(){
+		$.ajax({
+		     type: "GET",
+		     url: 'js/data.json',
+		     async: false,
+		     beforeSend: function(x) {
+		      if(x && x.overrideMimeType) {
+		       x.overrideMimeType("application/j-son;charset=UTF-8");
+		      }
+		 },
+		 dataType: "json",
+		 success: function(data){
+			//Store the JSON object in local storage
+			for(var n in data){
+				var id = Math.floor(Math.random()*10000001);
+				localStorage.setItem(id, JSON.stringify(data[n]));
+			}
+		 }
+		});
 	} 
 
 
 	// Get Lessons and Build list
-	function getData(audience) {
+	function getJSONData() {
 		// Update page header title
 		var category = getUrlVars()["cat"];
 		$('h1#headerTitle').html(category);
@@ -101,7 +114,7 @@ $(document).ready(function() {
 		if (localStorage.length === 0) {
 			var ask = confirm("There are no lessons in local storage.  Do you want to load default lessons?");
 			if (ask) {
-				autoFillData(audience);
+				autoFillJSONData();
 			} else {
 				alert("Lessons were not loaded.");
 				return false;
@@ -146,6 +159,7 @@ $(document).ready(function() {
 		$('ul').listview('refresh');
 
 	}
+
 
 	// Sort my lesson list after it has been created
 	var mylist = $('#lesson-list');
