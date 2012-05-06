@@ -24,7 +24,6 @@ $(document).ready(function() {
 	$("#delete").click(function() {
 	  deleteLesson();
 	});
-
 	$('#clear').click(function() {
 	  clearLocal();
 	});
@@ -43,8 +42,10 @@ $(document).ready(function() {
 	function bible_book_disclosure() {
 		if ($("#focus").val() === "Old Testament") {
 			$("#ot-books").show();
+			$("#nt-books").hide();
 		} else if ($("#focus").val() === "New Testament") {
 			$("#nt-books").show();
+			$("#ot-books").hide();
 		}
 	}
 	$('#ot-books').hide();
@@ -148,7 +149,7 @@ $(document).ready(function() {
 			// LESSON DESCRIPTION
 			var descText = obj.lesson[1];
 			$('<p></p>').addClass('ui-li-desc '+key).appendTo('li.'+key+' a.'+key);
-			$('p:last').html(descText);
+			$('p.ui-li-desc.'+key).html(descText);
 
 			// DATE
 			var dateText = obj.date[1];			
@@ -171,7 +172,6 @@ $(document).ready(function() {
 		$.each(listitems, function(idx, itm) { 
 			mylist.append(itm); 
 		});
-
 
 		$('#lesson-list').listview()
 		$('#lesson-list').listview('refresh');
@@ -202,67 +202,7 @@ $(document).ready(function() {
 		//Create Edit button
 		$("#navbar ul").append('<li class="ui-block-c"><a id="edit" href="additem.html?lessonId='+id+'&op=edit" title="Edit Lesson" class="ui-btn ui-btn-up-c ui-btn-icon-top" rel="external" data-icon="gear" data-corners="false" data-shadow="false" data-iconshadow="true" data-inline="false" data-wrapperels="span" data-iconpos="top"><span class="ui-btn-inner"><span class="ui-btn-text">Edit</span><span class="ui-icon ui-icon-edit ui-icon-shadow"></span></span></a></li>');
 	}
-   
-   
-    //Create select field element and populate with options.
-	function makeTopics(){
-		$('<select></select>').attr('id', 'topics').attr('data-theme', 'c').attr('data-native-menu',false).appendTo('#select');
-		for (var i=0, j=bibleTopics.length; i<j; i++){
-			var optText = bibleTopics[i];
-			$('<option></option>').attr('value', optText).attr('data-theme', 'c').appendTo('select#topics');
-			$('#topics option:last-child').html(optText);
-		}
-		var selectTopics = $('select#topics');
-		selectTopics.selectmenu();
-		selectTopics.selectmenu('refresh');
-	}
-
-
-	//  Set default date
-	function setDate(){
-		if (!($('#date').val()) ) {
-			var today = new Date();
-			var dd = today.getDate();
-			var mm = today.getMonth()+1;//January is 0!
-			var yyyy = today.getFullYear();
-			if(dd<10){dd='0'+dd;}
-			if(mm<10){mm='0'+mm;}
-			$('#date').val(mm+'/'+dd+'/'+yyyy);
-		}
-	}
-	
-
-
-	// STORE FUNCTION
-	function storeData(key){
-		//Create new key if one doesn't exist.
-		if(!key){
-			var id = Math.floor(Math.random()*10000001);
-		}else{
-			//Use the existing key.
-			var id = key;
-		}
-		// Gather up all form values and labels.
-		//Find the value of the selected radio button.
-		var newItem = {};
-			newItem.name = ["Lesson Name:", $('#lesson-name').val()];
-			newItem.author = ["Author:", $('#author').val()];
-			newItem.email = ["Email:", $('#email').val()];
-			newItem.date = ["Date:", $('#date').val()];
-			newItem.topic = ["Topics:", $('#topics').val()];
-			newItem.focus = ["Focus:", $('#focus').val()];
-			newItem.book = ["Book:", $('#book').val()];
-			newItem.audience = ["Audience:", $('input:radio[name=audience]:checked').val()];
-			newItem.length = ["Lesson Length:", $('#length').val()];
-			newItem.lesson = ["Lesson Text:", $('#lesson-text').val()];
-
-		//Save data into local storage
-		localStorage.setItem(id, JSON.stringify(newItem));
-		alert("Bible Study Lesson successfully saved.");
-		window.location.href = "lessons.html?cat="+newItem.audience[1];
-	}
-	
-	
+   	
 
 	// EDIT FUNCTION
 	if(op === 'edit') {
@@ -281,17 +221,21 @@ $(document).ready(function() {
 		$('#email').val(item.email[1]);
 		$('#date').val(item.date[1]);
 		$('#topics').val(item.topic[1]);
+		$('select').selectmenu('refresh');
 
 		$('#focus').val(item.focus[1]);
+			
 		if ($('#focus').val() === "Old Testament") {
 			$("#nt-books").hide();
 			$("#ot-books").show();
+			$('#book-ot').val(item.book[1]);
 		} else if ($('#focus').val() === "New Testament") {
 			$("#ot-books").hide();
 			$("#nt-books").show();
+			$('#book-nt').val(item.book[1]);
 		}
+		$('select').selectmenu('refresh');
 		
-		$('#book').val(item.book[1]);
 		$('radio').removeAttr('checked');
 		var radios = document.forms[0].audience;
 		for(var i=0; i<radios.length; i++){
@@ -307,6 +251,8 @@ $(document).ready(function() {
 				$(radios[i]).attr("checked", "checked");
 			}
 		}
+		$("input[type='radio']:first").attr("checked",true).checkboxradio("refresh");
+
 		$('#length').val(item.length[1]);
 		$('#lesson-text').val(item.lesson[1]);
 		
@@ -418,6 +364,68 @@ $(document).ready(function() {
 		}
 	}
 
+	// STORE FUNCTION
+	function storeData(key){
+		//Create new key if one doesn't exist.
+		if(!key){
+			var id = Math.floor(Math.random()*10000001);
+		}else{
+			//Use the existing key.
+			var id = key;
+		}
+		
+		if ($('#focus').val() === 'New Testament') {
+			var book = $('#book-nt').val();
+		} else if ($('#focus').val() === 'Old Testament') {
+			var book = $('#book-ot').val();
+		}
+
+		// Gather up all form values and labels.
+		//Find the value of the selected radio button.
+		var newItem = {};
+			newItem.name = ["Lesson Name:", $('#lesson-name').val()];
+			newItem.author = ["Author:", $('#author').val()];
+			newItem.email = ["Email:", $('#email').val()];
+			newItem.date = ["Date:", $('#date').val()];
+			newItem.topic = ["Topics:", $('#topics').val()];
+			newItem.focus = ["Focus:", $('#focus').val()];
+			newItem.book = ["Book:", book];
+			newItem.audience = ["Audience:", $('input:radio[name=audience]:checked').val()];
+			newItem.length = ["Lesson Length:", $('#length').val()];
+			newItem.lesson = ["Lesson Text:", $('#lesson-text').val()];
+
+		//Save data into local storage
+		localStorage.setItem(id, JSON.stringify(newItem));
+		alert("Bible Study Lesson successfully saved.");
+        parent.history.back();
+	}
+	
+	//Create select field element and populate with options.
+	function makeTopics(){
+		$('<select></select>').attr('id', 'topics').attr('data-theme', 'c').attr('data-native-menu',false).appendTo('#select');
+		for (var i=0, j=bibleTopics.length; i<j; i++){
+			var optText = bibleTopics[i];
+			$('<option></option>').attr('value', optText).attr('data-theme', 'c').appendTo('select#topics');
+			$('#topics option:last-child').html(optText);
+		}
+		var selectTopics = $('select#topics');
+		selectTopics.selectmenu();
+		selectTopics.selectmenu('refresh');
+	}
+
+
+	//  Set default date
+	function setDate(){
+		if (!($('#date').val()) ) {
+			var today = new Date();
+			var dd = today.getDate();
+			var mm = today.getMonth()+1;//January is 0!
+			var yyyy = today.getFullYear();
+			if(dd<10){dd='0'+dd;}
+			if(mm<10){mm='0'+mm;}
+			$('#date').val(mm+'/'+dd+'/'+yyyy);
+		}
+	}
 	
 
 	makeTopics();
