@@ -41,17 +41,15 @@ $(document).ready(function() {
 
 	// Responsive Disclosure
 	function bible_book_disclosure() {
-	$('#ot-books').hide();
-	$('#nt-books').hide();
 		if ($("#focus").val() === "Old Testament") {
 			$("#ot-books").show();
 		} else if ($("#focus").val() === "New Testament") {
 			$("#nt-books").show();
 		}
-
 	}
-	$("#focus").change(function(e){
-		e.preventDefault();
+	$('#ot-books').hide();
+	$('#nt-books').hide();
+	$("#focus").change(function(){
 		bible_book_disclosure();
 	});
 	
@@ -208,15 +206,15 @@ $(document).ready(function() {
    
     //Create select field element and populate with options.
 	function makeTopics(){
-		$('<select></select>').attr('id', 'topics').attr('data-theme', 'c').appendTo('#select');
+		$('<select></select>').attr('id', 'topics').attr('data-theme', 'c').attr('data-native-menu',false).appendTo('#select');
 		for (var i=0, j=bibleTopics.length; i<j; i++){
 			var optText = bibleTopics[i];
 			$('<option></option>').attr('value', optText).attr('data-theme', 'c').appendTo('select#topics');
 			$('#topics option:last-child').html(optText);
 		}
-	var selectTopics = $('select#topics');
-	selectTopics.selectmenu();
-	selectTopics.selectmenu('refresh');
+		var selectTopics = $('select#topics');
+		selectTopics.selectmenu();
+		selectTopics.selectmenu('refresh');
 	}
 
 
@@ -236,7 +234,7 @@ $(document).ready(function() {
 
 
 	// STORE FUNCTION
-	function storeData(key,category){
+	function storeData(key){
 		//Create new key if one doesn't exist.
 		if(!key){
 			var id = Math.floor(Math.random()*10000001);
@@ -271,42 +269,59 @@ $(document).ready(function() {
 		editLesson(lessonId);
 	}
 	function editLesson(lessonId){
+		$('#pageTitle').html('Edit Lesson');
+
 		//Grab the data from local storage
 		var value = localStorage.getItem(lessonId);
 		var item = JSON.parse(value);
-		
+
 		//populate the form fields with current values
 		$('#lesson-name').val(item.name[1]);
 		$('#author').val(item.author[1]);
 		$('#email').val(item.email[1]);
 		$('#date').val(item.date[1]);
-		console.log(item.topic[1]);
-		$("#topics").val('Family').selectmenu("refresh");
+		$('#topics').val(item.topic[1]);
 
 		$('#focus').val(item.focus[1]);
+		if ($('#focus').val() === "Old Testament") {
+			$("#nt-books").hide();
+			$("#ot-books").show();
+		} else if ($('#focus').val() === "New Testament") {
+			$("#ot-books").hide();
+			$("#nt-books").show();
+		}
 		
 		$('#book').val(item.book[1]);
 		$('radio').removeAttr('checked');
 		var radios = document.forms[0].audience;
 		for(var i=0; i<radios.length; i++){
-			if(radios[i].value == "Adults" && item.audience[1] == "Adults") {
+			if(radios[i].value === "Adults" && item.audience[1] === "Adults") {
 				$(radios[i]).attr("checked", "checked");
-			}else if(radios[i].value == "Children" && item.audience[1] == "Children") {
+			}else if(radios[i].value === "Men" && item.audience[1] === "Men") {
 				$(radios[i]).attr("checked", "checked");
-			}else if(radios[i].value == "Youth" && item.audience[1] == "Youth") {
+			}else if(radios[i].value === "Women" && item.audience[1] === "Women") {
 				$(radios[i]).attr("checked", "checked");
-			}else if(radios[i].value == "Men" && item.audience[1] == "Men") {
+			}else if(radios[i].value === "Youth" && item.audience[1] === "Youth") {
 				$(radios[i]).attr("checked", "checked");
-			}else if(radios[i].value == "Women" && item.audience[1] == "Women") {
+			}else if(radios[i].value === "Children" && item.audience[1] === "Children") {
 				$(radios[i]).attr("checked", "checked");
 			}
 		}
 		$('#length').val(item.length[1]);
 		$('#lesson-text').val(item.lesson[1]);
+		
+		var selectFocus = $('select#focus');
+		selectFocus.selectmenu();
+		selectFocus.selectmenu('refresh');
+		var selectBook = $('select#book');
+		selectBook.selectmenu();
+		selectBook.selectmenu('refresh');
 		//remove initial listener from save button
 		$("#submit").unbind("click");
+
 		//Change submit button value to edit button
-		$('#submit').attr('value','Edit Lesson');
+		$('#submit').val('Edit Lesson');
+		$('#submit').button('refresh');
 		$('#lessonForm').submit(function() {
 			validateForm(lessonId);
 		});
@@ -391,7 +406,7 @@ $(document).ready(function() {
 			$('#select > div').css("border", "1px solid red") ;
 			hasError = true;
 		}
-		
+
 		//Set Errors
 		if (hasError === true) {
 			$('#submit-container').after('<span class="error">Please correct the errors above.</span>');
