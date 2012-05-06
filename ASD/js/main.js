@@ -92,12 +92,14 @@ $(document).ready(function() {
 		      }
 		 },
 		 dataType: "json",
-		 success: function(data){
+		 success: function(data, status){
 			//Store the JSON object in local storage
-			for(var n in data){
+			for(var n in data.lessons){
 				var id = Math.floor(Math.random()*10000001);
-				localStorage.setItem(id, JSON.stringify(data[n]));
+				localStorage.setItem(id, JSON.stringify(data.lessons[n]));
 			}
+			$('#getdata').hide();
+			getJSONData();
 		 }
 		});
 	} 
@@ -110,15 +112,15 @@ $(document).ready(function() {
 		$('h1#headerTitle').html(category);
 
 		$('#errors').empty(); //Reset error messages
+		$('#getdata').hide();
 
 		if (localStorage.length === 0) {
-			var ask = confirm("There are no lessons in local storage.  Do you want to load default lessons?");
-			if (ask) {
+			$('#getdata').show();
+			$('#getdata-button').button();
+			$('#getdata-button').click(function() {
 				autoFillJSONData();
-			} else {
-				alert("Lessons were not loaded.");
-				return false;
-			}
+				return false;	
+			});
 		}
 
 		// Create list items from sorted storage array
@@ -135,11 +137,6 @@ $(document).ready(function() {
 			
 			// Move date to the bottom if you want to sort based on Header Text
 			 
-			// DATE
-			var dateText = obj.date[1];			
-			$('<p></p>').addClass('date ui-li-aside '+key).appendTo('li.'+key+' a.'+key);
-			$('p.date.ui-li-aside.'+key).html(dateText);
-
 			// HEADER TEXT
 			var headerText = obj.name[1];
 			$('<h3></h3>').addClass(key).appendTo('li.'+key+' a.'+key);
@@ -155,26 +152,34 @@ $(document).ready(function() {
 			$('<p></p>').addClass('ui-li-desc '+key).appendTo('li.'+key+' a.'+key);
 			$('p:last').html(descText);
 
+			// DATE
+			var dateText = obj.date[1];			
+			$('<p></p>').addClass('date ui-li-aside '+key).appendTo('li.'+key+' a.'+key);
+			$('p.date.ui-li-aside.'+key).html(dateText);
+
 		}
-		$('ul').listview('refresh');
+
+		// Sort my lesson list after it has been created
+		var mylist = $('#lesson-list');
+		var listitems = mylist.children('li').get();
+		listitems.sort(function(a, b) {
+			var compA = $(a).text().toUpperCase();
+			var compB = $(b).text().toUpperCase();
+			// Currently set to descending date based on the > < symbols
+			// return (compA > compB) ? -1 : (compA < compB) ? 1 : 0;
+			// Set to < > to sort ascending
+			return (compA < compB) ? -1 : (compA > compB) ? 1 : 0;
+		});
+		$.each(listitems, function(idx, itm) { 
+			mylist.append(itm); 
+		});
+
+
+		$('#lesson-list').listview()
+		$('#lesson-list').listview('refresh');
 
 	}
 
-
-	// Sort my lesson list after it has been created
-	var mylist = $('#lesson-list');
-	var listitems = mylist.children('li').get();
-	listitems.sort(function(a, b) {
-		var compA = $(a).text().toUpperCase();
-		var compB = $(b).text().toUpperCase();
-		// Currently set to descending date based on the > < symbols
-		// Set to < > to sort ascending
-		return (compA > compB) ? -1 : (compA < compB) ? 1 : 0;
-	});
-	$.each(listitems, function(idx, itm) { 
-		mylist.append(itm); 
-	});
-   
 
 
 	// SHOW INDIVIDUAL LESSON FUNCTION
@@ -210,6 +215,7 @@ $(document).ready(function() {
 			$('#topics option:last-child').html(optText);
 		}
 	var selectTopics = $('select#topics');
+	selectTopics.selectmenu();
 	selectTopics.selectmenu('refresh');
 	}
 
@@ -275,7 +281,7 @@ $(document).ready(function() {
 		$('#email').val(item.email[1]);
 		$('#date').val(item.date[1]);
 		console.log(item.topic[1]);
-		$("#topics").val('Family');
+		$("#topics").val('Family').selectmenu("refresh");
 
 		$('#focus').val(item.focus[1]);
 		
