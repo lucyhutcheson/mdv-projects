@@ -59,102 +59,203 @@ $(document).ready(function() {
 	switch (category) {
 		case "Adults":
 			var audience = "Adults";
-			getJSONData();
+			getData();
 		 	break;
 		case "Men":
 			var audience = "Men";
-			getData(json.men.lessons);
+			getData();
 		  	break;
 		case "Women":
 			var audience = "Women";
-			getData(json.women.lessons);
+			getData();
 		  	break;
 		case "Youth":
 			var audience = "Youth";
-			getData(json.youth.lessons);
+			getData();
 		  	break;
 		case "Children":
 			var audience = "Children";
-			getData(json.children.lessons);
+			getData();
 		  	break;
 	}
 
 	//Add default data if there is none in local storage
-	function autoFillJSONData(){
-		$.ajax({
-		     type: "GET",
-		     url: 'js/data.json',
-		     async: false,
-		     beforeSend: function(x) {
-		      if(x && x.overrideMimeType) {
-		       x.overrideMimeType("application/j-son;charset=UTF-8");
-		      }
-		 },
-		 dataType: "json",
-		 success: function(data, status){
-			//Store the JSON object in local storage
-			for(var n in data.lessons){
-				var id = Math.floor(Math.random()*10000001);
-				localStorage.setItem(id, JSON.stringify(data.lessons[n]));
+	function autoFillData(category){
+		switch(category) {
+			case 'Adults':
+				$.ajax({
+				     type: "GET",
+				     url: 'js/data.json',
+				     async: false,
+				     beforeSend: function(x) {
+					      if(x && x.overrideMimeType) {
+					          x.overrideMimeType("application/j-son;charset=UTF-8");
+					      }
+					 },
+				 	dataType: "json",
+				 	success: function(data, status){
+						//Store the JSON object in local storage
+						for(var n in data.lessons){
+							var id = Math.floor(Math.random()*10000001);
+							localStorage.setItem(id, JSON.stringify(data.lessons[n]));
+						}
+					$('#getdata').hide();
+					var loaded = true;
+					getData(loaded);
+					 }
+				});
+				break;
+			case 'Men':
+					// XML file
+					var url = "js/men.xml";
+					
+					// handle response
+					function XHRhandler() {
+						if (xhr.readyState == 4) {
+							var obj = XML2jsobj(xhr.responseXML.documentElement);
+							Display(obj);
+							xhr = null;
+						}
+					}
+					// AJAX request
+					var xhr = (window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP"));
+					xhr.onreadystatechange = XHRhandler;
+					xhr.open("GET", url, true);
+					xhr.send(null);
+					function Display(data) {
+					if (data && data.lessons) {
+							if (data.lessons.length) {
+								// multiple lessons
+								for (var i=0, sl=data.lessons.length; i < sl; i++) {
+									store(data.lessons[i]);
+								}
+							}
+							else {
+								// single lessons
+								store(data.lessons);
+							}
+						}
+						// store item
+						function store(lessons) {
+							var id = Math.floor(Math.random()*10000001);
+							localStorage.setItem(id, JSON.stringify(lessons));
+						}
+					}
+					var loaded = true;
+					getData(loaded);
+					break;
+			case 'Women':
+					// XML file
+					var url = "js/women.xml";
+					// handle response
+					function XHRhandler() {
+						if (xhr.readyState == 4) {
+							var obj = XML2jsobj(xhr.responseXML.documentElement);
+							Display(obj);
+							xhr = null;
+						}
+					}
+					// AJAX request
+					var xhr = (window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP"));
+					xhr.onreadystatechange = XHRhandler;
+					xhr.open("GET", url, true);
+					xhr.send(null);
+					function Display(data) {
+					if (data && data.lessons) {
+							if (data.lessons.length) {
+								// multiple statuses
+								for (var i=0, sl=data.lessons.length; i < sl; i++) {
+									store(data.lessons[i]);
+								}
+							}
+							else {
+								// single lessons
+								store(data.lessons);
+							}
+						}
+						// store item
+						function store(lessons) {
+							var id = Math.floor(Math.random()*10000001);
+							localStorage.setItem(id, JSON.stringify(lessons));
+						}
+					}
+					var loaded = true;
+					getData(loaded);
+					break;
 			}
-			$('#getdata').hide();
-			getJSONData();
-		 }
-		});
 	} 
+	
 
-
+	
 	// Get Lessons and Build list
-	function getJSONData() {
+	function getData(loaded) {
+		if (loaded != true) {
+			localStorage.clear();
+		}
 		// Update page header title
 		var category = getUrlVars()["cat"];
 		$('h1#headerTitle').html(category);
 
 		$('#errors').empty(); //Reset error messages
-		$('#getdata').hide();
-
-		if (localStorage.length === 0) {
-			$('#getdata').show();
-			$('#getdata-button').button();
-			$('#getdata-button').click(function() {
-				autoFillJSONData();
-				return false;	
-			});
-		}
-
+		$('#getdata-button').button();
+		$('#getdata-button').click(function() {
+			autoFillData(category);
+		});
+		
 		// Create list items from sorted storage array
 		for (var i=0, len=localStorage.length; i<len; i++){
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
 			// convert the string back to an object
 			var obj = JSON.parse(value);
-
 		 	 // $ Create list item
 		 	$('<li></li>').addClass('lesson '+key).attr('data-theme','c').appendTo('#lesson-list');
 			// $ Create anchor
-			$('<a></a>').addClass('anchor '+key).attr('rel','external').attr('href', 'view.html?lessonId='+key).attr('data-url', 'view.html?lessonId='+key).appendTo('#lesson-list li.'+key);
+			$('<a></a>').addClass('anchor '+key).attr('rel','external').attr('href', 'view.html?lessonId='+key+'&cat='+category).attr('data-url', 'view.html?lessonId='+key+'&cat='+category).appendTo('#lesson-list li.'+key);
 			
 			// Move date to the bottom if you want to sort based on Header Text
-			 
-			// HEADER TEXT
-			var headerText = obj.name[1];
-			$('<h3></h3>').addClass(key).appendTo('li.'+key+' a.'+key);
-			$('h3.'+key).html(headerText);
-			
-			// SUB HEAD
-			var strongPText = obj.topic[0] + " " + obj.topic[1];
-			$('<p></p>').addClass('subhead '+key).attr('style', 'font-weight: bold;').appendTo('li.'+key+' a.'+key);
-			$('p.subhead.'+key).html(strongPText);
-			
-			// LESSON DESCRIPTION
-			var descText = obj.lesson[1];
-			$('<p></p>').addClass('ui-li-desc '+key).appendTo('li.'+key+' a.'+key);
-			$('p.ui-li-desc.'+key).html(descText);
 
-			// DATE
-			var dateText = obj.date[1];			
-			$('<p></p>').addClass('date ui-li-aside '+key).appendTo('li.'+key+' a.'+key);
-			$('p.date.ui-li-aside.'+key).html(dateText);
+			if (category === "Adults") {
+				// HEADER TEXT
+				var headerText = obj.name[1];
+				$('<h3></h3>').addClass(key).appendTo('li.'+key+' a.'+key);
+				$('h3.'+key).html(headerText);
+				
+				// SUB HEAD
+				var strongPText = obj.topic[0] + " " + obj.topic[1];
+				$('<p></p>').addClass('subhead '+key).attr('style', 'font-weight: bold;').appendTo('li.'+key+' a.'+key);
+				$('p.subhead.'+key).html(strongPText);
+				
+				// LESSON DESCRIPTION
+				var descText = obj.lesson[1];
+				$('<p></p>').addClass('ui-li-desc '+key).appendTo('li.'+key+' a.'+key);
+				$('p.ui-li-desc.'+key).html(descText);
+	
+				// DATE
+				var dateText = obj.date[1];			
+				$('<p></p>').addClass('date ui-li-aside '+key).appendTo('li.'+key+' a.'+key);
+				$('p.date.ui-li-aside.'+key).html(dateText);
+			} else if (category === "Men" || category === "Women") {
+				// HEADER TEXT
+				var headerText = obj.name;
+				$('<h3></h3>').addClass(key).appendTo('li.'+key+' a.'+key);
+				$('h3.'+key).html(headerText);
+				
+				// SUB HEAD
+				var strongPText = "Topic: " + obj.topic;
+				$('<p></p>').addClass('subhead '+key).attr('style', 'font-weight: bold;').appendTo('li.'+key+' a.'+key);
+				$('p.subhead.'+key).html(strongPText);
+				
+				// LESSON DESCRIPTION
+				var descText = obj.lesson;
+				$('<p></p>').addClass('ui-li-desc '+key).appendTo('li.'+key+' a.'+key);
+				$('p.ui-li-desc.'+key).html(descText);
+	
+				// DATE
+				var dateText = obj.date;			
+				$('<p></p>').addClass('date ui-li-aside '+key).appendTo('li.'+key+' a.'+key);
+				$('p.date.ui-li-aside.'+key).html(dateText);
+			}		 
 
 		}
 
@@ -184,20 +285,29 @@ $(document).ready(function() {
 	if(lessonId > 0) {
 		showLesson(lessonId);
 	}
-	function showLesson(id){
+	function showLesson(id, cat){
+		var category = getUrlVars()["cat"];
 		var lessonKey = id;
 		var value = localStorage.getItem(lessonKey);
 		// convert the string back to an object
 		var obj = JSON.parse(value);
 		
 		$('<div></div>').addClass('content-container ui-btn  ui-li ui-corner-top ui-corner-bottom ui-btn-up-c '+lessonKey).appendTo('#content');
-		
-		for(var n in obj){
-			$('<p></p>').addClass('item-details '+lessonKey+' '+obj[n][0]).appendTo('div.'+lessonKey);
-			var optSubText = "<strong>"+obj[n][0]+" </strong> "+obj[n][1];
-			$('p:last').html(optSubText);
+		if (category === "Adults") {
+			for(var n in obj){
+				$('<p></p>').addClass('item-details '+lessonKey+' '+obj[n][0]).appendTo('div.'+lessonKey);
+				var optSubText = "<strong>"+obj[n][0]+" </strong> "+obj[n][1];
+				$('p:last').html(optSubText);
+			}
+			$('h1#headerTitle').replaceWith('<h1 class="ui-title" tabindex="0" role="heading" aria-level="1">'+ obj.name[1] + '</h1>');
+		} else if (category === "Men" || category === "Women") {
+			for(var n in obj){
+				$('<p></p>').addClass('item-details '+lessonKey+' '+obj[n]).appendTo('div.'+lessonKey);
+				var optSubText = obj[n];
+				$('p:last').html(optSubText);
+			}
+			$('h1#headerTitle').replaceWith('<h1 class="ui-title" tabindex="0" role="heading" aria-level="1">'+ obj.name + '</h1>');
 		}
-		$('h1#headerTitle').replaceWith('<h1 class="ui-title" tabindex="0" role="heading" aria-level="1">'+ obj.name[1] + '</h1>');
 		
 		//Create Edit button
 		$("#navbar ul").append('<li class="ui-block-c"><a id="edit" href="additem.html?lessonId='+id+'&op=edit" title="Edit Lesson" class="ui-btn ui-btn-up-c ui-btn-icon-top" rel="external" data-icon="gear" data-corners="false" data-shadow="false" data-iconshadow="true" data-inline="false" data-wrapperels="span" data-iconpos="top"><span class="ui-btn-inner"><span class="ui-btn-text">Edit</span><span class="ui-icon ui-icon-edit ui-icon-shadow"></span></span></a></li>');
@@ -221,8 +331,6 @@ $(document).ready(function() {
 		$('#email').val(item.email[1]);
 		$('#date').val(item.date[1]);
 		$('#topics').val(item.topic[1]);
-		$('select').selectmenu('refresh');
-
 		$('#focus').val(item.focus[1]);
 			
 		if ($('#focus').val() === "Old Testament") {
@@ -266,7 +374,7 @@ $(document).ready(function() {
 		$("#submit").unbind("click");
 
 		//Change submit button value to edit button
-		$('#submit').val('Edit Lesson');
+		$('#submit').val('Save Editted Lesson');
 		$('#submit').button('refresh');
 		$('#lessonForm').submit(function() {
 			validateForm(lessonId);
