@@ -27,6 +27,7 @@
 	
 	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
 	<script src="js/libs/modernizr.custom.min.js"></script>
+	<script src="js/libs/xml2jsobj.js"></script>
 
 </head>
 <body >
@@ -38,6 +39,9 @@
 		</div>
 		<div id="content" data-role="content" data-theme="f">
 			<ul id="lesson-list" data-role="listview" data-inset="true" data-filter="true" data-theme="c"></ul>
+			<div id="getdata">
+				<a href="#"  id="getdata-button" data-icon="plus" data-role="button" data-theme="f">Load JSON Data</a>
+			</div>
 			<div >
 				<a href="additem.html"  id="addNew" data-icon="plus" data-role="button" data-theme="f"  rel="external">Add New Lesson</a>
 			</div>
@@ -56,7 +60,7 @@
 
 	<!-- JavaScript under here -->
 	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
