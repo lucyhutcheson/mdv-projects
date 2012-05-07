@@ -1,8 +1,5 @@
 {
-	"adults": {
-		"name": "Adults",
-		"description": "Bible studies designed for the adult audience.",
-		"lessons": [
+	"lessons": [
 			{
 			"name": [
 				"Lesson Name:",
@@ -844,5 +841,4 @@
 			]
 			}
 		]
-	}
 }
