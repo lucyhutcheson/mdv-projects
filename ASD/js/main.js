@@ -3,7 +3,6 @@
  * Created for:  Advanced Scalable Data Infrastructures 1205
  */
 
-
 $(document).ready(function() {
 
 	//Variable defaults
@@ -58,22 +57,27 @@ $(document).ready(function() {
 	// Pull the right JSON Data
 	switch (category) {
 		case "Adults":
+			localStorage.clear();
 			var audience = "Adults";
 			getData();
 		 	break;
 		case "Men":
+			localStorage.clear();
 			var audience = "Men";
 			getData();
 		  	break;
 		case "Women":
+			localStorage.clear();
 			var audience = "Women";
 			getData();
 		  	break;
 		case "Youth":
+			localStorage.clear();
 			var audience = "Youth";
 			getData();
 		  	break;
 		case "Children":
+			localStorage.clear();
 			var audience = "Children";
 			getData();
 		  	break;
@@ -99,16 +103,16 @@ $(document).ready(function() {
 							var id = Math.floor(Math.random()*10000001);
 							localStorage.setItem(id, JSON.stringify(data.lessons[n]));
 						}
-					$('#getdata').hide();
-					var loaded = true;
-					getData(loaded);
+						$('#getdata').hide();
+						var loaded = true;
+						getData(loaded);
 					 }
 				});
 				break;
 			case 'Men':
+					localStorage.clear();
 					// XML file
 					var url = "js/men.xml";
-					
 					// handle response
 					function XHRhandler() {
 						if (xhr.readyState == 4) {
@@ -117,21 +121,19 @@ $(document).ready(function() {
 							xhr = null;
 						}
 					}
+					
 					// AJAX request
 					var xhr = (window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP"));
 					xhr.onreadystatechange = XHRhandler;
 					xhr.open("GET", url, true);
 					xhr.send(null);
 					function Display(data) {
-					if (data && data.lessons) {
+						if (data && data.lessons) {
 							if (data.lessons.length) {
-								// multiple lessons
 								for (var i=0, sl=data.lessons.length; i < sl; i++) {
 									store(data.lessons[i]);
 								}
-							}
-							else {
-								// single lessons
+							} else {
 								store(data.lessons);
 							}
 						}
@@ -141,10 +143,9 @@ $(document).ready(function() {
 							localStorage.setItem(id, JSON.stringify(lessons));
 						}
 					}
-					var loaded = true;
-					getData(loaded);
 					break;
 			case 'Women':
+					localStorage.clear();
 					// XML file
 					var url = "js/women.xml";
 					// handle response
@@ -161,15 +162,12 @@ $(document).ready(function() {
 					xhr.open("GET", url, true);
 					xhr.send(null);
 					function Display(data) {
-					if (data && data.lessons) {
+						if (data && data.lessons) {
 							if (data.lessons.length) {
-								// multiple statuses
 								for (var i=0, sl=data.lessons.length; i < sl; i++) {
 									store(data.lessons[i]);
 								}
-							}
-							else {
-								// single lessons
+							} else {
 								store(data.lessons);
 							}
 						}
@@ -179,29 +177,27 @@ $(document).ready(function() {
 							localStorage.setItem(id, JSON.stringify(lessons));
 						}
 					}
-					var loaded = true;
+					$('#getdata').hide();
+					var loaded = "true";
 					getData(loaded);
 					break;
 			}
 	} 
 	
-
 	
 	// Get Lessons and Build list
 	function getData(loaded) {
-		if (loaded != true) {
-			localStorage.clear();
-		}
 		// Update page header title
 		var category = getUrlVars()["cat"];
 		$('h1#headerTitle').html(category);
-
 		$('#errors').empty(); //Reset error messages
-		$('#getdata-button').button();
-		$('#getdata-button').click(function() {
-			autoFillData(category);
-		});
 		
+		if (loaded != "true") {
+			$('#getdata-button').click(function() {
+				autoFillData(category);
+			});
+		}
+alert('in get data');
 		// Create list items from sorted storage array
 		for (var i=0, len=localStorage.length; i<len; i++){
 			var key = localStorage.key(i);
@@ -214,7 +210,6 @@ $(document).ready(function() {
 			$('<a></a>').addClass('anchor '+key).attr('rel','external').attr('href', 'view.html?lessonId='+key+'&cat='+category).attr('data-url', 'view.html?lessonId='+key+'&cat='+category).appendTo('#lesson-list li.'+key);
 			
 			// Move date to the bottom if you want to sort based on Header Text
-
 			if (category === "Adults") {
 				// HEADER TEXT
 				var headerText = obj.name[1];
@@ -235,6 +230,7 @@ $(document).ready(function() {
 				var dateText = obj.date[1];			
 				$('<p></p>').addClass('date ui-li-aside '+key).appendTo('li.'+key+' a.'+key);
 				$('p.date.ui-li-aside.'+key).html(dateText);
+				
 			} else if (category === "Men" || category === "Women") {
 				// HEADER TEXT
 				var headerText = obj.name;
@@ -256,8 +252,8 @@ $(document).ready(function() {
 				$('<p></p>').addClass('date ui-li-aside '+key).appendTo('li.'+key+' a.'+key);
 				$('p.date.ui-li-aside.'+key).html(dateText);
 			}		 
-
 		}
+
 
 		// Sort my lesson list after it has been created
 		var mylist = $('#lesson-list');
@@ -278,7 +274,6 @@ $(document).ready(function() {
 		$('#lesson-list').listview('refresh');
 
 	}
-
 
 
 	// SHOW INDIVIDUAL LESSON FUNCTION
@@ -330,7 +325,11 @@ $(document).ready(function() {
 		$('#author').val(item.author[1]);
 		$('#email').val(item.email[1]);
 		$('#date').val(item.date[1]);
+		
+		console.log(item.topic[1]);
 		$('#topics').val(item.topic[1]);
+		setTopic(item.topic[1]);
+
 		$('#focus').val(item.focus[1]);
 			
 		if ($('#focus').val() === "Old Testament") {
@@ -343,23 +342,10 @@ $(document).ready(function() {
 			$('#book-nt').val(item.book[1]);
 		}
 		$('select').selectmenu('refresh');
-		
-		$('radio').removeAttr('checked');
-		var radios = document.forms[0].audience;
-		for(var i=0; i<radios.length; i++){
-			if(radios[i].value === "Adults" && item.audience[1] === "Adults") {
-				$(radios[i]).attr("checked", "checked");
-			}else if(radios[i].value === "Men" && item.audience[1] === "Men") {
-				$(radios[i]).attr("checked", "checked");
-			}else if(radios[i].value === "Women" && item.audience[1] === "Women") {
-				$(radios[i]).attr("checked", "checked");
-			}else if(radios[i].value === "Youth" && item.audience[1] === "Youth") {
-				$(radios[i]).attr("checked", "checked");
-			}else if(radios[i].value === "Children" && item.audience[1] === "Children") {
-				$(radios[i]).attr("checked", "checked");
-			}
-		}
-		$("input[type='radio']:first").attr("checked",true).checkboxradio("refresh");
+
+		$('input:radio[name=audience]').removeAttr('checked');
+		$('input:radio[name=audience]').checkboxradio('refresh');
+		setRadio(item.audience[1]);
 
 		$('#length').val(item.length[1]);
 		$('#lesson-text').val(item.lesson[1]);
@@ -370,6 +356,7 @@ $(document).ready(function() {
 		var selectBook = $('select#book');
 		selectBook.selectmenu();
 		selectBook.selectmenu('refresh');
+		
 		//remove initial listener from save button
 		$("#submit").unbind("click");
 
@@ -381,6 +368,55 @@ $(document).ready(function() {
 		});
 	}
 	
+	function getRadio(){
+		return($('input:radio[name=audience]:checked').val());
+	}
+	
+	function setRadio(myRadio){
+		switch(myRadio)
+		{
+		case "Adults":
+			$('input:radio[name=audience]:nth(0)').attr('checked', true);
+			$('input:radio[name=audience]').checkboxradio('refresh');
+			break;
+		case "Men":
+			$('input:radio[name=audience]:nth(1)').attr('checked', true);
+			$('input:radio[name=audience]').checkboxradio('refresh');
+			break;
+		case "Women":
+			$('input:radio[name=audience]:nth(2)').attr('checked', true);
+			$('input:radio[name=audience]').checkboxradio('refresh');
+			break;
+		case "Youth":
+			$('input:radio[name=audience]:nth(3)').attr('checked', true);
+			$('input:radio[name=audience]').checkboxradio('refresh');
+			break;
+		case "Children":
+			$('input:radio[name=audience]:nth(4)').attr('checked', true);
+			$('input:radio[name=audience]').checkboxradio('refresh');
+			break;
+		}
+	}
+	
+	function setTopic(myTopic){
+		switch(myTopic)
+		{
+		case "Christian Life":
+			$("#topics").val("Christian Life").attr("selected", "selected");
+			$('#topics').selectmenu('refresh');
+			break;
+		case "Marriage":
+			$("#topics").val("Marriage").attr("selected", "selected");
+			$('#topics').selectmenu('refresh');
+			break;
+		case "Family":
+			$("#topics").val("Family").attr("selected", "selected");
+			$('#topics').selectmenu('refresh');
+			break;
+		}
+	}
+
+
 	// DELETE FUNCTION
 	function deleteLesson() {
 		var ask = confirm("Are you sure you want to delete this lesson?");
@@ -498,7 +534,7 @@ $(document).ready(function() {
 			newItem.topic = ["Topics:", $('#topics').val()];
 			newItem.focus = ["Focus:", $('#focus').val()];
 			newItem.book = ["Book:", book];
-			newItem.audience = ["Audience:", $('input:radio[name=audience]:checked').val()];
+			newItem.audience = ["Audience:", getRadio()];
 			newItem.length = ["Lesson Length:", $('#length').val()];
 			newItem.lesson = ["Lesson Text:", $('#lesson-text').val()];
 
@@ -513,7 +549,7 @@ $(document).ready(function() {
 		$('<select></select>').attr('id', 'topics').attr('data-theme', 'c').attr('data-native-menu',false).appendTo('#select');
 		for (var i=0, j=bibleTopics.length; i<j; i++){
 			var optText = bibleTopics[i];
-			$('<option></option>').attr('value', optText).attr('data-theme', 'c').appendTo('select#topics');
+			$('<option></option>').attr('value', optText).attr('id', optText).attr('data-theme', 'c').appendTo('select#topics');
 			$('#topics option:last-child').html(optText);
 		}
 		var selectTopics = $('select#topics');
