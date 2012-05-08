@@ -62,12 +62,10 @@ $(document).ready(function() {
 			getData();
 		 	break;
 		case "Men":
-			localStorage.clear();
 			var audience = "Men";
 			getData();
 		  	break;
 		case "Women":
-			localStorage.clear();
 			var audience = "Women";
 			getData();
 		  	break;
@@ -89,7 +87,7 @@ $(document).ready(function() {
 			case 'Adults':
 				$.ajax({
 				     type: "GET",
-				     url: 'js/data.json',
+				     url: 'js/xhr/data.json',
 				     async: false,
 				     beforeSend: function(x) {
 					      if(x && x.overrideMimeType) {
@@ -103,16 +101,14 @@ $(document).ready(function() {
 							var id = Math.floor(Math.random()*10000001);
 							localStorage.setItem(id, JSON.stringify(data.lessons[n]));
 						}
-						$('#getdata').hide();
-						var loaded = true;
-						getData(loaded);
 					 }
 				});
+						var loaded = true;
+						getData(loaded);
 				break;
 			case 'Men':
-					localStorage.clear();
 					// XML file
-					var url = "js/men.xml";
+					var url = "js/xhr/men.xml";
 					// handle response
 					function XHRhandler() {
 						if (xhr.readyState == 4) {
@@ -143,11 +139,13 @@ $(document).ready(function() {
 							localStorage.setItem(id, JSON.stringify(lessons));
 						}
 					}
+					var loaded = "true";
+					getData(loaded);
+					location.reload();
 					break;
 			case 'Women':
-					localStorage.clear();
 					// XML file
-					var url = "js/women.xml";
+					var url = "js/xhr/women.xml";
 					// handle response
 					function XHRhandler() {
 						if (xhr.readyState == 4) {
@@ -177,9 +175,9 @@ $(document).ready(function() {
 							localStorage.setItem(id, JSON.stringify(lessons));
 						}
 					}
-					$('#getdata').hide();
 					var loaded = "true";
 					getData(loaded);
+					location.reload();
 					break;
 			}
 	} 
@@ -193,11 +191,17 @@ $(document).ready(function() {
 		$('#errors').empty(); //Reset error messages
 		
 		if (loaded != "true") {
+			if (category === "Adults") {
+				var buttonText = "Load JSON Data";
+			} else {
+				var buttonText = "Load XML Data";
+			}
+			$("#getdata-button .ui-btn-text").text(buttonText);
 			$('#getdata-button').click(function() {
+				localStorage.clear();
 				autoFillData(category);
 			});
 		}
-alert('in get data');
 		// Create list items from sorted storage array
 		for (var i=0, len=localStorage.length; i<len; i++){
 			var key = localStorage.key(i);
@@ -215,7 +219,7 @@ alert('in get data');
 				var headerText = obj.name[1];
 				$('<h3></h3>').addClass(key).appendTo('li.'+key+' a.'+key);
 				$('h3.'+key).html(headerText);
-				
+
 				// SUB HEAD
 				var strongPText = obj.topic[0] + " " + obj.topic[1];
 				$('<p></p>').addClass('subhead '+key).attr('style', 'font-weight: bold;').appendTo('li.'+key+' a.'+key);
