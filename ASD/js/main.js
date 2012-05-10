@@ -415,7 +415,7 @@ $('#addLesson').live('pageinit', function (event) {
 	 	 	// $ Create list item
 		 	$('<li></li>').addClass('lesson '+key).attr('data-theme','c').appendTo('#lesson-list');
 			// $ Create anchor
-			$('<a></a>').addClass('anchor '+key).attr('rel','external').attr('href', '../~admin/index.html#viewLesson?lessonId='+key+'&cat='+category).attr('data-cache', 'false').attr('data-ajax', false).appendTo('#lesson-list li.'+key);
+			$('<a></a>').addClass('anchor '+key).attr('rel','external').attr('href', 'index.html#viewLesson?lessonId='+key+'&cat='+category).attr('data-cache', 'false').attr('data-ajax', false).appendTo('#lesson-list li.'+key);
 			
 			// Move date to the bottom if you want to sort based on Header Text
 			if (category === "Adults") {
