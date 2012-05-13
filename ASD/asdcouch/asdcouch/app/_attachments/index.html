@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+/**
+ * @author Lucy Hutcheson
+ * Created for:  Advanced Scalable Data Infrastructures 1205
+ */
+-->
+ 
+<html lang="en">
+  <head>
+  	<meta charset="utf-8">
+    <title>Pocket Ministry</title>
+	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	
+	<!-- StyleSheets under here -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+    <link rel="stylesheet" href="style/main.css" type="text/css">
+ 	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+	<script src="js/libs/modernizr.custom.min.js"></script>
+ 
+  </head>
+<body id="index">
+	<div data-role="page" id="home" data-theme="a">
+		<div id="header" data-role="header" data-theme="d">
+			<h1>Pocket Ministry</h1>
+		</div>
+		<div data-role="content" id="content">
+			<ul id="categoryList" data-role="listview" data-inset="true" data-theme="c"> 
+
+			</ul>
+		</div>
+		<div data-role="footer" data-position="fixed" data-theme="c">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="https://github.com/iamhutch/mdv-projects/tree/master/ASD"  data-icon="star" rel="external">Repository</a></li>
+					<li><a href="index.html"  data-icon="home" rel="external">Home</a></li>
+				</ul>
+			</div><!-- /navbar -->
+			<h4>Copyright &copy; Lucy Hutcheson</h4>
+		</div>
+	</div>
+	
+	
+	<!-- JavaScript under here -->
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
