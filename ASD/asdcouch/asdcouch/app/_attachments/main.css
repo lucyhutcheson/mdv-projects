@@ -57,12 +57,12 @@ fieldset legend {
 	text-shadow: 0 1px 0 white;
 	font-weight: normal;
 	background-color: #ededed;
-	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(237,237,237, 0.5)), color-stop(100%, rgba(153,153,153, 0.5))), url('../images/bg.png');
-	background-image: -webkit-linear-gradient(top, rgba(250,250,250, 0.5), rgba(110,110,110, 0.35)), url('../images/bg.png');
-	background-image: -moz-linear-gradient(top, rgba(237,237,237, 0.5), rgba(153,153,153, 0.5)), url('../images/bg.png');
-	background-image: -ms-linear-gradient(top, rgba(237,237,237, 0.5), rgba(153,153,153, 0.5)), url('../images/bg.png');
-	background-image: -o-linear-gradient(top, rgba(237,237,237, 0.5), rgba(153,153,153, 0.5)), url('../images/bg.png');
-	background-image: linear-gradient(top, rgba(237,237,237, 0.5), rgba(153,153,153, 0.5)), url('../images/bg.png');
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(237,237,237, 0.5)), color-stop(100%, rgba(153,153,153, 0.5))), url('bg.png');
+	background-image: -webkit-linear-gradient(top, rgba(250,250,250, 0.5), rgba(110,110,110, 0.35)), url('bg.png');
+	background-image: -moz-linear-gradient(top, rgba(237,237,237, 0.5), rgba(153,153,153, 0.5)), url('bg.png');
+	background-image: -ms-linear-gradient(top, rgba(237,237,237, 0.5), rgba(153,153,153, 0.5)), url('bg.png');
+	background-image: -o-linear-gradient(top, rgba(237,237,237, 0.5), rgba(153,153,153, 0.5)), url('bg.png');
+	background-image: linear-gradient(top, rgba(237,237,237, 0.5), rgba(153,153,153, 0.5)), url('bg.png');
 }
 .ui-body-f, .ui-body-f input, .ui-body-f select, .ui-body-f textarea, .ui-body-f button {
 font-family: Helvetica,Arial,sans-serif;

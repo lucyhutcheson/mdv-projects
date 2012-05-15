@@ -2,6 +2,9 @@
   "env": {
     "local": {
       "db": "http://127.0.0.1:5984/pocketministry"
+    },
+    "cloudant": {
+      "db": "https://hempoingendenceartakessi:h4GwrsjRykDeKx5bJVWtLxrW@lucyhutcheson.cloudant.com/pocketministry"
     }
   }
 }
