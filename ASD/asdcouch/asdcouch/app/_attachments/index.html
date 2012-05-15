@@ -25,7 +25,7 @@
   </head>
 <body id="index">
 	<div data-role="page" id="home" data-theme="f">
-		<div id="header" data-role="header" data-theme="d">
+		<div id="home-header" data-role="header" data-theme="d">
 			<img src="images/logo.png" id="logo" width="75%" border="0"><h1 class="hidden"></h1>
 		</div>
 		<div data-role="content" id="content">
@@ -47,11 +47,11 @@
 			<h4>Copyright &copy; Lucy Hutcheson</h4>
 		</div>
 	</div>
+	
 	<div data-role="page" id="lessons" data-add-back-btn="true" data-theme="f" >
-		<div data-role="header"  data-position="fixed" data-theme="f">
+		<div id="header" data-role="header"  data-position="fixed" data-theme="f">
 			<a href="view.html" data-rel="back" data-direction="reverse" data-icon="arrow-l">Back</a>
-			<h1 id="headerTitle">Adults</h1>
-			<a href="index.html" rel="external" data-iconpos="notext" data-icon="home">Home</a>
+			<a href="index.html" rel="external" data-iconpos="notext" data-icon="home" id="home-button">Home</a>
 		</div>
 		<div id="content" data-role="content" data-theme="f">
 			<ul id="lessonList" data-role="listview" data-inset="true" data-filter="true" data-theme="c"></ul>
@@ -73,9 +73,14 @@
 	<div data-role="page" id="viewLesson" data-add-back-btn="true" data-theme="f"  data-cache="never">
 		<div data-role="header"  data-position="fixed" data-theme="f">
 			<a href="view.html" data-rel="back" data-direction="reverse" data-icon="arrow-l">Back</a>
-			<h1 id="headerTitle">View Lesson</h1>
+			<h1 id="title">View Lesson</h1>
 			<a href="index.html" rel="external" data-iconpos="notext" data-icon="home">Home</a>
 		</div>
+		<div id="content" data-role="content" data-theme="f">
+			<div >
+				<a href="additem.html"  id="addNew" data-icon="plus" data-role="button" data-theme="f"  rel="external">Add New Lesson</a>
+			</div>
+  		</div>
 		<div data-role="footer" data-position="fixed" data-theme="c">
 			<div data-role="navbar" id="navbar">
 				<ul class="ui-grid-a">
@@ -88,7 +93,7 @@
 	</div>	
 	
 	<!-- JavaScript under here -->
-	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 </body>
