@@ -7,7 +7,6 @@
 #home-header {
 	background: #fff;
 	margin: 0px auto;
-	padding-top: 10px;
 	text-align: center;
 	border-bottom: 1px solid #ddd;
 	border-top: 6px solid #95b401;
@@ -25,6 +24,7 @@ fieldset legend {
 	padding-bottom: 10px;
 }
 #logo {
+	padding-top: 20px;
 	text-align: center;
 }
 #feature {
@@ -55,10 +55,16 @@ fieldset legend {
 }
 #lessonid-container input, #lessonrev-container input {
 	background: #cccccc;
+	border: 1px solid #AAAAAA !important;
 	color: #444444;
 }
 #submit-container .edit-button {
 	padding: 10px 0;
+}
+.addl-info {
+	font-size: 80%;
+	color:#444444;
+	line-height: 130%;
 }
 
 /*  
