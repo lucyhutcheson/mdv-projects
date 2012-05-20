@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+/**
+ * @author Lucy Hutcheson
+ * Created for:  Advanced Scalable Data Infrastructures 1205
+ */
+-->
+ 
+<html lang="en">
+  <head>
+  	<meta charset="utf-8">
+    <title>List of Lessons</title> 
+  </head>
+<body >
+	
+	<div data-role="page" id="lessons" data-add-back-btn="true" data-theme="f" >
+		<div id="header" data-role="header"  data-position="fixed" data-theme="f">
+			<a href="view.html" data-rel="back" data-direction="reverse" data-icon="arrow-l">Back</a>
+			<a href="index.html" rel="external" data-iconpos="notext" data-icon="home" id="home-button">Home</a>
+		</div>
+		<div id="content" data-role="content" data-theme="f">
+			<ul id="lessonList" data-role="listview" data-inset="true" data-filter="true" data-theme="c"></ul>
+			<div >
+				<a href="additem.html"  id="addNew" data-icon="plus" data-role="button" data-theme="f"  rel="external">Add New Lesson</a>
+			</div>
+  		</div>
+		<div data-role="footer" data-position="fixed" data-theme="c">
+			<div data-role="navbar" id="navbar">
+				<ul>
+					<li><a href="#" data-icon="delete" rel="external" id="clear" onclick="clear();">Clear All</a></li>
+					<li><a href="https://github.com/iamhutch/mdv-projects/tree/master/ASD"  data-icon="star" rel="external">Repository</a></li>
+				</ul>
+			</div><!-- /navbar -->
+			<h4>Copyright &copy; Lucy Hutcheson</h4>
+		</div>
+	</div>
+
+</body>
+</html>

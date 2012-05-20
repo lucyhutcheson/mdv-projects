@@ -1,0 +1,122 @@
+<!doctype html> 
+<!--
+/**
+ * @author Lucy Hutcheson
+ * Created for:  Advanced Scalable Data Infrastructures 1205
+ */
+-->
+ 
+<html lang="en">
+<head>
+
+	<meta charset="utf-8">
+	<title>Pocket Ministry</title>
+	<link rel="stylesheet" type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.min.css" /> 
+
+</head>
+<body>
+	<div data-role="page" id="addLesson" data-theme="f">
+			<ul id="errors"></ul>
+		<div data-role="header"  data-position="fixed" data-theme="f">
+			<a href="additem.html" data-rel="back" data-direction="reverse" data-icon="arrow-l">Back</a>
+				<h3 id="pageTitle">Add New Bible Study Lesson</h3>
+			<a href="index.html" rel="external" data-iconpos="notext" data-icon="home" data-transition="flow">Home</a>
+		</div>
+		<div data-role="content" class="mainContent">
+			<form action="#" name="lessonForm" id="lessonForm" method="get">
+				<h3>Basic Information</h3>
+				<span id="required"><span class="error">*</span> fields are required.</span>
+				<div data-role="fieldcontain">
+					<label for="lesson-name">Lesson Name: <span class="required">*</span></label>
+					<input type="text" id="lesson-name" placeholder="Enter name of your lesson."/>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="author">Author: <span class="required">*</span></label>
+					<input type="text" id="author" placeholder="Enter the author of this lesson."/></li>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="email">Email: <span class="required">*</span></label>
+					<input type="text" id="email" placeholder="Enter email@domain.com"/></li>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="date">Date:</label>
+					<input name="date" id="date" type="date" data-theme="f" data-role="datebox" data-options='{"mode": "calbox"}'>
+				</div>
+				<h3>Lesson Information</h3>
+				<div data-role="fieldcontain" id="select">
+					<label for="topics">Lesson Topic: <span class="required">*</span></label>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="focus">Focus: </label>
+					<select name="focus" id="focus" data-theme="c" data-native-menu="false">
+						<option data-placeholder="true">--Choose A Bible Section--</option>
+							<option value="Old Testament">Old Testament</option>
+							<option value="New Testament">New Testament</option>
+					</select>
+				</div>
+				<div data-role="fieldcontain" id="ot-books">
+					<label for="book" class="ui-select">Old Testament Book: </label>
+					<select name="book" id="book-ot" data-theme="c"  data-native-menu="false">
+						<option data-placeholder="true">--Choose A Book--</option>
+							<option value="Genesis">Genesis</option>
+							<option value="Exodus">Exodus</option>
+							<option value="Deuteronomy">Deuteronomy</option>
+							<option value="Numbers">Numbers</option>
+					</select>
+				</div>
+				<div data-role="fieldcontain" id="nt-books">
+					<label for="book" class="ui-select">New Testament Book: </label>
+					<select name="book" id="book-nt" data-theme="c"  data-native-menu="false">
+						<option data-placeholder="true">--Choose A Book--</option>
+							<option value="Matthew">Matthew</option>
+							<option value="Mark">Mark</option>
+							<option value="Luke">Luke</option>
+							<option value="John">John</option>
+							<option value="1 Corinthians">1 Corinthians</option>
+							<option value="2 Corinthians">2 Corinthians</option>
+							<option value="1 Thessalonians">1 Thessalonians</option>
+							<option value="2 Thessalonians">2 Thessalonians</option>
+					</select>
+				</div>
+				<div data-role="fieldcontain" id="radio">
+					<fieldset data-role="controlgroup">
+						<legend>Target Audience: </legend>
+							<input type="radio" name="audience" id="audience-1" value="Adults" checked="checked"  data-theme="c"/><label for="audience-1">Adults</label>
+							<input type="radio" name="audience" id="audience-2" value="Men" data-theme="c" /><label for="audience-2">Men</label>
+							<input type="radio" name="audience" id="audience-3" value="Women" data-theme="c" /><label for="audience-3">Women</label>
+							<input type="radio" name="audience" id="audience-4" value="Youth" data-theme="c" /><label for="audience-4">Youth</label>
+							<input type="radio" name="audience" id="audience-5" value="Children" data-theme="c" /><label for="audience-5">Children</label>
+					</fieldset>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="length">Length (Minutes): </label>
+					<input type="range" name="length" id="length" min="0" max="180" step="15" value="30" data-theme="c"/>
+				</div>	
+				<div data-role="fieldcontain">
+					<label>Lesson Text: </label>
+					<textarea id="lesson-text" name="lesson-text" rows="8" cols="30" placeholder="Enter in the text for your bible study lesson."></textarea>
+				</div>
+				<div data-role="fieldcontain" id="lessonid-container">
+					<label>Lesson Id: </label>
+					<input id="lesson-id" type="text" disabled="disabled" >
+				</div>
+				<div data-role="fieldcontain" id="lessonrev-container">
+					<label>Revision Information: </label>
+					<input id="lesson-rev" type="text" disabled="disabled" >
+				</div>
+				<div data-role="controlgroup" id="submit-container">
+					<a id="submit" data-role="button" data-theme="f" >Add New Lesson</a> 	
+					<a id="cancel" data-role="button" data-theme="d" onclick="history.back();">Cancel</a> 	
+				</div>
+			</form>
+		</div>
+		<div data-role="footer" data-position="fixed" data-theme="c">
+			<h4>Copyright &copy; Lucy Hutcheson</h4>
+		</div>
+	</div>
+
+	<!-- JavaScript under here -->
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/i8n/jquery.mobile.datebox.i8n.en.js"></script>
+</body>
+</html>
