@@ -46,13 +46,27 @@ fieldset legend {
 	display: none !important;
 	visibility: hidden;
 }
+::-webkit-input-placeholder {
+	color: #aaaaaa;
+}
+
+:-moz-placeholder {
+	color: #aaaaaa;
+}
+#lessonid-container input, #lessonrev-container input {
+	background: #cccccc;
+	color: #444444;
+}
+#submit-container .edit-button {
+	padding: 10px 0;
+}
 
 /*  
  * Data Theme F 
  * ======================== *
  */
 .ui-body-f, .ui-overlay-f {
-	border: 1px solid #999;
+	/*border: 1px solid #999;*/
 	color: #222;
 	text-shadow: 0 1px 0 white;
 	font-weight: normal;
@@ -85,6 +99,9 @@ font-family: Helvetica,Arial,sans-serif;
 }
 .ui-bar-f, .ui-bar-f .ui-link-inherit {
     color: #FFFFFF;
+}
+.ui-field-contain input.ui-input-text, .ui-field-contain textarea.ui-input-text, .ui-field-contain .ui-input-search {
+	border: 1px solid #999999 !important;
 }
 .ui-bar-f .ui-link {
     color: #FFFFFF;
@@ -149,3 +166,11 @@ font-family: Helvetica,Arial,sans-serif;
 .ui-checkbox-on .ui-icon, .ui-radio-on .ui-icon {
 	background-color: #607401;
 }
+#cancel {
+	background: #888888;
+	color: #ffffff;
+    text-shadow: 0 1px 1px #777777;
+    border-top: 1px solid #555555;
+    border-bottom: 1px solid #cccccc;
+}
+
