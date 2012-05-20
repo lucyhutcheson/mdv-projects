@@ -684,7 +684,7 @@ $('#addLesson').live('pageinit', function (event) {
 			//Save data into local storage
 			localStorage.setItem(id, JSON.stringify(newItem));
 			alert("Bible Study Lesson successfully saved.");
-	        parent.history.back();
+			†parent.history.back();
 		}
 
 	});
@@ -746,7 +746,7 @@ $('#addLesson').live('pageinit', function (event) {
 			if (localStorage.length === 0) {
 				window.location.href = "index.html";
 			} else {
-        		parent.history.back();
+				parent.history.back();
 			}
 		} else {
 			alert("Lesson was NOT deleted.");

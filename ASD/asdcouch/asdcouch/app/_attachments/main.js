@@ -4,15 +4,21 @@ $('#home').live('pageshow', function(){
 	// Couch Database
 	$db.view('lessons/categories', {
 		success: function(data) {
+			console.log(data);
 			$('#categoryList').empty();
 			var header = $('<li class="ui-li ui-li-divider ui-bar-f ui-corner-top" data-role="list-divider" role="heading">Categories</li>').appendTo('#categoryList');
 			$.each(data.rows, function(index,category){
 				var name = category.value.name;
+				var description = category.value.description;
 				$('#categoryList').append(
 					$('<li>').append(
 						$('<a>').attr("href", "#lessons?cat="+name)
 							.attr("data-transition", "slide").attr('rel', 'external')
-							.text(name)
+							.append(
+									$('<img>').attr('src', name+'.png'),
+									$('<h3>').text(name),
+									$('<p>').text(description)
+							)
 					)
 				);
 			});
@@ -47,15 +53,29 @@ $('#lessons').live('pageshow', function (event) {
 				$('#lessons #lessonList').append(
 					$('<li>').append(
 						$('<a>').attr("href", "#viewLesson?id="+id).attr('rel', 'external').attr("data-transition", "slide").append(
-								$('<h3>').addClass(id).attr("data-transition", "slide")
-								.text(name),
+							$('<h4>').addClass(id).attr("data-transition", "slide").text(name),
 							$('<p>').addClass('subhead ' + id).html('<strong>Topic:</strong> '+ topic),
-							$('<p>').addClass('ui-li-desc ' + id).text(description),
-							$('<p>').addClass('date ui-li-aside ' + id).text(date)
+							$('<p>').addClass('ui-li-desc ' + id).text(description)
+							/*,$('<p>').addClass('date ui-li-aside ' + id).text(date)*/
 						)
 					)
 				);
 			});
+			// Sort my lesson list after it has been created
+			var mylist = $('#lessonList');
+			var listitems = mylist.children('li').get();
+			listitems.sort(function (a, b) {
+				var compA = $(a).text().toUpperCase();
+				var compB = $(b).text().toUpperCase();
+				// Currently set to descending date based on the > < symbols
+				// return (compA > compB) ? -1 : (compA < compB) ? 1 : 0;
+				// Set to < > to sort ascending
+				return (compA < compB) ? -1 : (compA > compB) ? 1 : 0;
+			});
+			$.each(listitems, function (idx, itm) { 
+				mylist.append(itm); 
+			});
+
 			$('#lessons #lessonList').listview('refresh');
 		},
 	});
@@ -101,7 +121,7 @@ $('#viewLesson').live('pageshow', function (event) {
 				  '<p><strong>Audience:</strong> ' + audience + '</p>' +
 				  '<p><strong>Length:</strong> ' + length + '</p>' +
 				  '<p><strong>Lesson Text:</strong> ' + lessonText + '</p>' +
-				  '<p><strong>Additional Info:</strong><br/>' +
+				  '<p class="addl-info"><strong>Additional Info:</strong><br/>' +
 				  '<strong>ID:</strong> ' + id + '<br/>' +
 				  '<strong>Rev:</strong> ' + rev + '</p>' +
 				  '</div>').appendTo('#viewLesson #content .content-container');
@@ -185,21 +205,6 @@ function editLesson(lessonId){
 				$('select').selectmenu('refresh');
 
 				$('input[value="'+lesson.doc.audience[1]+'"]').attr('checked', true).checkboxradio('refresh');
-				/*var radios = document.forms[0].audience;
-				for(var i=0; i<radios.length; i++){
-					if(radios[i].value == "Adults" && lesson.doc.audience[1] == "Adults") {
-						radios[i].setAttribute("checked", "checked");
-					}else if(radios[i].value == "Children" && lesson.doc.audience[1] == "Children") {
-						radios[i].setAttribute("checked", "checked");
-					}else if(radios[i].value == "Youth" && lesson.doc.audience[1] == "Youth") {
-						radios[i].setAttribute("checked", "checked");
-					}else if(radios[i].value == "Men" && lesson.doc.audience[1] == "Men") {
-						radios[i].setAttribute("checked", "checked");
-					}else if(radios[i].value == "Women" && lesson.doc.audience[1] == "Women") {
-						radios[i].setAttribute("checked", "checked");
-					}
-				}
-				$(radios).checkboxradio('refresh');*/
 				$('#length').val(lesson.doc.length[1]);
 				$('#lesson-text').val(lesson.doc.lesson[1]);
 				$('#lesson-id').val(lesson.doc._id);
