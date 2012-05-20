@@ -16,9 +16,8 @@
 </head>
 <body>
 	<div data-role="page" id="addLesson" data-theme="f">
-			<ul id="errors"></ul>
 		<div data-role="header"  data-position="fixed" data-theme="f">
-			<a href="additem.html" data-rel="back" data-direction="reverse" data-icon="arrow-l">Back</a>
+			<a href="additem.html" data-rel="back" data-direction="reverse" data-icon="arrow-l" data-iconpos="notext">Back</a>
 				<h3 id="pageTitle">Add New Bible Study Lesson</h3>
 			<a href="index.html" rel="external" data-iconpos="notext" data-icon="home" data-transition="flow">Home</a>
 		</div>
@@ -55,8 +54,8 @@
 					</select>
 				</div>
 				<div data-role="fieldcontain" id="ot-books">
-					<label for="book" class="ui-select">Old Testament Book: </label>
-					<select name="book" id="book-ot" data-theme="c"  data-native-menu="false">
+					<label for="book1" class="ui-select">Old Testament Book: </label>
+					<select name="book1" id="book-ot" data-theme="c"  data-native-menu="false">
 						<option data-placeholder="true">--Choose A Book--</option>
 							<option value="Genesis">Genesis</option>
 							<option value="Exodus">Exodus</option>
@@ -65,8 +64,8 @@
 					</select>
 				</div>
 				<div data-role="fieldcontain" id="nt-books">
-					<label for="book" class="ui-select">New Testament Book: </label>
-					<select name="book" id="book-nt" data-theme="c"  data-native-menu="false">
+					<label for="book2" class="ui-select">New Testament Book: </label>
+					<select name="book2" id="book-nt" data-theme="c"  data-native-menu="false">
 						<option data-placeholder="true">--Choose A Book--</option>
 							<option value="Matthew">Matthew</option>
 							<option value="Mark">Mark</option>
