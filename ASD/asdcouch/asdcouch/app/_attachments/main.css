@@ -17,6 +17,7 @@
 .error {
 	color: red;
 	font-style: italic;
+	font-weight: bold;
 }
 fieldset legend {
 	font-weight: bold;
