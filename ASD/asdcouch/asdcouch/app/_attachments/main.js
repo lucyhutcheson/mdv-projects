@@ -95,7 +95,7 @@ $('#viewLesson').live('pageshow', function (event) {
 		"dataType": "json",
 		"success": function(data) {
 			//console.log(data);
-			var rev = data.rows[0].doc._rev;
+			//var rev = data.rows[0].doc._rev;
 			$.each(data.rows, function(index,lesson){
 				var name = lesson.doc.name[1];
 				var author = lesson.doc.author[1];
@@ -121,9 +121,6 @@ $('#viewLesson').live('pageshow', function (event) {
 				  '<p><strong>Audience:</strong> ' + audience + '</p>' +
 				  '<p><strong>Length:</strong> ' + length + '</p>' +
 				  '<p><strong>Lesson Text:</strong> ' + lessonText + '</p>' +
-				  '<p class="addl-info"><strong>Additional Info:</strong><br/>' +
-				  '<strong>ID:</strong> ' + id + '<br/>' +
-				  '<strong>Rev:</strong> ' + rev + '</p>' +
 				  '</div>').appendTo('#viewLesson #content .content-container');
 				//Add ID's to Edit and Delete button
 				$('#viewLesson #edit').attr('href', 'additem.html?lessonId='+lessonId+'&op=edit');
@@ -159,17 +156,16 @@ $('#addLesson').live('pageinit', function (event) {
 	setDate();
 });
 $('#addLesson').live('pageshow', function (event) {
-	var op = getUrlVars()["op"];
+    var op = getUrlVars()["op"];
 	var lessonId = getUrlVars()["lessonId"];
 	if(op === 'edit') {
-		$('#lessonid-container').show();
-		$('#lessonrev-container').show();
 		$('input[name=audience').removeAttr('checked');
 		//Change submit button value to edit button
 		$('#submit').addClass('edit-button').text('Edit Lesson');
 		$('input[value="Adults"]').removeAttr('checked').checkboxradio('refresh');
 		editLesson(lessonId);
 	}
+	$('#submit').on('click', validateForm);
 
 });
 
@@ -218,7 +214,7 @@ function editLesson(lessonId){
 }
 
 // VALIDATE FUNCTION
-var validateForm = function (lessonId) {
+var validateForm = function (e) {
 	var getLessonName = $("#lesson-name").val();
 	var getAuthor = $("#author").val();
 	var getEmail = $("#email").val();
@@ -266,19 +262,17 @@ var validateForm = function (lessonId) {
 
 	//Set Errors
 	if (hasError === true) {
-		$('#submit-container').after('<br/><span class="error">Please correct the errors above.</span>');
-		event.preventDefault();
+		$('#submit-container').before('<br/><span class="error">Please correct the errors above.</span>');
+		e.preventDefault();
 		return false;
 	} else {
 		//If all is validated, save the data and send the key value from editData
-		return true;
+		storeData();
 	}
 }
 
 // STORE FUNCTION
-$('#submit').live('click', function () {
-		
-		validateForm();
+function storeData() {
 		
 		if ($('#focus').val() === 'New Testament') {
 			var book = $('#book-nt').val();
@@ -324,7 +318,7 @@ $('#submit').live('click', function () {
 		});  
 		alert("Bible Study Lesson successfully saved.");
         document.location.href='#lessons?cat='+getRadio().toLowerCase();
-});
+};
 
 
 // DELETE FUNCTION
@@ -333,10 +327,10 @@ $("#delete").on('click', function () {
 	var page = ("#" + $(this).attr('rel')).toLowerCase();
 
 	areYouSure("Are you sure?", "This action cannot be undone.", "Yes, Delete this Lesson", function() {
-		$.couch.db('pocketministry').openDoc(lessonId, {
+		$db.openDoc(lessonId, {
 			success: function(document){
 				//console.log(document);
-				$.couch.db("pocketministry").removeDoc(document, {
+				$db.removeDoc(document, {
 				     success: function() {
 				 		alert("Lesson was successfully deleted.");
 				 		history.back();
@@ -453,3 +447,4 @@ function areYouSure(text1, text2, button, callback) {
 	});
 	$.mobile.changePage("#sure");
 }
+
