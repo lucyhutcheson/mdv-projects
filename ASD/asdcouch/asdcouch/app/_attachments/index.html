@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!--
 /**
@@ -24,11 +25,11 @@
  
   </head>
 <body id="index">
-	<div data-role="page" id="home" data-theme="f">
+	<div data-role="page" id="home" >
 		<div id="home-header" data-role="header" data-theme="d">
 			<img src="logo.png" id="logo" width="75%" border="0"><h1 class="hidden"></h1>
 		</div>
-		<div data-role="content" id="content">
+		<div data-role="content" id="content" data-theme="f">
 			<div id="feature">
 				<a href="additem.html" data-transition="slide"><img src="feature.png" width="100%"></a>
 			</div>
@@ -42,7 +43,7 @@
 		</div>
 	</div>
 	
-	<div data-role="page" id="lessons" data-add-back-btn="true" data-theme="f" >
+	<div data-role="page" id="lessons" data-add-back-btn="true"  >
 		<div id="header" data-role="header"  data-position="fixed" data-theme="f">
 			<a href="#" data-rel="back" data-direction="reverse" data-icon="arrow-l" data-iconpos="notext">Back</a>
 			<a href="index.html" rel="external" data-iconpos="notext" data-icon="home" id="home-button">Home</a>
@@ -60,7 +61,7 @@
 		</div>
 	</div>
 
-	<div data-role="page" id="viewLesson" data-add-back-btn="true" data-theme="f"  data-cache="never">
+	<div data-role="page" id="viewLesson" data-add-back-btn="true" data-cache="never">
 		<div data-role="header"  data-position="fixed" data-theme="f">
 			<a href="#" data-rel="back" data-direction="reverse" data-icon="arrow-l" data-iconpos="notext">Back</a>
 			<h1 id="title">View Lesson</h1>
@@ -83,8 +84,8 @@
 	
 <div data-role="dialog" id="sure" data-title="Are you sure?">
 	<div data-role="content">
-		<h3 class="sure-1">???</h3>
-		<p class="sure-2">???</p>
+		<h3 class="sure-1"></h3>
+		<p class="sure-2"></p>
 		<a href="#" class="sure-do" data-role="button" data-theme="f" data-rel="back">Yes</a>
 		<a href="#" data-role="button" data-theme="c" data-rel="back">No</a>
 	</div>

@@ -263,6 +263,7 @@ var validateForm = function (e) {
 	//Set Errors
 	if (hasError === true) {
 		$('#submit-container').before('<br/><span class="error">Please correct the errors above.</span>');
+		$('body,html').animate({scrollTop:0}, 800);
 		e.preventDefault();
 		return false;
 	} else {
@@ -447,4 +448,3 @@ function areYouSure(text1, text2, button, callback) {
 	});
 	$.mobile.changePage("#sure");
 }
-

@@ -89,11 +89,12 @@ fieldset legend {
 font-family: Helvetica,Arial,sans-serif;
 }
 .ui-bar-f {
-	border-bottom: 1px solid #607401;
+	border: 1px solid #607401;
 	background: #607401;
-	color: white;
+	color: #ffffff;
 	font-weight: bold;
-	text-shadow: 0 1px 1px #607401;
+	text-shadow: 0 -1px 1px #607401;
+
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#95b401), to(#607401));
 	background-image: -webkit-linear-gradient(#95b401, #607401);
 	background-image: -moz-linear-gradient(#95b401, #607401);
@@ -180,4 +181,5 @@ font-family: Helvetica,Arial,sans-serif;
     border-top: 1px solid #555555;
     border-bottom: 1px solid #cccccc;
 }
+
 
