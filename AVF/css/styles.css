@@ -77,8 +77,8 @@ fieldset legend {
 
 @media (max-width:640px) {
 	#logo {
-		width: 50%;
-		height: 10%;
+		width: 250px;
+		height: 58px;
 	}
 }
 
