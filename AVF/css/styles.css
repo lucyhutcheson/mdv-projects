@@ -9,19 +9,18 @@
 	background: url('../images/tab-bg.png') repeat-x top left;
 	margin: 0px auto;
 	padding-top: 10px;
-	text-align: center;
+	padding-left: 20px;
 	-webkit-box-shadow:  0px 3px 5px 0px rgba(0, 0, 0, 0.3);
 	box-shadow:  0px 3px 5px 0px rgba(0, 0, 0, 0.3);
 }
 .content-a, .content-b {
 	float: left;
-	padding: 0 30px;
+	margin-right: 30px;
 	width: 45%;
 }
-@media (max-width:768px) {
-	width: 90%;
+.content-a {
+	margin-left: 2%;
 }
-
 .required {
 	color: red;
 }
@@ -35,7 +34,7 @@ fieldset legend {
 	padding-bottom: 10px;
 }
 #logo {
-	text-align: center;
+	text-align: left;
 }
 #feature {
 	padding-bottom: 10px;
@@ -61,6 +60,26 @@ fieldset legend {
 }
 
 
+@media (max-width:768px) {
+	.content-a, .content-b {
+		float: none;
+		padding: 0px;
+		width: 95%;
+	}
+	.content-a {
+		margin-left: 0;
+	}
+	#logo {
+		width: 80%;
+		height: 80%;
+	}
+	#header {
+		text-align: center;	
+		padding-left: 0;
+	}
+}
+
+
 /*  
  * Data Theme F 
  * ======================== *
@@ -82,17 +101,17 @@ fieldset legend {
 font-family: Helvetica,Arial,sans-serif;
 }
 .ui-bar-f {
-	border-bottom: 1px solid #607401;
-	background: #607401;
+	border-bottom: 1px solid #6e8600;
+	background: #7f9b00;
 	color: white;
 	font-weight: bold;
-	text-shadow: 0 1px 1px #607401;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#95b401), to(#607401));
-	background-image: -webkit-linear-gradient(#95b401, #607401);
-	background-image: -moz-linear-gradient(#95b401, #607401);
-	background-image: -ms-linear-gradient(#95b401, #607401);
-	background-image: -o-linear-gradient(#95b401, #607401);
-	background-image: linear-gradient(#95b401, #607401);
+	text-shadow: 0 1px 1px #6e8600;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#acd200), to(#7f9b00));
+	background-image: -webkit-linear-gradient(#acd200, #7f9b00);
+	background-image: -moz-linear-gradient(#acd200, #7f9b00);
+	background-image: -ms-linear-gradient(#acd200, #7f9b00);
+	background-image: -o-linear-gradient(#acd200, #7f9b00);
+	background-image: linear-gradient(#acd200, #7f9b00);
 }
 .ui-bar-f, .ui-bar-f input, .ui-bar-f select, .ui-bar-f textarea, .ui-bar-f button {
     font-family: Helvetica,Arial,sans-serif;
@@ -105,53 +124,49 @@ font-family: Helvetica,Arial,sans-serif;
     font-weight: bold;
 }
 .ui-btn-up-f {
-	border: 1px solid #607401;
-	background: #607401;
-	font-weight: bold;
+	border-bottom: 1px solid #6e8600;
+	background: #7f9b00;
 	color: white;
-	text-shadow: 0 1px 1px #607401;
-	background-image: -webkit-gradient(linear,left top,left bottom,from(#95b401),to(#607401));
-	background-image: -webkit-linear-gradient(#95b401, #607401);
-	background-image: -moz-linear-gradient(#95b401, #607401);
-	background-image: -ms-linear-gradient(#95b401, #607401);
-	background-image: -o-linear-gradient(#95b401, #607401);
-	background-image: linear-gradient(#95b401, #607401);
-    border: 1px solid #607401;
-    color: #FFFFFF;
-    font-weight: bold;
-    text-shadow: 0 1px 1px #607401;
+	font-weight: bold;
+	text-shadow: 0 1px 1px #6e8600;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#acd200), to(#7f9b00));
+	background-image: -webkit-linear-gradient(#acd200, #7f9b00);
+	background-image: -moz-linear-gradient(#acd200, #7f9b00);
+	background-image: -ms-linear-gradient(#acd200, #7f9b00);
+	background-image: -o-linear-gradient(#acd200, #7f9b00);
+	background-image: linear-gradient(#acd200, #7f9b00);
 }
 .ui-btn-up-f a.ui-link-inherit {
     color: #FFFFFF;
 }
 .ui-btn-hover-f {
-	background-image: -webkit-gradient(linear,left top,left bottom,from(#607401),to(#95b401));
-	background-image: -webkit-linear-gradient(#607401, #95b401);
-	background-image: -moz-linear-gradient(#607401, #95b401);
-	background-image: -ms-linear-gradient(#607401, #95b401);
-	background-image: -o-linear-gradient(#607401, #95b401);
-	background-image: linear-gradient(#607401, #95b401);
-    background: -moz-linear-gradient(#607401, #95b401) repeat scroll 0 0 #607401;
-    border: 1px solid #607401;
-    color: #FFFFFF;
-    font-weight: bold;
-    text-shadow: 0 1px 1px #607401;
+	border-bottom: 1px solid #6e8600;
+	background: #7f9b00;
+	color: white;
+	font-weight: bold;
+	text-shadow: 0 1px 1px #6e8600;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#7f9b00), to(#acd200));
+	background-image: -webkit-linear-gradient(#7f9b00, #acd200);
+	background-image: -moz-linear-gradient(#7f9b00, #acd200);
+	background-image: -ms-linear-gradient(#7f9b00, #acd200);
+	background-image: -o-linear-gradient(#7f9b00, #acd200);
+	background-image: linear-gradient(#7f9b00, #acd200);
 }
 .ui-btn-hover-f a.ui-link-inherit {
     color: #FFFFFF;
 }
 .ui-btn-down-f {
-	background-image: -webkit-gradient(linear,left top,left bottom,from(#607401),to(#95b401));
-	background-image: -webkit-linear-gradient(#607401, #95b401);
-	background-image: -moz-linear-gradient(#607401, #95b401);
-	background-image: -ms-linear-gradient(#607401, #95b401);
-	background-image: -o-linear-gradient(#607401, #95b401);
-	background-image: linear-gradient(#607401, #95b401);
-    background: -moz-linear-gradient(#607401, #95b401) repeat scroll 0 0 #95b401;
-    border: 1px solid #607401;
-    color: #FFFFFF;
-    font-weight: bold;
-    text-shadow: 0 1px 1px #607401;
+	border-bottom: 1px solid #6e8600;
+	background: #7f9b00;
+	color: white;
+	font-weight: bold;
+	text-shadow: 0 1px 1px #6e8600;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#7f9b00), to(#acd200));
+	background-image: -webkit-linear-gradient(#7f9b00, #acd200);
+	background-image: -moz-linear-gradient(#7f9b00, #acd200);
+	background-image: -ms-linear-gradient(#7f9b00, #acd200);
+	background-image: -o-linear-gradient(#7f9b00, #acd200);
+	background-image: linear-gradient(#7f9b00, #acd200);
 }
 .ui-btn-down-f a.ui-link-inherit {
     color: #FFFFFF;
@@ -161,7 +176,7 @@ font-family: Helvetica,Arial,sans-serif;
     text-decoration: none;
 }
 .ui-checkbox-on .ui-icon, .ui-radio-on .ui-icon {
-	background-color: #607401;
+	background-color: #6e8600;
 }
 
 /*  
@@ -170,10 +185,10 @@ font-family: Helvetica,Arial,sans-serif;
  */
 .ui-bar-g {
 	border-bottom: 1px solid #369ea4;
-	background: #369ea4;
 	color: white;
 	font-weight: bold;
 	text-shadow: 0 1px 1px #369ea4;
+	background: #369ea4;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#3ebcbf), to(#369ea4));
 	background-image: -webkit-linear-gradient(#3ebcbf, #369ea4);
 	background-image: -moz-linear-gradient(#3ebcbf, #369ea4);
