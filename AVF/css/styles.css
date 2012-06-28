@@ -69,14 +69,18 @@ fieldset legend {
 	.content-a {
 		margin-left: 0;
 	}
-	#logo {
-	}
 	#header {
 		text-align: center;	
 		padding-left: 0;
 	}
 }
 
+@media (max-width:640px) {
+	#logo {
+		width: 50%;
+		height: 10%;
+	}
+}
 
 /*  
  * Data Theme F 
