@@ -1,4 +1,4 @@
-$db = $.couch.db('pocketministry');
+var $db = $.couch.db('pocketministry');
 
 $('#home').live('pageshow', function(){
 	// Couch Database
@@ -77,7 +77,7 @@ $('#lessons').live('pageshow', function (event) {
 			});
 
 			$('#lessons #lessonList').listview('refresh');
-		},
+		}
 	});
 });
 
@@ -144,7 +144,7 @@ $('#addLesson').live('pageinit', function (event) {
 			$("#nt-books").show();
 			$("#ot-books").hide();
 		}
-	}
+	};
 	$('#ot-books').hide();
 	$('#nt-books').hide();
 	$("#focus").change(function () {
@@ -270,7 +270,7 @@ var validateForm = function (e) {
 		//If all is validated, save the data and send the key value from editData
 		storeData();
 	}
-}
+};
 
 // STORE FUNCTION
 function storeData() {
@@ -354,7 +354,7 @@ $("#delete").on('click', function () {
 // Get Radio value for store function
 var getRadio = function () {
 	return($('input:radio[name=audience]:checked').val());
-}
+};
 
 var setRadio = function (myRadio) {
 	switch(myRadio)
@@ -380,7 +380,7 @@ var setRadio = function (myRadio) {
 		$('input:radio[name=audience]').checkboxradio('refresh');
 		break;
 	}
-}
+};
 
 var setTopic = function (myTopic) {
 	switch(myTopic)
@@ -398,7 +398,7 @@ var setTopic = function (myTopic) {
 		$('#topics').selectmenu('refresh');
 		break;
 	}
-}
+};
 
 //Create select field element and populate with options.
 function makeTopics() {
