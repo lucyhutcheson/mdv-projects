@@ -1,0 +1,263 @@
+<!doctype html> 
+<!--
+/**
+ * @author Lucy Hutcheson
+ * Created for:  Advanced Scalable Data Infrastructures 1205
+ */
+-->
+ 
+<html lang="en">
+<head>
+
+	<meta charset="utf-8">
+	
+	<title>Pocket Ministry</title>
+	
+	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- Mobile IE needs ClearType for smoothing fonts -->
+	<meta http-equiv="cleartype" content="on">
+	
+	<!-- StyleSheets under here -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+	<link rel="stylesheet" href="css/styles.css" />	
+	
+	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+	<script src="js/libs/modernizr.custom.min.js"></script>
+
+</head>
+<body id="index">
+	<div data-role="page" id="home" data-theme="f">
+		<div id="header" data-role="header" data-theme="d">
+			<img src="images/logo.png" id="logo" width="75%" border="0"><h1 class="hidden"></h1>
+		</div>
+		<div data-role="content" id="content">
+			<div id="feature">
+				<a href="additem.html" data-transition="slide" rel="external"><img src="images/feature.png" width="100%"></a>
+			</div>
+			<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="f"> 
+				<li data-role="list-divider">Adults</li>
+				<li>
+					<a href="#Adults" data-transition="slide">
+						<img src="images/Adults.png"  />
+						<h3>Adults</h3>
+						<p>Studies for Adult audiences.</p>
+						<span class="ui-li-count">20</span>
+					</a>
+				</li>
+				<li>
+					<a href="#Men" data-transition="slide">
+						<img src="images/Men.png" />
+						<h3>Men</h3>
+						<p>Studies for Men audiences.</p>
+						<span class="ui-li-count">3</span>
+					</a>
+				</li>
+				<li>
+					<a href="#Women"  data-transition="slide">
+						<img src="images/Women.png"/>
+						<h3>Women</h3>
+						<p>Studies for Women audiences.</p>
+						<span class="ui-li-count">4</span>
+					</a>
+				</li>
+				<li data-role="list-divider">Children</li>
+				<li>
+					<a href="#Youth" data-transition="slide">
+						<img src="images/Youth.png" />
+						<h3>Youth</h3>
+						<p>Studies for Youth audiences.</p>
+						<span class="ui-li-count">6</span>
+					</a>
+				</li>
+				<li>
+					<a href="#Children" data-transition	="slide">
+						<img src="images/Children.png" />
+						<h3>Children</h3>
+						<p>Studies for Children audiences.</p>
+						<span class="ui-li-count">4</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div data-role="footer" data-position="fixed" data-theme="c">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="https://github.com/iamhutch/mdv-projects/tree/master/ASD"  data-icon="star" rel="external">Repository</a></li>
+					<li><a href="index.html"  data-icon="home" rel="external">Home</a></li>
+				</ul>
+			</div><!-- /navbar -->
+			<h4>Copyright &copy; Lucy Hutcheson</h4>
+		</div>
+	</div>
+	
+	<div data-role="page" id="Adults" data-add-back-btn="true" data-theme="f" >
+		<div data-role="header"  data-position="fixed" data-theme="f">
+			<a href="view.html" data-rel="back" data-direction="reverse" data-icon="arrow-l">Back</a>
+			<h1 id="headerTitle">Adults</h1>
+			<a href="index.html" rel="external" data-iconpos="notext" data-icon="home">Home</a>
+		</div>
+		<div id="content" data-role="content" data-theme="f">
+			<ul id="lesson-list" data-role="listview" data-inset="true" data-filter="true" data-theme="c"></ul>
+			<div id="getdata_button">
+				<p>There are no lessons available.  Click load data below to view default lessons or add your own!</p>
+				<a href="#"  id="load-adults" data-icon="plus" data-role="button" data-theme="f">Load JSON Data</a>
+			</div>
+			<div >
+				<a href="additem.html"  id="addNew" data-icon="plus" data-role="button" data-theme="f"  rel="external">Add New Lesson</a>
+			</div>
+  		</div>
+		<div data-role="footer" data-position="fixed" data-theme="c">
+			<div data-role="navbar" id="navbar">
+				<ul>
+					<li><a href="#" data-icon="delete" rel="external" id="clear" onclick="clear();">Clear All</a></li>
+					<li><a href="https://github.com/iamhutch/mdv-projects/tree/master/ASD"  data-icon="star" rel="external">Repository</a></li>
+				</ul>
+			</div><!-- /navbar -->
+			<h4>Copyright &copy; Lucy Hutcheson</h4>
+		</div>
+	</div>
+
+	<div data-role="page" id="Men" data-add-back-btn="true" data-theme="f"  data-cache="never" data-cache="never">
+		<div data-role="header"  data-position="fixed" data-theme="f">
+			<a href="view.html" data-rel="back" data-direction="reverse" data-icon="arrow-l">Back</a>
+			<h1 id="headerTitle">Men</h1>
+			<a href="index.html" rel="external" data-iconpos="notext" data-icon="home">Home</a>
+		</div>
+		<div id="content" data-role="content" data-theme="f">
+			<div id="men-lesson-list" data-role="collapsible-set"></div>
+			<div id="getdata_button">
+				<p>There are no lessons available.  Click load data below to view default lessons or add your own!</p>
+				<a href="#"  id="load-men" data-icon="plus" data-role="button" data-theme="f">Load XML Data</a>
+			</div>
+			<div >
+				<a href="additem.html"  id="addNew" data-icon="plus" data-role="button" data-theme="f"  rel="external">Add New Lesson</a>
+			</div>
+  		</div>
+		<div data-role="footer" data-position="fixed" data-theme="c">
+			<div data-role="navbar" id="navbar">
+				<ul>
+					<li><a href="#" data-icon="delete" rel="external" id="clear" onclick="clear();location.reload();">Clear All</a></li>
+					<li><a href="https://github.com/iamhutch/mdv-projects/tree/master/ASD"  data-icon="star" rel="external">Repository</a></li>
+				</ul>
+			</div><!-- /navbar -->
+			<h4>Copyright &copy; Lucy Hutcheson</h4>
+		</div>
+	</div>
+
+	<div data-role="page" id="Women" data-add-back-btn="true" data-theme="f"  data-cache="never">
+		<div data-role="header"  data-position="fixed" data-theme="f">
+			<a href="view.html" data-rel="back" data-direction="reverse" data-icon="arrow-l">Back</a>
+			<h1 id="headerTitle">Women</h1>
+			<a href="index.html" rel="external" data-iconpos="notext" data-icon="home">Home</a>
+		</div>
+		<div id="content" data-role="content" data-theme="f">
+			<div id="women-lesson-list" data-role="collapsible-set"></div>
+			<div id="getdata_button">
+				<p>There are no lessons available.  Click load data below to view default lessons or add your own!</p>
+				<a href="#"  id="load-women" data-icon="plus" data-role="button" data-theme="f">Load XML Data</a>
+			</div>
+			<div >
+				<a href="additem.html"  id="addNew" data-icon="plus" data-role="button" data-theme="f"  rel="external">Add New Lesson</a>
+			</div>
+  		</div>
+		<div data-role="footer" data-position="fixed" data-theme="c">
+			<div data-role="navbar" id="navbar">
+				<ul>
+					<li><a href="#" data-icon="delete" rel="external" id="clear">Clear All</a></li>
+					<li><a href="https://github.com/iamhutch/mdv-projects/tree/master/ASD"  data-icon="star" rel="external">Repository</a></li>
+				</ul>
+			</div><!-- /navbar -->
+			<h4>Copyright &copy; Lucy Hutcheson</h4>
+		</div>
+	</div>
+
+	<div data-role="page" id="Youth" data-add-back-btn="true" data-theme="f"  data-cache="never">
+		<div data-role="header"  data-position="fixed" data-theme="f">
+			<a href="view.html" data-rel="back" data-direction="reverse" data-icon="arrow-l">Back</a>
+			<h1 id="headerTitle">Youth</h1>
+			<a href="index.html" rel="external" data-iconpos="notext" data-icon="home">Home</a>
+		</div>
+		<div id="content" data-role="content" data-theme="f">
+			<div id="youth-lesson-list" data-role="collapsible-set"></div>
+			<div id="getdata_button">
+				<p>There are no lessons available.  Click load data below to view default lessons or add your own!</p>
+				<a href="#"  id="load-youth" data-icon="plus" data-role="button" data-theme="f">Load CSV Data</a>
+			</div>
+			<div >
+				<a href="additem.html"  id="addNew" data-icon="plus" data-role="button" data-theme="f"  rel="external">Add New Lesson</a>
+			</div>
+  		</div>
+		<div data-role="footer" data-position="fixed" data-theme="c">
+			<div data-role="navbar" id="navbar">
+				<ul>
+					<li><a href="#" data-icon="delete" rel="external" id="clear">Clear All</a></li>
+					<li><a href="https://github.com/iamhutch/mdv-projects/tree/master/ASD"  data-icon="star" rel="external">Repository</a></li>
+				</ul>
+			</div><!-- /navbar -->
+			<h4>Copyright &copy; Lucy Hutcheson</h4>
+		</div>
+	</div>
+
+	<div data-role="page" id="Children" data-add-back-btn="true" data-theme="f" data-cache="never" >
+		<div data-role="header"  data-position="fixed" data-theme="f">
+			<a href="view.html" data-rel="back" data-direction="reverse" data-icon="arrow-l">Back</a>
+			<h1 id="headerTitle">Children</h1>
+			<a href="index.html" rel="external" data-iconpos="notext" data-icon="home">Home</a>
+		</div>
+		<div id="content" data-role="content" data-theme="f">
+			<div id="children-lesson-list" data-role="collapsible-set"></div>
+			<div id="getdata_button">
+				<p>There are no lessons available.  Click load data below to view default lessons or add your own!</p>
+				<a href="#"  id="load-children" data-icon="plus" data-role="button" data-theme="f">Load CSV Data</a>
+			</div>
+			<div >
+				<a href="additem.html"  id="addNew" data-icon="plus" data-role="button" data-theme="f"  rel="external">Add New Lesson</a>
+			</div>
+  		</div>
+		<div data-role="footer" data-position="fixed" data-theme="c">
+			<div data-role="navbar" id="navbar">
+				<ul>
+					<li><a href="#" data-icon="delete" rel="external" id="clear5" onclick="clear();">Clear All</a></li>
+					<li><a href="https://github.com/iamhutch/mdv-projects/tree/master/ASD"  data-icon="star" rel="external">Repository</a></li>
+				</ul>
+			</div><!-- /navbar -->
+			<h4>Copyright &copy; Lucy Hutcheson</h4>
+		</div>
+	</div>
+
+	<div data-role="page" id="viewLesson" data-add-back-btn="true" data-theme="f"  data-cache="never">
+		<div data-role="header"  data-position="fixed" data-theme="f">
+			<a href="view.html" data-rel="back" data-direction="reverse" data-icon="arrow-l">Back</a>
+			<h1 id="headerTitle">View Lesson</h1>
+			<a href="index.html" rel="external" data-iconpos="notext" data-icon="home">Home</a>
+		</div>
+		<div data-role="footer" data-position="fixed" data-theme="c">
+			<div data-role="navbar" id="navbar">
+				<ul class="ui-grid-a">
+					<li><a href="#" title="Delete Lesson" data-icon="delete" id="delete">Delete</a></li>
+					<li><a href="additem.html"  id="addNew" data-icon="plus" rel="external">Add New</a></li>
+				</ul>
+			</div><!-- /navbar -->
+			<h4>Copyright &copy; Lucy Hutcheson</h4>
+		</div>
+	</div>
+	
+	<div id="details" data-role="page"  data-add-back-btn="true" data-theme="c">
+	  <div data-role="header" data-theme="f"><h1 id="headerTitle">Adults</h1></div>
+	  <div data-role="content" id="details-content"></div>
+		<div data-role="footer" data-position="fixed" data-theme="c">
+			<h4>Copyright &copy; Lucy Hutcheson</h4>
+		</div>
+	</div>
+	
+	
+	<!-- JavaScript under here -->
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
