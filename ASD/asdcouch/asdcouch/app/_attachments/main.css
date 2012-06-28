@@ -27,10 +27,17 @@ fieldset legend {
 #logo {
 	padding-top: 20px;
 	text-align: center;
+	max-width: 512px;
+	width: 100%;
 }
 #feature {
 	padding-bottom: 10px;
 	clear: both;
+	text-align: center;
+}
+#feature img {
+	width: 100%;
+	max-width: 510px;
 }
 #content {
 	border-top: 1px solid #fff;
