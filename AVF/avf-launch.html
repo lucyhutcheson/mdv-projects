@@ -39,22 +39,34 @@
 				<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="f"> 
 					<li data-role="list-divider">CRUD Apps</li>
 					<li>
-						<h3>Adults</h3>
-						<p>Studies for Adult audiences.</p>
+						<a href="http://lucyhutcheson.cloudant.com/pocketministry/_design/ministry/index.html">Original CRUD App</a>
+					</li>
+					<li>
+						Revised CRUD App
+					</li>
+					<li>
+						<a href="https://github.com/iamhutch/mdv-projects/tree/master/AVF">Github Repo</a>
 					</li>
 				</ul>
 				<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="f"> 
 					<li data-role="list-divider">iOS/Android Native Feature Demo(s)</li>
 					<li>
-						<h3>Adults</h3>
-						<p>Studies for Adult audiences.</p>
+						Geolocation
+					</li>
+					<li>
+						Notifications
+					</li>
+					<li>
+						Accelerometer
 					</li>
 				</ul>
 				<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="f"> 
 					<li data-role="list-divider">iOS or Android Native Features Demo(s)</li>
 					<li>
-						<h3>Adults</h3>
-						<p>Studies for Adult audiences.</p>
+						Contacts
+					</li>
+					<li>
+						Camera
 					</li>
 				</ul>
 			</div>
@@ -62,8 +74,7 @@
 				<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="f"> 
 					<li data-role="list-divider">Research</li>
 					<li>
-						<h3>Adults</h3>
-						<p>Studies for Adult audiences.</p>
+						<a href="#research-1" data-transition="slide">Discussion 1: Industry Research and Project Intent</a>
 					</li>
 				</ul>
 				<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="f"> 
@@ -80,7 +91,35 @@
 		</div>
 	</div>
 	
-
+	<div data-role="page" id="research-1" data-theme="f">
+		<div id="header" data-role="header" data-theme="d">
+			<a href="view.html" data-rel="back" data-direction="reverse" data-icon="arrow-l">Back</a>
+			<img src="images/logo.png" id="logo" width="415" height="97" border="0"><h1 class="hidden"></h1>
+		</div>
+		<div data-role="content" id="content">
+			<div data-theme="c" class="content-container ui-btn  ui-li ui-corner-top ui-corner-bottom ui-btn-up-c">
+				<h3>What types of native features (on Android and iOS devices) would you be able to implement with the use of HTML/CSS/JS only?</h3>
+				<p>Here are the native features that you can implement with the use of HTML/CSS/JS and PhoneGap:  accelerometer, camera, contacts, file, geolocation, media, network, notifications (alert, sound, vibration) and storage.</p>
+				
+				<h3>For your CRUD app revision and/or Demo App components, which of these do you think you will implement?</h3>
+				<p>I am planning on implementing the geolocation, notification, contacts and camera.</p>
+				
+				<h3>Briefly describe some past 'lessons learned' regarding workflow as it relates to research, design, development, etc.</h3>
+				<p>I have learned that you must do your research first and then the design, followed by the development.  I have worked in projects where they got 
+				started but didn’t know about different trends and norms that were needed.  So they had to go back and research that.  Then they got to the design and found out that certain things didn’t work or flow the way they wanted them to.  
+				So it was back to researching how they should flow.  Lastly, the development is started when all these areas have been worked out.</p>
+				
+				<h3>Please describe any design intentions you may have for the AVF Demo app and the revised/new version of your CRUD app.</h3>
+				<p>I plan on changing the app from a bible study tool type app called Pocket Ministry to a disciplee tracker called Go Disciple.  Instead of listing out bible study lessons, it will contain information on a person that a leader or anyone is discipling.  This will allow me to add the geolocation, contact, and notification features.</p>
+				
+				<h3>If not covered above, please also describe any functionality intentions you may have for both the AVF Demo app and the revised/new version of your CRUD app.</h3>
+				<p>I’m thinking of adding FileUploader to the app in case there are supporting documents that might need to be added for the tracker.</p>
+			</div>
+		</div>
+		<div data-role="footer" data-position="fixed" data-theme="c">
+			<h4>Copyright &copy; Lucy Hutcheson</h4>
+		</div>
+	</div>
 	
 	<!-- JavaScript under here -->
 	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
