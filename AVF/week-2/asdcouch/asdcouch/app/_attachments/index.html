@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<!--
+/**
+ * @author Lucy Hutcheson
+ * Created for:  Advanced Scalable Data Infrastructures 1205
+ */
+-->
+ 
+<html lang="en">
+  <head>
+  	<meta charset="utf-8">
+    <title>Pocket Ministry</title>
+	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	
+	<!-- StyleSheets under here -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+    <link rel="stylesheet" href="main.css" type="text/css">
+ 	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+	<script src="modernizr.custom.min.js"></script>
+ 
+  </head>
+<body id="index">
+	<div data-role="page" id="home" >
+		<div id="home-header" data-role="header" data-theme="d">
+			<img src="logo.png" id="logo" alt="logo" border="0"><h1 class="hidden"></h1>
+		</div>
+		<div data-role="content" id="content" data-theme="f">
+			<div id="feature">
+				<a href="additem.html" data-transition="slide"><img src="feature.png" alt="Add New Item"></a>
+			</div>
+			<ul id="categoryList" data-role="listview" data-inset="true" data-theme="c" data-dividertheme="f"> 
+				<li data-role="list-divider">Categories</li>
+
+			</ul>
+		</div>
+		<div data-role="footer" data-position="fixed" data-theme="c">
+			<h4>Copyright &copy; Lucy Hutcheson</h4>
+		</div>
+	</div>
+	
+	<div data-role="page" id="lessons" data-add-back-btn="true"  >
+		<div id="header" data-role="header"  data-position="fixed" data-theme="f">
+			<a href="#" data-rel="back" data-direction="reverse" data-icon="arrow-l" data-iconpos="notext">Back</a>
+			<a href="index.html" rel="external" data-iconpos="notext" data-icon="home" id="home-button">Home</a>
+		</div>
+		<div id="content" data-role="content" data-theme="f">
+			<ul id="lessonList" data-role="listview" data-filter="true" data-theme="c"></ul>
+  		</div>
+		<div data-role="footer" data-position="fixed" data-theme="c">
+			<div data-role="navbar" id="navbar" data-theme="f"  >
+				<ul>
+					<li><a href="additem.html"  id="addNew" data-icon="plus" data-role="button" data-theme="f">Add New Lesson</a></li>
+				</ul>
+			</div><!-- /navbar -->
+			<h4>Copyright &copy; Lucy Hutcheson</h4>
+		</div>
+	</div>
+
+	<div data-role="page" id="viewLesson" data-add-back-btn="true" data-cache="never">
+		<div data-role="header"  data-position="fixed" data-theme="f">
+			<a href="#" data-rel="back" data-direction="reverse" data-icon="arrow-l" data-iconpos="notext">Back</a>
+			<h1 id="title">View Lesson</h1>
+			<a href="index.html" rel="external" data-iconpos="notext" data-icon="home">Home</a>
+		</div>
+		<div id="content" data-role="content" data-theme="f">
+
+  		</div>
+		<div data-role="footer" data-position="fixed" data-theme="c">
+			<div data-role="navbar" id="navbar">
+				<ul class="ui-grid-b">
+					<li><a title="Edit Lesson" data-icon="gear" id="edit">Edit</a></li>
+					<li><a href="#delete-dialog" data-rel="dialog" title="Delete Lesson" data-icon="delete" id="delete">Delete</a></li>
+					<li><a href="additem.html"  id="addNew" data-icon="plus">Add New</a></li>
+				</ul>
+			</div><!-- /navbar -->
+			<h4>Copyright &copy; Lucy Hutcheson</h4>
+		</div>
+	</div>	
+	
+<div data-role="dialog" id="sure" data-title="Are you sure?">
+	<div data-role="content">
+		<h3 class="sure-1"></h3>
+		<p class="sure-2"></p>
+		<a href="#" class="sure-do" data-role="button" data-theme="f" data-rel="back">Yes</a>
+		<a href="#" data-role="button" data-theme="c" data-rel="back">No</a>
+	</div>
+</div>	
+		<!-- JavaScript under here -->
+	<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+	<script type="text/javascript" src="jquery.couch.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
