@@ -1,33 +1,31 @@
-var $db = $.couch.db('godisciple');
+/**
+ * @author Lucy Hutcheson
+ * Created for:  Advanced Visual Frameworks 1206
+ */
+
+$db = $.couch.db('godisciple');
 
 
 $('#disciples').live('pagehide', function (event) {
 	$('#disciples #header #title').remove();
 	$('#discipleList').empty();
-	var category = '';
-	var catUrl = '';
+	var discipleUrl = '';
 });
 
 $('#disciples').live('pageshow', function (event) {
-	var category = getUrlVars()["cat"];
-	var catUrl = "lessons/"+category.toLowerCase();
-	$('<h1></h1>').addClass('ui-title').attr('data-theme','f')
-		.attr('role', 'heading').attr('id', 'title')
-		.attr('aria-level', 1).text(category.substr(0,1).toUpperCase() + category.substr(1)).prependTo('#lessons #header').trigger('create');
+	var discipleUrl = "app/list";
 	// Couch Database
-	$db.view(catUrl, {
+	$db.view(discipleUrl, {
 		"success": function(data) {
 			//console.log(data);
-			$.each(data.rows, function(index,lesson){
-				var id = lesson.id.substr(7,lesson.id.length);
-				var name = lesson.value.name[1];
-				var topic = lesson.value.topic[1];
-				var description = lesson.value.lesson[1];
-				var date = lesson.value.date[1];
+			$.each(data.rows, function(index,disciple){
+				var id = disciple.id.substr(9,disciple.id.length);
+				var firstname = disciple.value.firstname;
+				var lastname = disciple.value.lastname;
 				$('#disciples #discipleList').append(
 					$('<li>').append(
 						$('<a>').attr("href", "#viewDisciple?id="+id).attr('rel', 'external').attr("data-transition", "slide").append(
-							$('<h4>').addClass(id).attr("data-transition", "slide").text(firstname)
+							$('<h4>').addClass(id).attr("data-transition", "slide").text(firstname + ' ' + lastname)
 							/*,$('<p>').addClass('date ui-li-aside ' + id).text(date)*/
 						)
 					)
@@ -59,7 +57,7 @@ $('#viewDisciple').live('pagehide', function (event) {
 
 $('#viewDisciple').live('pageshow', function (event) {
 	var discipleId = getUrlVars()["id"];
-	var lessonUrl = '/pocketministry/_all_docs?include_docs=true&key="disciple:'+discipleId+'"';
+	var discipleUrl = '/godisciple/_all_docs?include_docs=true&key="disciple:'+discipleId+'"';
 	$('<div></div>').addClass('content-container ui-btn  ui-li ui-corner-top ui-corner-bottom ui-btn-up-c '+discipleId).prependTo('#viewDisciple #content');
 
 	$.ajax({
@@ -69,34 +67,44 @@ $('#viewDisciple').live('pageshow', function (event) {
 			//console.log(data);
 			//var rev = data.rows[0].doc._rev;
 			$.each(data.rows, function(index,disciple){
-				var name = lesson.doc.name[1];
-				var author = lesson.doc.author[1];
-				var email = lesson.doc.email[1];
-				var date = lesson.doc.date[1];
-				var topic = lesson.doc.topic[1];
-				var focus = lesson.doc.focus[1];
-				var book = lesson.doc.book[1];
-				var audience = lesson.doc.audience[1];
-				var length = lesson.doc.length[1];
-				var lessonText = lesson.doc.lesson[1];
-				var id = lesson.doc._id;
-				var rev = lesson.doc._rev;
+				var firstname = disciple.doc.firstname;
+				var lastname = disciple.doc.lastname;
+				var email = disciple.doc.email;
+				var phone = disciple.doc.phone;
+				var street = disciple.doc.street;
+				var city = disciple.doc.city;
+				var state = disciple.doc.state;
+				var zip = disciple.doc.zip;
+				var birthmonth = disciple.doc.birthmonth;
+				var birthday = disciple.doc.birthday;
+				var birthyear = disciple.doc.birthyear;
+				var schoolstatus = disciple.doc.schoolstatus;
+				var gender = disciple.doc.gender;
+				var bornagain = disciple.doc.bornagain;
+				var frequency = disciple.doc.frequency;
+				var notes = disciple.doc.notes;
+				var id = disciple.doc._id;
+				var rev = disciple.doc._rev;
 				//create the DOM insertion just like json data
-				var lessonString = $('<div data-role="collapsible" data-theme="c">' +
-				  '<h3>' + name + '</h3>' +
-				  '<p><strong>Author:</strong> ' + author + '</p>' +
+				var lessonString = $('<div data-role="collapsible" data-theme="g">' +
+				  '<h3>' + firstname + ' ' + lastname + '</h3>' +
 				  '<p><strong>Email:</strong> ' + email + '</p>' +
-				  '<p><strong>Date:</strong> ' + date + '</p>' +
-				  '<p><strong>Topics:</strong> ' + topic + '</p>' +
-				  '<p><strong>Focus:</strong> ' + focus + '</p>' +
-				  '<p><strong>Book:</strong> ' + book + '</p>' +
-				  '<p><strong>Audience:</strong> ' + audience + '</p>' +
-				  '<p><strong>Length:</strong> ' + length + '</p>' +
-				  '<p><strong>Lesson Text:</strong> ' + lessonText + '</p>' +
-				  '</div>').appendTo('#viewLesson #content .content-container');
+				  '<p><strong>Phone:</strong> ' + phone + '</p>' +
+				  '<p><strong>Street:</strong> ' + street + '</p>' +
+				  '<p><strong>City:</strong> ' + city + '</p>' +
+				  '<p><strong>State:</strong> ' + state + '</p>' +
+				  '<p><strong>Zip:</strong> ' + zip + '</p>' +
+				  '<p><strong>Birth Month:</strong> ' + birthmonth + '</p>' +
+				  '<p><strong>Birth Date:</strong> ' + birthday + '</p>' +
+				  '<p><strong>Birth Year:</strong> ' + birthyear + '</p>' +
+				  '<p><strong>School Status:</strong> ' + schoolstatus + '</p>' +
+				  '<p><strong>Gender:</strong> ' + gender + '</p>' +
+				  '<p><strong>Born Again Birthday:</strong> ' + bornagain + '</p>' +
+				  '<p><strong>Frequency:</strong> ' + frequency + '</p>' +
+				  '<p><strong>Notes:</strong> ' + notes + '</p>' +
+				  '</div>').appendTo('#viewDisciple #content .content-container');
 				//Add ID's to Edit and Delete button
-				$('#viewLesson #edit').attr('href', 'additem.html?lessonId='+lessonId+'&op=edit');
-				$('#viewLesson #delete').attr('rel', audience);
+				$('#viewDisciple #edit').attr('href', 'additem.html?discipleId='+discipleId+'&op=edit');
 
 			});
 		},
@@ -106,17 +114,17 @@ $('#viewDisciple').live('pageshow', function (event) {
 	});
 });
 
-$('#addDisciple').live('pageinit', function (event) {
+$('#add-new').live('pageinit', function (event) {
 	$('#discipleid-container').hide();
 	$('#disciplerev-container').hide();
 });
-$('#addDisciple').live('pageshow', function (event) {
+$('#add-new').live('pageshow', function (event) {
     var op = getUrlVars()["op"];
 	var discipleId = getUrlVars()["discipleId"];
 	if(op === 'edit') {
 		$('input[name=gender').removeAttr('checked');
 		//Change submit button value to edit button
-		$('#submit').addClass('edit-button').text('Edit Disciple');
+		$('#pageTitle').text('Edit Disciple');
 		editDisciple(discipleId);
 	}
 	$('#submit').on('click', validateForm);
@@ -125,33 +133,39 @@ $('#addDisciple').live('pageshow', function (event) {
 
 // EDIT Function
 function editDisciple(discipleId){
-	var discipleUrl = '/pocketministry/_all_docs?include_docs=true&key="disciple:'+discipleId+'"';
+	var discipleUrl = '/godisciple/_all_docs?include_docs=true&key="disciple:'+discipleId+'"';
 	$.ajax({
 		"url": discipleUrl,
 		"dataType": "json",
 		"success": function(data) {
+			//console.log(data);
 			var rev = data.rows[0].doc._rev;
 			$.each(data.rows, function(index,disciple){
 				//populate the form fields with current values
-				$('#firstname').val(item.firstname[1]);
-				$('#lastname').val(item.lastname[1]);
-				$('#email').val(item.email[1]);
-				$('#phone').val(item.phone[1]);
-				$('#street').val(item.street[1]);
-				$('#city').val(item.city[1]);
-				$('#state').val(item.state[1]);
-				$('#zip').val(item.zip[1]);
+				$('#firstname').val(disciple.doc.firstname);
+				$('#lastname').val(disciple.doc.lastname);
+				$('#email').val(disciple.doc.email);
+				$('#phone').val(disciple.doc.phone);
+				$('#street').val(disciple.doc.street);
+				$('#city').val(disciple.doc.city);
+				$('#state').val(disciple.doc.state);
+				$('#zip').val(disciple.doc.zip);
+				$('select').selectmenu('refresh', true); 
 				
-				$('#birthmonth').val(item.birthmonth[1]);
-				$('#birthday').val(item.birthday[1]);
-				$('#birthyear').val(item.birthyear[1]);
+				$('#birthmonth').val(disciple.doc.birthmonth);
+				$('#birthday').val(disciple.doc.birthday);
+				$('#birthyear').val(disciple.doc.birthyear);
+				$('select').selectmenu('refresh', true); 
 					
-				$('#schoolstatus').val(item.schoolstatus[1]);
+				$('#schoolstatus').val(disciple.doc.schoolstatus);
+				$('input[value="'+disciple.doc.gender+'"]').attr('checked', true).checkboxradio('refresh');
+				$('#bornagain').val(disciple.doc.bornagain);
+				$('#frequency').val(disciple.doc.frequency);
+				
+				// Refresh select lists
+				$('select').selectmenu('refresh', true); 
 
-				$('input[value="'+disciple.doc.gender[1]+'"]').attr('checked', true).checkboxradio('refresh');
-				$('#bornagain').val(item.bornagain[1]);
-				$('#frequency').val(item.frequency[1]);
-				$('#notes').val(item.notes[1]);
+				$('#notes').val(disciple.doc.notes);
 				$('#disciple-id').val(disciple.doc._id);
 				$('#disciple-rev').val(disciple.doc._rev);
 			});
@@ -214,34 +228,33 @@ var validateForm = function (e) {
 // STORE FUNCTION
 function storeData() {
 		
-		
 		// Get Lesson Id of existing lesson to edit
 		if( $('#disciple-id').val().length > 0 ) {
 			var discipleIdSet = $('#disciple-id').val();
 		} else {
-			var discipleIdSet = 'disciple:'+($('#firstname').val().toLowerCase()).replace( /\s/g, "").split(',').join('').replace(/[^a-zA-Z 0-9]+/g,'');
+			var discipleIdSet = 'disciple:'+(($('#firstname').val().toLowerCase())+($('#lastname').val().toLowerCase())).replace( /\s/g, "").split(',').join('').replace(/[^a-zA-Z 0-9]+/g,'');
 		}
 		
 		// Gather up all form values and labels.
 		//Find the value of the selected radio button.
 		var newDisciple = {};
 			newDisciple._id = discipleIdSet;
-			newDisciple.firstname = ["First Name:", $('#firstname').val()];
-			newDisciple.lastname = ["Last Name:", $('#lastname').val()];
-			newDisciple.email = ["Email:", $('#email').val()];
-			newDisciple.phone = ["Phone:", $('#phone').val()];
-			newDisciple.street = ["Street Address:", $('#street').val()];
-			newDisciple.city = ["City:", $('#city').val()];
-			newDisciple.state = ["State:", $('#state').val()];
-			newDisciple.zip = ["Zip:", $('#zip').val()];
-			newDisciple.birthmonth = ["Birth Month:", $('#birthmonth').val()];
-			newDisciple.birthday = ["Birth Day:", $('#birthday').val()];
-			newDisciple.birthyear = ["Birth Year:", $('#birthyear').val()];
-			newDisciple.schoolstatus = ["School Status:", $('#schoolstatus').val()];
-			newDisciple.gender = ["Gender:", getRadio()];
-			newDisciple.bornagain = ["Born Again Birthday:", $('#bornagain').val()];
-			newDisciple.frequency = ["Contact Frequency:", $('#frequency').val()];
-			newDisciple.notes = ["Notes:", $('#notes').val()];
+			newDisciple.firstname = $('#firstname').val();
+			newDisciple.lastname =  $('#lastname').val();
+			newDisciple.email = $('#email').val();
+			newDisciple.phone =  $('#phone').val();
+			newDisciple.street = $('#street').val();
+			newDisciple.city = $('#city').val();
+			newDisciple.state = $('#state').val();
+			newDisciple.zip = $('#zip').val();
+			newDisciple.birthmonth = $('#birthmonth').val();
+			newDisciple.birthday =  $('#birthday').val();
+			newDisciple.birthyear =  $('#birthyear').val();
+			newDisciple.schoolstatus = $('#schoolstatus').val();
+			newDisciple.gender = getRadio();
+			newDisciple.bornagain =  $('#bornagain').val();
+			newDisciple.frequency =  $('#frequency').val();
+			newDisciple.notes =  $('#notes').val();
 			// Get revision info of existing lesson to edit
 			if( $('#disciple-rev').val().length > 0 ) {
 				var revText = {_rev:$('#disciple-rev').val()};
@@ -258,7 +271,8 @@ function storeData() {
 			}
 		});  
 		alert("Disciple info successfully saved.");
-        document.location.href='#disciples;
+        document.location.href='#viewDisciple?id='+($('#firstname').val()+$('#lastname').val()).toLowerCase();
+		
 };
 
 

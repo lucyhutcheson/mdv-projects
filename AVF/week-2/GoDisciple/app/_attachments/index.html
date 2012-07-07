@@ -31,39 +31,39 @@
 				<img src="go-disciple-logo.png" id="icon" width="75%" border="0">
 				<img src="logo.png" id="logo" width="75%" border="0"><h1 class="hidden"></h1>
 			</section>
-			<a href="additem.html" data-role="button" rel="external" data-theme="f">Add New Disciple</a>
+			<a href="additem.html" data-role="button" data-theme="f">Add New Disciple</a>
 			<a href="#disciples" data-role="button" data-theme="g">View My Disciples</a>
 		</section>
-		<footer data-role="footer" data-position="fixed" data-theme="c">
+		<footer data-role="footer" data-theme="c">
 			<h4>Copyright &copy; Lucy Hutcheson</h4>
 		</footer>
 	</div>
 	
 	<div data-role="page" id="disciples" data-add-back-btn="true"  data-theme="g">
-		<div id="header" data-role="header"  data-position="fixed" data-theme="f">
+		<div data-role="header"  data-position="fixed" data-theme="f">
 			<a href="#" data-rel="back" data-direction="reverse" data-icon="arrow-l" >Back</a>
 			<h1 id="title">My Disciples</h1>
-			<a href="additem.html" rel="external" data-iconpos="notext" data-icon="plus" id="add-button">Add</a>
+			<a href="additem.html" data-iconpos="notext" data-icon="plus" id="add-button">Add</a>
 		</div>
 		<div id="content" data-role="content" data-theme="g">
 			<ul id="discipleList" data-role="listview" data-filter="true" data-theme="g"></ul>
   		</div>
-		<div data-role="footer" data-position="fixed" data-theme="c">
+		<div data-role="footer" data-theme="c" data-position="fixed" >
 			<h4>Copyright &copy; Lucy Hutcheson</h4>
 		</div>
 	</div>
 
-	<div data-role="page" id="viewDisciple" data-add-back-btn="true" data-cache="never">
+	<div data-role="page" id="viewDisciple" data-add-back-btn="true" data-cache="never"  data-theme="g">
 		<div data-role="header"  data-position="fixed" data-theme="f">
 			<a href="#" data-rel="back" data-direction="reverse" data-icon="arrow-l" data-iconpos="notext">Back</a>
 			<h1 id="title">View Lesson</h1>
-			<a href="index.html" rel="external" data-iconpos="notext" data-icon="home">Home</a>
+			<a href="#home"  data-iconpos="notext" data-icon="home">Home</a>
 		</div>
-		<div id="content" data-role="content" data-theme="f">
+		<div id="content" data-role="content" data-theme="g">
 
   		</div>
-		<div data-role="footer" data-position="fixed" data-theme="c">
-			<div data-role="navbar" id="navbar">
+		<div data-role="footer" data-theme="c" >
+			<div data-role="navbar" id="navbar" data-theme="g">
 				<ul class="ui-grid-b">
 					<li><a title="Edit Lesson" data-icon="gear" id="edit">Edit</a></li>
 					<li><a href="#delete-dialog" data-rel="dialog" title="Delete Lesson" data-icon="delete" id="delete">Delete</a></li>
