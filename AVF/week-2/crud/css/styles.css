@@ -13,6 +13,11 @@
 	text-shadow: 0 1px 0 #333;
 	line-height: 30px;
 }
+.message {
+	font-style: italic;
+	color: #edff97;
+	margin-bottom: 10px;
+}
 fieldset legend {
 	font-weight: bold;
 	color: #607401;
