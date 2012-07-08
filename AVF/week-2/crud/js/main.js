@@ -127,15 +127,11 @@ $('#add-new').live('pageshow', function (event) {
 			$('#discipleList').listview('refresh');
 
 		} else {
-			$('#disciples #content').append(
-				$('<div>').append(
+			$('#disciples #discipleList').append(
+				$('<li>').attr('data-theme', 'a').append(
 					$('<h4>').text("There are currently no disciples saved.")
 				)
-			);
-			$('#disciples #content').append(
-				$('<div>').html('<a href="additem.html" rel="external" data-role="button" data-theme="a">Add New Disciple</a>')
-			);
-		
+			);		
 		}
 
 	};
@@ -236,7 +232,7 @@ $('#add-new').live('pageshow', function (event) {
 			hasError = true;
 		}
 		//Email validation
-		var re = /^\w+([\.-]?]\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+		var re = /^\w+([\-]?]\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 		if ((getEmail === '') || (!re.test(getEmail))) {
 			$('#email').after('<span class="error">Please enter a valid email address.</span>');
 			$('#email').css("border", "1px solid red") ;
@@ -264,7 +260,6 @@ $('#add-new').live('pageshow', function (event) {
 		// Get Lesson Id of existing lesson to edit
 		if( $('#disciple-id').val().length > 0 ) {
 			var id = $('#disciple-id').val();
-			alert(id);
 		} else {
 			var id = Math.floor(Math.random()*10000001);
 		}
@@ -292,7 +287,7 @@ $('#add-new').live('pageshow', function (event) {
 		//Save data into local storage
 		localStorage.setItem(id, JSON.stringify(newItem));
 		alert("Disciple info successfully saved.");
-		parent.history.back();
+        document.location.href='index.html#viewDisciple?id='+id;
 		
 
 	};
