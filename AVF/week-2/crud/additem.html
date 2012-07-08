@@ -2,7 +2,7 @@
 <!--
 /**
  * @author Lucy Hutcheson
- * Created for:  Advanced Visual Frameworks 1206
+ * Created for:  Advanced Visual Frameworks 1207
  */
 -->
  
@@ -23,22 +23,21 @@
 	
 	<!-- StyleSheets under here -->
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
-	<link rel="stylesheet" type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.min.css" /> 
-	<link rel="stylesheet" href="css/styles.css" />	
-	
-	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
+ 	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
 	<script src="js/libs/modernizr.custom.min.js"></script>
+
 
 </head>
 <body>
 	<div data-role="page" id="add-new" data-theme="g">
 
-		<div data-role="header"  data-position="fixed" data-theme="f">
+		<header data-role="header"  data-position="fixed" data-theme="f">
 			<a href="additem.html" data-rel="back" data-direction="reverse" data-icon="arrow-l">Back</a>
 				<h3 id="pageTitle">Add New Disciple</h3>
 			<a href="index.html" rel="external" data-iconpos="notext" data-icon="home" data-transition="flow">Home</a>
-		</div>
-		<div data-role="content" class="mainContent">
+		</header>
+		<section data-role="content" class="mainContent">
 			<form action="#" method="post" id="addForm">
 				<span id="required"><span class="required">*</span> Required fields.</span>
 				<div data-role="fieldcontain">
@@ -54,8 +53,8 @@
 					<input type="email" id="email" placeholder="Enter email@domain.com"/></li>
 				</div>
 				<div data-role="fieldcontain">
-					<label for="tel">Phone: </label>
-					<input type="tel" id="tel" placeholder="Enter 123-456-7890"/></li>
+					<label for="phone">Phone: </label>
+					<input type="tel" id="phone" placeholder="Enter 123-456-7890"/></li>
 				</div>
 				<div data-role="fieldcontain">
 					<label for="street">Street Address: </label>
@@ -67,7 +66,7 @@
 				</div>
 				<div data-role="fieldcontain">
 					<label for="state">State: </label>
-					<select name="state" id="state" data-theme="a" data-native-menu="false">
+					<select name="state" id="state" data-theme="a" >
 						<option data-placeholder="true">--Choose State--</option>
 						<option value="AL">Alabama</option>
 						<option value="AK">Alaska</option>
@@ -133,19 +132,18 @@
 					<label for="birthmonth">Month</label>
 					<select name="birthmonth" id="birthmonth" data-theme="a">
 						<option>Month</option>
-						<option value="jan">January</option>
-						<option value="dec">December</option>
-						<option value="feb">February</option>
-						<option value="mar">March</option>
-						<option value="apr">April</option>
-						<option value="may">May</option>
-						<option value="jun">June</option>
-						<option value="jul">July</option>
-						<option value="aug">August</option>
-						<option value="sep">September</option>
-						<option value="oct">October</option>
-						<option value="nov">November</option>
-						<option value="dec">December</option>
+						<option value="January">January</option>
+						<option value="February">February</option>
+						<option value="March">March</option>
+						<option value="April">April</option>
+						<option value="May">May</option>
+						<option value="June">June</option>
+						<option value="July">July</option>
+						<option value="August">August</option>
+						<option value="September">September</option>
+						<option value="October">October</option>
+						<option value="November">November</option>
+						<option value="December">December</option>
 					</select>
 			
 					<label for="birthday">Day</label>
@@ -224,7 +222,7 @@
 			</div>
 				<div data-role="fieldcontain">
 					<label for="schoolstatus">School Status: </label>
-					<select name="schoolstatus" id="schoolstatus" data-theme="a" data-native-menu="false">
+					<select name="schoolstatus" id="schoolstatus" data-theme="a" >
 						<option data-placeholder="true">--Choose One--</option>
 							<option value="Middle School">Middle School</option>
 							<option value="High School">High School</option>
@@ -241,11 +239,11 @@
 				</div>
 				<div data-role="fieldcontain">
 					<label for="bornagain">Born Again Birthday:</label>
-					<input name="bornagain" id="bornagain" type="date" data-theme="f" placeholder="12/25/1990" data-role="datebox" data-options='{"mode": "calbox"}'>
+					<input name="bornagain" id="bornagain" type="date"  placeholder="12/25/1990" data-role="datebox" data-options='{"mode": "calbox"}'>
 				</div>
 				<div data-role="fieldcontain">
 					<label for="frequency">Contact Frequency: </label>
-					<select name="frequency" id="frequency" data-theme="a" data-native-menu="false">
+					<select name="frequency" id="frequency" data-theme="a" >
 						<option data-placeholder="true">--Choose One--</option>
 							<option value="Daily">Daily</option>
 							<option value="Weekly">Weekly</option>
@@ -257,21 +255,25 @@
 					<label for="notes">Notes: </label>
 					<textarea id="notes" name="notes" rows="8" cols="30" placeholder="Enter your notes here."></textarea>
 				</div>
+				<div data-role="fieldcontain" id="discipleid-container">
+					<label>Disciple Id: </label>
+					<input id="disciple-id" type="text" disabled="disabled" >
+				</div>
 				<div data-role="fieldcontain" id="submit-container">
-					<input type="submit" id="submit" value="Add New Disciple" data-theme="f"  data-icon="plus"/>	
+					<a id="submit" data-role="button" data-theme="f" >Save</a> 	
+					<a id="cancel" data-role="button" data-theme="a" onclick="history.back();">Cancel</a> 	
 				</div>
 			</form>
-		</div>
-		<div data-role="footer" data-position="fixed" data-theme="c">
+		</section>
+		<footer data-role="footer" data-theme="c">
 			<h4>Copyright &copy; Lucy Hutcheson</h4>
-		</div>
+		</footer>
 	</div>
 
 	<!-- JavaScript under here -->
-    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
-	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.min.js"></script>
-	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/i8n/jquery.mobile.datebox.i8n.en.js"></script>
+	<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
+
 </body>
 </html>

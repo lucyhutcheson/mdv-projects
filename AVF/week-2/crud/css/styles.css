@@ -1,20 +1,9 @@
-	/**
+/**
  * @author Lucy Hutcheson
- * Date: 2012-03-01
- * Created for:  Mobile Interfaces and Usability 1203
+ * Created for:  Advanced Visual Frameworks 1207
  */
 
 /* LAYOUT ELEMENTS */
-#header {
-	background: url('../images/tab-bg.png') repeat-x top left;
-	margin: 0px auto;
-	padding-top: 10px;
-	padding-left: 20px;
-	-webkit-box-shadow:  0px 2px 5px 0px rgba(0, 0, 0, 0.7);
-	box-shadow:  0px 2px 5px 0px rgba(0, 0, 0, 0.7);
-	border: 0;
-	border-bottom: 1px solid #075358;
-}
 .required {
 	color: red;
 }
