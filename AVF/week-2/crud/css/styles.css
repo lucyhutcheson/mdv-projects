@@ -66,7 +66,10 @@ fieldset legend {
 	color: #95b401;
 	text-shadow: 0 1px 0 #222;
 }
-
+#map_canvas {
+	width: 80%;
+	height: 20%;
+}
 
 /*  
  * Data Theme F 

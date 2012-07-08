@@ -1,0 +1,56 @@
+<!doctype html> 
+<!--
+/**
+ * @author Lucy Hutcheson
+ * Created for:  Advanced Visual Frameworks 1206
+ */
+-->
+ 
+<html lang="en">
+<head>
+
+	<meta charset="utf-8">
+	
+	<title>Go Disciple</title>
+	
+	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- Mobile IE needs ClearType for smoothing fonts -->
+	<meta http-equiv="cleartype" content="on">
+	
+	<!-- StyleSheets under here -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+	<link rel="stylesheet" href="css/styles.css" />	
+	
+	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+	<script src="js/libs/modernizr.custom.min.js"></script>
+
+</head>
+    <body >
+        <div data-role="page" id="geolocation" data-add-back-btn="true"  data-theme="g">
+            <header data-role="header"  data-position="fixed" data-theme="f">
+                <a href="#" data-rel="back" data-direction="reverse" data-icon="arrow-l" >Back</a>
+                <h1 id="title">My Location</h1>
+                <a href="additem.html" data-iconpos="notext" data-icon="plus" id="add-button" rel="external">Add</a>
+            </header>
+            <section id="content" data-role="content" >
+    			<div id="map_canvas"></div>
+    			      <button id="btnInit" >Find my location</button>  
+
+            </section>
+            <footer data-role="footer" data-theme="c" data-position="fixed" >
+                <h4>Copyright &copy; Lucy Hutcheson</h4>
+            </footer>
+        </div>
+                
+        
+        <!-- JavaScript under here -->
+        <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+    	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+        <script type="text/javascript" src="js/geolocation.js"></script>
+    </body>
+</html>

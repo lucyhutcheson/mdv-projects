@@ -6,54 +6,6 @@
 
 
 
-// If you want to prevent dragging, uncomment this section
-/*
- function preventBehavior(e) 
- { 
- e.preventDefault(); 
- };
- document.addEventListener("touchmove", preventBehavior, false);
- */
-
-/* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
- see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
- for more details -jm */
-/*
- function handleOpenURL(url)
- {
- // TODO: do something with the url passed in.
- }
- */
-// Set an event to wait for Cordova to load
-//
-document.addEventListener("deviceready", onDeviceReady, false);
-
-// Cordova is loaded and Ready
-//
-function onDeviceReady() {
-    navigator.geolocation.getCurrentPosition(onSuccess, onError);
-}
-
-// Display `Position` properties from the geolocation
-//
-function onSuccess(position) {
-    var coordinates = $('Latitude: '             + position.coords.latitude  + '<br/>' +
-                        'Longitude: '            + position.coords.longitude + '<br/>' +
-                        'Altitude: '             + position.coords.altitude  + '<br/>' +
-                        'Accuracy: '             + position.coords.accuracy  + '<br/>' +
-                        'Altitude Accuracy: '    + position.coords.altitudeAccuracy  + '<br/>' +
-                        'Heading: '              + position.coords.heading   + '<br/>' +
-                        'Speed: '                + position.coords.speed     + '<br/>').appendTo('#home #content');
-}
-
-// Show an alert if there is a problem getting the geolocation
-//
-function onError() {
-    alert('onError!');
-}
-
-
-
 
 
 /****************************************************************
@@ -361,26 +313,46 @@ function storeData() {
 
 // CLEAR ALL FUNCTION
 $("#clear").on('click', function () {
-               if (localStorage.length === 0) {
-               alert("There is no data to clear.");
-               } else {
-               var ask = confirm("Are you sure you want to delete all lessons?");
-               if (ask) {
-               localStorage.clear();
-               alert("All information deleted.");
-               window.location.href = "index.html";
-               return false;
-               } else {
-               alert("Lesson was NOT deleted.");
-               }
-               }
-               });
+	if (localStorage.length === 0) {
+		alert("There is no data to clear.");
+	} else {
+		var ask = confirm("Are you sure you want to delete all lessons?");
+		if (ask) {
+			localStorage.clear();
+			alert("All information deleted.");
+			window.location.href = "index.html";
+			return false;
+		} else {
+			alert("Lesson was NOT deleted.");
+		}
+	}
+});
 
 
 // DELETE FUNCTION
 $("#delete").on('click', function () {
-                showConfirm();
+
+	// Native Notification Feature, uncommented in Xcode
+	//showConfirm();
+	
+	var ask = confirm("Are you sure you want to delete this lesson?");
+	if (ask) {
+        var discipleId = getUrlVars()["id"];
+		localStorage.removeItem(discipleId);
+		alert("Lesson was successfully deleted.");
+		
+		// If there are no more disciples left, redirect to home.
+		if (localStorage.length === 0) {
+			window.location.href = "index.html";
+		} else {
+			// Otherwise, send me back to my list of disciples.
+			parent.history.back();
+		}
+	} else {
+		alert("Lesson was NOT deleted.");
+	}
 });
+	
 
 
 // NOTIFICATION ----------------------------------------

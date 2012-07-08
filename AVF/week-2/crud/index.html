@@ -1,46 +1,35 @@
-<!DOCTYPE html>
-<html>
+<!doctype html> 
 <!--
-#
-# Licensed to the Apache Software Foundation (ASF) under one
-# or more contributor license agreements.  See the NOTICE file
-# distributed with this work for additional information
-# regarding copyright ownership.  The ASF licenses this file
-# to you under the Apache License, Version 2.0 (the
-# "License"); you may not use this file except in compliance
-# with the License.  You may obtain a copy of the License at
-# 
-# http://www.apache.org/licenses/LICENSE-2.0
-# 
-# Unless required by applicable law or agreed to in writing,
-# software distributed under the License is distributed on an
-# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-#  KIND, either express or implied.  See the License for the
-# specific language governing permissions and limitations
-# under the License.
-#
+/**
+ * @author Lucy Hutcheson
+ * Created for:  Advanced Visual Frameworks 1206
+ */
 -->
-  <head>
-  <title></title>
-  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+ 
+<html lang="en">
+<head>
+
 	<meta charset="utf-8">
+	
+	<title>Go Disciple</title>
+	
+	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- Mobile IE needs ClearType for smoothing fonts -->
+	<meta http-equiv="cleartype" content="on">
+	
+	<!-- StyleSheets under here -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+	<link rel="stylesheet" href="css/styles.css" />	
+	
+	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+	<script src="js/libs/modernizr.custom.min.js"></script>
 
-    <!-- StyleSheets under here -->
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
-    <link rel="stylesheet" href="css/styles.css" type="text/css">
-    <!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
-    <script src="js/libs/modernizr.custom.min.js"></script>
-
-	<!-- iPad/iPhone specific css below, add after your main css >
-	<link rel="stylesheet" media="only screen and (max-device-width: 1024px)" href="ipad.css" type="text/css" />		
-	<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="iphone.css" type="text/css" />		
-	-->
-	<!-- If your application is targeting iOS BEFORE 4.0 you MUST put json2.js from http://www.JSON.org/json2.js into your www directory and include it here -->
-	<script type="text/javascript" charset="utf-8" src="cordova-1.8.1.js"></script>
-
-  </head>
-    <body onload="onBodyLoad()" id="index">
+</head>
+    <body id="index">
         <div data-role="page" id="home" data-theme="g">
             <section data-role="content" id="content">
                 <section class="logo">
@@ -92,14 +81,7 @@
             </footer>
         </div>	
         
-        <div data-role="dialog" id="sure" data-title="Are you sure?">
-            <section data-role="content">
-                <h3 class="sure-1"></h3>
-                <p class="sure-2"></p>
-                <a href="#" class="sure-do" data-role="button" data-theme="f" data-rel="back">Yes</a>
-                <a href="#" data-role="button" data-theme="c" data-rel="back">No</a>
-            </section>
-        </div>	
+
         <!-- JavaScript under here -->
         <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
