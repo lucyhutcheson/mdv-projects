@@ -33,13 +33,13 @@
         <div data-role="page" id="home" data-theme="g">
             <section data-role="content" id="content">
                 <section class="logo">
-                    <img src="images/go-disciple-logo.png" id="icon" width="75%" border="0">
+                    <img src="images/go-disciple-logo.png" id="icon" width="55%" border="0">
                         <img src="images/logo.png" id="logo" width="75%" border="0"><h1 class="hidden"></h1>
                             </section>
                 <a href="additem.html" data-role="button" data-theme="f" rel="external">Add New Disciple</a>
                 <a href="#disciples" data-role="button" data-theme="g">View My Disciples</a>
             </section>
-            <footer data-role="footer" data-theme="c">
+            <footer data-role="footer" data-position="fixed" data-theme="c">
                 <h4>Copyright &copy; Lucy Hutcheson</h4>
             </footer>
         </div>
@@ -54,6 +54,11 @@
                 <ul id="discipleList" data-role="listview" data-theme="g"></ul>
             </section>
             <footer data-role="footer" data-theme="c" data-position="fixed" >
+                <div data-role="navbar">
+                    <ul>
+                        <li ><a href="geolocation.html" rel="external" data-theme="a">Map</a></li>
+                    </ul>
+                </div><!-- /navbar -->
                 <h4>Copyright &copy; Lucy Hutcheson</h4>
             </footer>
         </div>
