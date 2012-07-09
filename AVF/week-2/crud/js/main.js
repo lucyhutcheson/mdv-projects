@@ -374,10 +374,12 @@ function onConfirm(buttonIndex) {
     }
 }
 
+
 // Show a custom confirmation dialog
 //
 function showConfirm() {
-    navigator.notification.confirm(
+   navigator.notification.beep(3);
+   navigator.notification.confirm(
                                    'Are you sure you want to delete this disciple?',  // message
                                    onConfirm,              // callback to invoke with index of button pressed
                                    'Delete',            // title
