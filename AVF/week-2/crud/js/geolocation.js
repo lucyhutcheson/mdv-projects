@@ -9,45 +9,78 @@
  * 
  ****************************************************************/
 
-        $(window).ready(function(){  
-            $("#btnInit").click(initiate_geolocation);  
-        });  
-  
-        function initiate_geolocation() {  
-            navigator.geolocation.getCurrentPosition(handle_geolocation_query,handle_errors);  
-        }  
-  
-        function handle_errors(error)  
-        {  
-            switch(error.code)  
-            {  
-                case error.PERMISSION_DENIED: alert("user did not share geolocation data");  
-                break;  
-  
-                case error.POSITION_UNAVAILABLE: alert("could not detect current position");  
-                break;  
-  
-                case error.TIMEOUT: alert("retrieving position timed out");  
-                break;  
-  
-                default: alert("unknown error");  
-                break;  
-            }  
-        }  
-  
-        function handle_geolocation_query(position){  
-            alert('Lat: ' + position.coords.latitude +  
-                  ' Lon: ' + position.coords.latitude);  
-        }  
+$(window).ready(function(){  
+    getLocation();  
+});  
 
-function handle_geolocation_query(position)  
-{  
-    var image_url = "http://maps.google.com/maps/api/staticmap?sensor=false&center=" + position.coords.latitude + "," +  
-                    position.coords.longitude + "&zoom=14&size=300x400&markers=color:blue|label:S|" +  
-                    position.coords.latitude + ',' + position.coords.longitude;  
+
+var x=document.getElementById("text");
+function getLocation()
+{
+    if (navigator.geolocation)
+    {
+        navigator.geolocation.getCurrentPosition(showPosition,showError);
+    }
+    else{x.innerHTML="Geolocation is not supported by this browser.";}
+}
+
+function showPosition(position)
+{
+ 
   
-    jQuery("#map").remove();  
-    jQuery(document.body).append(  
-        jQuery(document.createElement("img")).attr("src", image_url).attr('id','map')  
-    );  
-}  
+    /*var mapcanvas = document.createElement('div');
+    mapcanvas.id = 'mapcanvas';
+    mapcanvas.style.height = '400px';
+    mapcanvas.style.width = '500px';
+      document.querySelector('section').appendChild(mapcanvas);
+*/
+    
+    $('<div/>').attr('id','mapcanvas').addClass('map-canvas').appendTo('#content');
+
+  
+  var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+  var myOptions = {
+    zoom: 15,
+    center: latlng,
+    mapTypeControl: false,
+    navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
+  
+  var marker = new google.maps.Marker({
+      position: latlng, 
+      map: map, 
+      title:"You are here! (at least within a "+position.coords.accuracy+" meter radius)"
+  });
+  
+}
+
+
+
+function showError(error)
+{
+    $('<div/>').attr('id', 'x').appendTo('#content');
+    switch(error.code) 
+    {
+        case error.PERMISSION_DENIED:
+            $('#x').html("User denied the request for Geolocation.");
+            break;
+        case error.POSITION_UNAVAILABLE:
+            $('#x').html("Location information is unavailable.");
+            break;
+        case error.TIMEOUT:
+            $('#x').html("The request to get user location timed out.");
+            break;
+        case error.UNKNOWN_ERROR:
+            $('#x').html("An unknown error occurred.");
+            break;
+    }
+}
+
+
+
+
+  
+ 
+	
