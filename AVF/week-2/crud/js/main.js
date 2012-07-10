@@ -258,7 +258,7 @@ var validateForm = function (e) {
     
     //Set Errors
     if (hasError === true) {
-        $('#submit-container').before('<br/><span class="error">Please correct the errors above.</span>');
+        showAlert();
         $('body,html').animate({scrollTop:0}, 800);
         e.preventDefault();
         return false;
@@ -375,6 +375,7 @@ function onConfirm(buttonIndex) {
 }
 
 
+
 // Show a custom confirmation dialog
 //
 function showConfirm() {
@@ -386,6 +387,30 @@ function showConfirm() {
                                    'No go back, Yes I\'m sure'          // buttonLabels
                                    );
 }
+
+function alertDismissed() {
+    // do something
+}
+function showAlert() {
+	if (navigator.notification) {
+		// Android / BlackBerry WebWorks (OS 5.0 and higher) / iPhone
+		//
+		navigator.notification.alert(
+		    'Please enter the required information.',  // message
+		    alertDismissed,         // callback
+		    'Error',            // title
+		    'Done'                  // buttonName
+		);
+	
+		// BlackBerry (OS 4.6) / webOS
+		//
+		navigator.notification.alert('Error: Please enter the required information.');
+	} else {
+		$('#addForm').before('<span class="error">Please correct the errors below.</span>');
+	}
+
+}
+
 
 
 // Get value from URL
