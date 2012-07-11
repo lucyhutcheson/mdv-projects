@@ -15,8 +15,10 @@ function onDeviceReady() {
 
 function showAlert() {
         navigator.notification.alert(
-                                     'You have been alerted!',  // message
-                                     alertDismissed
+                                     'You have been alerted!',  
+                                     alertDismissed,
+                                     'Notification',            
+                                     'Done'                  
         );
 }
 function alertDismissed() {
