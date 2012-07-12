@@ -13,6 +13,11 @@ function onDeviceReady() {
     // Empty
 }
 
+$("#alert").on('click', function() {
+               showAlert();
+               playBeep();
+               });
+
 function showAlert() {
         navigator.notification.alert(
                                      'You have been alerted!',  

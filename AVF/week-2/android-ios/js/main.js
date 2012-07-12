@@ -1,6 +1,6 @@
 /**
  * @author Lucy Hutcheson
- * Created for:  Advanced Visual Frameworks 1206
+ * Created for:  Advanced Visual Frameworks 1207
  */
 
 
@@ -338,7 +338,7 @@ $("#delete").on('click', function () {
 // process the confirmation dialog result
 function onConfirm(buttonIndex) {
     if (buttonIndex === 1) {
-       alert('Disciple was NOT deleted.');
+       showAlert();
     } else {
         var discipleId = getUrlVars()["id"];
         localStorage.removeItem(discipleId);
@@ -366,27 +366,17 @@ function showConfirm() {
 }
 
 function alertDismissed() {
-    // do something
+    
 }
 function showAlert() {
-	if (navigator.notification) {
-		// Android / BlackBerry WebWorks (OS 5.0 and higher) / iPhone
-		//
-		navigator.notification.alert(
-		    'Please enter the required information.',  // message
-		    alertDismissed,         // callback
-		    'Error',            // title
-		    'Done'                  // buttonName
-		);
-	
-		// BlackBerry (OS 4.6) / webOS
-		//
-		navigator.notification.alert('Error: Please enter the required information.');
-	} else {
-		$('#addForm').before('<span class="error">Please correct the errors below.</span>');
-	}
-
+    navigator.notification.alert(
+                                 'Disciple was NOT deleted.',  
+                                 alertDismissed,
+                                 'Alert',            
+                                 'Done'                  
+                                 );
 }
+
 
 
 // Get value from URL

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		848E245C15AE6ED700422AC5 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 848E245B15AE6ED700422AC5 /* www */; };
 		84CAECFE15AD19E3002DB7CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84CAECFD15AD19E3002DB7CA /* Foundation.framework */; };
 		84CAED0015AD19E3002DB7CA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84CAECFF15AD19E3002DB7CA /* UIKit.framework */; };
 		84CAED0215AD19E3002DB7CA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84CAED0115AD19E3002DB7CA /* CoreGraphics.framework */; };
@@ -37,10 +38,10 @@
 		84CAED4615AD19E3002DB7CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CAED4515AD19E3002DB7CA /* AppDelegate.m */; };
 		84CAED4915AD19E3002DB7CA /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CAED4815AD19E3002DB7CA /* MainViewController.m */; };
 		84CAED4B15AD19E3002DB7CA /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84CAED4A15AD19E3002DB7CA /* MainViewController.xib */; };
-		84CAED5515AD1A18002DB7CA /* www in Resources */ = {isa = PBXBuildFile; fileRef = 84CAED5415AD1A18002DB7CA /* www */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		848E245B15AE6ED700422AC5 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
 		84CAECF915AD19E3002DB7CA /* demoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = demoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84CAECFD15AD19E3002DB7CA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		84CAECFF15AD19E3002DB7CA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -55,10 +56,10 @@
 		84CAED1115AD19E3002DB7CA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		84CAED1315AD19E3002DB7CA /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		84CAED1515AD19E3002DB7CA /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
-		84CAED1915AD19E3002DB7CA /* demoApp-Info.plist */ = {isa = PBXFileReference; path = "demoApp-Info.plist"; sourceTree = "<group>"; };
+		84CAED1915AD19E3002DB7CA /* demoApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "demoApp-Info.plist"; sourceTree = "<group>"; };
 		84CAED1B15AD19E3002DB7CA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		84CAED1D15AD19E3002DB7CA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		84CAED1F15AD19E3002DB7CA /* demoApp-Prefix.pch */ = {isa = PBXFileReference; path = "demoApp-Prefix.pch"; sourceTree = "<group>"; };
+		84CAED1F15AD19E3002DB7CA /* demoApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "demoApp-Prefix.pch"; sourceTree = "<group>"; };
 		84CAED2015AD19E3002DB7CA /* Cordova.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cordova.framework; path = /Users/Shared/Cordova/Frameworks/Cordova.framework; sourceTree = "<absolute>"; };
 		84CAED2515AD19E3002DB7CA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Resources/en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		84CAED2915AD19E3002DB7CA /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Resources/es.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -78,7 +79,6 @@
 		84CAED4A15AD19E3002DB7CA /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainViewController.xib; path = Classes/MainViewController.xib; sourceTree = "<group>"; };
 		84CAED4D15AD19E4002DB7CA /* README */ = {isa = PBXFileReference; lastKnownFileType = text; name = README; path = Plugins/README; sourceTree = "<group>"; };
 		84CAED4E15AD19E4002DB7CA /* verify.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = verify.sh; sourceTree = "<group>"; };
-		84CAED5415AD1A18002DB7CA /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +116,7 @@
 		84CAECEB15AD19E3002DB7CA = {
 			isa = PBXGroup;
 			children = (
-				84CAED5415AD1A18002DB7CA /* www */,
+				848E245B15AE6ED700422AC5 /* www */,
 				84CAED1715AD19E3002DB7CA /* demoApp */,
 				84CAECFC15AD19E3002DB7CA /* Frameworks */,
 				84CAECFA15AD19E3002DB7CA /* Products */,
@@ -331,7 +331,7 @@
 				84CAED4015AD19E3002DB7CA /* Capture.bundle in Resources */,
 				84CAED4215AD19E3002DB7CA /* Cordova.plist in Resources */,
 				84CAED4B15AD19E3002DB7CA /* MainViewController.xib in Resources */,
-				84CAED5515AD1A18002DB7CA /* www in Resources */,
+				848E245C15AE6ED700422AC5 /* www in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

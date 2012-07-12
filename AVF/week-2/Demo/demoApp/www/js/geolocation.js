@@ -1,6 +1,6 @@
 /**
  * @author Lucy Hutcheson
- * Created for:  Advanced Visual Frameworks 1207
+ * Created for:  Advanced Visual Frameworks 1206
  */
 
 /****************************************************************
@@ -19,7 +19,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 // Cordova is loaded and Ready
 //
 function onDeviceReady() {
-    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    navigator.geolocation.getCurrentPosition(onSuccess, onError, {maximumAge:600000, timeout:10000, enableHighAccuracy: true});
 }
 
 // Display `Position` properties from the geolocation
@@ -66,6 +66,5 @@ function onError(error)
             break;
     }
 }
-
 
 
