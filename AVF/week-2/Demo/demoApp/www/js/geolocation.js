@@ -1,6 +1,6 @@
 /**
  * @author Lucy Hutcheson
- * Created for:  Advanced Visual Frameworks 1206
+ * Created for:  Advanced Visual Frameworks 1207
  */
 
 /****************************************************************
@@ -19,7 +19,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 // Cordova is loaded and Ready
 //
 function onDeviceReady() {
-navigator.geolocation.getCurrentPosition(onSuccess, onError,{maximumAge:600000, timeout:10000, enableHighAccuracy:true});
+    navigator.geolocation.getCurrentPosition(onSuccess, onError);
 }
 
 // Display `Position` properties from the geolocation

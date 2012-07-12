@@ -22,6 +22,7 @@
 	<false/>
 	<key>ExternalHosts</key>
 	<array>
+		<string>*</string>
 		<string>*.gstatic.com</string>
 		<string>*.googleapis.com</string>
 		<string>*.github.com</string>
