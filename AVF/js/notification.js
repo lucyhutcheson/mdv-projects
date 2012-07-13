@@ -19,12 +19,16 @@ $("#alert").on('click', function() {
                });
 
 function showAlert() {
+	if (!navigator.notification) {
+		alert('If you were on a mobile device, you would have received a nice popup with a handy dandy buzz alert.  Thanks for clicking me anyway!')
+	} else {
         navigator.notification.alert(
                                      'You have been alerted!',  
                                      alertDismissed,
                                      'Notification',            
                                      'Done'                  
         );
+	}
 }
 function alertDismissed() {
     
