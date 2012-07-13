@@ -35,7 +35,7 @@ function showPosition(position)
       document.querySelector('section').appendChild(mapcanvas);
 */
     
-    $('<div/>').attr('id','mapcanvas').addClass('map-canvas').appendTo('#content');
+    $('<div/>').attr('id','mapcanvas').attr('style', 'height:400px;').addClass('map-canvas').appendTo('#content');
 
   
   var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
