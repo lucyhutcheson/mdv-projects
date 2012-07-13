@@ -11,7 +11,7 @@
 
 	<meta charset="utf-8">
 	
-	<title>Go Disciple</title>
+        <title>AVF Demo App</title>
 	
 	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
 	<meta name="HandheldFriendly" content="True">
@@ -23,7 +23,7 @@
 	
 	<!-- StyleSheets under here -->
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
-	<link rel="stylesheet" href="styles.css" />	
+	<link rel="stylesheet" href="css/styles.css" />	
 	
 	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
 	<script src="js/libs/modernizr.custom.min.js"></script>
@@ -51,10 +51,10 @@
 				<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="f"> 
 					<li data-role="list-divider">iOS/Android Native Feature Demo(s)</li>
 					<li>
-						<a href="http://iamhutch.github.com/mdv-projects/AVF/week-2/android-ios/geolocation.html" rel="external">Geolocation</a>
+						<a href="http://iamhutch.github.com/mdv-projects/AVF/week-2/crud/geolocation.html" rel="external">Geolocation</a>
 					</li>
 					<li>
-						<a href="http://iamhutch.github.com/mdv-projects/AVF/week-2/crud/additem.html" rel="external">Notifications</a>
+						<a href="notification.html" rel="external">Notifications</a>
 					</li>
 					<li>
 						Accelerometer
@@ -69,6 +69,18 @@
 						Camera
 					</li>
 				</ul>
+				<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="f"> 
+					<li data-role="list-divider">Reflection Videos</li>
+					<li>
+						<a href="video.html" rel="external">Week 2</a>
+					</li>
+					<li>
+						Week 3
+					</li>
+					<li>
+						Week 4
+					</li>
+				</ul>
 			</section>
 			<section class="content-b">
 				<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="f"> 
@@ -77,7 +89,7 @@
 						<a href="#research-1" data-transition="slide">Discussion 1: Industry Research and Project Intent</a>
 					</li>
 					<li>
-						Discussion 2
+						<a href="#research-2" data-transition="slide">Discussion 2: Accessibility</a>
 					</li>
 					<li>
 						Discussion 3
@@ -127,8 +139,41 @@
 		</footer>
 	</div>
 	
+	<div data-role="page" id="research-2" data-theme="f">
+		<header id="header" data-role="header" data-theme="g">
+			<a href="view.html" data-rel="back" data-theme="f" data-direction="reverse" data-icon="arrow-l">Back</a>
+			<h1>Discussion 2</h1>
+		</header>
+		<section data-role="content" id="content">
+			<section data-theme="c" class="content-container ui-btn  ui-li ui-corner-top ui-corner-bottom ui-btn-up-c">
+				<h3>What are some of the ways that you could change your HTML on your Demo app to be more accessible?</h3>
+				<p>I think that I could make sure that I keep as close as possible to the accessibility guidelines like adding the alt value to all images and making sure that my text links have very descriptive wording.</p>
+				
+				<h3>Visit a video service on the web (like YouTube) and search for "Screen Reader Demo" and "Mobile Screen Reader" - what are some of the common frustrations (or common support mechanisms) that you see among the examples that are given - how could you fix them (or use them)?</h3>
+				<p>What I saw were that many pages were just not tagged correctly nor have they implemented accessibility features at all.  They would get “Click Here” but have no idea what they were clicking.  I would fix as much as I could so that they could also experience the internet just a little bit more.</p>
+				
+				<h3>Devices: Please list two devices (and some of their features) that are made specifically to support Accessibility.</h3>
+				<p><strong>Alternative keyboards</strong> - these feature larger than standard keys, have alternative key configurations or they’re able to be used with just one hand.</p>
+                <p><strong>Electronic pointing devices</strong> - they are used to control the cursor on the screen without using their hands.  They include infrared beams, eye movements, ultrasound, nerve signals, or brain waves.</p>
+				
+				<h3>Please describe any design intentions you may have for the AVF Demo app and the revised/new version of your CRUD app.</h3>
+				<p>I plan on changing the app from a bible study tool type app called Pocket Ministry to a disciplee tracker called Go Disciple.  Instead of listing out bible study lessons, it will contain information on a person that a leader or anyone is discipling.  This will allow me to add the geolocation, contact, and notification features.</p>
+				
+				<h3>Mobile Apps: Please list two apps (either Android or iOS, or both) that are made specifically to support Accessibility.</h3>
+				<p><strong>soundAmp (iOS)</strong> - Takes the sounds picked up by the device microphone and amplifies it to your ear buds, making it into a hearing aid.</p>
+                <p><strong>iBlink Radio (iOS)</strong> - App with podcasts, reading service, and music stations of interest to the blind.</p>
+			</section>
+		</section>
+		<footer data-role="footer" data-position="fixed" data-theme="c">
+			<h4>Copyright &copy; Lucy Hutcheson</h4>
+		</footer>
+	</div>
+
 	<!-- JavaScript under here -->
-	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova-1.8.1.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+
 </body>
 </html>

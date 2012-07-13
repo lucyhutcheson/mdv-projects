@@ -22,7 +22,7 @@
 	<false/>
 	<key>ExternalHosts</key>
 	<array>
-		<string>*.com</string>
+		<string>*</string>
 	</array>
 	<key>New item</key>
 	<string></string>
