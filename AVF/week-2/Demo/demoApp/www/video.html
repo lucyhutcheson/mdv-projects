@@ -1,0 +1,72 @@
+<!doctype html> 
+<!--
+ /**
+ * @author Lucy Hutcheson
+ * Created for:  Advanced Visual Frameworks 1206
+ */
+ -->
+
+<html lang="en">
+    <head>
+        
+        <meta charset="utf-8">
+            
+            <title>AVF Demo App</title>
+            
+            <!--  Mobile viewport optimized: j.mp/bplateviewport -->
+            <meta name="HandheldFriendly" content="True">
+                <meta name="MobileOptimized" content="320"/>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    
+                    <!-- Mobile IE needs ClearType for smoothing fonts -->
+                    <meta http-equiv="cleartype" content="on">
+                        
+                        <!-- StyleSheets under here -->
+                        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+                        <link rel="stylesheet" href="css/styles.css" />	
+                        
+                        <script type="text/javascript" charset="utf-8" src="cordova-1.8.1.js"></script>
+                        
+                        <!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+                        <script src="js/libs/modernizr.custom.min.js"></script>
+                        
+                        </head>
+    <body >
+        <div data-role="page" id="geolocation" data-add-back-btn="true"  data-theme="f">
+            <header data-role="header"  data-position="fixed" data-theme="f">
+                <a href="#" data-rel="back" data-direction="reverse" data-icon="arrow-l" >Back</a>
+                <h1 id="title">Video Discussion</h1>
+                <a href="index.html" rel="external"  data-iconpos="notext" data-icon="home">Home</a>
+            </header>
+            <section id="content" data-role="content" >
+                <video id="video" width="100%"  preload controls> 
+                    <source src="http://dl.dropbox.com/u/47516348/AVF/ios-video.webm" type='video/webm; codecs="vp8, vorbis"' />
+                    <source src="http://dl.dropbox.com/u/47516348/AVF/ios-video.theora.ogv" type='video/ogg; codecs="theora, vorbis"' />
+                    <source src="http://dl.dropbox.com/u/47516348/AVF/ios-video.iphone.mp4" />
+                    <object width="320" height="240" type="application/x-shockwave-flash"
+                        data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf"> 
+                        <param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" /> 
+                        <param name="allowfullscreen" value="true" /> 
+                        <param name="flashvars" value='config={"clip":{"url":"http://dl.dropbox.com/u/47516348/AVF/ios-video.iphone.mp4","autoPlay":false,"autoBuffering":true}}' /> 
+                        <p>Download video as <a href="http://dl.dropbox.com/u/47516348/AVF/ios-video.iphone.mp4">MP4</a>, <a href="http://dl.dropbox.com/u/47516348/AVF/ios-video.webm">WebM</a>, or <a href"http://dl.dropbox.com/u/47516348/AVF/ios-video.theora.ogv">Ogg</a>.</p> 
+                    </object> 
+                </video> 
+
+                    
+               
+                
+                
+            </section>
+            <footer data-role="footer" data-theme="c" data-position="fixed" >
+                <h4>Copyright &copy; Lucy Hutcheson</h4>
+            </footer>
+        </div>
+        
+        
+        <!-- JavaScript under here -->
+        <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+    	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+        <script type="text/javascript" src="js/notification.js"></script>
+    </body>
+</html>
