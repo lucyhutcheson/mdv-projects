@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'Go Disciple' target in the 'Go Disciple' project
+//
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+#endif
