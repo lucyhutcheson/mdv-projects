@@ -92,17 +92,26 @@ $('#add-new').live('pageinit', function (event) {
 $('#add-new').live('pageshow', function (event) {
                    var op = getUrlVars()["op"];
                    var discipleId = getUrlVars()["id"];
+                   
                    if(op === 'edit') {
                      $('input[name=gender').removeAttr('checked');
                      //Change submit button value to edit button
                      $('#pageTitle').text('Edit Disciple');
+                   
                      editDisciple(discipleId);
                    
-                        // Tried to trigger confirmPic() via selector but it doesn't work because of JQM
-                        $('#pic').before('<div class="pic-button"><button onclick="confirmPic();" id="camera" class="green">Edit Picture</button></div>');
+                     // Check if there is a saved photo, if not, use default.
+                     if ($('input#pic').val().length === 0) {
+                        $('#picture').attr('style', 'block').attr('src', 'images/default.png');
+                     }
+
+                     // Tried to trigger confirmPic() via selector but it doesn't work because of JQM
+                     $('#pic').before('<div class="pic-button"><button onclick="confirmPic();" id="camera" class="green">Edit Picture</button></div>');
+                   
                    } else {
-                    $('#picture').attr('style', 'block').attr('src', 'images/default.png');
-                    $('#pic').before('<div class="pic-button"><button onclick="confirmPic();" id="camera" class="green">Add a Pic</button></div>');
+                     // Show default photo
+                     $('#picture').attr('style', 'block').attr('src', 'images/default.png');
+                     $('#pic').before('<div class="pic-button"><button onclick="confirmPic();" id="camera" class="green">Add a Pic</button></div>');
                    }
                
                    $('#addForm').submit(function() {
@@ -164,8 +173,7 @@ var getLocalData = function () {
         $('#disciples #discipleList').append(
                                              $('<li>').attr('data-theme', 'a').append(
                                                                                       $('<h4>').text("There are currently no disciples saved.")
-                                                                                      )
-                                             );		
+                                                                                      ).append('<div class="custom-button"><button onclick="confirmContact();" id="camera" class="green">Add a New Disciple</button></div>'));
     }
     
 };
@@ -181,8 +189,6 @@ var editDisciple = function (discipleId) {
     //Grab the data from local storage
     var value = localStorage.getItem(discipleId);
     var item = JSON.parse(value);
-    
-    
     
     //populate the form fields with current values
     $('#firstname').val(item.firstname[1]);
@@ -208,6 +214,7 @@ var editDisciple = function (discipleId) {
     $('#frequency').val(item.frequency[1]);
     $('select').selectmenu('refresh', true); 
     $('#notes').val(item.notes[1]);
+    $('input[value="'+item.savecontact[1]+'"]').attr('checked', true).checkboxradio('refresh');
     
     $('#pic').val(item.pic[1]);
     $('#picture').attr('style', 'display:block;width:25%;').attr('src', item.pic[1]);
@@ -222,7 +229,7 @@ var getRadio = function () {
 };
 var getRadioContact = function() {
     return($('input:radio[name=contact]:checked').val());
-}
+};
 
 
 
@@ -306,6 +313,7 @@ var storeData = function () {
         var id = Math.floor(Math.random()*10000001);
     }
     
+
     // Gather up all form values and labels.
     //Find the value of the selected radio button.
     var newItem = {};
@@ -328,8 +336,19 @@ var storeData = function () {
     newItem.notes = ["Notes:", $('#notes').val()];
     newItem.savecontact = ["Save as Contact:", getRadioContact()];
 
+    var myContactValue = getRadioContact();
+    
+    if (myContactValue === "Yes") {
+        createContact();
+        newItem.savecontact = ["Save as Contact:", "Done"];
+    } else {
+        newItem.savecontact = ["Save as Contact:", "Not Saved"];
+    }
+
     //Save data into local storage
-    localStorage.setItem(id, JSON.stringify(newItem));        
+    localStorage.setItem(id, JSON.stringify(newItem));
+
+
     document.location.href='index.html#viewDisciple?id='+id+'&op=save';		
     
 };
@@ -379,7 +398,7 @@ var onConfirm = function (buttonIndex) {
             parent.history.back();
         }
     }
-}
+};
 
 
 // Show a delete confirmation dialog
@@ -392,7 +411,7 @@ var showConfirm = function () {
                                    'Delete',            // title
                                    'No Go Back, Yes I\'m Sure'          // buttonLabels
                                    );
-}
+};
 
 var showAlert = function () {
     navigator.notification.alert(
@@ -401,10 +420,10 @@ var showAlert = function () {
                                  'Alert',            
                                  'Done'                  
                                  );
-}
+};
 var alertDismissed = function () {
     
-}
+};
 
 
 var showError = function () {
@@ -414,7 +433,7 @@ var showError = function () {
                                  'Whoops!',            
                                  'Done'                  
                                  );
-}
+};
 
 
 
@@ -425,7 +444,7 @@ var getUrlVars = function () {
                                              vars[key] = value;
                                              });
     return vars;
-}
+};
 
 
 
