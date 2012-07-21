@@ -33,8 +33,9 @@ fieldset legend {
 	color: #607401;
 	padding-bottom: 10px;
 }
-a {
+a, .ui-body-a p,.ui-body-a, .ui-overlay-a {
 	text-decoration: none;
+	text-shadow: 0 0 0;	
 }
 #logo {
 	text-align: left;
@@ -124,16 +125,19 @@ a {
 #home h3 {
 	padding: 5px;
 	border-radius: 7px;
-	background: #ccc;
+	background: #333;
 	color: white;
 	font-weight: bold;
-	text-shadow: 0 1px 2px #7d3b00;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#ffc162), to(#ff861f));
-	background-image: -webkit-linear-gradient(#ffc162, #ff861f);
-	background-image: -moz-linear-gradient(#ffc162, #ff861f);
-	background-image: -ms-linear-gradient(#ffc162, #ff861f);
-	background-image: -o-linear-gradient(#ffc162, #ff861f);
-	background-image: linear-gradient(#ffc162, #ff861f);
+	text-shadow: 0 0 0;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#333), to(#000));
+	background-image: -webkit-linear-gradient(#333, #000);
+	background-image: -moz-linear-gradient(#a6a6a6, #6f6f6f);
+	background-image: -ms-linear-gradient(#a6a6a6, #6f6f6f);
+	background-image: -o-linear-gradient(#a6a6a6, #6f6f6f);
+	background-image: linear-gradient(#a6a6a6, #6f6f6f);
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.7);
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
 }
 #home h4, #home p {
 	margin: 0;
@@ -238,7 +242,7 @@ a {
 	}
 	#home .videos .item img, #home .research .item img  {
 		max-width: 80px;
-		width: 15%;
+		width: 13%;
 		position: relative;
 		top: -10px;
 	}
