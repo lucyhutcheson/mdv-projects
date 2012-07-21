@@ -32,20 +32,20 @@
                         
                         </head>
     <body >
-        <div data-role="page" id="contacts" data-add-back-btn="true"  data-theme="a">
-			<header id="header" data-role="header">
+        <div data-role="page" id="camera" data-add-back-btn="true"  data-theme="f">
+            <header data-role="header"  data-position="fixed" data-theme="f">
                 <a href="#" data-rel="back" data-direction="reverse" data-icon="arrow-l" >Back</a>
-                <h1 id="title">Contacts</h1>
+                <h1 id="title">Camera</h1>
                 <a href="index.html" rel="external"  data-iconpos="notext" data-icon="home">Home</a>
             </header>
-            <section id="content" data-role="content">
-                <button id="contactsButton">Show Contacts</button>
-                <div class="content-container ui-btn  ui-li ui-corner-top ui-corner-bottom ui-btn-up-c">
-                    <h3>My Contacts</h3>
-                    <ul id="contactsList" data-role="listview" data-theme="g"></ul>
+            <section id="content" data-role="content" >
+				<div data-role="fieldcontain" class="pic-container">
+                    <img id="picture" src="" /><br/>
+					Url: <input id="pic" type="text" disabled="disabled" >                    
                 </div>
+                <button onclick="confirmPic()" id="camera">Camera</button>
             </section>
-		<footer data-role="footer" data-position="fixed" >
+            <footer data-role="footer" data-theme="c" data-position="fixed" >
                 <h4>Copyright &copy; Lucy Hutcheson</h4>
             </footer>
         </div>
@@ -55,6 +55,6 @@
         <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
     	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
-        <script type="text/javascript" src="js/contacts.js"></script>
+        <script type="text/javascript" src="js/camera.js"></script>
     </body>
 </html>

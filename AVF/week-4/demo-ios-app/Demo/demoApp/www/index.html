@@ -30,115 +30,85 @@
 
 </head>
 <body id="index">
-	<div data-role="page" id="home" data-theme="a">
-		<header id="header" data-role="header">
-			<img src="images/just-a-hutch-logo.png" id="logo" border="0"><h1 class="hidden"></h1>
+	<div data-role="page" id="home" data-theme="f">
+		<header id="header" data-role="header" data-theme="d">
+			<img src="images/logo.png" id="logo" border="0"><h1 class="hidden"></h1>
 		</header>
 		<section data-role="content" id="content">
 			<section class="content-a">
-				<div class="section"> 
-					<h3>iOS/Android Native Feature Demo(s)</h3>
-					<div class="item">
-						<a href="geolocation.html" rel="external">
-							<div class="text">
-								<h4>Geolocation</h4>
-								<p>Features work in both iOS and Android</p>
-							</div>
-							<img src="images/ios-android.png" border="0">
-						</a>
-					</div>
-					<div class="item">
-						<a href="notification.html" rel="external">
-							<div class="text">
-								<h4>Notifications</h4>
-								<p>Features work in both iOS and Android</p>
-							</div>
-							<img src="images/ios-android.png" border="0">
-						</a>
-					</div>
-					<div class="cf"></div>
-				</div>
-				<div class="section"> 
-					<h3>iOS or Android Native Features Demo(s)</h3>
-					<div class="item">
-						<a href="contacts.html" rel="external">
-							<div class="text">
-								<h4>Contacts</h4>
-								<p>Features work in both iOS and Android</p>
-							</div>
-							<img src="images/ios-android.png" border="0">
-						</a>
-					</div>
-					<div class="item">
-						<a href="camera.html" rel="external">
-							<div class="text">
-								<h4>Camera</h4>
-								<p>Features work in both iOS and Android</p>
-							</div>
-							<img src="images/ios-android.png" border="0">
-						</a>
-					</div>
-					<div class="cf"></div>
-				</div>
-				<div class="section crud" id="no-icons"> 
-					<h3>CRUD Apps</h3>
-					<div class="item">
+				<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="f"> 
+					<li data-role="list-divider">iOS/Android Native Feature Demo(s)</li>
+					<li>
+						<a href="http://iamhutch.github.com/mdv-projects/AVF/week-2/crud/geolocation.html" rel="external"><img src="images/ios-android.png" border="0"><h3>Geolocation</h3><p>Features work in both iOS and Android</p> </a>
+					</li>
+					<li>
+						<a href="notification.html" rel="external"><img src="images/ios-android.png" border="0"><h3>Notifications</h3><p>Features work in both iOS and Android</p> </a>
+					</li>
+				</ul>
+				<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="f"> 
+					<li data-role="list-divider">iOS or Android Native Features Demo(s)</li>
+					<li>
+						<a href="contacts.html" rel="external"><img src="images/ios-android.png" border="0"><h3>Contacts</h3><p>Features work in both iOS and Android</p> </a>
+					</li>
+					<li>
+						<a href="camera.html" rel="external"><img src="images/ios-android.png" border="0"><h3>Camera</h3><p>Features work in both iOS and Android</p> </a>
+					</li>
+				</ul>
+				<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="f"> 
+					<li data-role="list-divider">CRUD Apps</li>
+					<li>
 						<a href="http://lucyhutcheson.cloudant.com/pocketministry/_design/ministry/index.html" rel="external">Original CRUD App</a>
-					</div>
-					<div class="item">
+					</li>
+					<li>
 						<a href="http://iamhutch.github.com/mdv-projects/AVF/week-2/crud/index.html" rel="external">Revised CRUD App</a>
-					</div>
-					<div class="item">
+					</li>
+					<li>
 						<a href="https://github.com/iamhutch/mdv-projects/tree/master/AVF" rel="external">Github Repo</a>
-					</div>
-					<div class="cf"></div>
-				</div>
+					</li>
+				</ul>
 			</section>
 			<section class="content-b">
-				<div class="section research" id="no-icons"> 
-					<h3>Research</h3>
-					<div class="item">
+				<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="f"> 
+					<li data-role="list-divider">Research</li>
+					<li>
 						<a href="#research-1" data-transition="slide">Discussion 1: Industry Research and Project Intent</a>
-					</div>
-					<div class="item">
+					</li>
+					<li>
 						<a href="#research-2" data-transition="slide">Discussion 2: Accessibility</a>
-					</div>
-					<div class="item">
+					</li>
+					<li>
 						<a href="#research-3" data-transition="slide">Discussion 3: Market Research</a>
-					</div>
-					<div class="cf"></div>
-				</div>
-				<div class="section " id="no-icons"> 
-					<h3>Reflection Videos</h3>
-					<div class="item">
+					</li>
+				</ul>
+				<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="f"> 
+					<li data-role="list-divider">Reflection Videos</li>
+					<li>
 						<a href="video.html#video-1" rel="external">Week 2</a>
-					</div>
-					<div class="item">
+					</li>
+					<li>
 						<a href="video.html#video-2" rel="external">Week 3</a>
-					</div>
-					<div class="item">
-						<a href="#" rel="external">Week 4</a>
-					</div>
-					<div class="cf"></div>
-				</div>
-				<div class="section developer" id="no-icons"> 
-					<h3>Developer Info</h3>
-					<div class="item">
-						<h4>Lucy Hutcheson</h4>
+					</li>
+					<li>
+						Week 4
+					</li>
+				</ul>
+				<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="f"> 
+					<li data-role="list-divider">Developer Info</li>
+					<li>
+						<h3>Lucy Hutcheson</h3>
 						<p>Advanced Visual Frameworks (AVF1207)</p>
-					</div>
-					<div class="cf"></div>
-				</div>
+					</li>
+				</ul>
 			</section>
 		</section>
-		<footer data-role="footer" data-position="fixed" >
+		<footer data-role="footer" data-position="fixed" data-theme="c">
 			<h4>Copyright &copy; Lucy Hutcheson</h4>
 		</footer>
 	</div>
 	
-	<div data-role="page" id="research-1" data-theme="a">
-		<header id="header" data-role="header" >
-			<a href="view.html" data-rel="back" data-direction="reverse" data-icon="arrow-l">Back</a>
+	<div data-role="page" id="research-1" data-theme="f">
+		<header id="header" data-role="header" data-theme="g">
+			<a href="#home" data-rel="back" data-theme="f" data-direction="reverse" data-icon="arrow-l">Back</a>
 			<h1>Discussion 1</h1>
 		</header>
 		<section data-role="content" id="content">
@@ -161,14 +131,14 @@
 				<p>I’m thinking of adding FileUploader to the app in case there are supporting documents that might need to be added for the tracker.</p>
 			</section>
 		</section>
-		<footer data-role="footer" data-position="fixed" >
+		<footer data-role="footer" data-position="fixed" data-theme="c">
 			<h4>Copyright &copy; Lucy Hutcheson</h4>
 		</footer>
 	</div>
 	
-	<div data-role="page" id="research-2" data-theme="a">
-		<header id="header" data-role="header" >
-			<a href="view.html" data-rel="back" data-direction="reverse" data-icon="arrow-l">Back</a>
+	<div data-role="page" id="research-2" data-theme="f">
+		<header id="header" data-role="header" data-theme="g">
+			<a href="#home" data-rel="back" data-theme="f" data-direction="reverse" data-icon="arrow-l">Back</a>
 			<h1>Discussion 2</h1>
 		</header>
 		<section data-role="content" id="content">
@@ -191,14 +161,14 @@
                 <p><strong>iBlink Radio (iOS)</strong> - App with podcasts, reading service, and music stations of interest to the blind.</p>
 			</section>
 		</section>
-		<footer data-role="footer" data-position="fixed" >
+		<footer data-role="footer" data-position="fixed" data-theme="c">
 			<h4>Copyright &copy; Lucy Hutcheson</h4>
 		</footer>
 	</div>
 
-	<div data-role="page" id="research-3" data-theme="a">
-		<header id="header" data-role="header" >
-			<a href="#home" data-rel="back" data-direction="reverse" data-icon="arrow-l">Back</a>
+	<div data-role="page" id="research-3" data-theme="f">
+		<header id="header" data-role="header" data-theme="g">
+			<a href="#home" data-rel="back" data-theme="f" data-direction="reverse" data-icon="arrow-l">Back</a>
 			<h1>Discussion 3</h1>
 		</header>
 		<section data-role="content" id="content">
@@ -234,15 +204,16 @@
                 <p>I guess the best strategy would be to build a gaming type app, using the most common Android OS version along with the maximum data use optimization possible. &nbsp;This should target the major countries and topics brought up in this discussion.</p>
             </section>
 		</section>
-		<footer data-role="footer" data-position="fixed" >
+		<footer data-role="footer" data-position="fixed" data-theme="c">
 			<h4>Copyright &copy; Lucy Hutcheson</h4>
 		</footer>
 	</div>
-	
+
 	<!-- JavaScript under here -->
     <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="cordova-1.8.1.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 
 </body>
 </html>
