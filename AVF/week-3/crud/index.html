@@ -1,0 +1,95 @@
+<!doctype html> 
+<!--
+/**
+ * @author Lucy Hutcheson
+ * Created for:  Advanced Visual Frameworks 1206
+ */
+-->
+ 
+<html lang="en">
+<head>
+
+	<meta charset="utf-8">
+	
+	<title>Go Disciple</title>
+	
+	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- Mobile IE needs ClearType for smoothing fonts -->
+	<meta http-equiv="cleartype" content="on">
+	
+	<!-- StyleSheets under here -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+	<link rel="stylesheet" href="css/styles.css" />	
+	
+	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+	<script src="js/libs/modernizr.custom.min.js"></script>
+
+</head>
+    <body id="index">
+        <div data-role="page" id="home" data-theme="g">
+            <section data-role="content" id="content">
+                <section class="logo">
+                    <img src="images/go-disciple-logo.png" id="icon" width="55%" border="0">
+                        <img src="images/logo.png" id="logo" width="75%" border="0"><h1 class="hidden"></h1>
+                            </section>
+                <a href="additem.html" data-role="button" data-theme="f" rel="external">Add New Disciple</a>
+                <a href="#disciples" data-role="button" data-theme="g">View My Disciples</a>
+            </section>
+            <footer data-role="footer" data-position="fixed" data-theme="c">
+                <h4>Copyright &copy; Lucy Hutcheson</h4>
+            </footer>
+        </div>
+        
+        <div data-role="page" id="disciples" data-add-back-btn="true"  data-theme="g">
+            <header data-role="header"  data-position="fixed" data-theme="f">
+                <a href="#" data-rel="back" data-direction="reverse" data-icon="arrow-l" >Back</a>
+                <h1 id="title">My Disciples</h1>
+                <a href="additem.html" data-iconpos="notext" data-icon="plus" id="add-button" rel="external">Add</a>
+            </header>
+            <section id="content" data-role="content" >
+                <ul id="discipleList" data-role="listview" data-theme="g"></ul>
+            </section>
+            <footer data-role="footer" data-theme="c" data-position="fixed" >
+                <div data-role="navbar">
+                    <ul>
+                        <li ><a href="geolocation.html" rel="external" data-theme="a">Map</a></li>
+                    </ul>
+                </div><!-- /navbar -->
+                <h4>Copyright &copy; Lucy Hutcheson</h4>
+            </footer>
+        </div>
+        
+        <div data-role="page" id="viewDisciple" data-add-back-btn="true" data-cache="never"  data-theme="g">
+            <header data-role="header"  data-position="fixed" data-theme="f">
+                <a href="#" data-rel="back" data-direction="reverse" data-icon="arrow-l" data-iconpos="notext">Back</a>
+                <h1 id="title">Disciple Info</h1>
+                <a href="#home"  data-iconpos="notext" data-icon="home">Home</a>
+            </header>
+            <section id="content" data-role="content" data-theme="g">
+            </section>
+            <section class="view-all">
+                <a href="index.html#disciples" data-role="button">View All Disciples</a>
+            </section>
+            <footer data-role="footer" data-theme="c" >
+                <div data-role="navbar" id="navbar" data-theme="g">
+                    <ul class="ui-grid-b">
+                        <li><a title="Edit Lesson" data-icon="gear" id="edit" rel="external">Edit</a></li>
+                        <li><a href="#" title="Delete Lesson" data-icon="delete" id="delete">Delete</a></li>
+                        <li><a href="additem.html"  id="addNew" data-icon="plus" rel="external">Add New</a></li>
+                    </ul>
+                </div><!-- /navbar -->
+                <h4>Copyright &copy; Lucy Hutcheson</h4>
+            </footer>
+        </div>	
+        
+
+        <!-- JavaScript under here -->
+        <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+    </body>
+</html>

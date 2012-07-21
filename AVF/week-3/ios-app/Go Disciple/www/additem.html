@@ -282,12 +282,54 @@
 		</footer>
 	</div>
     
+    
+    <div data-role="page" id="import" data-add-back-btn="true"  data-theme="g">
+        <header data-role="header"  data-position="fixed" data-theme="f">
+            <a href="#" data-rel="back" data-direction="reverse" data-icon="arrow-l" >Back</a>
+            <h1 id="title">Import from Contact</h1>
+            <a href="index.html" rel="external"  data-iconpos="notext" data-icon="home">Home</a>
+        </header>
+        <section id="content" data-role="content" >
+            <form action="#" method="post" id="importContactForm">
+                <div data-role="fieldcontain">
+                    <label for="firstname">First Name: </label>
+                    <input type="text" id="firstname" placeholder="Enter first name"/>
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="lastname">Last Name: </label>
+                    <input type="text" id="lastname" placeholder="Enter last name"/></li>
+                </div>
+                <a href="#importDisplay" type="submit" data-role="button" data-theme="f" >Find Contact</a>
+            </form>
+        </section>
+        <footer data-role="footer" data-theme="c" data-position="fixed" >
+            <h4>Copyright &copy; Lucy Hutcheson</h4>
+        </footer>
+    </div>
+    
+    <div data-role="page" id="importDisplay" data-add-back-btn="true"  data-theme="g">
+        <header data-role="header"  data-position="fixed" data-theme="f">
+            <a href="#" data-rel="back" data-direction="reverse" data-icon="arrow-l" >Back</a>
+            <h1 id="title">Import from Contact</h1>
+            <a href="index.html" rel="external"  data-iconpos="notext" data-icon="home">Home</a>
+        </header>
+        <section id="content" data-role="content" >
+            <form action="#" method="post" id="selectContactForm">
+                <a href="#" id="importContact" data-role="button" data-theme="f" rel="external">Import Selected Contact</a>
+            </form>
+        </section>
+        <footer data-role="footer" data-theme="c" data-position="fixed" >
+            <h4>Copyright &copy; Lucy Hutcheson</h4>
+        </footer>
+    </div>
+    
+
 	<!-- JavaScript under here -->
 	<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="cordova-1.8.1.js"></script>
-    <script type="text/javascript" src="js/native.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/native.js"></script>
 
 </body>
 </html>

@@ -5,6 +5,7 @@
 
 
 
+
 /****************************************************************
  * 
  * List of Disciples Page                                       *
@@ -55,7 +56,7 @@ $('#viewDisciple').live('pageshow', function (event) {
                                              
                                              '<h3>' + obj.firstname[1] + ' ' + obj.lastname[1] + '</h3>' +
                                              '<p><strong>Email:</strong> ' + obj.email[1] + '</p>' +
-                                             '<p><strong>Phone:</strong> ' + obj.phone[1] + '</p>' +
+                                             '<p><strong>Phone:</strong><a rel="external" href="tel: ' + obj.phone[1] + '">'+ obj.phone[1]+'</a></p>' +
                                              '<p><strong>Address:</strong> ' + obj.street[1] + '<br/>' +
                                              obj.city[1] + ', ' + obj.state[1] + ' ' + obj.zip[1] + '</p>' +
                                              '<p><strong>Birthday:</strong> ' + obj.birthmonth[1] + ' ' +
@@ -108,18 +109,32 @@ $('#add-new').live('pageshow', function (event) {
                      // Tried to trigger confirmPic() via selector but it doesn't work because of JQM
                      $('#pic').before('<div class="pic-button"><button onclick="confirmPic();" id="camera" class="green">Edit Picture</button></div>');
                    
+                   
+                   } else if (op === 'import') {
+                   
+                        var selectedContact = getUrlVars()["contact"];
+                        //alert(op);
+                        //alert(selectedContact);
+                        // Show default photo
+                        $('#picture').attr('style', 'block').attr('src', 'images/default.png');
+                        $('#pic').before('<div class="pic-button"><button onclick="confirmPic();" id="camera" class="green">Add a Pic</button></div>');
+                   $('#picture').before('<div class="pic-button"><button onclick="alert("hello");" id="import" class="green">Import</button></div>');
+                        //importContact(selectedContact);
+                   
                    } else {
                      // Show default photo
                      $('#picture').attr('style', 'block').attr('src', 'images/default.png');
                      $('#pic').before('<div class="pic-button"><button onclick="confirmPic();" id="camera" class="green">Add a Pic</button></div>');
                    }
                
+                   
                    $('#addForm').submit(function() {
                                        return false;
                                        });
                   $('#submit').on('click', validateForm);
                    
 });
+
 
 
 

@@ -77,9 +77,9 @@ var onFail = function (message) {
 
 var confirmContact = function () {
     navigator.notification.confirm(
-                                   'Please select',  // message
+                                   '',  // message
                                    onConfirmContact,              // callback to invoke with index of button pressed
-                                   'New Disciple',            // title
+                                   'Add Disciple',            // title
                                    'Import, Create New'          // buttonLabels
                                    );
 };
@@ -88,7 +88,7 @@ var confirmContact = function () {
 var onConfirmContact = function (buttonIndex) {
     
     if (buttonIndex === 1) {
-        document.location.href='#import';		
+        document.location.href='additem.html#import';		
     } else {
         document.location.href='additem.html';		
     }
@@ -97,55 +97,67 @@ var onConfirmContact = function (buttonIndex) {
 
 /****************************************************************
  * 
- * Import Contacts Page                                        *
+ * DISPLAY Import Contacts Page                                 *
  * 
  ****************************************************************/
 $('#importDisplay').live('pagehide', function () {
                   $('#importDisplay #content .formItems').remove();
                   });
 $('#importDisplay').live('pageshow', function () {
+                         
                          var getFirstName = $("#firstname").val();
                          var getLastName = $("#lastname").val();
+                         var name = $("#firstname").val() + ' ' + $("#lastname").val();
+                         var type = "list";
+                         // Launch my search for my contact!
+                         alert($("#firstname").val());
+                         contactSearch(name, type);
                          
-                         // specify contact search criteria
-                         var options = new ContactFindOptions();
-                         options.filter= getFirstName + " " + getLastName;          // empty search string returns all contacts
-                         options.multiple=true;      // return multiple results
-                         filter = ["displayName", "name"];   // return contact.displayName field
-                         
-                         // find contacts
-                         navigator.contacts.find(filter, onContactSuccess, onError, options);
-                         
-                         
-                         //$('#importDisplay #importContact').attr('href', 'additem.html?contact='+discipleId+'&op=edit');
-                         $('#importDisplay #importContact').attr('onclick', 'importContact()');
                          });
 
 
-
-
-// onSuccess: Get a snapshot of the current contacts
+// Watch and Pick up my selected contact to import ---------------------------------------------
 //
-function onSuccess(contacts) {
-    for (var i=0; i<contacts.length; i++) {
-        console.log("Formatted: " + contacts[i].name.formatted);
-    }
-}
+$('#selectContactForm input:radio[name=selectedContact]').live('click', function () {
+        //$('#importContact').toggleClass('disabled', !$('#selectContactForm input:checkbox:checked').length);
+        var checked = $('#selectContactForm input:radio[name=selectedContact]:checked').val();
+        $('#importDisplay #importContact').attr('href', 'additem.html?op=import&contact='+checked);
+});
 
-// onError: Failed to get the contacts
+
+
+// Multi use search function ---------------------------------------------
 //
-function onError(contactError) {
-    alert('onError!');
-}
-
-
-
-
-// onSuccess: Display list of current contacts
-//
-function onContactSuccess(contacts) {
+var contactSearch = function (name, type) {
+    //alert('contactSearch firing');
+    alert(name);
     
-    $('<div/>').addClass('formItems')
+    // specify contact search criteria
+    var options = new ContactFindOptions();
+    options.filter= name;          // empty search string returns all contacts
+    options.multiple=true;      // return multiple results
+
+    var filter = ["displayName","name", "addresses", "phoneNumbers", "emails", "birthday", "photos"];
+    //alert('fireing import navigator');
+    
+    if (type === "list") {
+        // list all contacts
+        navigator.contacts.find(filter, onContactList, onError, options);
+    } else if (type === "import") {
+        navigator.contacts.find(filter, onSuccess, onError, options);
+        //importContact(name);
+    }
+    
+};
+
+
+
+
+// Display list of current contacts ---------------------------------------------
+//
+function onContactList(contacts) {
+    
+    $('<ul/>').addClass('formItems')
     .appendTo('#importDisplay #content #selectContactForm');
 
     for (var i=0; i<contacts.length; i++) {
@@ -156,80 +168,101 @@ function onContactSuccess(contacts) {
               "Suffix: "  + contacts[i].name.honorificSuffix + "\n" + 
               "Prefix: "  + contacts[i].name.honorificPrefix);
 
-           var contactString = $('<div data-role="fieldcontain"><fieldset data-role="controlgroup">' +
-                    '<input type="checkbox" name="selectedContact" id="selectedContact" value="' + contacts[i].name.formatted + '"/>' +
+           var contactString = $('<li><div data-role="fieldcontain"><fieldset data-role="controlgroup">' +
+                    '<input type="radio" name="selectedContact" id="selectedContact" value="' + contacts[i].name.formatted + '"/>' +
                     '<label for="selectedContact">' + contacts[i].name.formatted + '</label></fieldset>'+
-                    '</div>').appendTo('#importDisplay #selectContactForm .formItems');
+                    '</div></li>').appendTo('#importDisplay #selectContactForm .formItems');
     }
+    // Sort my list after it has been created
+    var mylist = $('.formItems');
+    var listitems = mylist.children('li').get();
+    listitems.sort(function (a, b) {
+                   var compA = $(a).text().toUpperCase();
+                   var compB = $(b).text().toUpperCase();
+                   // Currently set to descending date based on the > < symbols
+                   // return (compA > compB) ? -1 : (compA < compB) ? 1 : 0;
+                   // Set to < > to sort ascending
+                   return (compA < compB) ? -1 : (compA > compB) ? 1 : 0;
+                   });
+    $.each(listitems, function (idx, itm) { 
+           mylist.append(itm); 
+           });
+    
+    $('.formItems').listview();
+    $('.formItems').listview('refresh');
+
     document.location.href='#importDisplay';		
 }
 
 
-// Get selected contact information
-var importContact = function () {
 
-    // Get name of checked contact
-    var checked = $('input:checkbox:checked').val();
+// Get selected contact information
+function importContact(selectedContact) {
+    alert('importContact: ' + selectedContact);
 
     
     // Import from Contacts
-    var options = new ContactFindOptions();
-    options.filter= checked;
-    var filter = ["displayName","name","addresses", "phoneNumbers", "emails"];
+    var obj = new ContactFindOptions();
+    obj.filter= selectedContact;
+    var fields = ["*"];
+    var fields = ["displayName","name", "addresses", "phoneNumbers", "emails", "birthday", "photos"];
+    alert('importcontact again!!!');
 
-    navigator.contacts.find(filter, onFindSuccess, onContactError, options);
+    navigator.contacts.find(fields, onSuccess, onError, obj);
 };
 
 // onSuccess: Populate the fields to save
 //
-function onFindSuccess(contacts) {
+function onContactImport(contacts) {
+    
+    alert('onContactImport');
+    
     for (var i=0; i<contacts.length; i++) {
-        alert("Formatted: " + contacts[i].name.formatted + "\n" + 
+       console.log("Formatted: " + contacts[i].name.formatted + "\n" + 
                     "Family Name: "  + contacts[i].name.familyName + "\n" + 
                     "Given Name: "  + contacts[i].name.givenName + "\n" + 
                     "Middle Name: "  + contacts[i].name.middleName + "\n" + 
                     "Suffix: "  + contacts[i].name.honorificSuffix + "\n" + 
                     "Prefix: "  + contacts[i].name.honorificPrefix);
-        
-           for (var j=0; j<contacts[i].addresses.length; j++) {
-                alert("Pref: " + contacts[i].addresses[j].pref + "\n" +
-                      "Type: " + contacts[i].addresses[j].type + "\n" +
-                      "Formatted: " + contacts[i].addresses[j].formatted + "\n" + 
-                      "Street Address: "  + contacts[i].addresses[j].streetAddress + "\n" + 
-                      "Locality: "  + contacts[i].addresses[j].locality + "\n" + 
-                      "Region: "  + contacts[i].addresses[j].region + "\n" + 
-                      "Postal Code: "  + contacts[i].addresses[j].postalCode + "\n" + 
-                      "Country: "  + contacts[i].addresses[j].country);
+            for (var j=0; j<contacts[i].addresses.length; j++) {
+                console.log("Pref: " + contacts[i].addresses[j].pref + "\n" +
+                            "Type: " + contacts[i].addresses[j].type + "\n" +
+                            "Formatted: " + contacts[i].addresses[j].formatted + "\n" + 
+                            "Street Address: "  + contacts[i].addresses[j].streetAddress + "\n" + 
+                            "Locality: "  + contacts[i].addresses[j].locality + "\n" + 
+                            "Region: "  + contacts[i].addresses[j].region + "\n" + 
+                            "Postal Code: "  + contacts[i].addresses[j].postalCode + "\n" + 
+                            "Country: "  + contacts[i].addresses[j].country);
             }
-        for (var k=0; k<contacts[i].phoneNumbers.length; k++) {
-            alert("Type: " + contacts[i].phoneNumbers[k].type + "\n" + 
-                  "Value: "  + contacts[i].phoneNumbers[k].value + "\n" + 
-                  "Preferred: "  + contacts[i].phoneNumbers[k].pref);
-        }
-
-        for (var m = 0; m < contacts[i].emails.length; m++) {
-            var email = contacts[i].emails[m].type + " : " +
-            contacts[i].emails[m].value;
-            alert(email);
-
-        }
-        /*$('#pageTitle').html('Edit Info');
+            for (var k=0; k<contacts[i].phoneNumbers.length; k++) {
+                console.log("Type: " + contacts[i].phoneNumbers[k].type + "\n" + 
+                            "Value: "  + contacts[i].phoneNumbers[k].value + "\n" + 
+                            "Preferred: "  + contacts[i].phoneNumbers[k].pref);
+            }
+            for (var m = 0; m < contacts[i].emails.length; m++) {
+                var email = contacts[i].emails[m].type + " : " +
+                contacts[i].emails[m].value;
+                console.log(email);
+            }
+        
+        var birthday = new Date(contacts[i].birthday);
+        console.log(birthday);
+        
         
         //populate the form fields with contact values
         $('#firstname').val(contacts[i].name.givenName);
         $('#lastname').val(contacts[i].name.familyName);
-        $('#email').val(contactsArray[i].emails[1].value);
-        $('#phone').val(item.phone[1]);
-        $('#street').val(item.street[1]);
-        $('#city').val(item.city[1]);
-        $('#state').val(item.state[1]);
-        $('#zip').val(item.zip[1]);
-        $('select').selectmenu('refresh', true); */
-        
+        $('#email').val(contacts[i].emails[0].value);
+        $('#phone').val(contacts[i].phoneNumbers[0].value);
+        $('#street').val(contacts[i].addresses[0].streetAddress);
+        $('#city').val(contacts[i].addresses[0].locality);
+        $('#state').val(contacts[i].addresses[0].region);
+        $('#zip').val(contacts[i].addresses[0].postalCode);
+        $('select').selectmenu('refresh', true); 
         
 
     }
-    //document.location.href='additem.html';		
+    document.location.href='#add-new';		
 }
 
 
@@ -238,4 +271,20 @@ function onFindSuccess(contacts) {
 function onContactError(contactError) {
     alert('onError!');
 }
+
+
+// Default: Get a snapshot of the current contacts ---------------------------------------------
+//
+function onSuccess(contacts) {
+    for (var i=0; i<contacts.length; i++) {
+        console.log("Formatted: " + contacts[i].name.formatted);
+    }
+}
+
+// Default onError: Failed to get the contacts ---------------------------------------------
+//
+function onError(contactError) {
+    alert('onError!');
+}
+
 

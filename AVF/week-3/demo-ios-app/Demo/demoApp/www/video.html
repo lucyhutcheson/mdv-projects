@@ -2,7 +2,7 @@
 <!--
  /**
  * @author Lucy Hutcheson
- * Created for:  Advanced Visual Frameworks 1206
+ * Created for:  Advanced Visual Frameworks 1207
  */
  -->
 
@@ -32,10 +32,10 @@
                         
                         </head>
     <body >
-        <div data-role="page" id="geolocation" data-add-back-btn="true"  data-theme="f">
+        <div data-role="page" id="video-1" data-add-back-btn="true"  data-theme="f">
             <header data-role="header"  data-position="fixed" data-theme="f">
                 <a href="#" data-rel="back" data-direction="reverse" data-icon="arrow-l" >Back</a>
-                <h1 id="title">Video Discussion</h1>
+                <h1 id="title">Video Week 2</h1>
                 <a href="index.html" rel="external"  data-iconpos="notext" data-icon="home">Home</a>
             </header>
             <section id="content" data-role="content" >
@@ -51,18 +51,37 @@
                         <p>Download video as <a href="http://dl.dropbox.com/u/47516348/AVF/ios-video.iphone.mp4">MP4</a>, <a href="http://dl.dropbox.com/u/47516348/AVF/ios-video.webm">WebM</a>, or <a href"http://dl.dropbox.com/u/47516348/AVF/ios-video.theora.ogv">Ogg</a>.</p> 
                     </object> 
                 </video> 
-
-                    
-               
-                
-                
             </section>
             <footer data-role="footer" data-theme="c" data-position="fixed" >
                 <h4>Copyright &copy; Lucy Hutcheson</h4>
             </footer>
         </div>
         
-        
+        <div data-role="page" id="video-2" data-add-back-btn="true"  data-theme="f">
+            <header data-role="header"  data-position="fixed" data-theme="f">
+                <a href="#" data-rel="back" data-direction="reverse" data-icon="arrow-l" >Back</a>
+                <h1 id="title">Video Week 3 </h1>
+                <a href="index.html" rel="external"  data-iconpos="notext" data-icon="home">Home</a>
+            </header>
+            <section id="content" data-role="content" >
+                <video id="video" width="100%"  preload controls> 
+                    <source src="http://dl.dropbox.com/u/47516348/AVF/week3/avf-week3-review.webm" type='video/webm; codecs="vp8, vorbis"' />
+                    <source src="http://dl.dropbox.com/u/47516348/AVF/week3/avf-week3-review.theora.ogv" type='video/ogg; codecs="theora, vorbis"' />
+                    <source src="http://dl.dropbox.com/u/47516348/AVF/week3/avf-week3-review.iphone.mp4" />
+                    <object width="320" height="240" type="application/x-shockwave-flash"
+                        data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf"> 
+                        <param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" /> 
+                        <param name="allowfullscreen" value="true" /> 
+                        <param name="flashvars" value='config={"clip":{"url":"http://dl.dropbox.com/u/47516348/AVF/week3/avf-week3-review.iphone.mp4","autoPlay":false,"autoBuffering":true}}' /> 
+                        <p>Download video as <a href="http://dl.dropbox.com/u/47516348/AVF/week3/avf-week3-review.iphone.mp4">MP4</a>, <a href="http://dl.dropbox.com/u/47516348/AVF/week3/avf-week3-review.webm">WebM</a>, or <a href"http://dl.dropbox.com/u/47516348/AVF/week3/avf-week3-review.theora.ogv">Ogg</a>.</p> 
+                    </object> 
+                </video> 
+            </section>
+            <footer data-role="footer" data-theme="c" data-position="fixed" >
+                <h4>Copyright &copy; Lucy Hutcheson</h4>
+            </footer>
+        </div>
+       
         <!-- JavaScript under here -->
         <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
