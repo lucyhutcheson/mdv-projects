@@ -15,31 +15,28 @@
             
             <!--  Mobile viewport optimized: j.mp/bplateviewport -->
             <meta name="HandheldFriendly" content="True">
-                <meta name="MobileOptimized" content="320"/>
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    
-                    <!-- Mobile IE needs ClearType for smoothing fonts -->
-                    <meta http-equiv="cleartype" content="on">
+            <meta name="MobileOptimized" content="320"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                
+            <!-- StyleSheets under here -->
+            <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+            <link rel="stylesheet" href="css/styles.css" />	
+            
+            <script type="text/javascript" charset="utf-8" src="cordova-1.8.1.js"></script>
+            
+            <!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+            <script src="js/libs/modernizr.custom.min.js"></script>
                         
-                        <!-- StyleSheets under here -->
-                        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
-                        <link rel="stylesheet" href="css/styles.css" />	
-                        
-                        <script type="text/javascript" charset="utf-8" src="cordova-1.8.1.js"></script>
-                        
-                        <!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
-                        <script src="js/libs/modernizr.custom.min.js"></script>
-                        
-                        </head>
+   	</head>
     <body >
         <div data-role="page" id="video-1" data-add-back-btn="true"  data-theme="a">
-			<header id="header" data-role="header">
+			<header data-role="header">
                 <a href="#" data-rel="back" data-direction="reverse" data-icon="arrow-l" >Back</a>
-                <h1 id="title">Video Week 2</h1>
+                <h1>Video Week 2</h1>
                 <a href="index.html" rel="external"  data-iconpos="notext" data-icon="home">Home</a>
             </header>
-            <section id="content" data-role="content" >
-            	<div id="video-container">
+			<section data-role="content">
+            	<div class="video-container">
 	                <video id="my_video_1" controls="controls"  preload="auto"> 
 	                    <source src="http://dl.dropbox.com/u/47516348/AVF/ios-video.iphone.mp4" type="video/mp4" >
 	                    <source src="http://dl.dropbox.com/u/47516348/AVF/ios-video.webm" type="video/webm" >
@@ -54,13 +51,13 @@
         </div>
         
           <div data-role="page" id="video-2" data-add-back-btn="true"  data-theme="a">
-			<header id="header" data-role="header">
+			<header data-role="header">
                 <a href="#" data-rel="back" data-direction="reverse" data-icon="arrow-l" >Back</a>
-                <h1 id="title">Video Week 3</h1>
+                <h1>Video Week 3</h1>
                 <a href="index.html" rel="external"  data-iconpos="notext" data-icon="home">Home</a>
             </header>
-            <section id="content" data-role="content" >
-            	<div id="video-container">
+			<section data-role="content">
+            	<div class="video-container">
 	                <video id="my_video_2" controls="controls" preload="auto"> 
 	                    <source src="http://dl.dropbox.com/u/47516348/AVF/week3/avf-week3-review.iphone.mp4" type="video/mp4" >
 	                    <source src="http://dl.dropbox.com/u/47516348/AVF/week3/avf-week3-review.webm" type="video/webm" >

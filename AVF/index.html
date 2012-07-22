@@ -11,15 +11,13 @@
 
 	<meta charset="utf-8">
 	
-        <title>AVF Demo App</title>
+    <title>AVF Demo App</title>
 	
 	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
 	<meta name="HandheldFriendly" content="True">
 	<meta name="MobileOptimized" content="320"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-	<!-- Mobile IE needs ClearType for smoothing fonts -->
-	<meta http-equiv="cleartype" content="on">
 	
 	<!-- StyleSheets under here -->
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
@@ -31,10 +29,10 @@
 </head>
 <body id="index">
 	<div data-role="page" id="home" data-theme="a">
-		<header id="header" data-role="header">
-			<img src="images/just-a-hutch-logo.png" id="logo" border="0"><h1 class="hidden"></h1>
+		<header data-role="header">
+			<img src="images/just-a-hutch-logo.png" alt="Just a Hutch">
 		</header>
-		<section data-role="content" id="content">
+		<section data-role="content">
 			<section class="content-a">
 				<div class="section demo1"> 
 					<h3>iOS/Android Native Feature Demo(s)</h3>
@@ -44,8 +42,9 @@
 								<h4>Geolocation</h4>
 								<p>Features work in both iOS and Android</p>
 							</div>
-							<img src="images/ios-android.png" border="0">
+							<img src="images/ios-android.png" alt="ios android icon">
 						</a>
+						<div class="cf"></div>
 					</div>
 					<div class="item">
 						<a href="notification.html" rel="external">
@@ -53,8 +52,9 @@
 								<h4>Notifications</h4>
 								<p>Features work in both iOS and Android</p>
 							</div>
-							<img src="images/ios-android.png" border="0">
+							<img src="images/ios-android.png" alt="ios android icon">
 						</a>
+						<div class="cf"></div>
 					</div>
 					<div class="cf"></div>
 				</div>
@@ -66,8 +66,9 @@
 								<h4>Contacts</h4>
 								<p>Features work in both iOS and Android</p>
 							</div>
-							<img src="images/ios-android.png" border="0">
+							<img src="images/ios-android.png" alt="ios android icon">
 						</a>
+						<div class="cf"></div>
 					</div>
 					<div class="item">
 						<a href="camera.html" rel="external">
@@ -75,8 +76,9 @@
 								<h4>Camera</h4>
 								<p>Features work in both iOS and Android</p>
 							</div>
-							<img src="images/ios-android.png" border="0">
+							<img src="images/ios-android.png" alt="ios android icon">
 						</a>
+						<div class="cf"></div>
 					</div>
 					<div class="cf"></div>
 				</div>
@@ -99,19 +101,19 @@
 					<h3>Research</h3>
 					<div class="item">
 						<a href="#research-1" data-transition="slide">
-							<img src="images/icon-research.png" border="0">
+							<img src="images/icon-research.png" alt="research icon">
 							Industry Research and Project Intent
 						</a>
 					</div>
 					<div class="item">
 						<a href="#research-2" data-transition="slide">
-							<img src="images/icon-research.png" border="0">
+							<img src="images/icon-research.png" alt="research icon">
 							Accessibility
 						</a>
 					</div>
 					<div class="item">
 						<a href="#research-3" data-transition="slide">
-							<img src="images/icon-research.png" border="0">
+							<img src="images/icon-research.png" alt="research icon">
 							Market Research
 						</a>
 					</div>
@@ -121,19 +123,19 @@
 					<h3>Reflection Videos</h3>
 					<div class="item">
 						<a href="video.html#video-1" rel="external">
-							<img src="images/icon-video.png" border="0">
+							<img src="images/icon-video.png" alt="video icon">
 							<div class="text">Week 2</div>
 						</a>
 					</div>
 					<div class="item">
 						<a href="video.html#video-2" rel="external">
-							<img src="images/icon-video.png" border="0">
+							<img src="images/icon-video.png" alt="video icon">
 							<div class="text">Week 3</div>
 						</a>
 					</div>
 					<div class="item">
 						<a href="#" rel="external">
-							<img src="images/icon-video.png" border="0">
+							<img src="images/icon-video.png" alt="video icon">
 							<div class="text">Week 4</div>
 						</a>
 					</div>
@@ -155,29 +157,29 @@
 	</div>
 	
 	<div data-role="page" id="research-1" data-theme="a">
-		<header id="header" data-role="header" >
+		<header data-role="header" >
 			<a href="view.html" data-rel="back" data-direction="reverse" data-icon="arrow-l">Back</a>
 			<h1>Discussion 1</h1>
 		</header>
-		<section data-role="content" id="content">
-			<section data-theme="c" class="content-container ui-btn  ui-li ui-corner-top ui-corner-bottom ui-btn-up-c">
-				<h3>What types of native features (on Android and iOS devices) would you be able to implement with the use of HTML/CSS/JS only?</h3>
+		<section data-role="content">
+			<div class="discussion">
+				<h2>What types of native features (on Android and iOS devices) would you be able to implement with the use of HTML/CSS/JS only?</h2>
 				<p>Here are the native features that you can implement with the use of HTML/CSS/JS and PhoneGap:  accelerometer, camera, contacts, file, geolocation, media, network, notifications (alert, sound, vibration) and storage.</p>
 				
-				<h3>For your CRUD app revision and/or Demo App components, which of these do you think you will implement?</h3>
+				<h2>For your CRUD app revision and/or Demo App components, which of these do you think you will implement?</h2>
 				<p>I am planning on implementing the geolocation, notification, contacts and camera.</p>
 				
-				<h3>Briefly describe some past 'lessons learned' regarding workflow as it relates to research, design, development, etc.</h3>
+				<h2>Briefly describe some past 'lessons learned' regarding workflow as it relates to research, design, development, etc.</h2>
 				<p>I have learned that you must do your research first and then the design, followed by the development.  I have worked in projects where they got 
 				started but didn’t know about different trends and norms that were needed.  So they had to go back and research that.  Then they got to the design and found out that certain things didn’t work or flow the way they wanted them to.  
 				So it was back to researching how they should flow.  Lastly, the development is started when all these areas have been worked out.</p>
 				
-				<h3>Please describe any design intentions you may have for the AVF Demo app and the revised/new version of your CRUD app.</h3>
+				<h2>Please describe any design intentions you may have for the AVF Demo app and the revised/new version of your CRUD app.</h2>
 				<p>I plan on changing the app from a bible study tool type app called Pocket Ministry to a disciplee tracker called Go Disciple.  Instead of listing out bible study lessons, it will contain information on a person that a leader or anyone is discipling.  This will allow me to add the geolocation, contact, and notification features.</p>
 				
-				<h3>If not covered above, please also describe any functionality intentions you may have for both the AVF Demo app and the revised/new version of your CRUD app.</h3>
+				<h2>If not covered above, please also describe any functionality intentions you may have for both the AVF Demo app and the revised/new version of your CRUD app.</h2>
 				<p>I’m thinking of adding FileUploader to the app in case there are supporting documents that might need to be added for the tracker.</p>
-			</section>
+			</div>
 		</section>
 		<footer data-role="footer" data-position="fixed" >
 			<h4>Copyright &copy; Lucy Hutcheson</h4>
@@ -185,29 +187,42 @@
 	</div>
 	
 	<div data-role="page" id="research-2" data-theme="a">
-		<header id="header" data-role="header" >
+		<header data-role="header" >
 			<a href="view.html" data-rel="back" data-direction="reverse" data-icon="arrow-l">Back</a>
 			<h1>Discussion 2</h1>
 		</header>
-		<section data-role="content" id="content">
-			<section data-theme="c" class="content-container ui-btn  ui-li ui-corner-top ui-corner-bottom ui-btn-up-c">
-				<h3>What are some of the ways that you could change your HTML on your Demo app to be more accessible?</h3>
+		<section data-role="content">
+			<div class="discussion">
+				<h2>What are some of the ways that you could change your HTML on your Demo app to be more accessible?</h2>
 				<p>I think that I could make sure that I keep as close as possible to the accessibility guidelines like adding the alt value to all images and making sure that my text links have very descriptive wording.</p>
 				
-				<h3>Visit a video service on the web (like YouTube) and search for "Screen Reader Demo" and "Mobile Screen Reader" - what are some of the common frustrations (or common support mechanisms) that you see among the examples that are given - how could you fix them (or use them)?</h3>
+				<h2>Visit a video service on the web (like YouTube) and search for "Screen Reader Demo" and "Mobile Screen Reader" - what are some of the common frustrations (or common support mechanisms) that you see among the examples that are given - how could you fix them (or use them)?</h2>
 				<p>What I saw were that many pages were just not tagged correctly nor have they implemented accessibility features at all.  They would get “Click Here” but have no idea what they were clicking.  I would fix as much as I could so that they could also experience the internet just a little bit more.</p>
 				
-				<h3>Devices: Please list two devices (and some of their features) that are made specifically to support Accessibility.</h3>
-				<p><strong>Alternative keyboards</strong> - these feature larger than standard keys, have alternative key configurations or they’re able to be used with just one hand.</p>
-                <p><strong>Electronic pointing devices</strong> - they are used to control the cursor on the screen without using their hands.  They include infrared beams, eye movements, ultrasound, nerve signals, or brain waves.</p>
+				<h2>Devices: Please list two devices (and some of their features) that are made specifically to support Accessibility.</h2>
+				<ul>
+					<li>
+						<strong>Alternative keyboards</strong> - these feature larger than standard keys, have alternative key configurations or they’re able to be used with just one hand.
+					</li>
+	                <li>
+	                	<strong>Electronic pointing devices</strong> - they are used to control the cursor on the screen without using their hands.  They include infrared beams, eye movements, ultrasound, nerve signals, or brain waves.
+	                </li>
+				</ul>
+				<p></p>
 				
-				<h3>Please describe any design intentions you may have for the AVF Demo app and the revised/new version of your CRUD app.</h3>
+				<h2>Please describe any design intentions you may have for the AVF Demo app and the revised/new version of your CRUD app.</h2>
 				<p>I plan on changing the app from a bible study tool type app called Pocket Ministry to a disciplee tracker called Go Disciple.  Instead of listing out bible study lessons, it will contain information on a person that a leader or anyone is discipling.  This will allow me to add the geolocation, contact, and notification features.</p>
 				
-				<h3>Mobile Apps: Please list two apps (either Android or iOS, or both) that are made specifically to support Accessibility.</h3>
-				<p><strong>soundAmp (iOS)</strong> - Takes the sounds picked up by the device microphone and amplifies it to your ear buds, making it into a hearing aid.</p>
-                <p><strong>iBlink Radio (iOS)</strong> - App with podcasts, reading service, and music stations of interest to the blind.</p>
-			</section>
+				<h2>Mobile Apps: Please list two apps (either Android or iOS, or both) that are made specifically to support Accessibility.</h2>
+				<ul>
+					<li>
+						<strong>soundAmp (iOS)</strong> - Takes the sounds picked up by the device microphone and amplifies it to your ear buds, making it into a hearing aid.
+					</li>
+                	<li>
+                		<strong>iBlink Radio (iOS)</strong> - App with podcasts, reading service, and music stations of interest to the blind.
+                	</li>
+                </ul>
+			</div>
 		</section>
 		<footer data-role="footer" data-position="fixed" >
 			<h4>Copyright &copy; Lucy Hutcheson</h4>
@@ -215,42 +230,39 @@
 	</div>
 
 	<div data-role="page" id="research-3" data-theme="a">
-		<header id="header" data-role="header" >
+		<header data-role="header" >
 			<a href="#home" data-rel="back" data-direction="reverse" data-icon="arrow-l">Back</a>
 			<h1>Discussion 3</h1>
 		</header>
-		<section data-role="content" id="content">
-			<section data-theme="c" class="content-container ui-btn  ui-li ui-corner-top ui-corner-bottom ui-btn-up-c">
-                <h3>What are the 'top selling' app categories in the U.S.?</h3>
-                <p>The most popular categories are games; news; maps; social networking and music.</p>
-                <p><em>Source:&nbsp;<a href="http://mobithinking.com/mobile-marketing-tools/latest-mobile-stats/e#lotsofapps">http://mobithinking.com/mobile-marketing-tools/latest-mobile-stats/e#lotsofapps</a></em></p>
-                <h3>What are the 'top selling' app categories in Japan?</h3>
-                <p>The top selling app categories in Japan are games and then books. &nbsp;The game category is broken down even further. &nbsp;The top subcategories in games are Role Playing, Adventure, Strategy, and Simulation.</p>
-                <p><em>Source:&nbsp;<a href="http://www.appannie.com/top/">http://www.appannie.com/top/</a></em></p>
-                <h3>What are the 'top selling' app categories in Great Britain?</h3>
-                <p>The top app categories in Great Britain closely resemble that of the United States. &nbsp;Games, music and entertainment and social media top the charts in terms of impressions in the first quarter of 2012.</p>
-                <p><em>Source:&nbsp;<a href="http://www.thedrum.co.uk/news/2012/05/25/games-entertainment-and-social-media-top-app-impressions#z9B53Z7Q2qlz7AkB.99">http://www.thedrum.co.uk/news/2012/05/25/games-entertainment-and-social-media-top-app-impressions#z9B53Z7Q2qlz7AkB.99</a></em><br/>
+		<section data-role="content">
+			<div class="discussion">
+                <h2>What are the 'top selling' app categories in the U.S.?</h2>
+                <p>The most popular categories are games; news; maps; social networking and music.<br/><br/>
+                <em>Source:&nbsp;<a href="http://mobithinking.com/mobile-marketing-tools/latest-mobile-stats/e#lotsofapps">http://mobithinking.com/mobile-marketing-tools/latest-mobile-stats/e#lotsofapps</a></em></p>
+                <h2>What are the 'top selling' app categories in Japan?</h2>
+                <p>The top selling app categories in Japan are games and then books. &nbsp;The game category is broken down even further. &nbsp;The top subcategories in games are Role Playing, Adventure, Strategy, and Simulation.<br/><br/>
+                <em>Source:&nbsp;<a href="http://www.appannie.com/top/">http://www.appannie.com/top/</a></em></p>
+                <h2>What are the 'top selling' app categories in Great Britain?</h2>
+                <p>The top app categories in Great Britain closely resemble that of the United States. &nbsp;Games, music and entertainment and social media top the charts in terms of impressions in the first quarter of 2012.<br/><br/>
+                <em>Source:&nbsp;<a href="http://www.thedrum.co.uk/news/2012/05/25/games-entertainment-and-social-media-top-app-impressions#z9B53Z7Q2qlz7AkB.99">http://www.thedrum.co.uk/news/2012/05/25/games-entertainment-and-social-media-top-app-impressions#z9B53Z7Q2qlz7AkB.99</a></em><br/>
                 <em><a href="http://recombu.com/apps/the--uks-best-selling-apps-ever_M13139.html">http://recombu.com/apps/the--uks-best-selling-apps-ever_M13139.html</a></em></p>
-                <h3>Based on your three answers above, what might you infer about each of the markets listed?</h3>
+                <h2>Based on your three answers above, what might you infer about each of the markets listed?</h2>
                 <p>I would come to the conclusion that the highest demand is for game type apps across all three markets. &nbsp;&nbsp;This type of app has the potential to be very profitable in other major countries outside of the US.</p>
-                <h3><strong>What percentage of Android users have the latest/greatest OS in the U.S? in Japan? in Great Britain? How might these differences impact development?</strong></h3>
-                <p>US: 10.7% Ice Cream Sandwich API 15</p>
-                <p>I wasn’t able to find the stats the android versions for Japan and Great Britain.</p>
-                <p>As far as how they would impact development, I think that the developer should always take into account the version that the vast majority has installed. &nbsp;It isn’t like an iOS device where the majority upgrades at the same time. &nbsp;So being able to develop with backwards compatibility is always going to be taken into consideration.
+                <h2><strong>What percentage of Android users have the latest/greatest OS in the U.S? in Japan? in Great Britain? How might these differences impact development?</strong></h2>
+                <p><strong>US:</strong> 10.7% Ice Cream Sandwich, API 15<br/><br/>
+                I wasn’t able to find the stats the android versions for Japan and Great Britain.<br/><br/>
+                As far as how they would impact development, I think that the developer should always take into account the version that the vast majority has installed. &nbsp;It isn’t like an iOS device where the majority upgrades at the same time. &nbsp;So being able to develop with backwards compatibility is always going to be taken into consideration.<br/><br/>
+                <em>Source:&nbsp;<a href="http://developer.android.com/about/dashboards/index.html">http://developer.android.com/about/dashboards/index.html</a></em></p>
+                <h2>What is the average cost and bandwidth limits per user (in general) in each of the three markets? How may this impact development?</h2>
+                <p><strong>US:</strong> $3.33/mb<br/>
+                <strong>Japan:</strong> $0.27/mb<br/>
+                <strong>GB:</strong>  $10-20/mb<br/><br/>
+                This impacts development for each area. &nbsp;It would be more crucial to streamline and optimize the data use of any app being targeted to Great Britain simply because it costs them so much more for internet data use. &nbsp;If it’s cost effective for the customer, you will have a better chance for a successful product. <br/><br/>
+                <em>Source:&nbsp;<a href="http://dailyinfographic.com/internet-speeds-around-the-world-infographic">http://dailyinfographic.com/internet-speeds-around-the-world-infographic</a></em>
                 </p>
-                <p><em>Source:&nbsp;<a href="http://developer.android.com/about/dashboards/index.html">http://developer.android.com/about/dashboards/index.html</a></em></p>
-                <h3>What is the average cost and bandwidth limits per user (in general) in each of the three markets? How may this impact development?</h3>
-                <p>US: $3.33/mb
-                <br>
-                Japan: $0.27/mb
-                <br class="kix-line-break">
-                GB: &nbsp;$10-20/mb</p>
-                <p>This impacts development for each area. &nbsp;It would be more crucial to streamline and optimize the data use of any app being targeted to Great Britain simply because it costs them so much more for internet data use. &nbsp;If it’s cost effective for the customer, you will have a better chance for a successful product. </p>
-                <p><em>Source:&nbsp;<a href="http://dailyinfographic.com/internet-speeds-around-the-world-infographic">http://dailyinfographic.com/internet-speeds-around-the-world-infographic</a></em>
-                </p>
-                <h3>And, finally, what would be your suggested strategy in project topic and global market choice? Feel free to have a first and second choice.</h3>
+                <h2>And, finally, what would be your suggested strategy in project topic and global market choice? Feel free to have a first and second choice.</h2>
                 <p>I guess the best strategy would be to build a gaming type app, using the most common Android OS version along with the maximum data use optimization possible. &nbsp;This should target the major countries and topics brought up in this discussion.</p>
-            </section>
+			</div>
 		</section>
 		<footer data-role="footer" data-position="fixed" >
 			<h4>Copyright &copy; Lucy Hutcheson</h4>
