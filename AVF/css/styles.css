@@ -152,6 +152,14 @@ a, .ui-body-a p,.ui-body-a, .ui-overlay-a {
 	font-weight: normal;
 }
 
+/* Video Page */
+video {
+  width: 100%    !important;
+  height: auto   !important;
+}
+#video-container {
+	width: 90%;
+}
 
 
 
