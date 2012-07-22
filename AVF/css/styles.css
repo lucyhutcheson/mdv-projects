@@ -154,11 +154,12 @@ a, .ui-body-a p,.ui-body-a, .ui-overlay-a {
 
 /* Video Page */
 video {
-  width: 100%    !important;
-  height: auto   !important;
+	width: 100% !important;
+	height: auto !important;
 }
 #video-container {
-	width: 90%;
+	width: 70%;
+	margin: 0 auto;
 }
 
 
