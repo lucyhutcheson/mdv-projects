@@ -1,3 +1,10 @@
+/**
+ * @author Lucy Hutcheson
+ * Created for:  Advanced Visual Frameworks 1207
+ */
+
+
+
 /****************************************************************
  * 
  * CONTACTS FUNCTIONALITY                                       *
@@ -38,7 +45,7 @@ var onSuccess = function (contacts) {
            
         for (var i=0; i<contacts.length; i++) {
         
-            var contactString = $('<li>' + contacts[i].name.formatted + '</li>').appendTo('#content #contactsList');
+            var contactString = $('<li>' + contacts[i].name.formatted + '</li>').appendTo('#contactsList');
         }
     
         // Sort my list after it has been created
@@ -56,10 +63,10 @@ var onSuccess = function (contacts) {
            mylist.append(itm); 
            });
     
-        $('#contactsList').listview();
-        $('#contactsList').listview('refresh');
+        //$('#contactsList').listview();
+        //$('#contactsList').listview('refresh');
     } else {
-        var contactString = $('<li>There are currently no contacts saved.</li>').appendTo('#content #contactsList');
+        var contactString = $('<li>There are currently no contacts saved.</li>').appendTo('#contactsList');
     }
 
 };

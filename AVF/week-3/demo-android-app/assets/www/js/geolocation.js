@@ -24,7 +24,7 @@ function onDeviceReady() {
 
 // Display `Position` properties from the geolocation
 //
-function onSuccess(position) {
+var onSuccess = function (position) {
     $('<div/>').attr('id','mapcanvas').addClass('map-canvas').appendTo('#content');
     
     var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
@@ -43,15 +43,13 @@ function onSuccess(position) {
                                         title:"You are here! (at least within a "+position.coords.accuracy+" meter radius)"
                                         });    
     
-}
+};
 
 // Show an alert if there is a problem getting the geolocation
 //
-function onError(error)
-{
+var onError = function (error) {
     $('<div/>').attr('id', 'x').appendTo('#content');
-    switch(error.code) 
-    {
+    switch(error.code) {
         case error.PERMISSION_DENIED:
             $('#x').html("User denied the request for Geolocation.");
             break;
@@ -65,6 +63,6 @@ function onError(error)
             $('#x').html("An unknown error occurred.");
             break;
     }
-}
+};
 
 

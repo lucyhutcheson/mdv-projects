@@ -1,6 +1,6 @@
 /**
  * @author Lucy Hutcheson
- * Created for:  Advanced Visual Frameworks 1206
+ * Created for:  Advanced Visual Frameworks 1207
  */
 
 /****************************************************************
@@ -9,23 +9,34 @@
  * 
  ****************************************************************/
 
+$(window).ready(function(){  
+                getLocation();  
+                });  
 
 
-
-// Set an event to wait for Cordova to load
-//
-document.addEventListener("deviceready", onDeviceReady, false);
-
-// Cordova is loaded and Ready
-//
-function onDeviceReady() {
-    navigator.geolocation.getCurrentPosition(onSuccess, onError, {maximumAge:600000, timeout:10000, enableHighAccuracy: true});
+var x=document.getElementById("text");
+function getLocation()
+{
+    if (navigator.geolocation)
+    {
+        navigator.geolocation.getCurrentPosition(showPosition,showError);
+    }
+    else{x.innerHTML="Geolocation is not supported by this browser.";}
 }
 
-// Display `Position` properties from the geolocation
-//
-function onSuccess(position) {
-    $('<div/>').attr('id','mapcanvas').addClass('map-canvas').appendTo('#content');
+function showPosition(position)
+{
+    
+    
+    /*var mapcanvas = document.createElement('div');
+     mapcanvas.id = 'mapcanvas';
+     mapcanvas.style.height = '400px';
+     mapcanvas.style.width = '500px';
+     document.querySelector('section').appendChild(mapcanvas);
+     */
+    
+    $('<div/>').attr('id','mapcanvas').attr('style', 'height:320px;').addClass('map-canvas').appendTo('.geo');
+    
     
     var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
     var myOptions = {
@@ -41,13 +52,13 @@ function onSuccess(position) {
                                         position: latlng, 
                                         map: map, 
                                         title:"You are here! (at least within a "+position.coords.accuracy+" meter radius)"
-                                        });    
+                                        });
     
 }
 
-// Show an alert if there is a problem getting the geolocation
-//
-function onError(error)
+
+
+function showError(error)
 {
     $('<div/>').attr('id', 'x').appendTo('#content');
     switch(error.code) 
@@ -66,5 +77,9 @@ function onError(error)
             break;
     }
 }
+
+
+
+
 
 

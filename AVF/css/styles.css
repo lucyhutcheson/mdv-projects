@@ -8,8 +8,6 @@
 .ui-bar-a, header {
 	background: url('../images/just-a-hutch-header.png') repeat-x bottom left;
 	margin:  0 auto;
-	padding-top: 10px;
-	padding-left: 20px;
 	-webkit-box-shadow:  0 3px 5px 0 rgba(0, 0, 0, 0.3);
 	box-shadow:  0 3px 5px 0 rgba(0, 0, 0, 0.3);
 }

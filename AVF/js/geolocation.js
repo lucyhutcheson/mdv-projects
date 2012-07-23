@@ -15,25 +15,16 @@ $(window).ready(function(){
 
 
 var x=document.getElementById("text");
-function getLocation()
-{
+
+var getLocation = function () {
     if (navigator.geolocation)
     {
         navigator.geolocation.getCurrentPosition(showPosition,showError);
     }
     else{x.innerHTML="Geolocation is not supported by this browser.";}
-}
+};
 
-function showPosition(position)
-{
- 
-  
-    /*var mapcanvas = document.createElement('div');
-    mapcanvas.id = 'mapcanvas';
-    mapcanvas.style.height = '400px';
-    mapcanvas.style.width = '500px';
-      document.querySelector('section').appendChild(mapcanvas);
-*/
+var showPosition = function (position) {
     
     $('<div/>').attr('id','mapcanvas').attr('style', 'height:400px;').addClass('map-canvas').appendTo('#content');
 
@@ -54,12 +45,11 @@ function showPosition(position)
       title:"You are here! (at least within a "+position.coords.accuracy+" meter radius)"
   });
   
-}
+};
 
 
 
-function showError(error)
-{
+var showError = function (error) {
     $('<div/>').attr('id', 'x').appendTo('#content');
     switch(error.code) 
     {
@@ -76,7 +66,7 @@ function showError(error)
             $('#x').html("An unknown error occurred.");
             break;
     }
-}
+};
 
 
 

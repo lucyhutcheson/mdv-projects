@@ -38,6 +38,7 @@
 		84D8D287159A271D0036D7F1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D8D286159A271D0036D7F1 /* MainViewController.m */; };
 		84D8D289159A271D0036D7F1 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D8D288159A271D0036D7F1 /* MainViewController.xib */; };
 		84D8D293159A2BF40036D7F1 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 84D8D292159A2BF40036D7F1 /* www */; };
+		84E68B5415BC910B00772AFA /* icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E68B5315BC910B00772AFA /* icon-144.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,7 @@
 		84D8D28B159A271D0036D7F1 /* README */ = {isa = PBXFileReference; lastKnownFileType = text; name = README; path = Plugins/README; sourceTree = "<group>"; };
 		84D8D28C159A271D0036D7F1 /* verify.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = verify.sh; sourceTree = "<group>"; };
 		84D8D292159A2BF40036D7F1 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
+		84E68B5315BC910B00772AFA /* icon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-144.png"; path = "../icon-144.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +228,7 @@
 		84D8D271159A271C0036D7F1 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				84E68B5315BC910B00772AFA /* icon-144.png */,
 				84D8D272159A271C0036D7F1 /* icon.png */,
 				84D8D274159A271C0036D7F1 /* icon@2x.png */,
 				84D8D276159A271C0036D7F1 /* icon-72.png */,
@@ -332,6 +335,7 @@
 				84D8D280159A271D0036D7F1 /* Cordova.plist in Resources */,
 				84D8D289159A271D0036D7F1 /* MainViewController.xib in Resources */,
 				84D8D293159A2BF40036D7F1 /* www in Resources */,
+				84E68B5415BC910B00772AFA /* icon-144.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

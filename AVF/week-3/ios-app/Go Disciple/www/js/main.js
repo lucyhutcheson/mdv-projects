@@ -158,12 +158,12 @@ var getLocalData = function () {
             
             // $ Create list items
             $('#disciples #discipleList').append(
-                                                 $('<li>').append(
-                                                                  $('<a>').attr("href", "#viewDisciple?id="+key).attr('rel', 'external').attr("data-transition", "slide").append(
-                                                                                                                                                                                 $('<h4>').addClass(key).attr("data-transition", "slide").text(obj.firstname[1] + ' ' + obj.lastname[1])
-                                                                                                                                                                                 )
-                                                                  )
-                                                 );
+            	$('<li>').append(
+                	$('<a>').attr("href", "#viewDisciple?id="+key).attr('rel', 'external').attr("data-transition", "slide").append(
+                             $('<h4>').addClass(key).attr("data-transition", "slide").text(obj.firstname[1] + ' ' + obj.lastname[1])
+                             )
+                    )
+                );
         }
         
         // Sort my list after it has been created
@@ -186,9 +186,9 @@ var getLocalData = function () {
         
     } else {
         $('#disciples #discipleList').append(
-                                             $('<li>').attr('data-theme', 'a').append(
-                                                                                      $('<h4>').text("There are currently no disciples saved.")
-                                                                                      ).append('<div class="custom-button"><button onclick="confirmContact();" id="camera" class="green">Add a New Disciple</button></div>'));
+        	$('<li>').attr('data-theme', 'a').append(
+                  $('<h4>').text("There are currently no disciples saved.")
+                  ).append('<div class="custom-button"><button onclick="confirmContact();" id="camera" class="green">Add a New Disciple</button></div>'));
     }
     
 };

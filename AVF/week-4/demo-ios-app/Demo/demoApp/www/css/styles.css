@@ -1,25 +1,20 @@
-	/**
+/**
  * @author Lucy Hutcheson
- * Date: 2012-03-01
- * Created for:  Mobile Interfaces and Usability 1203
+ * Created for:  Advanced Visual Frameworks 1207
  */
 
+
 /* LAYOUT ELEMENTS */
-#header {
-	background: url('../images/tab-bg.png') repeat-x top left;
-	margin: 0px auto;
-	padding-top: 10px;
-	padding-left: 20px;
-	-webkit-box-shadow:  0px 3px 5px 0px rgba(0, 0, 0, 0.3);
-	box-shadow:  0px 3px 5px 0px rgba(0, 0, 0, 0.3);
+.ui-bar-a, header {
+	background: url('../images/just-a-hutch-header.png') repeat-x bottom left;
+	margin:  0 auto;
+	-webkit-box-shadow:  0 3px 5px 0 rgba(0, 0, 0, 0.3);
+	box-shadow:  0 3px 5px 0 rgba(0, 0, 0, 0.3);
 }
 .content-a, .content-b {
 	float: left;
 	margin-right: 30px;
 	width: 45%;
-}
-.content-a {
-	margin-left: 2%;
 }
 .required {
 	color: red;
@@ -33,19 +28,14 @@ fieldset legend {
 	color: #607401;
 	padding-bottom: 10px;
 }
-#logo {
+a, .ui-body-a p,.ui-body-a, .ui-overlay-a {
+	text-decoration: none;
+	text-shadow: 0 0 0;	
+}
+header img {
 	text-align: left;
-}
-#feature {
-	padding-bottom: 10px;
-	clear: both;
-}
-.pic-container {
-    text-align: center;
-}
-#picture {
-    width: 90%;
-    margin: 0 auto;
+	max-width: 515px;
+	width: 35%;
 }
 #content .content-container {
 	background: #f3f3f3;
@@ -53,41 +43,253 @@ fieldset legend {
 	font-weight: normal;
 }
 .ui-input-datebox {
-	background: #f3f3f3 !important;
+	background: #f3f3f3 ;
 }
 .hidden {
-	display: none !important;
+	display: none ;
 	visibility: hidden;
 }
 .ui-footer {
-	background: url('../images/wood.png') repeat-x;
-	-webkit-box-shadow:  0px -3px 5px 0px rgba(0, 0, 0, 0.3);
-	box-shadow:  0px -3px 5px 0px rgba(0, 0, 0, 0.3);
+	background: url('../images/just-a-hutch-footer.png') repeat-x;
+	-webkit-box-shadow:  0 -3px 5px 0 rgba(0, 0, 0, 0.3);
+	box-shadow:  0 -3px 5px 0 rgba(0, 0, 0, 0.3);
 	padding-bottom: 20px;
+	padding-top: 10px;
+	color: #fff;
+}
+.ui-bar-c {
+	border-top: 0 none;
+}
+.section {
+	width: 100%;
+}
+.section .item {
+	float: left;
+	width: 40%;
+	background: #fff;
+	border: 6px solid #f1f1f1;
+	border-radius: 10px;
+	margin-left: 2%;
+	padding: 5px;
+	text-align: center;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.7);
+    -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.7);
+}
+.research .item {
+	text-align: left;
+	width: 85%;
+}
+.research .item img {
+	max-width: 80px;
+	width: 5%;
+	float: left;
+	margin-right: 10px;
+}
+.videos .item img  {
+	max-width: 80px;
+	width: 50%;
+}
+.crud .item, .videos .item {
+	width: 23%;
+	min-height: 50px;
+	float: left;
+	padding-top: 20px;
+}
+.item {
+	width: 90%;
+	margin-bottom: 7px;
+}
+.developer .item {
+	padding: 10px 0 10px 20px;
+	text-align: left;
+	background: #111;
+	width: 90%;
+	border:  none;
+}
+.demo1 .item img, .demo2 .item img {
+	width: 50%;
+	max-width: 150px;	
+}
+h3 {
+	padding: 5px;
+	border-radius: 7px;
+	background: #333;
+	color: white;
+	font-weight: bold;
+	text-shadow: 0 0 0;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#333), to(#000));
+	background-image: -webkit-linear-gradient(#333, #000);
+	background-image: -moz-linear-gradient(#333, #000);
+	background-image: -ms-linear-gradient(#333, #000);
+	background-image: -o-linear-gradient(#333, #000);
+	background-image: linear-gradient(#333, #000);
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.7);
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+}
+p {
+	margin: 0;
+	padding: 0;
+}
+h4 {
+	color: #c10468;
+	font-size: 1.5em;
+	margin: 0;
+	padding: 0;
+}
+section .discussion {
+	background: #fff;
+	width: 85%;
+	margin: 0 auto;
+	line-height: 1.35em;
+	padding: 10px;
+	border-radius: 10px;
+	color: #333;
+}
+.discussion h3 {
+	padding: 10px;
+}
+.discussion p {
+	margin-bottom: 30px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #ccc;
+}
+.ui-body-a .ui-link, .ui-body-a .ui-link:visited, .ui-body-a .ui-link:active {
+	color: #555;
+	font-weight: bold;
+}
+.ui-body-a .ui-link:hover, .ui-body-a .ui-link:hover, .ui-body-a .ui-link:hover {
+	color: #C10468;
+	font-weight: bold;
 }
 
+/* Video Page */
+video {
+	width: 100%;
+	height: auto;
+}
+.video-container {
+	width: 70%;
+	margin: 0 auto;
+}
+
+/* Geolocation Page */
+.geo {
+    padding: 0;
+}
+
+/* Camera Page */
+.picture {
+    max-width: 50%;
+}
+
+footer h4 {
+	color: #fff;
+}
+
+
+/* Clearfix ---------------------------*/
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
+}
 
 @media (max-width:768px) {
 	.content-a, .content-b {
 		float: none;
-		padding: 0px;
-		width: 95%;
+		padding: 0;
+		width: 98%;
 	}
 	.content-a {
-		margin-left: 0;
 	}
-	#header {
+	header {
 		text-align: center;	
 		padding-left: 0;
+	}
+	.section .item .text {
+		float: left;
+		width: 60%;
+	}
+	.section .item img {
+		float: right;
+		width: 30%;
 	}
 }
 
 @media (max-width:640px) {
-	#logo {
+	header img {
 		width: 250px;
-		height: 58px;
+		height: 77px;
+	}
+	.section .item {
+		margin-left: 4%;
+	}
+	.section .item .text {
+		float: none;
+		width: 90%;
+	}
+	.section .item img {
+		float: none;
+		width: 40%;
+	}
+	.research .item img {
+		max-width: 80px;
+		width: 8%;
+		float: left;
+		margin-right: 10px;
 	}
 }
+@media (max-width: 500px) {
+	.section .item {
+		clear: both;
+		width: 90%;	
+		margin-bottom: 10px;
+		margin-left: 2%;
+	}
+	.item {
+		width: 90%;
+		float: none;
+		padding: 7px;
+	}
+	.crud .item, .videos .item, .research .item {
+		width: 90%;
+		float: none;
+		padding: 7px;
+		min-height: 30px;
+	}
+	.section .item .text {
+		float: left;
+		width: 60%;
+	}
+	.section .item img {
+		float: right;
+		width: 30%;
+	}
+	.videos .item img, .research .item img  {
+		max-width: 80px;
+		width: 13%;
+		position: relative;
+		top: -10px;
+	}
+	.videos .item {
+		text-align: left;
+	}
+}
+
 
 /*  
  * Data Theme F 
@@ -227,10 +429,6 @@ font-family: Helvetica,Arial,sans-serif;
 	background-image: -ms-linear-gradient(#3ebcbf, #369ea4);
 	background-image: -o-linear-gradient(#3ebcbf, #369ea4);
 	background-image: linear-gradient(#3ebcbf, #369ea4);
-    border: 1px solid #369ea4;
-    color: #FFFFFF;
-    font-weight: bold;
-    text-shadow: 0 1px 1px #369ea4;
 }
 .ui-btn-up-g a.ui-link-inherit {
     color: #FFFFFF;

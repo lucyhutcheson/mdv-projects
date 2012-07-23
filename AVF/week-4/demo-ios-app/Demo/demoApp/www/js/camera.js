@@ -1,3 +1,9 @@
+/**
+ * @author Lucy Hutcheson
+ * Created for:  Advanced Visual Frameworks 1207
+ */
+
+
 var pictureSource;   // picture source
 var destinationType; // sets the format of returned value 
 

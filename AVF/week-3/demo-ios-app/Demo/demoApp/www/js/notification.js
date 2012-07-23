@@ -14,49 +14,50 @@ function onDeviceReady() {
 }
 
 $("#alert").on('click', function() {
-               showAlert();
-               playBeep();
-               });
+   showAlert();
+   playBeep();
+});
 
-function showAlert() {
+var showAlert = function () {
         navigator.notification.alert(
-                                     'You have been alerted!',  
-                                     alertDismissed,
-                                     'Notification',            
-                                     'Done'                  
+                     'You have been alerted!',  
+                     alertDismissed,
+                     'Notification',            
+                     'Done'                  
         );
-}
-function alertDismissed() {
+};
+
+var alertDismissed = function () {
     
-}
+};
 
 
 // process the confirmation dialog result
-function onConfirm(button) {
-}
+var onConfirm = function (button) {
+};
 
 // Show a custom confirmation dialog
 //
-function showConfirm() {
+var showConfirm = function () {
     navigator.notification.confirm(
                                    'You are the winner!',  // message
                                    onConfirm,              // callback to invoke with index of button pressed
                                    'Game Over',            // title
                                    'Restart,Exit'          // buttonLabels
                                    );
-}
+};
 
 // Beep three times
 //
-function playBeep() {
+var playBeep = function () {
     navigator.notification.beep(3);
-}
+};
 
 // Vibrate for 2 seconds
 //
-function vibrate() {
+var vibrate = function () {
     navigator.notification.vibrate(2000);
-}
+};
 
 
 

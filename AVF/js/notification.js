@@ -14,13 +14,13 @@ function onDeviceReady() {
 }
 
 $("#alert").on('click', function() {
-               showAlert();
-               playBeep();
-               });
+   showAlert();
+   playBeep();
+});
 
-function showAlert() {
+var showAlert = function () {
 	if (!navigator.notification) {
-		alert('If you were on a mobile device, you would have received a nice popup with a handy dandy buzz alert.  Thanks for clicking me anyway!')
+		alert('If you were on a mobile device, you would have received a nice popup with a handy dandy buzz alert.  Thanks for clicking me anyway!');
 	} else {
         navigator.notification.alert(
                                      'You have been alerted!',  
@@ -29,38 +29,39 @@ function showAlert() {
                                      'Done'                  
         );
 	}
-}
-function alertDismissed() {
+};
+
+var alertDismissed = function () {
     
-}
+};
 
 
 // process the confirmation dialog result
-function onConfirm(button) {
-}
+var onConfirm = function (button) {
+};
 
 // Show a custom confirmation dialog
 //
-function showConfirm() {
+var showConfirm = function () {
     navigator.notification.confirm(
                                    'You are the winner!',  // message
                                    onConfirm,              // callback to invoke with index of button pressed
                                    'Game Over',            // title
                                    'Restart,Exit'          // buttonLabels
                                    );
-}
+};
 
 // Beep three times
 //
-function playBeep() {
+var playBeep = function () {
     navigator.notification.beep(3);
-}
+};
 
 // Vibrate for 2 seconds
 //
-function vibrate() {
+var vibrate = function () {
     navigator.notification.vibrate(2000);
-}
+};
 
 
 
