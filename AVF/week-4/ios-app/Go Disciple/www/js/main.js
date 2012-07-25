@@ -42,16 +42,19 @@ $('#viewDisciple').live('pageshow', function (event) {
                         $('<div/>').addClass('content-container ui-btn  ui-li ui-corner-top ui-corner-bottom ui-btn-up-c '+discipleId)
                         .appendTo('#viewDisciple #content');
                         
+                        // Check for disciple picture
                         if (obj.pic[1] === "") {
                             var imgDisplay = "images/default.png";
                         } else {
                             var imgDisplay = obj.pic[1];
                         }
-                        $('#viewDisciple #content').before('<section id="picSection"><div class="pic-container"><img src="'+ imgDisplay +'" id="picture"><div class="sh_bottom"></div></div></section>');
+                        
+                        // Convert address to google maps url
                         var addressStr = obj.street[1] + ', ' + obj.city[1] + ', ' + obj.state[1] + ' ' + obj.zip[1];
                         var mapAddress = mapLink(addressStr);
-                        var itemString = $('<div data-role="collapsible" data-theme="g">' +
-                                             
+                        
+                        var itemString = $('<div>' +
+                                             '<div class="pic-container"><img src="'+ imgDisplay +'" id="picture"></div>' +
                                              '<h3>' + obj.firstname[1] + ' ' + obj.lastname[1] + '</h3>' +
                                              '<p><strong>Email:</strong> ' + obj.email[1] + '</p>' +
                                              '<p><strong>Phone:</strong> <a rel="external" href="tel: ' + obj.phone[1] + '">'+ obj.phone[1]+'</a></p>' +
@@ -377,7 +380,6 @@ var storeData = function () {
     newItem.savecontact = ["Save as Contact:", getRadioContact()];
 
     var myContactValue = getRadioContact();
-    
     if (myContactValue === "Yes") {
         createContact();
         newItem.savecontact = ["Save as Contact:", "Yes"];
