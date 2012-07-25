@@ -278,13 +278,22 @@ var validateForm = function (e) {
         hasError = true;
     }
     //Email validation
-    var re = /^\w+([\-]?]\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if ((getEmail === '') || (!re.test(getEmail))) {
+    //var re = /^\w+([\-]?]\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    //if ((getEmail === '') || (!re.test(getEmail))) {
+        //$('#email').after('<span class="error">Please enter a valid email address.</span>');
+        //$('#email').css("border", "1px solid red") ;
+        //hasError = true;
+    //} 
+    
+    //Email validation
+    var atpos=getEmail.indexOf("@");
+    var dotpos=getEmail.lastIndexOf(".");
+    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=getEmail.length) {
         $('#email').after('<span class="error">Please enter a valid email address.</span>');
         $('#email').css("border", "1px solid red") ;
         hasError = true;
     } 
-    
+
     //Set Errors
     if (hasError === true) {
         showAlert();

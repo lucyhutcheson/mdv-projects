@@ -178,6 +178,13 @@ video {
 .geo {
     padding: 0;
 }
+#mapcanvas {
+	width: 100%;
+	height: 90%;
+	position: absolute;
+	top:0;
+	left:0;
+}
 
 /* Camera Page */
 .picture {

@@ -1,0 +1,337 @@
+<!doctype html> 
+<!--
+/**
+ * @author Lucy Hutcheson
+ * Created for:  Advanced Visual Frameworks 1207
+ */
+-->
+ 
+<html lang="en">
+<head>
+
+	<meta charset="utf-8">
+	
+	<title>Go Disciple</title>
+	
+	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- Mobile IE needs ClearType for smoothing fonts -->
+	<meta http-equiv="cleartype" content="on">
+	
+	<!-- StyleSheets under here -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
+ 	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+	<script src="js/libs/modernizr.custom.min.js"></script>
+
+
+</head>
+<body>
+	<div data-role="page" id="add-new" data-theme="g">
+
+		<header data-role="header"  data-position="fixed" data-theme="f">
+			<a href="additem.html" data-rel="back" data-direction="reverse" data-icon="arrow-l">Back</a>
+				<h3 id="pageTitle">Add New Disciple</h3>
+			<a href="index.html" rel="external" data-iconpos="notext" data-icon="home" data-transition="flow">Home</a>
+		</header>
+		<section data-role="content" class="mainContent">
+			<form action="#" method="post" id="addForm">
+				<div data-role="fieldcontain">
+					<label for="pic">Pic: </label>
+                    <img id="picture" src="" />
+					<input id="pic" type="text" disabled="disabled" >                    
+                </div>
+				<span id="required"><span class="required">*</span> Required fields.</span>
+				<div data-role="fieldcontain">
+					<label for="firstname">First Name: <span class="required">*</span></label>
+					<input type="text" id="firstname" placeholder="Enter first name"/>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="lastname">Last Name: <span class="required">*</span></label>
+					<input type="text" id="lastname" placeholder="Enter last name"/></li>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="email">Email: <span class="required">*</span></label>
+					<input type="email" pattern="[^ @]*@[^ @]*" id="email" placeholder="Enter email@domain.com"/></li>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="phone">Phone: </label>
+					<input type="tel" id="phone" placeholder="Enter 123-456-7890"/></li>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="street">Street Address: </label>
+					<input type="text" id="street" placeholder="Enter the street address"/></li>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="city">City: </label>
+					<input type="text" id="city" placeholder="Enter city"/></li>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="state">State: </label>
+					<select name="state" id="state" data-theme="a" >
+						<option data-placeholder="true">--Choose State--</option>
+						<option value="AL">Alabama</option>
+						<option value="AK">Alaska</option>
+						<option value="AZ">Arizona</option>
+						<option value="AR">Arkansas</option>
+						<option value="CA">California</option>
+						<option value="CO">Colorado</option>
+						<option value="CT">Connecticut</option>
+						<option value="DE">Delaware</option>
+						<option value="DC">District Of Columbia</option>
+						<option value="FL">Florida</option>
+						<option value="GA">Georgia</option>
+						<option value="HI">Hawaii</option>
+						<option value="ID">Idaho</option>
+						<option value="IL">Illinois</option>
+						<option value="IN">Indiana</option>
+						<option value="IA">Iowa</option>
+						<option value="KS">Kansas</option>
+						<option value="KY">Kentucky</option>
+						<option value="LA">Louisiana</option>
+						<option value="ME">Maine</option>
+						<option value="MD">Maryland</option>
+						<option value="MA">Massachusetts</option>
+						<option value="MI">Michigan</option>
+						<option value="MN">Minnesota</option>
+						<option value="MS">Mississippi</option>
+						<option value="MO">Missouri</option>
+						<option value="MT">Montana</option>
+						<option value="NE">Nebraska</option>
+						<option value="NV">Nevada</option>
+						<option value="NH">New Hampshire</option>
+						<option value="NJ">New Jersey</option>
+						<option value="NM">New Mexico</option>
+						<option value="NY">New York</option>
+						<option value="NC">North Carolina</option>
+						<option value="ND">North Dakota</option>
+						<option value="OH">Ohio</option>
+						<option value="OK">Oklahoma</option>
+						<option value="OR">Oregon</option>
+						<option value="PA">Pennsylvania</option>
+						<option value="RI">Rhode Island</option>
+						<option value="SC">South Carolina</option>
+						<option value="SD">South Dakota</option>
+						<option value="TN">Tennessee</option>
+						<option value="TX">Texas</option>
+						<option value="UT">Utah</option>
+						<option value="VT">Vermont</option>
+						<option value="VA">Virginia</option>
+						<option value="WA">Washington</option>
+						<option value="WV">West Virginia</option>
+						<option value="WI">Wisconsin</option>
+						<option value="WY">Wyoming</option>
+					</select>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="zip">Zip: </label>
+					<input type="text" id="zip" placeholder="12345"/></li>
+				</div>
+				<div data-role="fieldcontain">
+				<fieldset data-role="controlgroup">
+					<legend>Date of Birth:</legend>
+					
+					<label for="birthmonth">Month</label>
+					<select name="birthmonth" id="birthmonth" data-theme="a">
+						<option>Month</option>
+						<option value="January">January</option>
+						<option value="February">February</option>
+						<option value="March">March</option>
+						<option value="April">April</option>
+						<option value="May">May</option>
+						<option value="June">June</option>
+						<option value="July">July</option>
+						<option value="August">August</option>
+						<option value="September">September</option>
+						<option value="October">October</option>
+						<option value="November">November</option>
+						<option value="December">December</option>
+					</select>
+			
+					<label for="birthday">Day</label>
+					<select name="birthday" id="birthday" data-theme="a">
+						<option>Day</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14">14</option>
+						<option value="15">15</option>
+						<option value="16">16</option>
+						<option value="17">17</option>
+						<option value="18">18</option>
+						<option value="19">19</option>
+						<option value="20">20</option>
+						<option value="21">21</option>
+						<option value="22">22</option>
+						<option value="23">23</option>
+						<option value="24">24</option>
+						<option value="25">25</option>
+						<option value="26">26</option>
+						<option value="27">27</option>
+						<option value="28">28</option>
+						<option value="29">29</option>
+						<option value="30">30</option>
+						<option value="31">31</option>
+					</select>
+			
+					<label for="birthyear">Year</label>
+					<select name="birthyear" id="birthyear" data-theme="a">
+						<option>Year</option>
+						<option value="2011">2011</option>
+						<option value="2010">2010</option>
+						<option value="2009">2009</option>
+						<option value="2008">2008</option>
+						<option value="2007">2007</option>
+						<option value="2006">2006</option>
+						<option value="2005">2005</option>
+						<option value="2004">2004</option>
+						<option value="2003">2003</option>
+						<option value="2002">2002</option>
+						<option value="2001">2001</option>
+						<option value="2000">2000</option>
+						<option value="1999">1999</option>
+						<option value="1998">1998</option>
+						<option value="1997">1997</option>
+						<option value="1996">1996</option>
+						<option value="1995">1995</option>
+						<option value="1994">1994</option>
+						<option value="1993">1993</option>
+						<option value="1992">1992</option>
+						<option value="1991">1991</option>
+						<option value="1990">1990</option>
+						<option value="1989">1989</option>
+						<option value="1988">1988</option>
+						<option value="1987">1987</option>
+						<option value="1986">1985</option>
+						<option value="1985">1985</option>
+						<option value="1984">1984</option>
+						<option value="1983">1983</option>
+						<option value="1982">1982</option>
+						<option value="1981">1981</option>
+						<option value="1980">1980</option>
+					</select>
+				</fieldset>
+			</div>
+				<div data-role="fieldcontain">
+					<label for="schoolstatus">School Status: </label>
+					<select name="schoolstatus" id="schoolstatus" data-theme="a" >
+						<option data-placeholder="true">--Choose One--</option>
+							<option value="Middle School">Middle School</option>
+							<option value="High School">High School</option>
+							<option value="College">College</option>
+							<option value="None">None</option>
+					</select>
+				</div>
+				<div data-role="fieldcontain" id="radio">
+					<fieldset data-role="controlgroup">
+						<legend>Gender: </legend>
+							<input type="radio" name="gender" id="gender-1" value="Male"  data-theme="a"/><label for="gender-1">Male</label>
+							<input type="radio" name="gender" id="gender-2" value="Female" data-theme="a" /><label for="gender-2">Female</label>
+					</fieldset>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="bornagain">Born Again Birthday:</label>
+					<input name="bornagain" id="bornagain" type="date"  placeholder="12/25/1990" data-role="datebox" data-options='{"mode": "calbox"}'>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="frequency">Contact Frequency: </label>
+					<select name="frequency" id="frequency" data-theme="a" >
+						<option data-placeholder="true">--Choose One--</option>
+							<option value="Daily">Daily</option>
+							<option value="Weekly">Weekly</option>
+							<option value="College">Monthly</option>
+							<option value="None">None</option>
+					</select>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="notes">Notes: </label>
+					<textarea id="notes" name="notes" rows="8" cols="30" placeholder="Enter your notes here."></textarea>
+				</div>
+				<div data-role="fieldcontain" id="radio1">
+					<fieldset data-role="controlgroup">
+						<legend>Save this disciple to your contacts?</legend>
+                    <input type="radio" name="contact" id="contact-1" value="Yes" data-theme="a"/><label for="contact-1">Yes</label>
+                    <input type="radio" name="contact" id="contact-2" value="No" data-theme="a" /><label for="contact-2">No</label>
+                    <input type="radio" name="contact" id="contact-3" value="Imported" data-theme="a" /><label for="contact-3">Imported</label>
+					</fieldset>
+				</div>
+				<div data-role="fieldcontain" id="discipleid-container">
+					<label>Disciple Id: </label>
+					<input id="disciple-id" type="text" disabled="disabled" >
+				</div>
+				<div data-role="fieldcontain" id="submit-container">
+					<a id="submit" data-role="button" data-theme="f" >Save</a> 	
+					<a id="cancel" data-role="button" data-theme="a" onclick="history.back();">Cancel</a> 	
+				</div>
+			</form>
+		</section>
+		<footer data-role="footer" data-theme="c">
+			<h4>Copyright &copy; Lucy Hutcheson</h4>
+		</footer>
+	</div>
+    
+    
+    <div data-role="page" id="import" data-add-back-btn="true"  data-theme="g">
+        <header data-role="header"  data-position="fixed" data-theme="f">
+            <a href="#" data-rel="back" data-direction="reverse" data-icon="arrow-l" >Back</a>
+            <h1 id="title">Import from Contact</h1>
+            <a href="index.html" rel="external"  data-iconpos="notext" data-icon="home">Home</a>
+        </header>
+        <section id="content" data-role="content" >
+            <form action="#" method="post" id="importContactForm">
+                <div data-role="fieldcontain">
+                    <label for="contact-firstname">First Name: </label>
+                    <input type="text" id="contact-firstname" placeholder="Enter first name"/>
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="contact-lastname">Last Name: </label>
+                    <input type="text" id="contact-lastname" placeholder="Enter last name"/></li>
+                </div>
+                <a href="#importDisplay" id="findContact" type="submit"  data-theme="f" >Find Contact</a>
+            </form>
+        </section>
+        <footer data-role="footer" data-theme="c" data-position="fixed" >
+            <h4>Copyright &copy; Lucy Hutcheson</h4>
+        </footer>
+    </div>
+    
+    <div data-role="page" id="importDisplay" data-add-back-btn="true"  data-theme="g">
+        <header data-role="header"  data-position="fixed" data-theme="f">
+            <a href="#" data-rel="back" data-direction="reverse" data-icon="arrow-l" >Back</a>
+            <h1 id="title">Import from Contact</h1>
+            <a href="index.html" rel="external"  data-iconpos="notext" data-icon="home">Home</a>
+        </header>
+        <section id="content" data-role="content" >
+            <form action="#" method="post" id="selectContactForm">
+                <a href="#" id="importContact" data-role="button" data-theme="f" rel="external">Import Selected Contact</a>
+            </form>
+        </section>
+        <footer data-role="footer" data-theme="c" data-position="fixed" >
+            <h4>Copyright &copy; Lucy Hutcheson</h4>
+        </footer>
+    </div>
+    
+
+	<!-- JavaScript under here -->
+	<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova-1.8.1.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/camera.js"></script>
+    <script type="text/javascript" src="js/contacts.js"></script>
+
+</body>
+</html>

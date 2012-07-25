@@ -116,6 +116,9 @@ header img {
 	width: 50%;
 	max-width: 150px;	
 }
+.section {
+	overflow: hidden;
+}
 h3 {
 	padding: 5px;
 	border-radius: 7px;
@@ -183,23 +186,6 @@ footer h4 {
 	color: #fff;
 }
 
-.cf:before,
-.cf:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
-}
-
-.cf:after {
-    clear: both;
-}
-
-/**
- * For IE 6/7 only
- * Include this rule to trigger hasLayout and contain floats.
- */
-.cf {
-    *zoom: 1;
-}
 
 @media (max-width:768px) {
 	.content-a, .content-b {

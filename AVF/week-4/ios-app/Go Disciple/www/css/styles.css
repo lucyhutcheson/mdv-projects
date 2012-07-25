@@ -1,0 +1,407 @@
+/**
+ * @author Lucy Hutcheson
+ * Created for:  Advanced Visual Frameworks 1207
+ */
+
+/* LAYOUT ELEMENTS */
+.required {
+	color: red;
+}
+.error {
+	color: #fff;
+	font-style: italic;
+	text-shadow: 0 1px 0 #333;
+	line-height: 30px;
+}
+.message {
+	font-style: italic;
+	color: #edff97;
+	margin-bottom: 10px;
+}
+fieldset legend {
+	font-weight: bold;
+	color: #607401;
+	padding-bottom: 10px;
+}
+#logo {
+	text-align: center;
+}
+#feature {
+	padding-bottom: 10px;
+	clear: both;
+}
+
+#content .content-container {
+	background: #f3f3f3;
+	padding: 20px;
+	font-weight: normal;
+}
+.ui-input-datebox {
+	background: #333 !important;
+	border: 0 none !important;
+}
+.hidden {
+	display: none !important;
+	visibility: hidden;
+}
+.ui-br {
+	border-bottom: 1px solid #0c7c7f;
+}
+.ui-footer {
+	background: url('../images/wood.png') repeat-x;
+	-webkit-box-shadow:  0px -3px 5px 0px rgba(0, 0, 0, 0.3);
+	box-shadow:  0px -3px 5px 0px rgba(0, 0, 0, 0.3);
+	padding-bottom: 20px;
+}
+#home .logo {
+	text-align: center;
+	padding-top: 20px;
+	margin-bottom: 20px;
+}
+#importContact {
+    margin-bottom: 30px;
+}
+#disciples .disciple-thumb {
+    width: 29%;
+    float: left;
+    text-align: center;
+    margin-right: 1%;
+    float: left;
+    margin-bottom: 10px;
+}
+
+#disciples .disciple-thumb img {
+    border: 4px solid #fff;
+    clear: both;
+    width: 100px;
+}
+#disciples .disciple-thumb h4 {
+    margin: 0;
+    padding: 0;
+}
+#disciples .disciple-thumb a {
+    color: #fff;
+    text-decoration: none;
+}
+.pic-container {
+    text-align: center;
+}
+#picture{
+    width: 30%;
+    margin: 10px auto;
+    background: #ccc;
+    border: 5px solid white;
+    position:relative;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.8);
+    -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.8);
+    -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.8);
+}
+.sh_bottom{
+    width: 100%; height: 45%;
+    position:absolute;
+    z-index: -2;
+    bottom: 0; right: 0;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    -webkit-box-shadow: 0px 10px 2px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 10px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 10px 2px rgba(0, 0, 0, 0.2);
+}
+.sh_bottom:after{
+    content: "";
+    position:absolute;
+    right: 0; bottom:0;
+    width:150px; height: 100px;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 20px 30px 7px rgba(0, 0, 0, 0.30);
+    -webkit-box-shadow: 20px 30px 7px rgba(0, 0, 0, 0.30);
+    box-shadow: 20px 30px 7px rgba(0, 0, 0, 0.30);
+    -moz-transform:skew(10deg,10deg) translate(-40px,-15px);
+    -webkit-transform:skew(10deg,10deg) translate(-40px,-15px);
+    transform:skew(10deg,10deg) translate(-40px,-15px);
+}
+.sh_bottom:before{
+    content: "";
+    position:absolute;
+    left: 0; bottom:0;
+    width:150px; height: 100px;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: -20px 30px 7px rgba(0, 0, 0, 0.30);
+    -webkit-box-shadow: -20px 30px 7px rgba(0, 0, 0, 0.30);
+    box-shadow: -20px 30px 7px rgba(0, 0, 0, 0.30);
+    -webkit-transform:skew(-10deg,-10deg) translate(40px,-15px);
+    -moz-transform:skew(-10deg,-10deg) translate(40px,-15px);
+    transform:skew(-10deg,-10deg) translate(40px,-15px);
+}
+.pic-button {
+    width: 100%;
+    text-align: center;
+}
+.custom-button {
+    width: 100%;
+    text-align: center;
+    margin: 20px auto;
+}
+.custom-button a {
+    text-decoration: none;
+}
+button.green, .green {
+    width: 80%;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+    font-weight: bold;
+	color: #ffffff;
+    margin: 0 auto;
+	padding: 10px 20px;
+	background: -moz-linear-gradient(
+		top,
+		#96b401 0%,
+		#617401);
+	background: -webkit-gradient(
+		linear, left top, left bottom, 
+		from(#96b401),
+		to(#617401));
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	border: 1px solid #4a5700;
+	-moz-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 1px rgba(255,255,255,0.6);
+	-webkit-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 1px rgba(255,255,255,0.6);
+	box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 1px rgba(255,255,255,0.6);
+	text-shadow:
+		0px -1px 2px rgba(000,000,000,0.6),
+		0px 1px 0px rgba(255,255,255,0.2);
+}
+
+#addForm label, #addForm legend, #addForm #required, .ui-controlgroup-label {
+	color: #fff;
+	text-shadow: 0 1px 0 #222;
+}
+#addForm h3 {
+	color: #95b401;
+	text-shadow: 0 1px 0 #222;
+}
+#mapcanvas {
+	width: 100%;
+	height: 95%;
+	position: absolute;
+	top:0;
+	left:0;
+}
+
+
+/*  
+ * Data Theme F 
+ * ======================== *
+ */
+.ui-body-f, .ui-overlay-f {
+	border: 1px solid #999;
+	color: #222;
+	text-shadow: 0 1px 0 white;
+	font-weight: normal;
+	background-color: #ededed;
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(237,237,237, 0.5)), color-stop(100%, rgba(153,153,153, 0.5))), url('../images/bg.png');
+	background-image: -webkit-linear-gradient(top, rgba(237,237,237, 0.5), rgba(110,110,110, 0.35)), url('../images/bg.png');
+	background-image: -moz-linear-gradient(top, rgba(237,237,237, 0.5), rgba(153,153,153, 0.5)), url('../images/bg.png');
+	background-image: -ms-linear-gradient(top, rgba(237,237,237, 0.5), rgba(153,153,153, 0.5)), url('../images/bg.png');
+	background-image: -o-linear-gradient(top, rgba(237,237,237, 0.5), rgba(153,153,153, 0.5)), url('../images/bg.png');
+	background-image: linear-gradient(top, rgba(237,237,237, 0.5), rgba(153,153,153, 0.5)), url('../images/bg.png');
+}
+.ui-body-f, .ui-body-f input, .ui-body-f select, .ui-body-f textarea, .ui-body-f button {
+font-family: Helvetica,Arial,sans-serif;
+}
+.ui-bar-f {
+	border-bottom: 1px solid #607401;
+	background: #607401;
+	color: white;
+	font-weight: bold;
+	text-shadow: 0 1px 1px #607401;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#95b401), to(#607401));
+	background-image: -webkit-linear-gradient(#95b401, #607401);
+	background-image: -moz-linear-gradient(#95b401, #607401);
+	background-image: -ms-linear-gradient(#95b401, #607401);
+	background-image: -o-linear-gradient(#95b401, #607401);
+	background-image: linear-gradient(#95b401, #607401);
+}
+.ui-bar-f, .ui-bar-f input, .ui-bar-f select, .ui-bar-f textarea, .ui-bar-f button {
+    font-family: Helvetica,Arial,sans-serif;
+}
+.ui-bar-f, .ui-bar-f .ui-link-inherit {
+    color: #FFFFFF;
+}
+.ui-bar-f .ui-link {
+    color: #FFFFFF;
+    font-weight: bold;
+}
+.ui-btn-up-f {
+	border: 1px solid #607401;
+	background: #607401;
+	font-weight: bold;
+	color: white;
+	text-shadow: 0 1px 1px #607401;
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#95b401),to(#607401));
+	background-image: -webkit-linear-gradient(#95b401, #607401);
+	background-image: -moz-linear-gradient(#95b401, #607401);
+	background-image: -ms-linear-gradient(#95b401, #607401);
+	background-image: -o-linear-gradient(#95b401, #607401);
+	background-image: linear-gradient(#95b401, #607401);
+    border: 1px solid #607401;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-shadow: 0 1px 1px #607401;
+}
+.ui-btn-up-f a.ui-link-inherit {
+    color: #FFFFFF;
+}
+.ui-btn-hover-f {
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#607401),to(#95b401));
+	background-image: -webkit-linear-gradient(#607401, #95b401);
+	background-image: -moz-linear-gradient(#607401, #95b401);
+	background-image: -ms-linear-gradient(#607401, #95b401);
+	background-image: -o-linear-gradient(#607401, #95b401);
+	background-image: linear-gradient(#607401, #95b401);
+    background: -moz-linear-gradient(#607401, #95b401) repeat scroll 0 0 #607401;
+    border: 1px solid #607401;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-shadow: 0 1px 1px #607401;
+}
+.ui-btn-hover-f a.ui-link-inherit {
+    color: #FFFFFF;
+}
+.ui-btn-down-f {
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#607401),to(#95b401));
+	background-image: -webkit-linear-gradient(#607401, #95b401);
+	background-image: -moz-linear-gradient(#607401, #95b401);
+	background-image: -ms-linear-gradient(#607401, #95b401);
+	background-image: -o-linear-gradient(#607401, #95b401);
+	background-image: linear-gradient(#607401, #95b401);
+    background: -moz-linear-gradient(#607401, #95b401) repeat scroll 0 0 #95b401;
+    border: 1px solid #607401;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-shadow: 0 1px 1px #607401;
+}
+.ui-btn-down-f a.ui-link-inherit {
+    color: #FFFFFF;
+}
+.ui-btn-up-f, .ui-btn-hover-f, .ui-btn-down-f {
+    font-family: Helvetica,Arial,sans-serif;
+    text-decoration: none;
+}
+.ui-checkbox-on .ui-icon, .ui-radio-on .ui-icon {
+	background-color: #607401;
+}
+
+/*  
+ * Data Theme G 
+ * ======================== *
+ */
+#add-new, .ui-body-g, .ui-overlay-g {
+	border: 0px solid #999;
+	color: #222;
+	text-shadow: 0 1px 0 white;
+	font-weight: normal;
+	background-color: #333;
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0,142,152, 0.5)), color-stop(100%, rgba(0,85,92, 0.5))), url('../images/bg.png');
+	background-image: -webkit-linear-gradient(top, rgba(0,142,152, 0.5), rgba(0,48,52, )), url('../images/bg.png');
+	background-image: -moz-linear-gradient(top, rgba(0,142,152, 0.5), rgba(0,85,92, 0.5)), url('../images/bg.png');
+	background-image: -ms-linear-gradient(top, rgba(0,142,152, 0.5), rgba(0,85,92, 0.5)), url('../images/bg.png');
+	background-image: -o-linear-gradient(top, rgba(0,142,152, 0.5), rgba(0,85,92, 0.5)), url('../images/bg.png');
+	background-image: linear-gradient(top, rgba(0,142,152, 0.5), rgba(0,85,92, 0.5)), url('../images/bg.png');
+}
+.ui-body-g, .ui-body-g input, .ui-body-g select, .ui-body-g textarea, .ui-body-g button {
+	font-family: Helvetica,Arial,sans-serif;
+	color: #fff;
+	text-shadow: 0 1px 0 #333;
+}
+.ui-bar-g {
+	border-bottom: 1px solid #005e65;
+	background: #369ea4;
+	color: white;
+	font-weight: bold;
+	text-shadow: 0 1px 1px #369ea4;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#0096a1), to(#005e65));
+	background-image: -webkit-linear-gradient(#0096a1, #005e65);
+	background-image: -moz-linear-gradient(#0096a1, #005e65);
+	background-image: -ms-linear-gradient(#0096a1, #005e65);
+	background-image: -o-linear-gradient(#0096a1, #005e65);
+	background-image: linear-gradient(#0096a1, #005e65);
+}
+.ui-bar-g, .ui-bar-g input, .ui-bar-g select, .ui-bar-g textarea, .ui-bar-g button {
+    font-family: Helvetica,Arial,sans-serif;
+}
+.ui-bar-g, .ui-bar-g .ui-link-inherit {
+    color: #FFFFFF;
+}
+.ui-bar-g .ui-link {
+    color: #FFFFFF;
+    font-weight: bold;
+}
+.ui-btn-up-g {
+	border: 1px solid #369ea4;
+	background: #369ea4;
+	font-weight: bold;
+	color: white;
+	text-shadow: 0 1px 1px #369ea4;
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#3ebcbf),to(#369ea4));
+	background-image: -webkit-linear-gradient(#3ebcbf, #369ea4);
+	background-image: -moz-linear-gradient(#3ebcbf, #369ea4);
+	background-image: -ms-linear-gradient(#3ebcbf, #369ea4);
+	background-image: -o-linear-gradient(#3ebcbf, #369ea4);
+	background-image: linear-gradient(#3ebcbf, #369ea4);
+    border: 1px solid #369ea4;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-shadow: 0 1px 1px #369ea4;
+}
+.ui-btn-up-g a.ui-link-inherit {
+    color: #FFFFFF;
+}
+
+.ui-btn-hover-g {
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#369ea4),to(#3ebcbf));
+	background-image: -webkit-linear-gradient(#369ea4, #3ebcbf);
+	background-image: -moz-linear-gradient(#369ea4, #3ebcbf);
+	background-image: -ms-linear-gradient(#369ea4, #3ebcbf);
+	background-image: -o-linear-gradient(#369ea4, #3ebcbf);
+	background-image: linear-gradient(#369ea4, #3ebcbf);
+    background: -moz-linear-gradient(#369ea4, #3ebcbf) repeat scroll 0 0 #369ea4;
+    border: 1px solid #369ea4;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-shadow: 0 1px 1px #369ea4;
+}
+.ui-btn-hover-g a.ui-link-inherit {
+    color: #FFFFFF;
+}
+.ui-btn-down-g {
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#369ea4),to(#3ebcbf));
+	background-image: -webkit-linear-gradient(#369ea4, #3ebcbf);
+	background-image: -moz-linear-gradient(#369ea4, #3ebcbf);
+	background-image: -ms-linear-gradient(#369ea4, #3ebcbf);
+	background-image: -o-linear-gradient(#369ea4, #3ebcbf);
+	background-image: linear-gradient(#369ea4, #3ebcbf);
+    background: -moz-linear-gradient(#369ea4, #3ebcbf) repeat scroll 0 0 #369ea4;
+    border: 1px solid #369ea4;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-shadow: 0 1px 1px #369ea4;
+}
+.ui-btn-down-g a.ui-link-inherit {
+    color: #FFFFFF;
+}
+.ui-btn-up-g, .ui-btn-hover-g, .ui-btn-down-g {
+    font-family: Helvetica,Arial,sans-serif;
+    text-decoration: none;
+}
+

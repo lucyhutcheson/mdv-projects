@@ -15,8 +15,8 @@ $(window).ready(function(){
 
 
 var x=document.getElementById("text");
-function getLocation()
-{
+
+var getLocation = function () {
     if (navigator.geolocation)
     {
         navigator.geolocation.getCurrentPosition(showPosition,showError);
@@ -24,19 +24,9 @@ function getLocation()
     else{x.innerHTML="Geolocation is not supported by this browser.";}
 }
 
-function showPosition(position)
-{
-    
-    
-    /*var mapcanvas = document.createElement('div');
-     mapcanvas.id = 'mapcanvas';
-     mapcanvas.style.height = '400px';
-     mapcanvas.style.width = '500px';
-     document.querySelector('section').appendChild(mapcanvas);
-     */
-    
-    $('<div/>').attr('id','mapcanvas').attr('style', 'height:320px;').addClass('map-canvas').appendTo('.geo');
-    
+var showPosition = function (position) {
+
+    $('<div/>').attr('id','mapcanvas').addClass('map-canvas').appendTo('.geo');
     
     var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
     var myOptions = {
@@ -58,11 +48,9 @@ function showPosition(position)
 
 
 
-function showError(error)
-{
+var showError = function (error) {
     $('<div/>').attr('id', 'x').appendTo('#content');
-    switch(error.code) 
-    {
+    switch(error.code) {
         case error.PERMISSION_DENIED:
             $('#x').html("User denied the request for Geolocation.");
             break;
