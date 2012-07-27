@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+        function store() {
+        	    var sessionInfo = {};
+			    sessionInfo.id =  ["ID:", document.getElementById('id').value];
+    sessionInfo.op = ["Op:", "save"];
+
+			    //Save data into local storage
+			    sessionStorage.setItem('store', JSON.stringify(sessionInfo));  
+			    
+      
+                var value = sessionStorage.getItem('store');
+                var obj = JSON.parse(value);
+
+			
+           document.getElementById('show').innerHTML="Value in Session Storage is "+obj.op[1];
+                                }
+        function clearstorage() {
+                              sessionStorage.clear();
+                                document.getElementById('show').innerHTML="Value in Session Storage is "+sessionStorage.getItem('store')+" Value in Local Storage is "+localStorage.getItem('store');
+                                }
+</script>
+</head>
+<body>
+       <h1>Storage</h1>
+      <label>sessionStorage session:</label>
+      <input type="text" name="id" id="id" />
+      <label>sessionStorage op:</label>
+       <input type="text" name="op" id="op" />
+        <input type="button" value="store" onclick="store();" />
+    <input type="button" value="Clear storage" onclick="clearstorage();" />
+        <div id="show">
+         <script>
+         document.write("Value in Session Storage is "+ obj.id[1] );
+         </script>
+  </div>
+</body>
+</html>
