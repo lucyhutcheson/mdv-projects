@@ -38,16 +38,18 @@
      *------------------------------------------------------------------------------------------------------------ */
 
     
+    
     /* STEP 1:  Create New Empty Application Project =========================================================== */
 
 
+    
     /* STEP 2:  Create a variable using a float data type. =====================================================
      *          Cast the float to an int and  using NSLog, output both the 
      *          initial float value as well as the int value.
      */
         
     // Check the number of dogs we have to wash and fix (cast) it.
-    float wrongNumDogs = 9.5;    // Wrong number of dogs entered into the Dog Log
+    float wrongNumDogs = 9.5;               // Wrong number of dogs entered into the Dog Log
     int correctNumDogs = (int)wrongNumDogs; // Fixing (casting) the number of dogs
     
     // Log the mistake
@@ -59,19 +61,23 @@
      *          Use float, int and BOOL types.
      */
     
-    int workersToday = 2;
-    BOOL needMoreWorkers = YES;
-    BOOL haveEnoughWorkers = NO;
+    int workersToday = 2;           // Number of workers
+    BOOL needMoreWorkers = YES;     // Do we need more workers
+    BOOL haveEnoughWorkers = NO;    // Have enough workers
     
+    
+    // Check if we have lots of dogs and need more workers.
     if ((correctNumDogs > 10) && (needMoreWorkers == YES)) // Float and BOOL with AND operator
     {
         NSLog(@"It looks like we need more workers.");
     }
+    // Check if we have a few workers and less than ten dogs or if we have enough workers
     else if (((workersToday == 2) && ((correctNumDogs > 0) && (correctNumDogs < 10))) || (haveEnoughWorkers == YES)) 
         // Int, Float, and BOOl with AND and OR Operators
     {
         NSLog(@"It looks like we have enough workers to cover all the dogs for today.");
     }
+    // Don't need any workers today.
     else 
     {
         NSLog(@"We have no dogs to wash today.  Let's clean up the salon!"); // Default message
@@ -81,17 +87,20 @@
     
     /* STEP 4:  Use an if, else if, and else check using any data type ========================================== */
 
-    BOOL cliffordIsHere = YES;
-    BOOL fifiIsHere = NO;
+    BOOL cliffordIsHere = YES;  // Clifford, the big, red dog
+    BOOL fifiIsHere = NO;       // Fifi, difficult dog
     
+    // Check if Clifford is here or if we have enough workers.
     if ((cliffordIsHere == YES) || (workersToday < 5)) // IF statement with OR operator
     {
         NSLog(@"Uh oh!  Big Clifford is here.  We need more workers.");
     }
+    // Check if Fifi is here and Clifford is here and sound the alarm.
     else if ((fifiIsHere == YES) && (cliffordIsHere == YES)) // ELSE IF statement with AND operator
     {
         NSLog(@"We need to bring in the big dog stylists today.  Fifi is a difficult client.");
     }
+    // No need to panic.  Clifford and Fifi are not here.
     else // ELSE statement
     {
         NSLog(@"We can relax today because our biggest clients aren't here.");
@@ -101,24 +110,26 @@
 
     /* STEP 5:  Perform a single for loop printing out values to the console ==================================== */
     
+    // Time to wash the dogs we have today.
     for (int x = 10; x > 0; x--)
     {
-        NSLog(@"Washing dog number %d.\n", x);
+        NSLog(@"Washing dog number %d.\n", x);  // Start washing the dogs.
     }
     
     
 
     /* STEP 6:  Perform a nested loop printing out values to the console ========================================= */
     
+    // Time to trim their nails.
     for (int x = 10; x > 0; x--)
     {
-        NSLog(@"Clipping the nails of dog number %d.\n", x); 
+        NSLog(@"Clipping the nails of dog number %d.\n", x);  // Clipping the dogs' nails.
         
         int count = 1;
         
         do // Nested loop
         {
-            NSLog(@"%d nail clipped.\n", count);
+            NSLog(@"%d nail clipped.\n", count); // Counting each nail clipped.
             
             count++; //decrement count
         } while (count < 21);
@@ -129,12 +140,11 @@
     
     /* STEP 7:  Perform a while loop that increments an int variable and outputs to the console ===================== */
     
-    int dogs = 10;
-    
-    while (dogs > 0)
+    // Time to style and finish up the dogs.
+    while (correctNumDogs > 0)
     {
-        NSLog(@"Styling and finishing up dog number %d.\n", dogs);
-        dogs--;
+        NSLog(@"Styling and finishing up dog number %d.\n", correctNumDogs);
+        correctNumDogs--;
     }
     
     NSLog(@"All done with the dogs.  It's time to go home!  Wrap it up everybody.");
