@@ -41,6 +41,7 @@
     
     /* STEP 1:  Create New Empty Application Project =========================================================== */
 
+    NSLog(@"Welcome to Mari's Petdigree Salon!\n");
 
     
     /* STEP 2:  Create a variable using a float data type. =====================================================
@@ -53,7 +54,7 @@
     int correctNumDogs = (int)wrongNumDogs; // Fixing (casting) the number of dogs
     
     // Log the mistake
-    NSLog(@"Oops!  Looks like there was a mistake in the appointment log.  We have %d dogs to wash, not %.2f.", correctNumDogs, wrongNumDogs);
+    NSLog(@"Oops!  Looks like there was a mistake in the appointment log.  We have %d dogs to wash, not %.2f.\n", correctNumDogs, wrongNumDogs);
     
 
     
@@ -69,13 +70,13 @@
     // Check if we have lots of dogs and need more workers.
     if ((correctNumDogs > 10) && (needMoreWorkers == YES)) // Float and BOOL with AND operator
     {
-        NSLog(@"It looks like we need more workers. %d dogs are too many for %d workers.", correctNumDogs, workersToday);
+        NSLog(@"It looks like we need more workers. %d dogs are too many for %d workers.\n", correctNumDogs, workersToday);
     }
     // Check if we have a few workers and less than ten dogs or if we have enough workers
     else if (((workersToday < 10) && ((correctNumDogs > 0) && (correctNumDogs < 10))) || (haveEnoughWorkers == YES)) 
         // Int, Float, and BOOl with AND and OR Operators
     {
-        NSLog(@"It looks like we have enough workers to cover all the dogs for today.");
+        NSLog(@"It looks like we have enough workers to cover all the dogs for today.\n");
     }
     // Don't need any workers today.
     else 
