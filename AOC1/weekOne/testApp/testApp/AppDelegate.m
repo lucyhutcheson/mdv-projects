@@ -53,7 +53,7 @@
     int correctNumDogs = (int)wrongNumDogs; // Fixing (casting) the number of dogs
     
     // Log the mistake
-    NSLog(@"Oops!  Looks like there was a mistake.  We have %d dogs to wash, not %f.", correctNumDogs, wrongNumDogs);
+    NSLog(@"Oops!  Looks like there was a mistake in the appointment log.  We have %d dogs to wash, not %.2f.", correctNumDogs, wrongNumDogs);
     
 
     
@@ -69,10 +69,10 @@
     // Check if we have lots of dogs and need more workers.
     if ((correctNumDogs > 10) && (needMoreWorkers == YES)) // Float and BOOL with AND operator
     {
-        NSLog(@"It looks like we need more workers.");
+        NSLog(@"It looks like we need more workers. %d dogs are too many for %d workers.", correctNumDogs, workersToday);
     }
     // Check if we have a few workers and less than ten dogs or if we have enough workers
-    else if (((workersToday == 2) && ((correctNumDogs > 0) && (correctNumDogs < 10))) || (haveEnoughWorkers == YES)) 
+    else if (((workersToday < 10) && ((correctNumDogs > 0) && (correctNumDogs < 10))) || (haveEnoughWorkers == YES)) 
         // Int, Float, and BOOl with AND and OR Operators
     {
         NSLog(@"It looks like we have enough workers to cover all the dogs for today.");
@@ -93,12 +93,12 @@
     // Check if Clifford is here or if we have enough workers.
     if ((cliffordIsHere == YES) || (workersToday < 5)) // IF statement with OR operator
     {
-        NSLog(@"Uh oh!  Big Clifford is here.  We need more workers.");
+        NSLog(@"Uh oh!  Big Clifford is here.  Let's get our top stylist in here.");
     }
     // Check if Fifi is here and Clifford is here and sound the alarm.
     else if ((fifiIsHere == YES) && (cliffordIsHere == YES)) // ELSE IF statement with AND operator
     {
-        NSLog(@"We need to bring in the big dog stylists today.  Fifi is a difficult client.");
+        NSLog(@"We need to bring in the big dog stylists today.  Our difficult clients are both here.");
     }
     // No need to panic.  Clifford and Fifi are not here.
     else // ELSE statement
@@ -111,9 +111,9 @@
     /* STEP 5:  Perform a single for loop printing out values to the console ==================================== */
     
     // Time to wash the dogs we have today.
-    for (int x = 10; x > 0; x--)
+    for (int washDogs = correctNumDogs; washDogs > 0; washDogs--)
     {
-        NSLog(@"Washing dog number %d.\n", x);  // Start washing the dogs.
+        NSLog(@"Washing dog number %d.\n", washDogs);  // Start washing the dogs.
     }
     
     
@@ -121,9 +121,9 @@
     /* STEP 6:  Perform a nested loop printing out values to the console ========================================= */
     
     // Time to trim their nails.
-    for (int x = 10; x > 0; x--)
+    for (int trimDogs = correctNumDogs; trimDogs > 0; trimDogs--)
     {
-        NSLog(@"Clipping the nails of dog number %d.\n", x);  // Clipping the dogs' nails.
+        NSLog(@"Clipping the nails of dog number %d.\n", trimDogs);  // Clipping the dogs' nails.
         
         int count = 1;
         
@@ -147,7 +147,7 @@
         correctNumDogs--;
     }
     
-    NSLog(@"All done with the dogs.  It's time to go home!  Wrap it up everybody.");
+    NSLog(@"All done here.  It's time to go home!  Wrap it up everybody.");
     
     
     
