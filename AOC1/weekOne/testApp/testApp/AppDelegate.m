@@ -133,9 +133,12 @@
     
     while (dogs > 0)
     {
-        NSLog(@"Styling and finishig up dog number %d.\n", dogs);
+        NSLog(@"Styling and finishing up dog number %d.\n", dogs);
         dogs--;
     }
+    
+    NSLog(@"All done with the dogs.  It's time to go home!  Wrap it up everybody.");
+    
     
     
     /*------------------------------------------------------------------------------------------------------------ *
