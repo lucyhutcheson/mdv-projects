@@ -198,7 +198,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0430;
-				ORGANIZATIONNAME = "Pure Light Designs";
+				ORGANIZATIONNAME = "Lucy Hutcheson";
 			};
 			buildConfigurationList = 84EE67D515C7401E00908F29 /* Build configuration list for PBXProject "testApp" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -420,6 +420,7 @@
 				84EE681015C7401E00908F29 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		84EE681115C7401E00908F29 /* Build configuration list for PBXNativeTarget "testAppTests" */ = {
 			isa = XCConfigurationList;
@@ -428,6 +429,7 @@
 				84EE681315C7401E00908F29 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
