@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MainViewController.h
 //  singleView
 //
 //  Created by Lucy Hutcheson on 8/5/12.
@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface MainViewController : UIViewController
+{
+    UILabel *label1;
+    UILabel *label2;
+}
 
 @end
