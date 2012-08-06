@@ -2,7 +2,7 @@
 //  AppDelegate.m
 //  testApp
 //
-//  Created by Lucy Hutcheson on 7/30/12.
+//  Created by Lucy Hutcheson on 8/3/12.
 //  Copyright (c) 2012 Pure Light Designs. All rights reserved.
 //
 
@@ -30,132 +30,94 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    NSLog(@"Entered didFinishLaunchingWithOptions");
 
+    //NSLog(@"Hit %d in file %s in function %s", __LINE__, __FILE__, __FUNCTION__);
     
-    /*------------------------------------------------------------------------------------------------------------ *
-     * STORY: Pet Salon                                                                                            *
-     * I own a pet salon (hypothetically at least).  This is a story about a day in the life of the pet salon.     *
-     *------------------------------------------------------------------------------------------------------------ */
-
+    /*NSString *strTemp = [[NSString alloc] initWithString:@"hello"];
     
-    
-    /* STEP 1:  Create New Empty Application Project =========================================================== */
-
-    NSLog(@"Welcome to Mari's Petdigree Salon!\n");
-
-    
-    /* STEP 2:  Create a variable using a float data type. =====================================================
-     *          Cast the float to an int and  using NSLog, output both the 
-     *          initial float value as well as the int value.
-     */
-        
-    // Check the number of dogs we have to wash and fix (cast) it.
-    float wrongNumDogs = 9.5f;               // Wrong number of dogs entered into the Dog Log
-    int correctNumDogs = (int)wrongNumDogs; // Fixing (casting) the number of dogs
-    
-    // Log the mistake
-    NSLog(@"Oops!  Looks like there was a mistake in the appointment log.  We have %d dogs to wash, not %.2f.\n", correctNumDogs, wrongNumDogs);
-    
-
-    
-    /* STEP 3:  Perform an AND, OR comparison. ==================================================================
-     *          Use float, int and BOOL types.
-     */
-    
-    int workersToday = 2;           // Number of workers
-    BOOL needMoreWorkers = YES;     // Do we need more workers
-    BOOL haveEnoughWorkers = NO;    // Have enough workers
-    
-    
-    // Check if we have lots of dogs and need more workers.
-    if ((correctNumDogs > 10) && (needMoreWorkers == YES)) // Float and BOOL with AND operator
+    if (strTemp != nil)
     {
-        NSLog(@"It looks like we need more workers. %d dogs are too many for %d workers.\n", correctNumDogs, workersToday);
-    }
-    // Check if we have a few workers and less than ten dogs or if we have enough workers
-    else if (((workersToday < 10) && ((correctNumDogs > 0) && (correctNumDogs < 10))) || (haveEnoughWorkers == YES)) 
-        // Int, Float, and BOOl with AND and OR Operators
-    {
-        NSLog(@"It looks like we have enough workers to cover all the dogs for today.\n");
-    }
-    // Don't need any workers today.
-    else 
-    {
-        NSLog(@"We have no dogs to wash today.  Let's clean up the salon!"); // Default message
-    }
-
-    
-    
-    /* STEP 4:  Use an if, else if, and else check using any data type ========================================== */
-
-    BOOL cliffordIsHere = YES;  // Clifford, the big, red dog
-    BOOL fifiIsHere = NO;       // Fifi, difficult dog
-    
-    // Check if Clifford is here or if we have enough workers.
-    if ((cliffordIsHere == YES) || (workersToday < 5)) // IF statement with OR operator
-    {
-        NSLog(@"Uh oh!  Big Clifford is here.  Let's get our top stylist in here.");
-    }
-    // Check if Fifi is here and Clifford is here and sound the alarm.
-    else if ((fifiIsHere == YES) && (cliffordIsHere == YES)) // ELSE IF statement with AND operator
-    {
-        NSLog(@"We need to bring in the big dog stylists today.  Our difficult clients are both here.");
-    }
-    // No need to panic.  Clifford and Fifi are not here.
-    else // ELSE statement
-    {
-        NSLog(@"We can relax today because our biggest clients aren't here.");
+        NSLog(@"Object successfully created.");
+        int numChars = [strTemp length]; 
+        NSLog(@"string length = %d", numChars);
     }
     
+    NSString *string = [[NSString alloc] initWithString:@"hello"];
+    int lengthOfString = [string length];
     
-
-    /* STEP 5:  Perform a single for loop printing out values to the console ==================================== */
+    NSString *floatString = [[NSString alloc] initWithString:@"3.14159"];
+    float pi = [floatString floatValue];
     
-    // Time to wash the dogs we have today.
-    for (int washDogs = correctNumDogs; washDogs > 0; washDogs--)
+    NSString *lowerString = @"hutcheson";
+    NSString *upperString = [lowerString capitalizedString];
+    
+    NSMutableString *mutableString = [[NSMutableString alloc] initWithString:@"initialString"];
+    
+    [mutableString insertString:@"test" atIndex:4];
+   
+    
+    NSString *stringFormatted = [[NSString alloc] initWithFormat:@"this car has %d tires and is on fire", 4];
+    
+    NSLog(stringFormatted);
+    
+    NSLog(@"this is my static string followed by the string '%@'", stringFormatted);
+    
+    int arrayInt[5] =
     {
-        NSLog(@"Washing dog number %d.\n", washDogs);  // Start washing the dogs.
+        3, 8, 10, 6, 9
+    };
+    
+    for (int i = 0; i<5; i++) 
+    {
+        NSLog(@"index %d = %d", i, arrayInt[i]);
     }
     
-    
-
-    /* STEP 6:  Perform a nested loop printing out values to the console ========================================= */
-    
-    // Time to trim their nails.
-    for (int trimDogs = correctNumDogs; trimDogs > 0; trimDogs--)
+    int tictactoe [3][3] = 
     {
-        NSLog(@"Clipping the nails of dog number %d.\n", trimDogs);  // Clipping the dogs' nails.
-        
-        int count = 1;
-        
-        do // Nested loop
+        {0, 0, 0},
+        {1, 1, 1},
+        {2, 2, 2}
+    };
+    
+    for (int y = 0; y < 3; y++)
+    {
+        for (int x=0; x<3; x++)
         {
-            NSLog(@"%d nail clipped.\n", count); // Counting each nail clipped.
-            
-            count++; //decrement count
-        } while (count < 21);
-        
+            NSLog(@"tictactoe at [%d][%d] = %d", y, x, tictactoe[x][y]);
+        }
     }
-    
-    
-    
-    /* STEP 7:  Perform a while loop that increments an int variable and outputs to the console ===================== */
-    
-    // Time to style and finish up the dogs.
-    while (correctNumDogs > 0)
-    {
-        NSLog(@"Styling and finishing up dog number %d.\n", correctNumDogs);
-        correctNumDogs--;
-    }
-    
-    NSLog(@"All done here.  It's time to go home!  Wrap it up everybody.");
-    
-    
-    
-    /*------------------------------------------------------------------------------------------------------------ *
-     * End of Story                                                                                                *
-     *------------------------------------------------------------------------------------------------------------ */
 
+    
+    NSArray *tempArray = [[NSArray alloc] initWithObjects:@"test1", @"test2", nil];
+    
+    NSMutableArray *mutableArray = [[NSMutableArray alloc] initWithCapacity:10];
+    [mutableArray addObject:@"hellotest1"];
+    [mutableArray addObject:@"seconditem"];
+    // Print out items in array to the log
+    NSLog(@"%@", [mutableArray description]);
+    
+    for (int i = 0; i<[mutableArray count]; i++) 
+    {
+        NSLog(@"%@", [mutableArray objectAtIndex:i]);
+    }
+  */
+    
+    NSDictionary *dictionary = [[NSMutableDictionary alloc] initWithCapacity:10];
+    [dictionary setObject:@"gozer" forKey:@"keymaster"];
+    
+    if ([dictionary objectForKey:@"asdfasd"] != nil)
+    {
+        [dictionary removeObjectForKey:@"keymaster"];
+    }
+    
+    NSString *value = [dictionary objectForKey:@"keymaster"];
+    
+    
+    NSLog(@"%@", [dictionary description]);
+    
+    int hello = 0;
     
     return YES;
 }
