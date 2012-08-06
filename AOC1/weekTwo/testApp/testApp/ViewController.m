@@ -29,15 +29,18 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     
+    
     /* 1.) CHANGE BACKGROUND COLOR =============================================================================== */
     self.view.backgroundColor = [UIColor colorWithRed:0.714 green:0.812 blue:0.827 alpha:1] /*#b6cfd3*/;
 
+    
     
     /*------------------------------------------------------------------------------------------------------------ *
      * Book Information and UILabels                                                                               *
      *------------------------------------------------------------------------------------------------------------ */
     
     /* 1.) TITLE LABEL ==================================================================================== */
+
     titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 40.0f)];    
     if (titleLabel != nil)
     {
@@ -49,9 +52,11 @@
     [self.view addSubview:titleLabel];
     
     
+    
     /* AUTHOR LABEL and AUTHOR TEXT ==================================================================== */
 
     // 2.) Author Label
+
     authorLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 60.0f, 130.0f, 30.0f)];
     if (authorLabel != nil)
     {
@@ -63,6 +68,7 @@
     [self.view addSubview:authorLabel];
     
     // 3.) Author Text
+
     authorText = [[UILabel alloc] initWithFrame:CGRectMake(150.0f, 60.0f, 160.0f, 30.0f)];    
     if (authorText != nil)
     {
@@ -74,9 +80,11 @@
     [self.view addSubview:authorText];
 
     
+    
     /* PUBLISHED LABEL and PUBLISHED TEXT ================================================================= */
 
     // 4.) Published Label
+
     publishedLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 100.0f, 130.0f, 30.0f)];
     if (publishedLabel != nil)
     {
@@ -88,6 +96,7 @@
     [self.view addSubview:publishedLabel];
     
     // 5.) Published Text
+
     publishedText = [[UILabel alloc] initWithFrame:CGRectMake(150.0f, 100.0f, 160.0f, 30.0f)];    
     if (publishedText != nil)
     {
@@ -99,9 +108,11 @@
     [self.view addSubview:publishedText];
 
     
+    
     /* SUMMARY LABEL and SUMMARY TEXT ================================================================= */
     
     // 6.) Summary Label
+
     summaryLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 140.0f, 130.0f, 30.0f)];
     if (summaryLabel != nil)
     {
@@ -113,6 +124,7 @@
     [self.view addSubview:summaryLabel];
     
     // 7.) Summary Text
+
     summaryText = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 180.0f, 300.0f, 130.0f)];    
     if (summaryText != nil)
     {
@@ -125,6 +137,7 @@
     [self.view addSubview:summaryText];
 
  
+    
     /*------------------------------------------------------------------------------------------------------------ *
      * Labels and Arrays                                                                                           *
      *------------------------------------------------------------------------------------------------------------ */
@@ -136,17 +149,24 @@
     /* 2.) NSMutableString ======================================================================================= */
 
     NSMutableString *listMutableString = [[NSMutableString alloc] init];
+    
     // Loop through NSArray and append to NSMutableString
     for (int i=0; i < [listOfItems count]; i++) 
     {
         NSString *listItem = [listOfItems objectAtIndex:i];
-        if (  [listOfItems count] == i+1){
-            [listMutableString appendString:[[NSString alloc] initWithFormat:@"%@", listItem]];            
+        
+        // If it's the last item, format doesn't include ","
+        if ([listOfItems count] == i+1){ 
+            [listMutableString appendString:[[NSString alloc] initWithFormat:@"%@", listItem]]; 
+            
+        // Separate all items with a ", "
         } else {
             [listMutableString appendString:[[NSString alloc] initWithFormat:@"%@, ", listItem]];
         }
     }
+
     // 3.) List of Items Label
+
     listLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 320.0f, 130.0f, 30.0f)];
     if (listLabel != nil)
     {
@@ -158,6 +178,7 @@
     [self.view addSubview:listLabel];
     
     // 4.) List of Items Text
+
     listText = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 360.0f, 300.0f, 70.0f)];    
     if (listText != nil)
     {
@@ -168,8 +189,10 @@
         listText.textColor = [UIColor colorWithRed:0.161 green:0.204 blue:0.212 alpha:1] /*#293436*/;
     }    
     [self.view addSubview:listText];
+ 
     
     /* END OF PROJECT 2 ========================================================================================== */
+
 
     
     [super viewWillAppear:animated];
