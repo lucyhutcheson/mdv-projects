@@ -3,7 +3,7 @@
 //  testApp
 //
 //  Created by Lucy Hutcheson on 8/12/12.
-//  Copyright (c) 2012 Pure Light Designs. All rights reserved.
+//  Copyright (c) 2012 Lucy Hutcheson. All rights reserved.
 //
 
 #import "ViewController.h"
@@ -96,8 +96,6 @@
 
 - (int)Add:(NSInteger)addOne addTwo:(NSInteger)addTwo
 {
-    int result = addOne + addTwo;
-    NSLog(@"%d plus %d equals to %d", addOne, addTwo, result);
     return addOne + addTwo;
 }
 
@@ -112,12 +110,10 @@
 {
     if (compareOne == compareTwo) 
     {
-        NSLog(@"Yes");
         return YES;
     }
     else 
     {
-        NSLog(@"No");
         return NO;
     }
 }
@@ -133,7 +129,6 @@
 {
     NSMutableString *newString = [[NSMutableString alloc] initWithFormat:stringOne];
     [newString appendString:stringTwo];
-    NSLog(@"%@", newString);
     return newString;
 }
 
