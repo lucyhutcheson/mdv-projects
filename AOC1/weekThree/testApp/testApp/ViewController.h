@@ -16,7 +16,7 @@
 - (int)Add:(NSInteger)addOne addTwo:(NSInteger)addTwo;
 - (BOOL)Compare:(NSInteger)compareOne compareTwo:(NSInteger)compareTwo;
 - (NSString *)Append:(NSString *)stringOne stringTwo:(NSString *)stringTwo;
-- (void)DisplayAlertWithString:(NSString *)alertString;
+- (void)DisplayAlertWithString:(NSString *)alertString customTitle:(NSString *)customTitle;
 
 
 @end

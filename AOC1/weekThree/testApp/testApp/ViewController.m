@@ -15,20 +15,59 @@
 @implementation ViewController
 
 - (void)viewDidLoad
-{  
+{      
     
-    /* 1.   Create a function called Add. This function will take two NSInteger or int types and 
-     *      return the result of an addition between these two.
-     * ============================================================================================= */
-    [self Add:5 addTwo:8];
-    
-    [self Compare:12 compareTwo:22];
-    
-    [self Append:@"Hello " stringTwo:@"World!"];
-    
+    /*------------------------------------------------------------------------------------------------------------ *
+     * 4.  Call the Append function with two NSStrings. Capture the result and                                     *
+     *     display a UIAlertView with the appended string using displayAlertWithString.                            *
+     *------------------------------------------------------------------------------------------------------------ */
+
     NSString *alertString = [self Append:@"Mobile Web Development " stringTwo:@"Rocks!!"];
-    [self DisplayAlertWithString:alertString];
+    [self DisplayAlertWithString:alertString customTitle:@"Alert"];
    
+    
+    /*------------------------------------------------------------------------------------------------------------ *
+     * 6.  Call the Add function passing in two integer values.                                                    *
+     *     Capture the return of this function into a variable.                                                    *
+     *------------------------------------------------------------------------------------------------------------ */
+
+    int addResult = [self Add:5 addTwo:8];
+
+    
+    /*------------------------------------------------------------------------------------------------------------ *
+     * 7.  Bundle the returned integer into an NSNumber and then convert it to a NSString and                      *
+     *     pass it to the DisplayAlertWithString function.                                                         *
+     *------------------------------------------------------------------------------------------------------------ */    
+
+    NSNumber *bundleNumber = [NSNumber numberWithInt:addResult];      
+    NSString *bundleString = [bundleNumber stringValue];
+
+
+    /*------------------------------------------------------------------------------------------------------------ *
+     * 8.  Give it some text for the title. The message will read, "The number is 00".                             *
+     *     Replace the 00 with the integer passed into the function.                                               *
+     *------------------------------------------------------------------------------------------------------------ */    
+
+    NSString *alertStringTwo = [self Append:@"The number is " stringTwo:bundleString];
+    [self DisplayAlertWithString:alertStringTwo customTitle:@"Announcement"];
+
+    
+    /*------------------------------------------------------------------------------------------------------------ *
+     * 9.  Call the Compare function with two integer values. If Compare returns YES, display an UIAlertView       *
+     *     both with the input values and the result using the DisplayAlertWithString function                     *
+     *------------------------------------------------------------------------------------------------------------ */    
+    
+    NSInteger compareNumOne = 12;
+    NSInteger compareNumTwo = 22;
+    BOOL compareResult = [self Compare:compareNumOne compareTwo:compareNumTwo];
+    
+    if (compareResult == YES)
+    {
+        NSString *message = [NSString stringWithFormat:@"Integer One = %i and Integer Two = %i.  They are equal. ",compareNumOne,compareNumTwo];
+        [self DisplayAlertWithString:message customTitle:@"Results"];
+    }
+    
+    
     
     
     [super viewDidLoad];
@@ -44,7 +83,7 @@
 
 
 /*------------------------------------------------------------------------------------------------------------ *
- * ADD FUNCTION                                                                                                *
+ * 1. ADD FUNCTION                                                                                             *
  *      Create a function called Add. This function will take two NSInteger or int types and                   *
  *      return the result of an addition between these two.                                                    *
  *------------------------------------------------------------------------------------------------------------ */
@@ -56,8 +95,10 @@
     return addOne + addTwo;
 }
 
+
+
 /*------------------------------------------------------------------------------------------------------------ *
- * COMPARE FUNCTION                                                                                            *
+ * 2. COMPARE FUNCTION                                                                                         *
  *      Create a BOOL function called Compare that takes two NSInteger values.                                 *
  *      Return YES or NO based on whether the values are equal.                                                *
  *------------------------------------------------------------------------------------------------------------ */
@@ -76,8 +117,10 @@
     }
 }
 
+
+
 /*------------------------------------------------------------------------------------------------------------ *
- * APPEND FUNCTION                                                                                             *
+ * 3. APPEND FUNCTION                                                                                          *
  *      Create a function called Append. This function will take two NSStrings and                             *
  *      return a new NSString containing the appended strings using an NSMutableString and the Append method.  *
  *------------------------------------------------------------------------------------------------------------ */
@@ -93,13 +136,13 @@
 
 
 /*------------------------------------------------------------------------------------------------------------ *
- * DISPLAYALERTWITHSTRING FUNCTION                                                                             *
+ * 5. DISPLAYALERTWITHSTRING FUNCTION                                                                          *
  *      Create a function called DisplayAlertWithString. This function will take as a parameter an NSString.   *
  *------------------------------------------------------------------------------------------------------------ */
 
-- (void)DisplayAlertWithString:(NSString *)alertString
+- (void)DisplayAlertWithString:(NSString *)alertString customTitle:(NSString *)customTitle
 {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Alert" message:alertString delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:customTitle message:alertString delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
     if (alertView != nil) 
     {
         [alertView show];
