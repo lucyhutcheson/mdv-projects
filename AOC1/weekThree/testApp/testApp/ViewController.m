@@ -25,7 +25,11 @@
     [self Compare:12 compareTwo:22];
     
     [self Append:@"Hello " stringTwo:@"World!"];
+    
+    NSString *alertString = [self Append:@"Mobile Web Development " stringTwo:@"Rocks!!"];
+    [self DisplayAlertWithString:alertString];
    
+    
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
@@ -86,6 +90,21 @@
     return newString;
 }
 
+
+
+/*------------------------------------------------------------------------------------------------------------ *
+ * DISPLAYALERTWITHSTRING FUNCTION                                                                             *
+ *      Create a function called DisplayAlertWithString. This function will take as a parameter an NSString.   *
+ *------------------------------------------------------------------------------------------------------------ */
+
+- (void)DisplayAlertWithString:(NSString *)alertString
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Alert" message:alertString delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
+    if (alertView != nil) 
+    {
+        [alertView show];
+    }
+}
 
 
 
