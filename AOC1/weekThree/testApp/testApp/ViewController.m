@@ -63,7 +63,8 @@
     
     if (compareResult == YES)
     {
-        NSString *message = [NSString stringWithFormat:@"Integer One = %i and Integer Two = %i.  They are equal. ",compareNumOne,compareNumTwo];
+        NSString *myResult = [NSString stringWithFormat:@"%@", compareResult ? @"YES" : @"NO"];
+        NSString *message = [NSString stringWithFormat:@"Integer One = %i and Integer Two = %i.  %@, they are equal.",compareNumOne,compareNumTwo, myResult];
         [self DisplayAlertWithString:message customTitle:@"Results"];
     }
     
@@ -82,6 +83,11 @@
 
 
 
+/* =========================================================================================================== *
+ * MY FUNCTIONS                                                                                                *
+ * =========================================================================================================== */
+
+
 /*------------------------------------------------------------------------------------------------------------ *
  * 1. ADD FUNCTION                                                                                             *
  *      Create a function called Add. This function will take two NSInteger or int types and                   *
@@ -94,7 +100,6 @@
     NSLog(@"%d plus %d equals to %d", addOne, addTwo, result);
     return addOne + addTwo;
 }
-
 
 
 /*------------------------------------------------------------------------------------------------------------ *
@@ -118,7 +123,6 @@
 }
 
 
-
 /*------------------------------------------------------------------------------------------------------------ *
  * 3. APPEND FUNCTION                                                                                          *
  *      Create a function called Append. This function will take two NSStrings and                             *
@@ -134,7 +138,6 @@
 }
 
 
-
 /*------------------------------------------------------------------------------------------------------------ *
  * 5. DISPLAYALERTWITHSTRING FUNCTION                                                                          *
  *      Create a function called DisplayAlertWithString. This function will take as a parameter an NSString.   *
@@ -142,13 +145,17 @@
 
 - (void)DisplayAlertWithString:(NSString *)alertString customTitle:(NSString *)customTitle
 {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:customTitle message:alertString delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:customTitle message:alertString delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
     if (alertView != nil) 
     {
         [alertView show];
     }
 }
 
+
+/* =========================================================================================================== *
+ * END OF MY FUNCTIONS                                                                                         *
+ * =========================================================================================================== */
 
 
 
