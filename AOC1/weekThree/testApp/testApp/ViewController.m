@@ -14,72 +14,6 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad
-{      
-    
-    /*------------------------------------------------------------------------------------------------------------ *
-     * 4.  Call the Append function with two NSStrings. Capture the result and                                     *
-     *     display a UIAlertView with the appended string using displayAlertWithString.                            *
-     *------------------------------------------------------------------------------------------------------------ */
-
-    NSString *alertString = [self Append:@"Mobile Web Development " stringTwo:@"Rocks!!"];
-    [self DisplayAlertWithString:alertString customTitle:@"Alert"];
-   
-    
-    /*------------------------------------------------------------------------------------------------------------ *
-     * 6.  Call the Add function passing in two integer values.                                                    *
-     *     Capture the return of this function into a variable.                                                    *
-     *------------------------------------------------------------------------------------------------------------ */
-
-    int addResult = [self Add:5 addTwo:8];
-
-    
-    /*------------------------------------------------------------------------------------------------------------ *
-     * 7.  Bundle the returned integer into an NSNumber and then convert it to a NSString and                      *
-     *     pass it to the DisplayAlertWithString function.                                                         *
-     *------------------------------------------------------------------------------------------------------------ */    
-
-    NSNumber *bundleNumber = [NSNumber numberWithInt:addResult];      
-    NSString *bundleString = [bundleNumber stringValue];
-
-
-    /*------------------------------------------------------------------------------------------------------------ *
-     * 8.  Give it some text for the title. The message will read, "The number is 00".                             *
-     *     Replace the 00 with the integer passed into the function.                                               *
-     *------------------------------------------------------------------------------------------------------------ */    
-
-    NSString *alertStringTwo = [self Append:@"The number is " stringTwo:bundleString];
-    [self DisplayAlertWithString:alertStringTwo customTitle:@"Announcement"];
-
-    
-    /*------------------------------------------------------------------------------------------------------------ *
-     * 9.  Call the Compare function with two integer values. If Compare returns YES, display an UIAlertView       *
-     *     both with the input values and the result using the DisplayAlertWithString function                     *
-     *------------------------------------------------------------------------------------------------------------ */    
-    
-    NSInteger compareNumOne = 22;
-    NSInteger compareNumTwo = 22;
-    BOOL compareResult = [self Compare:compareNumOne compareTwo:compareNumTwo];
-    
-    if (compareResult == YES)
-    {
-        NSString *myResult = [NSString stringWithFormat:@"%@", compareResult ? @"YES" : @"NO"];
-        NSString *message = [NSString stringWithFormat:@"Integer One = %i and Integer Two = %i.  %@, they are equal.",compareNumOne,compareNumTwo, myResult];
-        [self DisplayAlertWithString:message customTitle:@"Results"];
-    }
-    
-    
-    
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-}
-
 
 
 /* =========================================================================================================== *
@@ -145,7 +79,71 @@
  * =========================================================================================================== */
 
 
+- (void)viewDidLoad
+{      
+    
+    /*------------------------------------------------------------------------------------------------------------ *
+     * 4.  Call the Append function with two NSStrings. Capture the result and                                     *
+     *     display a UIAlertView with the appended string using displayAlertWithString.                            *
+     *------------------------------------------------------------------------------------------------------------ */
 
+    NSString *alertString = [self Append:@"Mobile Web Development " stringTwo:@"Rocks!!"];
+    [self DisplayAlertWithString:alertString customTitle:@"Alert"];
+   
+    
+    /*------------------------------------------------------------------------------------------------------------ *
+     * 6.  Call the Add function passing in two integer values.                                                    *
+     *     Capture the return of this function into a variable.                                                    *
+     *------------------------------------------------------------------------------------------------------------ */
+
+    int addResult = [self Add:5 addTwo:8];
+
+    
+    /*------------------------------------------------------------------------------------------------------------ *
+     * 7.  Bundle the returned integer into an NSNumber and then convert it to a NSString and                      *
+     *     pass it to the DisplayAlertWithString function.                                                         *
+     *------------------------------------------------------------------------------------------------------------ */    
+
+    NSNumber *bundleNumber = [NSNumber numberWithInt:addResult];      
+    NSString *bundleString = [bundleNumber stringValue];
+
+
+    /*------------------------------------------------------------------------------------------------------------ *
+     * 8.  Give it some text for the title. The message will read, "The number is 00".                             *
+     *     Replace the 00 with the integer passed into the function.                                               *
+     *------------------------------------------------------------------------------------------------------------ */    
+
+    NSString *alertStringTwo = [self Append:@"The number is " stringTwo:bundleString];
+    [self DisplayAlertWithString:alertStringTwo customTitle:@"Announcement"];
+
+    
+    /*------------------------------------------------------------------------------------------------------------ *
+     * 9.  Call the Compare function with two integer values. If Compare returns YES, display an UIAlertView       *
+     *     both with the input values and the result using the DisplayAlertWithString function                     *
+     *------------------------------------------------------------------------------------------------------------ */    
+    
+    NSInteger compareNumOne = 22;
+    NSInteger compareNumTwo = 22;
+    BOOL compareResult = [self Compare:compareNumOne compareTwo:compareNumTwo];
+    
+    if (compareResult == YES)
+    {
+        NSString *myResult = [NSString stringWithFormat:@"%@", compareResult ? @"YES" : @"NO"];
+        NSString *message = [NSString stringWithFormat:@"Integer One = %i and Integer Two = %i.  %@, they are equal.",compareNumOne,compareNumTwo, myResult];
+        [self DisplayAlertWithString:message customTitle:@"Results"];
+    }
+    
+    
+    
+    [super viewDidLoad];
+	// Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
