@@ -57,7 +57,7 @@
      *     both with the input values and the result using the DisplayAlertWithString function                     *
      *------------------------------------------------------------------------------------------------------------ */    
     
-    NSInteger compareNumOne = 12;
+    NSInteger compareNumOne = 22;
     NSInteger compareNumTwo = 22;
     BOOL compareResult = [self Compare:compareNumOne compareTwo:compareNumTwo];
     
@@ -67,7 +67,6 @@
         NSString *message = [NSString stringWithFormat:@"Integer One = %i and Integer Two = %i.  %@, they are equal.",compareNumOne,compareNumTwo, myResult];
         [self DisplayAlertWithString:message customTitle:@"Results"];
     }
-    
     
     
     
@@ -108,14 +107,7 @@
 
 - (BOOL)Compare:(NSInteger)compareOne compareTwo:(NSInteger)compareTwo
 {
-    if (compareOne == compareTwo) 
-    {
-        return YES;
-    }
-    else 
-    {
-        return NO;
-    }
+    return (compareOne == compareTwo); 
 }
 
 
