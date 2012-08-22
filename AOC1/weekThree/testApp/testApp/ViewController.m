@@ -53,7 +53,7 @@
 
 - (NSString *)Append:(NSString *)stringOne stringTwo:(NSString *)stringTwo
 {
-    NSMutableString *newString = [[NSMutableString alloc] initWithFormat:stringOne];
+    NSMutableString *newString = [[NSMutableString alloc] initWithString:stringOne];
     [newString appendString:stringTwo];
     return newString;
 }
