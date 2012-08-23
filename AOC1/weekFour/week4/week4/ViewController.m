@@ -10,6 +10,7 @@
 
 #define BUTTON_LOGIN 0
 #define BUTTON_DATE 1
+#define BUTTON_INFO 2
 
 @interface ViewController ()
 
@@ -52,12 +53,15 @@
     
     /*------------------------------------------------------------------------------------------------------------ *
      * 3. Create a rounded rectangle UIButton of any color under the UITextField with the text "Login" on it.      *
+     * 5. Add a target to the UIButton to call a function called onClick when the user presses the Login button.   *
      *------------------------------------------------------------------------------------------------------------ */
    
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     if (button != nil)
     {
         button.frame = CGRectMake(220.0f, 50.0f, 80.0f, 30.0f);
+        button.tintColor = [UIColor colorWithRed:0.051 green:0.325 blue:0.384 alpha:1] /*#0d5362*/;
+
         [button setTitle:@"Login" forState:UIControlStateNormal];
         button.tag = BUTTON_LOGIN;
         [button addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -94,6 +98,10 @@
         showDatebutton.frame = CGRectMake(10.0f, 250.0f, 100.0f, 40.0f);
         [showDatebutton setTitle:@"Show Date" forState:UIControlStateNormal];
         
+        /*-------------------------------------------------------------------------------------------------------- *
+         * 3. Add an action to the button that when clicked, it will call the same onClick handler you             *
+         *    already defined. Make sure to add a tag to the date button so you know which one was pressed.        *
+         *-------------------------------------------------------------------------------------------------------- */        
         showDatebutton.tag = BUTTON_DATE;
         [showDatebutton addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:showDatebutton];
@@ -113,67 +121,76 @@
     if (infobutton != nil)
     {
         infobutton.frame = CGRectMake(10.0f, 350.0f, 25.0f, 25.0f);
+        infobutton.tag = BUTTON_INFO;
+        [infobutton addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:infobutton];
     }
 
-    /*
-    UIButton *custombutton = [UIButton buttonWithType:UIButtonTypeCustom];
-    if (custombutton != nil)
+    /*------------------------------------------------------------------------------------------------------------ *
+     * 2. Create a UILabel beneath it that contains no initial text.                                               *
+     *------------------------------------------------------------------------------------------------------------ */
+    
+    infoLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 390.0f, 320.0f, 60.0f)];    
+    if (infoLabel != nil)
     {
-        UIImage *normalImage = [UIImage imageNamed:@"button.jpg"];
-        UIImage *highlightlImage = [UIImage imageNamed:@"button-highlight.jpg"];
+        infoLabel.backgroundColor = [UIColor colorWithRed:0.714 green:0.812 blue:0.827 alpha:1] /*#b6cfd3*/;
+        infoLabel.numberOfLines = 2;
+        infoLabel.textColor = [UIColor whiteColor] /*#4e0c2e*/;
+        [self.view addSubview:infoLabel];
+    }
+
+    
         
-        [custombutton setImage:normalImage forState:UIControlStateNormal];
-        [custombutton setImage:highlightlImage forState:UIControlStateHighlighted];
-        custombutton.frame = CGRectMake(80.0f, 180.0f, 100.0f, 100.0f);
-        [self.view addSubview:custombutton];
-    }
-
-    
-    UIButton *addbutton = [UIButton buttonWithType:UIButtonTypeContactAdd];
-    if (addbutton != nil)
-    {
-        addbutton.frame = CGRectMake(80.0f, 130.0f, 25.0f, 25.0f);
-        [self.view addSubview:addbutton];
-    }
-
-    
-    UIButton *discbutton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    if (discbutton != nil)
-    {
-        discbutton.frame = CGRectMake(80.0f, 100.0f, 25.0f, 25.0f);
-        [self.view addSubview:discbutton];
-    }
-
-    
-    
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    if (button != nil)
-    {
-        button.frame = CGRectMake(20.0f, 10.0f, 100.0f, 50.0f);
-        button.tintColor = [UIColor redColor];
-        [button setTitle: @"Push Me" forState:UIControlStateNormal];
-        [button setTitle: @"Pushed" forState:UIControlStateHighlighted];
-        [self.view addSubview:button];
-    }
-     */
-    
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)onClick: (UIButton*)button
+- (void)onClick:(UIButton*)button
 {
     
-    if (button.tag == BUTTON_LOGIN){
+    /* =========================================================================================================== *
+     * LOGIN                                                                                                       *
+     * 6. If the user has not entered any text into the UITextField, display in the UILabel,                       *
+     *    "Username cannot be empty". Otherwise, display "User: username has been logged in".                      *
+     *------------------------------------------------------------------------------------------------------------ */
+    if (button.tag == BUTTON_LOGIN)
+    {
+        NSString *fieldText = textField.text;
+        if (fieldText.length == 0)
+        {
+            username2Label.text = @"Username cannot be empty";
+        }
+        else 
+        {
+            NSMutableString *loggedText = [NSMutableString stringWithFormat:@"User: %@ has been logged in", fieldText];
+            username2Label.text = loggedText;
+        }
+
     }
     else if (button.tag == BUTTON_DATE)
     {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Date" message:@"Date Info" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        if (alertView != nil)
+        /* ====================================================================================================== *
+         * DATE                                                                                                   *
+         * 4. Display a UIAlertView with the current date and time displayed in the format seen                   *
+         *    in the dateAlert graphic                                                                            *
+         *------------------------------------------------------------------------------------------------------- */
+        NSDate *date = [NSDate date];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        if (dateFormatter != nil)
         {
-            [alertView show];
+            [dateFormatter setDateFormat:@"MMMM dd, YYYY hh:mm:ss a zzzz "];
+            NSString *dateString = [dateFormatter stringFromDate:date];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Date" message:dateString delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            if (alertView != nil)
+            {
+                [alertView show];
+            }
         }
+    }
+    else if (button.tag == BUTTON_INFO)
+    {
+        infoLabel.backgroundColor = [UIColor colorWithRed:0.6 green:0.2 blue:0.4 alpha:1] /*#993366*/;
+        infoLabel.text = @"This application was created by: Lucy Hutcheson";        
     }
 }
 - (void)viewDidUnload

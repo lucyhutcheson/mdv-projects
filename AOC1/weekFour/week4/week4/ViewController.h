@@ -12,6 +12,7 @@
 {
     UILabel *usernameLabel;
     UILabel *username2Label;
+    UILabel *infoLabel;
     UITextField *textField;
 }
 
