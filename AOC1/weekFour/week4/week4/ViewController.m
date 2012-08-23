@@ -21,9 +21,11 @@
 - (void)viewDidLoad
 {
     
-    
+    // Change background color for preference :)
     self.view.backgroundColor = [UIColor colorWithRed:0.714 green:0.812 blue:0.827 alpha:1] /*#b6cfd3*/;
 
+    
+    
     /* =========================================================================================================== *
      * LOGIN                                                                                                       *
      * =========================================================================================================== */
@@ -60,7 +62,7 @@
     if (button != nil)
     {
         button.frame = CGRectMake(220.0f, 50.0f, 80.0f, 30.0f);
-        button.tintColor = [UIColor colorWithRed:0.051 green:0.325 blue:0.384 alpha:1] /*#0d5362*/;
+        button.tintColor = [UIColor colorWithRed:0.6 green:0.2 blue:0.4 alpha:1] /*#993366*/;
 
         [button setTitle:@"Login" forState:UIControlStateNormal];
         button.tag = BUTTON_LOGIN;
@@ -95,9 +97,10 @@
     UIButton *showDatebutton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     if (showDatebutton != nil)
     {
-        showDatebutton.frame = CGRectMake(10.0f, 250.0f, 100.0f, 40.0f);
+        showDatebutton.frame = CGRectMake(10.0f, 250.0f, 100.0f, 35.0f);
         [showDatebutton setTitle:@"Show Date" forState:UIControlStateNormal];
-        
+        showDatebutton.tintColor = [UIColor colorWithRed:0.6 green:0.2 blue:0.4 alpha:1] /*#993366*/;
+       
         /*-------------------------------------------------------------------------------------------------------- *
          * 3. Add an action to the button that when clicked, it will call the same onClick handler you             *
          *    already defined. Make sure to add a tag to the date button so you know which one was pressed.        *
@@ -130,7 +133,7 @@
      * 2. Create a UILabel beneath it that contains no initial text.                                               *
      *------------------------------------------------------------------------------------------------------------ */
     
-    infoLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 390.0f, 320.0f, 60.0f)];    
+    infoLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 380.0f, 320.0f, 60.0f)];    
     if (infoLabel != nil)
     {
         infoLabel.backgroundColor = [UIColor colorWithRed:0.714 green:0.812 blue:0.827 alpha:1] /*#b6cfd3*/;
@@ -159,9 +162,11 @@
         if (fieldText.length == 0)
         {
             username2Label.text = @"Username cannot be empty";
+            username2Label.backgroundColor = [UIColor colorWithRed:0.6 green:0.2 blue:0.4 alpha:1] /*#993366*/;
         }
         else 
         {
+            username2Label.backgroundColor = [UIColor colorWithRed:0.122 green:0.51 blue:0.545 alpha:1] /*#1f828b*/;
             NSMutableString *loggedText = [NSMutableString stringWithFormat:@"User: %@ has been logged in", fieldText];
             username2Label.text = loggedText;
         }
@@ -192,6 +197,15 @@
         infoLabel.backgroundColor = [UIColor colorWithRed:0.6 green:0.2 blue:0.4 alpha:1] /*#993366*/;
         infoLabel.text = @"This application was created by: Lucy Hutcheson";        
     }
+    
+    
+    /* =========================================================================================================== *
+     * END OF PROJECT 4                                                                                            *
+     * =========================================================================================================== */
+
+    
+    
+    
 }
 - (void)viewDidUnload
 {
