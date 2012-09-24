@@ -1,1 +1,0 @@
-Projects for Full Sail Mobile Development Program - Apple Objective C 2
