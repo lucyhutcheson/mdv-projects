@@ -11,7 +11,7 @@
 
 @implementation ChocolateChip
 
--(id)initWithDetails:(int)type name:(NSString*)name
+-(id)initWithDetails:(int)type name:(NSString*)name 
 {
     if (self = [super init])
     {
@@ -24,7 +24,7 @@
 -(void)printName
 {
     [super printName];
-    NSLog(@"Ewwww! I am eating a %@ with a total of %d chocolate chips in it.", cookieName, cookieType);
+    NSLog(@"Ewwww! I am eating a %@ with a total of %d chocolate chips in it. ", cookieName, cookieType);
 }
 
 

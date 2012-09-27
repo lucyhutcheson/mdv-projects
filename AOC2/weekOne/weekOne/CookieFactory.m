@@ -17,6 +17,15 @@
     {
         return [[BaseRecipe alloc] initWithDetails:CHOCOLATECHIP name:@"Chocolate Chip"];
     }
+    else if (cookieType == CHOCOLATECHIPOATMEAL)
+    {
+        return [[BaseRecipe alloc] initWithDetails:CHOCOLATECHIPOATMEAL name:@"Chocolate Chip Oatmeal"];
+    }
+    else if (cookieType == SNICKERDOODLE)
+    {
+        return [[BaseRecipe alloc] initWithDetails:SNICKERDOODLE name:@"Snickerdoodle"];
+    }
+
     return nil;
 }
 @end

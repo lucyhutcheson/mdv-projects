@@ -11,7 +11,7 @@
 typedef enum
 {
     SNICKERDOODLE = 0,
-    CHOCOLATECHIPOATMEAL,
+    CHOCOLATECHIPOATMEAL = 6,
     CHOCOLATECHIP
 }myCookie;
 

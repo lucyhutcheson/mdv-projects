@@ -23,7 +23,7 @@
 
 -(void)printName
 {
-    NSLog(@"I am eating a %@ with a total of %d chocolate chips in it.", cookieName, cookieType);
+    NSLog(@"I am eating a %@ cookie with a total of %d chocolate chips in it.", cookieName, cookieType);
 }
 
 @end

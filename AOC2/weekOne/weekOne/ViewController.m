@@ -17,12 +17,26 @@
 
 - (void)viewDidLoad
 {
+    
     BaseRecipe *chocolatechip = [CookieFactory GetCookie:CHOCOLATECHIP];
-  
     if (chocolatechip != nil)
     {
         [chocolatechip printName];
     }
+    
+    BaseRecipe *chocolatechipoatmeal = [CookieFactory GetCookie:CHOCOLATECHIPOATMEAL];
+    if (chocolatechipoatmeal != nil)
+    {
+        [chocolatechipoatmeal printName];
+    }
+    
+    BaseRecipe *snickerdoodle = [CookieFactory GetCookie:SNICKERDOODLE];
+    if (snickerdoodle != nil)
+    {
+        [snickerdoodle printName];
+    }
+
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
