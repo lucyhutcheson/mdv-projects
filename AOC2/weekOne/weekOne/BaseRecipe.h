@@ -11,18 +11,20 @@
 typedef enum
 {
     SNICKERDOODLE = 0,
-    CHOCOLATECHIP,
-    CHOCOLATECHIPOATMEAL
+    CHOCOLATECHIPOATMEAL,
+    CHOCOLATECHIP
 }myCookie;
 
 @interface BaseRecipe : NSObject
 {
-    myCookie count;
-    int _type;
-    NSString *_name;
+    @protected
+    int cookieType;
+    NSString *cookieName;
 }
 
+//-(void)setAttributes:(myCookie)type name:(NSString*)name isDelicious:(BOOL)isDelicious;
 -(id)initWithDetails:(int)type name:(NSString*)name;
+
 -(void)printName;
 
 @end

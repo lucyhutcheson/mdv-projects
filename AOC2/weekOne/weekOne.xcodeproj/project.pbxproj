@@ -291,6 +291,7 @@
 				84ADA74F1613E19D009200B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

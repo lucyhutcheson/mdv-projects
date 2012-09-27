@@ -9,15 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "BaseRecipe.h"
 
-typedef enum
-{
-    SNICKERDOODLE = 0,
-    CHOCOLATECHIP,
-    CHOCOLATECHIPOATMEAL
-}myCookie;
 
 @interface CookieFactory : NSObject
 
+// Cookie Factory Creation
 +(BaseRecipe*)GetCookie:(int)cookieType;
 
 @end

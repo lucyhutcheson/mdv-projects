@@ -7,14 +7,16 @@
 //
 
 #import "ChocolateChip.h"
+#import "BaseRecipe.h"
 
 @implementation ChocolateChip
 
--(id)init
+-(id)initWithDetails:(int)type name:(NSString*)name
 {
     if (self = [super init])
     {
-        [self setAttributes:CREATURETYPE_UNICORN name:@"Unicorn" isMythical:TRUE];
+        cookieName = @"Chocolate Chip";
+        cookieType = CHOCOLATECHIP;
     }
     return self;
 }
@@ -22,7 +24,7 @@
 -(void)printName
 {
     [super printName];
-    NSLog(@"The name of this creature is = %@", creatureName);
+    NSLog(@"Ewwww! I am eating a %@ with a total of %d chocolate chips in it.", cookieName, cookieType);
 }
 
 

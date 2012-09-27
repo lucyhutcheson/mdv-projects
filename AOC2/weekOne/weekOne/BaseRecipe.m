@@ -10,12 +10,12 @@
 
 @implementation BaseRecipe
 
--(id)initWithDetails:(int)type name:(NSString *)name
+-(id)initWithDetails:(int)type name:(NSString*)name 
 {
     if (self = [super init])
     {
-        _type = type;
-        _name = name;
+        cookieName = name;
+        cookieType = type;
     }
     return self;
 }
@@ -23,7 +23,7 @@
 
 -(void)printName
 {
-    NSLog(@"I am eating a %@ with a total of %d chocolate chips in it.", _name, _type);
+    NSLog(@"I am eating a %@ with a total of %d chocolate chips in it.", cookieName, cookieType);
 }
 
 @end
