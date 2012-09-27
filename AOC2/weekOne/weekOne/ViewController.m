@@ -17,6 +17,10 @@
 
 - (void)viewDidLoad
 {
+    BaseRecipe *basecookie = [[BaseRecipe alloc] init];
+    
+    float cookieweight = [basecookie calculateCookieWeight];
+    NSLog(@"my cookie has a weight of %f", cookieweight);
     
     BaseRecipe *chocolatechip = [CookieFactory GetCookie:CHOCOLATECHIP];
     if (chocolatechip != nil)

@@ -38,16 +38,16 @@
     NSLog(@"I have a base weight of %f.", baseWeight);
     return baseWeight;
 }
--(float)getCookieWeight
-{
-    NSLog(@"I have a weight of %f.", cookieWeight);
-    return cookieWeight;
-}
 -(float)getChipWeight
 {
     NSLog(@"My chocolate chips weigh %f.", chipWeight);
     return chipWeight;
 }
+-(void)printName
+{
+    NSLog(@"I am eating a %@ cookie with a total of %d chocolate chips in it. ", cookieName, cookieType);
+}
+
 
 // Mutators
 -(void)setCookieName:(NSString*)newCookieName
@@ -56,18 +56,17 @@
 }
 -(void)setChipNumber:(int)newChipNumber
 {
-    chipNumber = newChipNumber;
+    cookieType = newChipNumber;
 }
 
--(float)cookieWeight
+
+// Calculation
+-(float)calculateCookieWeight
 {
-    return baseWeight ;
+    NSLog(@"baseweight = %f", chipWeight);
+    return chipWeight;
+    //return (float)( baseWeight * (cookieType * chipWeight));
 }
 
-
--(void)printName
-{
-    NSLog(@"I am eating a %@ cookie with a total of %d chocolate chips in it. It weighs %f", cookieName, cookieType, cookieWeight);
-}
 
 @end
