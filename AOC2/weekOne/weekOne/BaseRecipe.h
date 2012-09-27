@@ -19,11 +19,30 @@ typedef enum
 {
     @protected
     int cookieType;
+    int chipNumber;
     NSString *cookieName;
+    float baseWeight;
+    float cookieWeight;
+    float chipWeight;
 }
 
 //-(void)setAttributes:(myCookie)type name:(NSString*)name isDelicious:(BOOL)isDelicious;
 -(id)initWithDetails:(int)type name:(NSString*)name;
+
+
+// Accessors
+-(NSString*)getCookieName;
+-(int)getChipNumber;
+-(float)getbaseWeight;
+-(float)getCookieWeight;
+-(float)getChipWeight;
+
+// Mutators to change the values of the above variables
+-(void)setCookieName:(NSString*)newCookieName;
+-(void)setChipNumber:(int)newChipNumber;
+
+// Calculation Method
+-(float)cookieWeight;
 
 -(void)printName;
 
