@@ -76,6 +76,7 @@
     BaseRecipe *chocolatechip = [CookieFactory GetCookie:CHOCOLATECHIP];
     if (chocolatechip != nil)
     {
+        [chocolatechip setChipNumber:20];
         ChocoLabel.text = [NSString stringWithFormat:@"This is my %@ cookie with a total of %d chocolate chips and it weighs %.2f oz.", [chocolatechip getCookieName], [chocolatechip getChipNumber], [chocolatechip getbaseWeight]];
     }
     
@@ -88,7 +89,7 @@
     BaseRecipe *snickerdoodle = [CookieFactory GetCookie:SNICKERDOODLE];
     if (snickerdoodle != nil)
     {
-        SnickerLabel.text = [NSString stringWithFormat:@"This is my %@ cookie with a total of %d chocolate chips and it weighs %.2f oz.", [snickerdoodle getCookieName], [snickerdoodle getChipNumber], [snickerdoodle getbaseWeight]];
+        SnickerLabel.text = [NSString stringWithFormat:@"This is my %@ cookie with a total of %d chocolate chips and it weighs %.2f oz.", [snickerdoodle getCookieName], [snickerdoodle getChipNumber], [snickerdoodle calculateCookieWeight]];
     }
 
     //Static Labels
