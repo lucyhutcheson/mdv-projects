@@ -32,8 +32,8 @@
     [self.view addSubview:ChocoLabel];
     
     //Chocolate Chip Label Part Two
-    ChocoLabelTwo = [[UILabel alloc] initWithFrame:CGRectMake(0, 77, 320, 70)];
-    ChocoLabelTwo.backgroundColor = [UIColor blueColor];
+    ChocoLabelTwo = [[UILabel alloc] initWithFrame:CGRectMake(0, 76, 320, 70)];
+    ChocoLabelTwo.backgroundColor = [UIColor magentaColor];
     ChocoLabelTwo.textColor = [UIColor whiteColor];
     ChocoLabelTwo.textAlignment = UITextAlignmentCenter;
     ChocoLabelTwo.numberOfLines = 3;
@@ -48,15 +48,15 @@
     [self.view addSubview:OatmealLabel];
     
     //Oatmeal Label Two
-    OatmealLabelTwo = [[UILabel alloc] initWithFrame:CGRectMake(0, 230, 320, 70)];
-    OatmealLabelTwo.backgroundColor = [UIColor blueColor];
+    OatmealLabelTwo = [[UILabel alloc] initWithFrame:CGRectMake(0, 224, 320, 70)];
+    OatmealLabelTwo.backgroundColor = [UIColor magentaColor];
     OatmealLabelTwo.textColor = [UIColor whiteColor];
     OatmealLabelTwo.textAlignment = UITextAlignmentCenter;
     OatmealLabelTwo.numberOfLines = 3;
     [self.view addSubview:OatmealLabelTwo];
     
     //Snickerdoodle Label
-    SnickerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 303, 320, 80)];
+    SnickerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 299, 320, 80)];
     SnickerLabel.backgroundColor = [UIColor lightGrayColor];
     SnickerLabel.textColor = [UIColor blackColor];
     SnickerLabel.textAlignment = UITextAlignmentCenter;
@@ -64,8 +64,8 @@
     [self.view addSubview:SnickerLabel];
     
     //Snickerdoodle Label Part two
-    SnickerLabelTwo =[[UILabel alloc] initWithFrame:CGRectMake(0, 377, 320, 70)];
-    SnickerLabelTwo.backgroundColor = [UIColor blueColor];
+    SnickerLabelTwo =[[UILabel alloc] initWithFrame:CGRectMake(0, 383, 320, 70)];
+    SnickerLabelTwo.backgroundColor = [UIColor magentaColor];
     SnickerLabelTwo.textColor = [UIColor whiteColor];
     SnickerLabelTwo.textAlignment = UITextAlignmentCenter;
     SnickerLabelTwo.numberOfLines = 3;
