@@ -18,11 +18,13 @@ typedef enum
 @interface BaseRecipe : NSObject
 {
     @protected
+    myCookie count;
     int cookieType;
     NSString *cookieName;
     float baseWeight;
     float chipWeight;
 }
+
 
 //-(void)setAttributes:(myCookie)type name:(NSString*)name isDelicious:(BOOL)isDelicious;
 -(id)initWithDetails:(int)type name:(NSString*)name;

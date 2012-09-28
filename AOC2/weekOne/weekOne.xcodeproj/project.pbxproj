@@ -18,6 +18,8 @@
 		84ADA7561613E204009200B8 /* BaseRecipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ADA7551613E204009200B8 /* BaseRecipe.m */; };
 		84ADA7591613E22C009200B8 /* CookieFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ADA7581613E22C009200B8 /* CookieFactory.m */; };
 		84ADA7701613E928009200B8 /* ChocolateChip.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ADA76F1613E928009200B8 /* ChocolateChip.m */; };
+		84ADA78416154DF1009200B8 /* Oatmeal.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ADA78316154DF1009200B8 /* Oatmeal.m */; };
+		84ADA78716154DFB009200B8 /* Snickerdoodle.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ADA78616154DFB009200B8 /* Snickerdoodle.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,10 @@
 		84ADA7581613E22C009200B8 /* CookieFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CookieFactory.m; sourceTree = "<group>"; };
 		84ADA76E1613E928009200B8 /* ChocolateChip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChocolateChip.h; sourceTree = "<group>"; };
 		84ADA76F1613E928009200B8 /* ChocolateChip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChocolateChip.m; sourceTree = "<group>"; };
+		84ADA78216154DF1009200B8 /* Oatmeal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Oatmeal.h; sourceTree = "<group>"; };
+		84ADA78316154DF1009200B8 /* Oatmeal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Oatmeal.m; sourceTree = "<group>"; };
+		84ADA78516154DFB009200B8 /* Snickerdoodle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Snickerdoodle.h; sourceTree = "<group>"; };
+		84ADA78616154DFB009200B8 /* Snickerdoodle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Snickerdoodle.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +104,10 @@
 				84ADA7581613E22C009200B8 /* CookieFactory.m */,
 				84ADA76E1613E928009200B8 /* ChocolateChip.h */,
 				84ADA76F1613E928009200B8 /* ChocolateChip.m */,
+				84ADA78216154DF1009200B8 /* Oatmeal.h */,
+				84ADA78316154DF1009200B8 /* Oatmeal.m */,
+				84ADA78516154DFB009200B8 /* Snickerdoodle.h */,
+				84ADA78616154DFB009200B8 /* Snickerdoodle.m */,
 			);
 			path = weekOne;
 			sourceTree = "<group>";
@@ -182,6 +192,8 @@
 				84ADA7561613E204009200B8 /* BaseRecipe.m in Sources */,
 				84ADA7591613E22C009200B8 /* CookieFactory.m in Sources */,
 				84ADA7701613E928009200B8 /* ChocolateChip.m in Sources */,
+				84ADA78416154DF1009200B8 /* Oatmeal.m in Sources */,
+				84ADA78716154DFB009200B8 /* Snickerdoodle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

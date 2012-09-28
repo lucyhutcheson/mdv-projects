@@ -9,7 +9,13 @@
 #import "BaseRecipe.h"
 
 @interface ChocolateChip : BaseRecipe
+{
+    @protected
+    float butter;
+}
 
--(void)printName;
+-(void)addButter:(float)newButter;
+-(float)getButter;
+-(float)calculateCookieWeight;
 
 @end

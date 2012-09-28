@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "BaseRecipe.h"
+#import "ChocolateChip.h"
+
 
 
 @interface CookieFactory : NSObject

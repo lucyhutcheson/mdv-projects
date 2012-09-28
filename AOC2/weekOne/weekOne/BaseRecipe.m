@@ -63,9 +63,9 @@
 // Calculation
 -(float)calculateCookieWeight
 {
-    NSLog(@"baseweight = %f", chipWeight);
-    return chipWeight;
-    //return (float)( baseWeight * (cookieType * chipWeight));
+    
+    NSLog(@"This cookie weighs %.2f oz.", ( baseWeight + ((float)cookieType * chipWeight)));
+    return ( baseWeight + ((float)cookieType * chipWeight));
 }
 
 

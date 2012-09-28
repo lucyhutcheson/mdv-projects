@@ -17,15 +17,32 @@
     {
         cookieName = @"Chocolate Chip";
         cookieType = CHOCOLATECHIP;
+        baseWeight = 0.5; // Used more butter than normal
+        butter = 0.2;
     }
     return self;
 }
 
--(void)printName
+
+// Override Calculation
+-(float)calculateCookieWeight
 {
-    [super printName];
-    NSLog(@"Ewwww! I am eating a %@ with a total of %d chocolate chips in it. ", cookieName, cookieType);
+    
+    NSLog(@"This cookie has more butter and now weighs %.2f oz.", ( baseWeight + ((float)cookieType * chipWeight)));
+    return (baseWeight + ((float)cookieType * chipWeight));
 }
+
+-(void)addButter:(float)newButter
+{
+    butter = newButter;
+}
+
+-(float)getButter
+{
+    NSLog(@"Weight of additional butter is %.2f oz.", butter);
+    return butter;
+}
+
 
 
 @end

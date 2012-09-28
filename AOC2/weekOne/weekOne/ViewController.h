@@ -10,4 +10,13 @@
 
 @interface ViewController : UIViewController
 
+{
+    UILabel *ChocoLabel;
+    UILabel *OatmealLabel;
+    UILabel *SnickerLabel;
+    UILabel *ChocoLabelTwo;
+    UILabel *OatmealLabelTwo;
+    UILabel *SnickerLabelTwo;
+}
+
 @end
