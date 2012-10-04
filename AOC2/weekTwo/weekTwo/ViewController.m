@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "SecondViewController.h"
+
 
 @interface ViewController ()
 
@@ -20,6 +22,11 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
+-(IBAction)onClick:(id)sender
+{
+    
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
