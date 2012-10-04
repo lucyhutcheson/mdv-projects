@@ -18,10 +18,51 @@
 
 - (void)viewDidLoad
 {
+    displayField.text = @"0";
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
+
+
+-(IBAction)onSwitched:(id)sender
+{
+    
+    UISwitch *onSwitch = (UISwitch*)sender;
+    
+    if (onSwitch != nil)
+    {
+        if (onSwitch.on)
+        {
+            displayField.text = @"0";
+            NSLog(@"It is on");
+        }
+        else
+        {
+            displayField.text = @"";
+            NSLog(@"It is off");
+        }
+    }
+}
+
+
+-(IBAction)numPressed:(id)sender
+{
+    if (onSwitch.on != false)
+    {
+        UIButton *number = (UIButton*)sender;
+        if (number != nil)
+        {
+            int myNumber = number.tag;
+            displayField.text = [NSString stringWithFormat:@"%d", myNumber];
+        }
+    }
+}
+
+
+
+
+
 
 -(IBAction)onClick:(id)sender
 {
@@ -45,11 +86,11 @@
         }
         else if (selectedIndex == 1)
         {
-            self.view.backgroundColor = [UIColor blueColor];
+            self.view.backgroundColor = [UIColor colorWithRed:0.714 green:0.812 blue:0.827 alpha:1] /*#b6cfd3*/;
         }
         else if (selectedIndex == 2)
         {
-            self.view.backgroundColor = [UIColor greenColor];
+            self.view.backgroundColor = [UIColor colorWithRed:198.0f/255.0f green:218.0f/255.0f blue:174.0f/255.0f alpha:1.0f];
         }
         else
         {

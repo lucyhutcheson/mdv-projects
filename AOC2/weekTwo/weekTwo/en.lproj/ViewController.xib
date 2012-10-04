@@ -57,10 +57,11 @@
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MAA</bytes>
-							<object class="NSColorSpace" key="NSCustomColorSpace" id="868912622">
+							<object class="NSColorSpace" key="NSCustomColorSpace">
 								<int key="NSID">2</int>
 							</object>
 						</object>
+						<int key="IBUITextAlignment">2</int>
 						<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
 						<float key="IBUIMinimumFontSize">17</float>
 						<object class="IBUITextInputTraits" key="IBUITextInputTraits">
@@ -507,9 +508,8 @@
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="602100076"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
-					<int key="NSColorSpace">3</int>
-					<bytes key="NSWhite">MC43NQA</bytes>
-					<reference key="NSCustomColorSpace" ref="868912622"/>
+					<int key="NSColorSpace">1</int>
+					<bytes key="NSRGB">MSAxIDEAA</bytes>
 				</object>
 				<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
@@ -542,6 +542,113 @@
 						<reference key="destination" ref="774585933"/>
 					</object>
 					<int key="connectionID">7</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">displayField</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="602100076"/>
+					</object>
+					<int key="connectionID">510</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">onSwitched:</string>
+						<reference key="source" ref="396013329"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">13</int>
+					</object>
+					<int key="connectionID">499</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">numPressed:</string>
+						<reference key="source" ref="630852963"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">500</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">numPressed:</string>
+						<reference key="source" ref="962100238"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">501</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">numPressed:</string>
+						<reference key="source" ref="763852857"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">502</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">numPressed:</string>
+						<reference key="source" ref="276097475"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">505</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">numPressed:</string>
+						<reference key="source" ref="1033395892"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">503</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">numPressed:</string>
+						<reference key="source" ref="61314038"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">504</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">numPressed:</string>
+						<reference key="source" ref="651132424"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">508</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">numPressed:</string>
+						<reference key="source" ref="839678019"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">507</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">numPressed:</string>
+						<reference key="source" ref="334899998"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">506</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">numPressed:</string>
+						<reference key="source" ref="403316713"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">509</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -1452,8 +1559,6 @@
 							<reference ref="602100076"/>
 							<reference ref="396013329"/>
 							<reference ref="630852963"/>
-							<reference ref="763852857"/>
-							<reference ref="276097475"/>
 							<reference ref="651132424"/>
 							<reference ref="334899998"/>
 							<reference ref="356109443"/>
@@ -1463,10 +1568,12 @@
 							<reference ref="677551007"/>
 							<reference ref="962100238"/>
 							<reference ref="438205951"/>
-							<reference ref="61314038"/>
-							<reference ref="1033395892"/>
 							<reference ref="839678019"/>
 							<reference ref="722699933"/>
+							<reference ref="763852857"/>
+							<reference ref="276097475"/>
+							<reference ref="1033395892"/>
+							<reference ref="61314038"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -2308,7 +2415,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">498</int>
+			<int key="maxID">510</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -2324,10 +2431,16 @@
 					<string key="className">ViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="numPressed:">id</string>
 						<string key="onChange:">id</string>
 						<string key="onClick:">id</string>
+						<string key="onSwitched:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="numPressed:">
+							<string key="name">numPressed:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 						<object class="IBActionInfo" key="onChange:">
 							<string key="name">onChange:</string>
 							<string key="candidateClassName">id</string>
@@ -2336,16 +2449,20 @@
 							<string key="name">onClick:</string>
 							<string key="candidateClassName">id</string>
 						</object>
+						<object class="IBActionInfo" key="onSwitched:">
+							<string key="name">onSwitched:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 					</dictionary>
 					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">segmentControl</string>
-						<string key="NS.object.0">UISegmentedControl</string>
+						<string key="NS.key.0">displayField</string>
+						<string key="NS.object.0">UITextField</string>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">segmentControl</string>
+						<string key="NS.key.0">displayField</string>
 						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">segmentControl</string>
-							<string key="candidateClassName">UISegmentedControl</string>
+							<string key="name">displayField</string>
+							<string key="candidateClassName">UITextField</string>
 						</object>
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">

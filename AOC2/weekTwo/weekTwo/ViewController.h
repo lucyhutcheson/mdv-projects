@@ -10,10 +10,12 @@
 
 @interface ViewController : UIViewController
 {
-    IBOutlet UISegmentedControl *segmentControl;
+    IBOutlet UITextField *displayField;
 }
 
+-(IBAction)onSwitched:(id)sender;
 -(IBAction)onClick:(id)sender;
 -(IBAction)onChange:(id)sender;
+-(IBAction)numPressed:(id)sender;
 
 @end
