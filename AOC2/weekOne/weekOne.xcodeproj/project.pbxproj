@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8457DA8A161A5B7600252566 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8457DA89161A5B7600252566 /* Default-568h@2x.png */; };
 		84ADA7341613E19C009200B8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84ADA7331613E19C009200B8 /* UIKit.framework */; };
 		84ADA7361613E19C009200B8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84ADA7351613E19C009200B8 /* Foundation.framework */; };
 		84ADA7381613E19C009200B8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84ADA7371613E19C009200B8 /* CoreGraphics.framework */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8457DA89161A5B7600252566 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		84ADA72F1613E19C009200B8 /* weekOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weekOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84ADA7331613E19C009200B8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84ADA7351613E19C009200B8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -65,6 +67,7 @@
 		84ADA7241613E19C009200B8 = {
 			isa = PBXGroup;
 			children = (
+				8457DA89161A5B7600252566 /* Default-568h@2x.png */,
 				84ADA7391613E19C009200B8 /* weekOne */,
 				84ADA7321613E19C009200B8 /* Frameworks */,
 				84ADA7301613E19C009200B8 /* Products */,
@@ -176,6 +179,7 @@
 			files = (
 				84ADA73E1613E19C009200B8 /* InfoPlist.strings in Resources */,
 				84ADA74A1613E19D009200B8 /* ViewController.xib in Resources */,
+				8457DA8A161A5B7600252566 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

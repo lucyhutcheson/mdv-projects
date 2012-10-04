@@ -77,13 +77,13 @@
     if (chocolatechip != nil)
     {
         [chocolatechip setChipNumber:20];
-        ChocoLabel.text = [NSString stringWithFormat:@"This is my %@ cookie with a total of %d chocolate chips and it weighs %.2f oz.", [chocolatechip getCookieName], [chocolatechip getChipNumber], [chocolatechip getbaseWeight]];
+        ChocoLabel.text = [NSString stringWithFormat:@"This is my %@ cookie with a total of %d chocolate chips and it weighs %.2f oz.", [chocolatechip getCookieName], [chocolatechip getChipNumber], [chocolatechip calculateCookieWeight]];
     }
     
     BaseRecipe *chocolatechipoatmeal = [CookieFactory GetCookie:CHOCOLATECHIPOATMEAL];
     if (chocolatechipoatmeal != nil)
     {
-        OatmealLabel.text = [NSString stringWithFormat:@"This is my %@ cookie with a total of %d chocolate chips and it weighs %.2f oz.", [chocolatechipoatmeal getCookieName], [chocolatechipoatmeal getChipNumber], [chocolatechipoatmeal getbaseWeight]];
+        OatmealLabel.text = [NSString stringWithFormat:@"This is my %@ cookie with a total of %d chocolate chips and it weighs %.2f oz.", [chocolatechipoatmeal getCookieName], [chocolatechipoatmeal getChipNumber], [chocolatechipoatmeal calculateCookieWeight]];
     }
     
     BaseRecipe *snickerdoodle = [CookieFactory GetCookie:SNICKERDOODLE];
