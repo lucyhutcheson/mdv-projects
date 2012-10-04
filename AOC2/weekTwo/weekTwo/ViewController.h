@@ -10,8 +10,10 @@
 
 @interface ViewController : UIViewController
 {
-    
+    IBOutlet UISegmentedControl *segmentControl;
 }
 
 -(IBAction)onClick:(id)sender;
+-(IBAction)onChange:(id)sender;
+
 @end

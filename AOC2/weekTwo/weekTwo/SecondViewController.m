@@ -29,11 +29,10 @@
 	// Do any additional setup after loading the view.
 }
 
--(IBAction)onClick:(id)sender
+-(IBAction)onClose:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
 
 - (void)didReceiveMemoryWarning
 {

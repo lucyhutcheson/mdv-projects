@@ -13,6 +13,6 @@
     
 }
 
--(IBAction)onClick:(id)sender;
+-(IBAction)onClose:(id)sender;
 
 @end
