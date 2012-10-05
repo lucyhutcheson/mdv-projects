@@ -10,6 +10,7 @@
 
 @interface ViewController : UIViewController
 {
+    IBOutlet UISwitch *onSwitch;
     IBOutlet UITextField *displayField;
 }
 

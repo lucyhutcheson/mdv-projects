@@ -28,11 +28,11 @@
 -(IBAction)onSwitched:(id)sender
 {
     
-    UISwitch *onSwitch = (UISwitch*)sender;
+    UISwitch *onOffSwitch = (UISwitch*)sender;
     
-    if (onSwitch != nil)
+    if (onOffSwitch != nil)
     {
-        if (onSwitch.on)
+        if (onOffSwitch.on)
         {
             displayField.text = @"0";
             NSLog(@"It is on");
@@ -86,11 +86,11 @@
         }
         else if (selectedIndex == 1)
         {
-            self.view.backgroundColor = [UIColor colorWithRed:0.714 green:0.812 blue:0.827 alpha:1] /*#b6cfd3*/;
+            self.view.backgroundColor = [UIColor colorWithRed:0.714 green:0.812 blue:0.827 alpha:1] /* #b6cfd3 */;
         }
         else if (selectedIndex == 2)
         {
-            self.view.backgroundColor = [UIColor colorWithRed:198.0f/255.0f green:218.0f/255.0f blue:174.0f/255.0f alpha:1.0f];
+            self.view.backgroundColor = [UIColor colorWithRed:182.0f/255.0f green:202.0f/255.0f blue:166.0f/255.0f alpha:1.0f] /* #bacaa6 */;
         }
         else
         {
