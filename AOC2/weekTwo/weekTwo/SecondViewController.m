@@ -29,6 +29,11 @@
 	// Do any additional setup after loading the view.
 }
 
+
+/*------------------------------------------------------------------------------------------ *
+    A button on the second view will need to be added to allow the second view to close.
+ *------------------------------------------------------------------------------------------ */
+
 -(IBAction)onClose:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];

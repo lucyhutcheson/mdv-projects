@@ -9,10 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface SecondViewController : UIViewController
-{
-    
-}
 
+
+// Set up my IBAction to close the second view
 -(IBAction)onClose:(id)sender;
 
 @end
