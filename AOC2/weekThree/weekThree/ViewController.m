@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "AddViewController.h"
 
 @interface ViewController ()
 
@@ -18,6 +19,16 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+-(IBAction)onClick:(id)sender
+{
+    AddViewController *viewController = [[AddViewController alloc] initWithNibName:@"AddView" bundle:nil];
+    
+    if (viewController != nil)
+    {
+        [self presentViewController:viewController animated:YES completion:nil];
+    }
 }
 
 - (void)didReceiveMemoryWarning

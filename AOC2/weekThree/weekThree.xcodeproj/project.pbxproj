@@ -18,6 +18,8 @@
 		842EA3C01623B06E00BB3445 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 842EA3BF1623B06E00BB3445 /* Default-568h@2x.png */; };
 		842EA3C31623B06E00BB3445 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842EA3C21623B06E00BB3445 /* ViewController.m */; };
 		842EA3C61623B06E00BB3445 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842EA3C41623B06E00BB3445 /* ViewController.xib */; };
+		842EA3D21623B21900BB3445 /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842EA3D11623B21900BB3445 /* AddViewController.m */; };
+		842EA3D41623B22D00BB3445 /* AddView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842EA3D31623B22D00BB3445 /* AddView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,9 @@
 		842EA3C11623B06E00BB3445 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		842EA3C21623B06E00BB3445 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		842EA3C51623B06E00BB3445 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		842EA3D01623B21900BB3445 /* AddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
+		842EA3D11623B21900BB3445 /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
+		842EA3D31623B22D00BB3445 /* AddView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +94,9 @@
 				842EA3C21623B06E00BB3445 /* ViewController.m */,
 				842EA3C41623B06E00BB3445 /* ViewController.xib */,
 				842EA3B01623B06E00BB3445 /* Supporting Files */,
+				842EA3D01623B21900BB3445 /* AddViewController.h */,
+				842EA3D11623B21900BB3445 /* AddViewController.m */,
+				842EA3D31623B22D00BB3445 /* AddView.xib */,
 			);
 			path = weekThree;
 			sourceTree = "<group>";
@@ -163,6 +171,7 @@
 				842EA3BE1623B06E00BB3445 /* Default@2x.png in Resources */,
 				842EA3C01623B06E00BB3445 /* Default-568h@2x.png in Resources */,
 				842EA3C61623B06E00BB3445 /* ViewController.xib in Resources */,
+				842EA3D41623B22D00BB3445 /* AddView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +185,7 @@
 				842EA3B61623B06E00BB3445 /* main.m in Sources */,
 				842EA3BA1623B06E00BB3445 /* AppDelegate.m in Sources */,
 				842EA3C31623B06E00BB3445 /* ViewController.m in Sources */,
+				842EA3D21623B21900BB3445 /* AddViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

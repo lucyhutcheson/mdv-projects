@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  AddViewController.h
 //  weekThree
 //
 //  Created by Lucy Hutcheson on 10/8/12.
@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface AddViewController : UIViewController
 
-
--(IBAction)onClick:(id)sender;
+-(IBAction)onClose:(id)sender;
 
 @end
