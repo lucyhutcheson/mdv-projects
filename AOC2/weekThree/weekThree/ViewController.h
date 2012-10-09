@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AddViewController.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <AddViewDelegate>
+{
+    IBOutlet UITextView *eventDisplay;
+}
 
 
 -(IBAction)onClick:(id)sender;

@@ -14,14 +14,25 @@
 
 @implementation AddViewController
 
+@synthesize delegate;
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        delegate = nil;
         // Custom initialization
     }
     return self;
 }
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    textField.text = @"";
+    return true;
+}
+
 
 - (void)viewDidLoad
 {
@@ -29,11 +40,17 @@
 	// Do any additional setup after loading the view.
 }
 
--(IBAction)onClose:(id)sender
+-(IBAction)saveEvent:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+-(IBAction)closeKeyboard:(id)sender
+{
+    UIButton *closeButton = (UIButton*)sender;
+
+    [closeButton resignFirstResponder];
+}
 
 - (void)didReceiveMemoryWarning
 {

@@ -30,6 +30,10 @@
         [self presentViewController:viewController animated:YES completion:nil];
     }
 }
+-(void)onSave:(NSString*)eventInfo
+{
+    
+}
 
 - (void)didReceiveMemoryWarning
 {
