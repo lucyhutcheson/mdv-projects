@@ -12,8 +12,8 @@
 @interface ViewController : UIViewController <AddViewDelegate>
 {
     IBOutlet UITextView *eventDisplay;
+    int counter;
 }
-
 
 -(IBAction)onClick:(id)sender;
 
