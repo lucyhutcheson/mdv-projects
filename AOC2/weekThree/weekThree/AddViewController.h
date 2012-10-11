@@ -21,6 +21,7 @@
     IBOutlet UITextField *eventName;
     IBOutlet UIDatePicker *eventDate;
     NSString *myEvent;
+    NSString *eventDateFormatted;
 }
 
 @property (strong) id<AddViewDelegate> delegate;

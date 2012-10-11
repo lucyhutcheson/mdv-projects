@@ -27,12 +27,6 @@
     return self;
 }
 
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
-{
-    textField.text = @"";
-    return true;
-}
-
 
 - (void)viewDidLoad
 {
@@ -42,15 +36,41 @@
 
 -(IBAction)saveEvent:(id)sender
 {
+    
+    
+    NSDate *date = eventDate.date;
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    if (dateFormatter != nil)
+    {
+        [dateFormatter setDateFormat:@"MMM dd, h:mm a"];
+    }
+    
+    eventDateFormatted = [dateFormatter stringFromDate:date];
+    
+    //NSLog(@"%@", eventDateFormatted);
+    
+
+    myEvent = [NSString stringWithFormat:@"%@ Date: %@", eventName.text, eventDateFormatted];
+        [delegate onSave:myEvent];
+
+    //NSLog(@"%@", myEvent);
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(IBAction)closeKeyboard:(id)sender
 {
-    UIButton *closeButton = (UIButton*)sender;
 
-    [closeButton resignFirstResponder];
+    [eventName resignFirstResponder];
 }
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [eventName resignFirstResponder];
+    return true;
+}
+
 
 - (void)didReceiveMemoryWarning
 {

@@ -30,9 +30,9 @@
         [self presentViewController:viewController animated:YES completion:nil];
     }
 }
--(void)onSave:(NSString*)eventInfo
+-(void)onSave:(NSString*)myEvent
 {
-    
+    eventDisplay.text = myEvent;
 }
 
 - (void)didReceiveMemoryWarning
